@@ -12,13 +12,14 @@
   ];
 
   home.sessionVariables = {
-    XCURSOR_THEME = "bibata-cursors";
+    XCURSOR_THEME = "Bibata-Modern-Ice";
     XCURSOR_SIZE = 22;
+    GTK_THEME = "Catppuccin-Mocha-Compact-Lavender-Dark";
   };
 
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
-    name = "bibata-cursors";
+    name = "Bibata-Modern-Ice";
     size = 22;
     gtk.enable = true;
     };
@@ -32,7 +33,7 @@
 
     cursorTheme = {
       package = pkgs.bibata-cursors;
-      name = "bibata-cursors";
+      name = "Bibata-Modern-Ice";
       size = 22;
     };
 
@@ -55,7 +56,7 @@
 
   qt = {
     enable = true;
-    platformTheme = "gtk";
+    # platformTheme = "gtk";
     style.package = pkgs.catppuccin-qt5ct;
   };
 

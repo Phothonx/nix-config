@@ -29,7 +29,7 @@
     username = "nico";
   in 
   {
-    nixosConfigurations = import ./nixos { inherit self nixpkgs username inputs; };
+    nixosConfigurations = import ./nixos { inherit self nixpkgs inputs username; };
   };
 
 }

@@ -1,4 +1,4 @@
-{ pkgs, username, inputs, ... }:
+{ self, config, pkgs, inputs, username, ... }:
 {
   imports = [
     ./hyprland
@@ -7,6 +7,7 @@
     ./ide
     ./terminal
     ./discord
-    ./sway #utils
+    ./sway
+    ./git
   ];
 }
