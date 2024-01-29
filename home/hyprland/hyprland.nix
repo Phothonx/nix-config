@@ -1,5 +1,7 @@
 { config, pkgs, inputs, ... }:
 let
+  bindings = import ./binds.nix;
+  rules = import ./rules.nix;
   colors = config.colorScheme.colors;
 in
 {
@@ -11,7 +13,6 @@ in
 
     settings = {
         "$MOD" = "SUPER";
-
         monitor = [
           "eDP-1, 1920x1200@60, 0x0, 1"
         ];
@@ -29,8 +30,10 @@ in
           gaps_out = 15;
           border_size = 2;
           # gaps_workspaces = 0;
-          # col.inactive_border = "${colors.base02}";
-          # col.active_border = "${colors.base06}";
+
+          # string to set attribute "col.inactive_border" and not .inactive_border from subset col
+          "col.inactive_border" = "0xf${colors.base04}";
+          "col.active_border" = "0xf${colors.base0D}";
       
           cursor_inactive_timeout = 10;
           layout = "dwindle";
@@ -40,18 +43,18 @@ in
       };
       
       decoration = {
-          rounding = 6;
+          rounding = 15;
           
           # active_opacity = 1.0
           # inactive_opacity = 1.0
           # fullscreen_opacity = 1.0
       
           drop_shadow = true;
-          shadow_range = 11;
-          shadow_render_power = 3;
-          # shadow_ignore_window = true
-          # col.shadow = "0xee11111B";
-          shadow_offset = "2 2";
+          shadow_range = 15;
+          # shadow_render_power = 3;
+          "col.shadow" = "0xffa7caff";
+          "col.shadow_inactive" = "0x50000000";
+          # shadow_offset = "2 2";
           # shadow_scale = 1
           
           # screen_shader = 
@@ -60,10 +63,10 @@ in
               enabled = true;
               size = 6.8;
               passes = 2;
-              xray = true;
-              noise = 0.015;
-              contrast = 0.9;
-              brightness = 0.83;
+            #  xray = true;
+            #  noise = 0.015;
+            #  contrast = 0.9;
+            #  brightness = 0.83;
           };
       };
 
@@ -125,63 +128,7 @@ in
           force_zero_scaling = true;
       };
       
-      bind = [
-        "SUPER, Q, exec, kitty"
-        "SUPER, H, exec, firefox"
-        "CTRL ALT, L, exec, swaylock --daemonize --screenshots --effect-blur=8x7"
-
-        "SUPER, P, pseudo,"
-        "SUPER SHIFT, P, workspaceopt, allpseudo"
-        "SUPER SHIFT, P, exec, notify-send 'Toggled All Pseudo Mode'"
-        "SUPER, Space, togglefloating,"
-        "SUPER SHIFT, Space, workspaceopt, allfloat"
-        "SUPER SHIFT, Space, exec, notify-send 'Toggled All Float Mode'"
-        "SUPER, J, togglesplit,"
-        "SUPER, F, fullscreen,"
-
-        "SUPER, C, killactive," 
-        "SUPER_SHIFT, M, exit,"
-        "SUPER, M, exec, hyprctl reload"
-
-        "SUPER, left, movefocus, l"
-        "SUPER, right, movefocus, r"
-        "SUPER, up, movefocus, u"
-        "SUPER, down, movefocus, d"
-        "SUPER, Tab, cyclenext,"
-        "SUPER, Tab, bringactivetotop,"
-
-        "SUPER, code:10, workspace, 1"
-        "SUPER, code:11, workspace, 2"
-        "SUPER, code:12, workspace, 3"
-        "SUPER, code:13, workspace, 4"
-        "SUPER, code:14, workspace, 5"
-        "SUPER, code:15, workspace, 6"
-        "SUPER, code:16, workspace, 7"
-        "SUPER, code:17, workspace, 8"
-        "SUPER, code:18, workspace, 9"
-        "SUPER, code:19, workspace, 10"
-
-        "SUPER SHIFT, code:10, movetoworkspacesilent, 1"
-        "SUPER SHIFT, code:11, movetoworkspacesilent, 2"
-        "SUPER SHIFT, code:12, movetoworkspacesilent, 3"
-        "SUPER SHIFT, code:13, movetoworkspacesilent, 4"
-        "SUPER SHIFT, code:14, movetoworkspacesilent, 5"
-        "SUPER SHIFT, code:15, movetoworkspacesilent, 6"
-        "SUPER SHIFT, code:16, movetoworkspacesilent, 7"
-        "SUPER SHIFT, code:17, movetoworkspacesilent, 8"
-        "SUPER SHIFT, code:18, movetoworkspacesilent, 9"
-        "SUPER SHIFT, code:19, movetoworkspacesilent, 10"
-
-        "SUPER CTRL, right, workspace, r+1"
-        "SUPER CTRL, left, workspace, r-1"
-        "SUPER, mouse_down, workspace, e+1"
-        "SUPER, mouse_up, workspace, e-1"
-
-        "SUPER, mouse:272, movewindow"
-
-        "SUPER, A, togglespecialworkspace"
-        "SUPER SHIFT, A, movetoworkspace, special"
-      ];
+      inherit bindings rules;
     };
  };
 

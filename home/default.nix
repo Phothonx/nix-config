@@ -9,5 +9,6 @@
     ./discord
     ./sway
     ./git
+    #./wofi
   ];
 }
