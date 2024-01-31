@@ -1,6 +1,9 @@
 {
 
-  description = "My first Flake <3";
+  description = ''
+  █▀█ █░█ █▀█ ▀█▀ █░█ █▀█ █▄░█ ▀▄▀   ▄▄   █▄░█ █ ▀▄▀ █▀█ █▀   █▀▀ █░░ ▄▀█ █▄▀ █▀▀   █▀▀ █▀█ █▄░█ █▀▀ █ █▀▀
+  █▀▀ █▀█ █▄█ ░█░ █▀█ █▄█ █░▀█ █░█   ░░   █░▀█ █ █░█ █▄█ ▄█   █▀░ █▄▄ █▀█ █░█ ██▄   █▄▄ █▄█ █░▀█ █▀░ █ █▄█
+  '';
 
   inputs = {
 
@@ -26,10 +29,24 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
   let
-    username = "nico";
+
+    systemConfig = {
+      system = "x86_64-linux";
+      hostName = "avalon";
+      timeZone = "Europe/Paris";
+      locale = "en_US.UTF-8";
+      layout = "fr";
+    };
+
+    userConfig = {
+        userName = "nico";
+        name = "Nicolas";
+        email = "";
+    };
+
   in 
   {
-    nixosConfigurations = import ./nixos { inherit self nixpkgs inputs username; };
+    nixosConfigurations = import ./nixos { inherit self nixpkgs inputs systemConfig userConfig; };
   };
 
 }

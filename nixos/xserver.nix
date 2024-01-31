@@ -1,8 +1,8 @@
-{ pkgs, ... }: 
+{ systemConfig, ... }: 
 {
   services.xserver = {
     enable = true;
-    layout = "fr";
+    layout = systemConfig.layout;
   };
   systemd.extraConfig = "DefaultTimeoutStopSec=10s";
 }

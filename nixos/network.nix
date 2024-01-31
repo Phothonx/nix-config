@@ -1,7 +1,7 @@
-{ pkgs, ... }: 
+{ systemConfig, ... }: 
 {
   networking = {
-    hostName = "avalon";
+    hostName = systemConfig.hostName;
     networkmanager.enable = true;
   };
 }

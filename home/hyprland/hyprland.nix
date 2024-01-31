@@ -1,8 +1,7 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, colors, ... }:
 let
   bindings = import ./binds.nix;
   rules = import ./rules.nix;
-  colors = config.colorScheme.colors;
 in
 {
   wayland.windowManager.hyprland = {
@@ -13,32 +12,35 @@ in
 
     settings = {
         "$MOD" = "SUPER";
+
         monitor = [
-          "eDP-1, 1920x1200@60, 0x0, 1"
+          "eDP-1, 1920x1200@60, 0x0, 1" # personal monitor
         ];
 
         exec-once = [
+          "waybar"
           "hyprctl setcursor Bibata-Modern-Ice 22"
-            "swayosd-server"
-            "swaync"
-            "swww init && swww img ./../../wallpapers/cat_leaves.png"
+          "swayosd-server"
+          "swaync"
+          "swww init && swww img ./../../wallpapers/cat_leaves.png" # wallpaper setup
         ]; #  "swaylock -i ./../../wallpapers/cat_leaves.png"
 
       general = {
           # no_border_on_floating = false
           gaps_in = 5;
-          gaps_out = 15;
+          gaps_out = 20;
           border_size = 2;
-          # gaps_workspaces = 0;
+
+          gaps_workspaces = 5;
 
           # string to set attribute "col.inactive_border" and not .inactive_border from subset col
-          "col.inactive_border" = "0xf${colors.base04}";
-          "col.active_border" = "0xf${colors.base0D}";
+          "col.inactive_border" = "rgb(${colors.base02})";
+          "col.active_border" = "rgb(${colors.base0E})";
       
-          cursor_inactive_timeout = 10;
+          cursor_inactive_timeout = 20;
           layout = "dwindle";
       
-          resize_on_border = true;
+          resize_on_border = true; # resize windows
           hover_icon_on_border = false;
       };
       
@@ -49,32 +51,30 @@ in
           # inactive_opacity = 1.0
           # fullscreen_opacity = 1.0
       
-          drop_shadow = true;
-          shadow_range = 15;
-          # shadow_render_power = 3;
-          "col.shadow" = "0xffa7caff";
-          "col.shadow_inactive" = "0x50000000";
-          # shadow_offset = "2 2";
-          # shadow_scale = 1
-          
-          # screen_shader = 
+          drop_shadow = true; # lil shadow <3
+          shadow_range = 12;
+          shadow_render_power = 3;
+          "col.shadow" = "0xee11111B";
+          shadow_offset = "2 2";
 
-          blur = {
+          blur = { # this blurr <3
               enabled = true;
-              size = 6.8;
-              passes = 2;
-            #  xray = true;
-            #  noise = 0.015;
-            #  contrast = 0.9;
-            #  brightness = 0.83;
+              size = 1;
+              passes = 3;
+              # xray = true;
+              noise = 0.020;
+              contrast = 0.9;
+              brightness = 0.83;
+              # special = true; # nice but less smooth
+              popups = true;
           };
       };
 
       dwindle = {
           pseudotile = true;
           preserve_split = true;
-          smart_split = true;
-          special_scale_factor = 0.9;
+          smart_split = true; # choose split direction with cursor position on window
+          special_scale_factor = 0.9; # forgot whit it is lol
       };
 
       animations = {
@@ -95,22 +95,22 @@ in
 
       input  = {
         kb_layout = "fr";
-        kb_options = "ctrl:nocaps";
-        repeat_rate = 35;
+        kb_options = "ctrl:nocaps"; # disable capslock
+        repeat_rate = 35; # on long press
         sensitivity = 0.2;
-        accel_profile = "flat";
-        scroll_method = "2fg";
+        accel_profile = "flat"; # no mouse acceleration
+        scroll_method = "2fg"; # 2 finger scroll
         follow_mouse = 1;
         float_switch_override_focus = 2;
         touchpad = {
             disable_while_typing = false;
-            natural_scroll = true;
+            natural_scroll = true; # invert
             scroll_factor = 0.8;
         };
       };
 
       gestures = {
-          workspace_swipe = true;
+          workspace_swipe = true; # 3 fingers
           workspace_swipe_distance = 250;
           workspace_swipe_cancel_ratio = 0.7;
       };
@@ -125,7 +125,7 @@ in
       binds = {};
       
       XWayland = {
-          force_zero_scaling = true;
+          force_zero_scaling = true; # solve piexlated windows
       };
       
       inherit bindings rules;

@@ -1,14 +1,13 @@
-{ self, nixpkgs, username, inputs, ... }:
+{ self, nixpkgs, inputs, systemConfig, userConfig, ... }:
 let
-  system = "x86_64-linux";
   pkgs = import nixpkgs { 
-    inherit system; 
+    inherit (systemConfig) system ; 
   };
   lib = nixpkgs.lib;
 in
 {
-  avalon = nixpkgs.lib.nixosSystem {
-    specialArgs = { inherit self username inputs; };
+  "avalon" = nixpkgs.lib.nixosSystem {
+    specialArgs = { inherit self inputs systemConfig userConfig; };
     modules = [
       ../hosts/avalon/hardware-configuration.nix
       ./audio.nix

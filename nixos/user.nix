@@ -1,8 +1,8 @@
-{ pkgs, username,  inputs, ... }:
+{ pkgs, inputs, systemConfig, userConfig, ... }:
 {
-    users.users.${username} = {
+    users.users.${userConfig.userName} = {
     isNormalUser = true;
-    description = "${username}";
+    description = userConfig.name;
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
@@ -12,11 +12,11 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "old";
-    extraSpecialArgs = { inherit username inputs; };
-    users.${username} = {
+    extraSpecialArgs = { inherit inputs systemConfig userConfig; };
+    users.${userConfig.userName} = {
       imports = [ ./../home ];
-      home.username = "${username}";
-      home.homeDirectory = "/home/${username}";
+      home.username = userConfig.userName;
+      home.homeDirectory = "/home/${userConfig.userName}";
       home.stateVersion = "23.11";
       programs.home-manager.enable = true;
     };

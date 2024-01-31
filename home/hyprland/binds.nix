@@ -8,6 +8,8 @@
     bind = [
         "SUPER, Q, exec, kitty"
         "SUPER, H, exec, firefox"
+        "SUPER, R, exec, wofi --show drun"
+        "SUPER, N, exec, swaync -t --hide-latest"
         "CTRL ALT, L, exec, swaylock --daemonize --screenshots --effect-blur=8x7"
 
         "SUPER, C, killactive," 
