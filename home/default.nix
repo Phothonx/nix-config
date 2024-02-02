@@ -14,8 +14,9 @@ in
     ./discord
     ./sway
     ./git
-    ./wofi
+    ./rofi
     ./waybar
     ./shell
+    ./ags
   ];
 }

@@ -5,12 +5,21 @@
         "SUPER ALT, mouse:272, resizewindow"
     ];
 
+    bindle = [
+        " , code:68, exec, wpctl set-volume --limit 1.2 @DEFAULT_AUDIO_SINK@ 2%-"
+        " , code:69, exec, wpctl set-volume --limit 1.2 @DEFAULT_AUDIO_SINK@ 2%+"
+        " , code:71, exec, brightnessctl set --min-value=4800 5%-"
+        " , code:72, exec, brightnessctl set --min-value=4800 +5%"
+    ];
+
     bind = [
         "SUPER, Q, exec, kitty"
         "SUPER, H, exec, firefox"
         "SUPER, R, exec, wofi --show drun"
-        "SUPER, N, exec, swaync -t --hide-latest"
+        "SUPER, N, exec, swaync-client -t --hide-latest"
         "CTRL ALT, L, exec, swaylock --daemonize --screenshots --effect-blur=8x7"
+
+        " , code:67, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
         "SUPER, C, killactive," 
         "SUPER_SHIFT, M, exit,"

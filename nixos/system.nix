@@ -12,9 +12,14 @@
     };
   };
 
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = {}; # Make swaylock work
   services.gvfs.enable = true; # changer
-  programs.dconf.enable = true;
+  programs.dconf.enable = true; # gnome
+
+   services.logind.extraConfig = ''
+    HandlePowerKey=suspend
+    HandlePowerKeyLongPress=hibernate
+  '';
 
   nixpkgs = {
     config.allowUnfree = true;

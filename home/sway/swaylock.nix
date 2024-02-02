@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, colors, ... }: 
 {
   programs.swaylock = {
     enable = true;
@@ -13,35 +13,35 @@
       timestr = "%H:%M:%S";
       datestr = "%a %d %b";
       
-      bs-hl-color = "CBA6F7";
-      caps-lock-bs-hl-color = "CBA6F7";
-      caps-lock-key-hl-color = "CBA6F7";
-      key-hl-color = "CBA6F7";
+      bs-hl-color = colors.base0E;
+      caps-lock-bs-hl-color = colors.base0E;
+      caps-lock-key-hl-color = colors.base0E;
+      key-hl-color = colors.base0E;
       
       font = "JetBrainsMono Nerd Font";
-      font-size = 125;
-      text-color = "CDD6F4";
-      text-clear-color = "CDD6F4";
-      text-caps-lock-color = "CDD6F4";
-      text-ver-color = "CDD6F4";
-      text-wrong-color = "CDD6F4";
+      font-size = 85;
+      text-color = colors.base05;
+      text-clear-color = colors.base05;
+      text-caps-lock-color = colors.base05;
+      text-ver-color = colors.base05;
+      text-wrong-color = colors.base05;
       
-      indicator-radius = 200;
-      indicator-thickness = 22;
+      indicator-radius = 250;
+      indicator-thickness = 25;
       
-      inside-color = "1E1E2E";
-      inside-clear-color = "1E1E2E";
-      inside-caps-lock-color = "1E1E2E";
-      inside-ver-color = "1E1E2E";
-      inside-wrong-color = "1E1E2E";
+      inside-color = colors.base00;
+      inside-clear-color = colors.base00;
+      inside-caps-lock-color = colors.base00;
+      inside-ver-color = colors.base00;
+      inside-wrong-color = colors.base00;
       
-      ring-color = "313244";
-      ring-clear-color = "89B4FA";
-      ring-caps-lock-color = "F9E2AF";
-      ring-ver-color = "89B4FA";
-      ring-wrong-color = "F38BA8"; 
+      ring-color = colors.base02;
+      ring-clear-color = colors.base0D;
+      ring-caps-lock-color = colors.base0A;
+      ring-ver-color = colors.base0D;
+      ring-wrong-color = colors.base08; 
 
-      separator-color = "B4BEFE";
+      separator-color = colors.base02;
     };
   };
 }

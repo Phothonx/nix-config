@@ -96,12 +96,13 @@ in
       input  = {
         kb_layout = "fr";
         kb_options = "ctrl:nocaps"; # disable capslock
-        repeat_rate = 35; # on long press
+        repeat_rate = 50; # on long press
+        repeat_delay = 400; # time to hold before repeating
         sensitivity = 0.2;
         accel_profile = "flat"; # no mouse acceleration
         scroll_method = "2fg"; # 2 finger scroll
-        follow_mouse = 1;
-        float_switch_override_focus = 2;
+        follow_mouse = 1; # window focus under mouse
+        float_switch_override_focus = 2; # same but with floating windows
         touchpad = {
             disable_while_typing = false;
             natural_scroll = true; # invert
