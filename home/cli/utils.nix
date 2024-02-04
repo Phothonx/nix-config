@@ -3,10 +3,10 @@
   home.packages = with pkgs;
     [
       brightnessctl
-      upower
 
       zip
       unzip
+      ripgrep
     ];
 
     programs = {

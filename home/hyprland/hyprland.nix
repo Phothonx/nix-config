@@ -89,7 +89,7 @@ in
 
           blur = { # this blurr <3
               enabled = true;
-              size = 1;
+              size = 2;
               passes = 3;
               # xray = true;
               noise = 0.020;

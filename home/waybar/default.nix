@@ -4,253 +4,187 @@
     enable = true;
 
     style = ''
-        * {
-      /* `otf-font-awesome` is required to be installed for icons */
-      font-family: Material Design Icons, Lexend, Iosevka Nerd Font;
+    * {
+      font-family: JetBrainsMono Nerd Font;
+      font-size: 17px;
     }
 
     window#waybar {
-      background-color: rgba(24, 24, 37, 0.8);
-      border-radius: 0px;
-      color: #${colors.base05};
-      box-shadow: 2px 3px 2px 2px #151515;
-      font-size: 14px;
+      background-color: #${colors.base01};
+      border-radius: 7px;
+      color: #ffffff;
       transition-property: background-color;
-      transition-duration: 0.5s;
-    }
-
-    window#waybar.hidden {
-      opacity: 0.2;
-    }
-
-    #pulseaudio {
-      color: #${colors.base06};
-    }
-
-    #custom-vpn,
-    #network {
-      color: #${colors.base09};
-    }
-
-    #cpu {
-      color: #${colors.base0C};
-    }
-
-    #memory {
-      color: #${colors.base09};
+      transition-duration: 0.3s;
     }
 
     #clock {
+      background-color: #${colors.base00};
+      color: #CDD6F4;
+      font-family: Ubuntu Nerd Font;
+      font-size: 28px;
       font-weight: 700;
-      font-family: "Iosevka Term";
-      padding: 0px 5px 0px 5px;
+      margin: 10px 5px 10px 5px;
+      padding: 5px;
+      border-radius: 7px;
     }
 
     #workspaces button {
       background-color: transparent;
       /* Use box-shadow instead of border so the text isn't offset */
-      color: #${colors.base0D};
-      padding-left: 10px;
-      box-shadow: inset 0 -3px transparent;
-      transition: all 400ms cubic-bezier(0.250, 0.250, 0.555, 1.425);
+      color: #${colors.base0E};
     }
 
     #workspaces button:hover {
-      color: #${colors.base0D};
-      box-shadow: inherit;
-      text-shadow: inherit;
+      color: #${colors.base0F};
     }
 
     #custom-power {
-        color: #${colors.base08};
-        padding: 0px 14px 0px 14px;
-        margin-bottom: 20px;
+      background-color: #${colors.base00};
+        color: #${colors.base08}; 
+        margin: 10px 5px 20px 5px;
+        padding: 5px;
+        border-radius: 7px;
     }
 
     #workspaces button.active {
       color: #${colors.base0A};
-      transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
     }
-    #workspaces button.urgent {
-      background-color: #${colors.base09};
-    }
+
     #clock,
     #network,
-    #custom-swallow,
-    #cpu,
     #battery,
     #backlight,
-    #memory,
     #workspaces,
-    #custom-todo,
-    #custom-lock,
-    #custom-vpn,
-    #custom-weather,
+    #custom-menu,
     #custom-power,
-    #custom-crypto,
-    #volume,
-    #pulseaudio {
-      border-radius: 8px;
-      background-color: rgba(49, 50, 68, 0.35);
-      padding: 0px 14px 0px 14px;
-      margin: 3px 0px 3px 0px;
+
+    #network {
+      background-color: #${colors.base00};
+      color: #${colors.base0D};
+      margin: 10px 5px 10px 5px;
+      padding: 5px;
+      border-radius: 7px;
     }
 
-    #custom-lock {
-        color: #${colors.base0D};
+    #custom-menu {
+      background-color: #${colors.base00};
+      color: #${colors.base0E};
+      margin: 20px 5px 10px 5px;
+      padding: 5px;
+      border-radius: 7px;
     }
 
-    #custom-search {
-      background-image: url("lol");
-      background-size: 65%;
-      background-position: center;
-      padding: 0 13px;
-      background-repeat: no-repeat;
-    }
     #backlight {
+      background-color: #${colors.base00};
       color: #${colors.base0A};
+      margin: 10px 5px 10px 5px;
+      padding: 5px;
+      border-radius: 7px;
     }
+
     #battery {
+      background-color: #${colors.base00};
       color: #${colors.base0B};
+      margin: 10px 5px 10px 5px;
+      padding: 5px;
+      border-radius: 7px;
     }
 
     #battery.warning {
+      background-color: #${colors.base00};
       color: #${colors.base0C};
     }
 
     #battery.critical:not(.charging) {
       color: #${colors.base08};
     }
-    tooltip {
-      font-family: 'Lato', sans-serif;
-      border-radius: 15px;
-      padding: 20px;
-      margin: 30px;
-    }
-    tooltip label {
-      font-family: 'Lato', sans-serif;
-      padding: 20px;
-    }
     '';
 
     settings = {
       mainBar = {
         layer = "top";
-        position = "top";
-        height = 38;
-        spacing = 6;
+        position = "left";
+        width = 50;
+        #height = 45;
         fixed-center = false;
-        margin-left = null;
-        margin-top = null;
-        margin-bottom = null;
+        margin-left = 10;
+        margin-top = 20;
+        margin-bottom = 20;
         margin-right = null;
-        exclusive = true;
+
         modules-left = [
-          "custom/search"
-          "hyprland/workspaces"
-          "custom/lock"
+          "custom/menu"
           "backlight"
           "battery"
+          "network"
         ];
-        modules-right = ["cpu" "memory" "network" "clock" "custom/power"];
+        modules-center = [
+          "hyprland/workspaces"
+        ];
+        modules-right = [
+          "clock"
+          "custom/power"
+          ];
+
         "hyprland/workspaces" = {
           on-click = "activate";
+          show-special = true;
           format = "{icon}";
-          active-only = false;
           format-icons = {
-            "1" = "󰪃";
-            "2" = "󰩾";
-            "3" = "󰪁";
-            "4" = "󰪂";
-            "5" = "󰪇";
-            "6" = "󰪆";
-            "7" = "󰩽";
-            "8" = "󰩿";
-            "9" = "󰪄";
-            "10" = "󰪈";
+            "special" = "零";
+            "1" = "一";
+            "2" = "二";
+            "3" = "三";
+            "4" = "四";
+            "5" = "五";
+            "6" = "六";
+            "7" = "七";
+            "8" = "八";
+            "9" = "九";
+            "10" = "十";
           };
           persistent_workspaces = {
             "*" = 5;
           };
         };
 
-        "custom/search" = {
-          format = " ";
+        "custom/menu" = {
+          format = "";
           tooltip = false;
-          on-click = "wofi --show drun";
+          on-click = "sleep 0.1 && wofi --show drun";
         };
 
         "custom/power" = {
           tooltip = false;
-          # TODO
-          format = "󰐥";
+          format = "";
         };
 
         clock = {
-          format = "{:%H:%M}";
-          tooltip-format = ''
-            <big>{:%Y %B}</big>
-            <tt><small>{calendar}</small></tt>'';
-          calendar = {
-            mode = "year";
-            mode-mon-col = 3;
-            weeks-pos = "right";
-            on-scroll = 1;
-            on-click-right = "mode";
-            format = {
-              months = "<span color='#f5c2e7'><b>{}</b></span>";
-              days = "<span color='#cdd6f4'><b>{}</b></span>";
-              weeks = "<span color='#cba6f7'><b>T{:%U}</b></span>";
-              weekdays = "<span color='#eba0ac'><b>{}</b></span>";
-              today = "<span color='#a6e3a1'><b><u>{}</u></b></span>";
-            };
-            actions = {
-              on-click-right = "mode";
-              on-click-forward = "tz_up";
-              on-click-backward = "tz_down";
-              on-scroll-up = "shift_up";
-              on-scroll-down = "shift_down";
-            };
-          };
+          format = "{:%H%n%M}";
+          tooltip = false;
         };
 
         backlight = {
-          format = "{icon}  {percent}%";
+          tooltip = false;
+          format = " {icon}\n{percent}%";
           format-icons = ["" "" "" "" "" "" "" "" ""];
-        };
-
-        memory = {
-          interval = 2;
-          format = "  {}%";
-          max-length = 10;
-        };
-
-        cpu = {
-          interval = 2;
-          format = "󰍛 {}%";
-          max-length = 10;
         };
 
         battery = {
           states = {
-            warning = 30;
+            warning = 20;
             critical = 15;
           };
-          format = "{icon} {capacity}% 󱐋{power}";
-          format-charging = "󰚥{icon} {capacity}% 󱐋{power}";
-          format-alt = "{icon} {capacity}%";
+          format = " {icon}\n{capacity}%";
+          format-charging = " {icon}󱐋\n{capacity}%";
           format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
 
-        network = let
-          nm-editor = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
-        in {
-          format-wifi = "󰤨  {signalStrength}%";
+        network = {
+          format-wifi = " 󰤨\n{signalStrength}%";
           format-ethernet = "󰈀";
-          format-alt = "󱛇";
           format-disconnected = "󰤭";
-          tooltip-format = "{ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)";
-          on-click-right = "${nm-editor}";
+          tooltip = false;
         };
       };
     };

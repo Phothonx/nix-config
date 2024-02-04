@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_lqx;
+    kernelPackages =  pkgs.linuxPackages_latest;
 
     loader = {
       systemd-boot.enable = true;
