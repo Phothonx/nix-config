@@ -18,6 +18,21 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    # hycov = {
+    #   url = "github:DreamMaoMao/hycov";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # 
+    # hyprfocus = {
+    #   url = "github:VortexCoyote/hyprfocus";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+
     ags.url = "github:Aylur/ags";
 
     firefox-addons = {

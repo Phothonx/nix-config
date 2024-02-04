@@ -13,10 +13,9 @@ in
     ./terminal
     ./discord
     ./sway
-    ./git
     ./rofi
     ./waybar
-    ./shell
+    ./cli
     ./ags
   ];
 }

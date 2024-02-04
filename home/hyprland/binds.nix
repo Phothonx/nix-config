@@ -36,6 +36,12 @@
         "SUPER, Tab, cyclenext, "
         "SUPER, Tab, bringactivetotop, "
 
+        # "ALT, tab, hycov:toggleoverview, "
+        # "ALT, left, hycov:movefocus, l"
+        # "ALT, right, hycov:movefocus, r"
+        # "ALT, up, hycov:movefocus, u"
+        # "ALT, down, hycov:movefocus, d"
+
         "SUPER, P, pseudo,"
         "SUPER SHIFT, P, workspaceopt, allpseudo"
         "SUPER, Space, togglefloating,"

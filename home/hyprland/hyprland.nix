@@ -10,6 +10,11 @@ in
     systemd.enable = true;
     xwayland.enable = true;
 
+    # plugins = [
+    #   inputs.hycov.packages.${pkgs.system}.hycov
+    #   inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
+    # ];
+
     settings = {
         "$MOD" = "SUPER";
 
@@ -22,8 +27,8 @@ in
           "hyprctl setcursor Bibata-Modern-Ice 22"
           "swayosd-server"
           "swaync"
-          "swww init && swww img ./../../wallpapers/cat_leaves.png" # wallpaper setup
-        ]; #  "swaylock -i ./../../wallpapers/cat_leaves.png"
+          "swww init && swww img ~/.dotfiles/wallpapers/cat_leaves.png" # wallpaper setup
+        ];
 
       general = {
           # no_border_on_floating = false
@@ -43,6 +48,31 @@ in
           resize_on_border = true; # resize windows
           hover_icon_on_border = false;
       };
+
+      # plugin = {
+      #   hycov = {};
+      #   hyprfocus = {
+      #     enabled = true;
+
+      #     keyboard_focus_animation = "shrink";
+      #     mouse_focus_animation = "srink";
+
+      #     bezier = [
+      #       "bezIn, 0.5,0.0,1.0,0.5"
+      #       "bezOut, 0.0,0.5,0.5,1.0"
+      #     ];
+
+      #     shrink = {
+      #       shrink_percentage = 0.8;
+ 
+      #       in_bezier = "bezIn";
+      #       in_speed = 0.5;
+
+      #       out_bezier = "bezOut";
+      #       out_speed = 3;
+      #     };
+      #   };
+      # };
       
       decoration = {
           rounding = 15;
@@ -52,8 +82,8 @@ in
           # fullscreen_opacity = 1.0
       
           drop_shadow = true; # lil shadow <3
-          shadow_range = 12;
-          shadow_render_power = 3;
+          shadow_range = 15;
+          shadow_render_power = 5;
           "col.shadow" = "0xee11111B";
           shadow_offset = "2 2";
 
@@ -65,7 +95,7 @@ in
               noise = 0.020;
               contrast = 0.9;
               brightness = 0.83;
-              # special = true; # nice but less smooth
+              special = true; # nice but less smooth and  more expensive
               popups = true;
           };
       };
@@ -79,17 +109,19 @@ in
 
       animations = {
           enabled = true;
-          bezier = [
-            "myBezier, 0.05, 0.9, 0.1, 1.05"
-            "overshot,0.05,0.9,0.1,1.1"
+          bezier = [ # taken from NotAShelf
+            "smoothOut, 0.36, 0, 0.66, -0.56"
+            "smoothIn, 0.25, 1, 0.5, 1"
+            "overshot, 0.4,0.8,0.2,1.2"
           ];
           animation = [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default, popin 70%"
-          "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
+            "windows, 1, 4, overshot, slide"
+            "windowsOut, 1, 4, smoothOut, slide"
+            "border,1,10,default"
+
+            "fade, 1, 10, smoothIn"
+            "fadeDim, 1, 10, smoothIn"
+            "workspaces,1,4,overshot,slidevert"
           ];
       };
 
@@ -117,10 +149,14 @@ in
       };
       
       misc = {
+          disable_hyprland_logo = true; # wallpaper covers it anyway
+          disable_splash_rendering = true;
+          background_color = colors.base00;
+
           animate_manual_resizes = true;
           animate_mouse_windowdragging = true;
           hide_cursor_on_touch = false;
-          # background_color = 
+          disable_autoreload = true; # useless on nixos
       };
       
       binds = {};

@@ -1,23 +1,23 @@
-{ ... }:
+{ pkgs, ... }:
 {
   boot = {
+    kernelPackages = pkgs.linuxPackages_lqx;
+
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
       timeout = 2;
     };
 
+    consoleLogLevel = 0;
+
     kernelParams = [
       "quiet"
-      "splash"
-      "loglevel=3"
+
+      "rd.systemd.show_status=auto"
+      "rd.udev.log_level=3"
+      "vt.global_cursor_default=0"
       ];
 
-#    initrd.systemd.enable = true;
-#
-#    plymouth = {
-#      enable = true;
-#      theme = "breeze";
-#    };
   };
 }
