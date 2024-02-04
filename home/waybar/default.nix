@@ -23,7 +23,7 @@
       font-family: Ubuntu Nerd Font;
       font-size: 28px;
       font-weight: 700;
-      margin: 10px 5px 10px 5px;
+      margin: 5px;
       padding: 5px;
       border-radius: 7px;
     }
@@ -41,7 +41,7 @@
     #custom-power {
       background-color: #${colors.base00};
         color: #${colors.base08}; 
-        margin: 10px 5px 20px 5px;
+        margin: 5px;
         padding: 5px;
         border-radius: 7px;
     }
@@ -61,7 +61,7 @@
     #network {
       background-color: #${colors.base00};
       color: #${colors.base0D};
-      margin: 10px 5px 10px 5px;
+      margin: 5px;
       padding: 5px;
       border-radius: 7px;
     }
@@ -69,7 +69,7 @@
     #custom-menu {
       background-color: #${colors.base00};
       color: #${colors.base0E};
-      margin: 20px 5px 10px 5px;
+      margin: 5px;
       padding: 5px;
       border-radius: 7px;
     }
@@ -77,7 +77,7 @@
     #backlight {
       background-color: #${colors.base00};
       color: #${colors.base0A};
-      margin: 10px 5px 10px 5px;
+      margin: 5px;
       padding: 5px;
       border-radius: 7px;
     }
@@ -85,7 +85,7 @@
     #battery {
       background-color: #${colors.base00};
       color: #${colors.base0B};
-      margin: 10px 5px 10px 5px;
+      margin: 5px;
       padding: 5px;
       border-radius: 7px;
     }
@@ -105,8 +105,7 @@
         layer = "top";
         position = "left";
         width = 50;
-        #height = 45;
-        fixed-center = false;
+        spacing = 6;
         margin-left = 10;
         margin-top = 20;
         margin-bottom = 20;

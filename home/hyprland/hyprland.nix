@@ -27,7 +27,8 @@ in
           "hyprctl setcursor Bibata-Modern-Ice 22"
           "swayosd-server"
           "swaync"
-          "swww init && swww img ~/.dotfiles/wallpapers/cat_leaves.png" # wallpaper setup
+          "swww init && swww img ~/.dotfiles/wallpapers/akiakane.png" # wallpaper setup
+          "swaylock -i ~/.dotfiles/wallpapers/cat_leaves.png"
         ];
 
       general = {

@@ -4,6 +4,7 @@
     enable = true;
     package = pkgs.swaylock-effects;
     settings = {
+      daemonize = true;
       hide-keyboard-layout = true;
       indicator-caps-lock = true;
       indicator = true;

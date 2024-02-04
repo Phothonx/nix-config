@@ -17,7 +17,7 @@
         "SUPER, H, exec, firefox"
         "SUPER, R, exec, wofi --show drun"
         "SUPER, N, exec, swaync-client -t --hide-latest"
-        "CTRL ALT, L, exec, swaylock --daemonize --screenshots --effect-blur=8x7"
+        "CTRL ALT, L, exec, swaylock --screenshots --effect-blur=8x7"
 
         " , code:67, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
