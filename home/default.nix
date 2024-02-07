@@ -17,5 +17,6 @@ in
     ./waybar
     ./cli
     ./ags
+    ./programming
   ];
 }

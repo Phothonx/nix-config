@@ -57,6 +57,7 @@
     #workspaces,
     #custom-menu,
     #custom-power,
+    #wireplumber,
 
     #network {
       background-color: #${colors.base00};
@@ -98,6 +99,18 @@
     #battery.critical:not(.charging) {
       color: #${colors.base08};
     }
+
+    #wireplumber {
+      background-color: #${colors.base00};
+      color: #${colors.base0C};
+      margin: 5px;
+      padding: 5px;
+      border-radius: 7px;
+    }
+
+    #wireplumber.muted {
+      color: #${colors.base08};
+    }
     '';
 
     settings = {
@@ -116,6 +129,7 @@
           "backlight"
           "battery"
           "network"
+          "wireplumber"
         ];
         modules-center = [
           "hyprland/workspaces"
@@ -183,6 +197,13 @@
           format-wifi = " 󰤨\n{signalStrength}%";
           format-ethernet = "󰈀";
           format-disconnected = "󰤭";
+          tooltip = false;
+        };
+
+        wireplumber = {
+          format = " {icons}\n{volume}%";
+          format-muted = " \nmuted";
+          format-icons = ["" "" ""];
           tooltip = false;
         };
       };

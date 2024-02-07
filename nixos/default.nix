@@ -7,7 +7,7 @@ let
 in
 {
   "avalon" = nixpkgs.lib.nixosSystem {
-    specialArgs = { inherit self inputs systemConfig userConfig; };
+    specialArgs = { inherit self inputs systemConfig userConfig; }; # Default are lib, pkgs, config
     modules = [
       ../hosts/avalon/hardware-configuration.nix
       ./audio.nix

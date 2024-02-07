@@ -1,32 +1,59 @@
-{ ... }:
+{ colors, ... }:
 {
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
 
     settings = {
-      add_newline = false;
-      right_format = "$cmd_duration";  
-
-      directory = {
-        format = "[](fg:#252525 bg:none)[$path]($style)[█](fg:#232526 bg:#232526)[](fg:#6791C9 bg:#252525)[ ](fg:#252525 bg:#6791C9)[](fg:#6791C9 bg:none)";
-        style = "fg:#E8E3E3 bg:#252525 bold";
-        truncation_length = 3;
-        truncate_to_repo=false;
-        read_only = " ";
-      };
+      format = ''$c$python$ocaml$directory$character'';      
+      right_format = ''$git_branch$git_status'';    
 
       character = {
-        success_symbol = "[ ](bold #89b4fa)[ ➜](bold green)";
-        error_symbol = "[ ](bold #89dceb)[ ✗](bold red)";
+        format = "$symbol ";
+        success_symbol = "[❯❯](#${colors.base0B})";
+        error_symbol = "[❯❯](#${colors.base08})";
       };
 
-      cmd_duration = {
-        format = "[](fg:#252525 bg:none)[$duration]($style)[](fg:#252525 bg:#252525)[](fg:#C397D8 bg:#252525)[󱑂 ](fg:#252525 bg:#C397D8)[](fg:#C397D8 bg:none)";
-        disabled = false;
-        style = "fg:#E8E3E3 bg:#252525 bold";
-      };          
-    };
+      directory = {
+        format = "[$path](#${colors.base0D})[$read_only](#${colors.base08}) "; 
+        read_only = "🔒";
+        truncation_length = 4;
+        truncation_symbol = "";
+        home_symbol = "🏠";
+      };
 
+      git_branch = {
+        format = "[🌱 $branch(:$remote_branch)](#${colors.base0F}) ";
+        truncation_length = 5;
+        truncation_symbol = ".";
+      };
+
+      git_status = {
+        # format = "[\[$all_status\]](bold #${colors.base07}) "; #$ahead_behind
+        conflicted = "🏳";
+        ahead = "🏎💨";
+        behind = "😰";
+        diverged = "😵";
+        up_to_date = "✓";
+        untracked = "🤷";
+        stashed = "📦";
+        modified = "📝";
+        staged = "[++\($count\)](#${colors.base0B})";
+        renamed = "👅";
+        deleted = "🗑";
+      };
+
+      c = {
+        format = "[C $version](bold #${colors.base0C}) ";
+      };
+
+      ocaml = {
+        format = "[🐫 $version \($switch_indicator$switch_name\)](bold #${colors.base0A}) ";
+      };
+
+      python = {
+        format = "[🐍 $version \($virtualenv\)](bold #${colors.base0C}) ";
+      };
+    };
   };
 }
