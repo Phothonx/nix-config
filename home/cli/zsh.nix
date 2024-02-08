@@ -8,6 +8,15 @@
 
     oh-my-zsh = {
       enable = true;
+      plugins = [
+        "zsh-syntax-highlighting"
+        "zsh-autosuggestions"
+      ];
     };
+
+    shellAliases = {
+      "avaBuild" = "cd ~/.dotfiles && sudo nixos-rebuild switch --flake .#avalon";
+    };
+    shellGlobalAliases = {};
   };
 }

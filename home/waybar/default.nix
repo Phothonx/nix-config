@@ -201,9 +201,10 @@
         };
 
         wireplumber = {
-          format = " {icons}\n{volume}%";
-          format-muted = " \nmuted";
-          format-icons = ["" "" ""];
+          # format = " {icons}\n{volume}%";
+          format = "{volume}%";
+          format-muted = "";
+          # format-icons = ["" "" ""];
           tooltip = false;
         };
       };

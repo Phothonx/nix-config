@@ -3,6 +3,9 @@
   home.packages = with pkgs; [  
     gcc
     python3
-    opam
   ];
+
+  programs.opam = {
+    enable = true;
+  };
 }
