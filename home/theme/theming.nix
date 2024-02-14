@@ -8,6 +8,7 @@
     "CascadiaCode"
     "FiraCode"
     "JetBrainsMono"
+    "Iosevka"
     ]; })
   ];
 
@@ -39,12 +40,12 @@
 
     theme = {
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
+        accents = [ "mauve" ];
         size = "compact";
         # tweaks = [ "rimless" ];
         variant = "mocha";
       };
-      name = "Catppuccin-Mocha-Compact-Lavender-Dark";
+      name = "Catppuccin-Mocha-Compact-Mauve-Dark";
     };
 
     iconTheme = {

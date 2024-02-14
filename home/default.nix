@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  colors = config.colorScheme.colors; # from nix-colors (./theme/colors.nix)
+  colors = config.colorScheme.palette; # from nix-colors (./theme/colors.nix)
 in
 {
   _module.args.colors = colors;
@@ -18,5 +18,6 @@ in
     ./cli
     ./ags
     ./programming
+    ./apps
   ];
 }

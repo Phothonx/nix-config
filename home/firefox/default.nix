@@ -15,7 +15,6 @@ let
   };
 in
 {
-  home.sessionVariables.BROWSER = "firefox";
 
   programs.firefox = {
     enable = true;
@@ -74,7 +73,6 @@ in
         /*** [SECTION 0100]: STARTUP ***/
         # "_user.js.parrot" = "0100 syntax error: the parrot's dead!";
         "browser.startup.page" = 3; /* 0102: set startup page ***/
-        "browser.newtabpage.enabled" = true; /* 0104: set NEWTAB page ***/
         "browser.newtabpage.activity-stream.showSponsored" = false; /* 0105: disable sponsored content on Firefox Home (Activity Stream) ***/
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.newtabpage.activity-stream.default.sites" = ""; /* 0106: clear default topsites ***/
@@ -143,6 +141,7 @@ in
 
         /*** [SECTION 0800]: LOCATION BAR / SEARCH BAR / SUGGESTIONS / HISTORY / FORMS ***/
         # "_user.js.parrot" = "0800 syntax error: the parrot's ceased to be!";
+        "browser.urlbar.suggest.quicksuggest.sponsored" = false;
 
         /*** [SECTION 0900]: PASSWORDS ***/
         # "_user.js.parrot" = "0900 syntax error: the parrot's expired!";
@@ -265,6 +264,7 @@ in
         bitwarden
         ublock-origin
         skip-redirect
+        i-dont-care-about-cookies
       ];
     };
   };

@@ -1,13 +1,25 @@
-{ pkgs, inputs, colors, ... }:
+{ pkgs, lib, inputs, colors, ... }:
 let
   bindings = import ./binds.nix;
   rules = import ./rules.nix;
+
+  startScript = pkgs.writeShellScriptBin "start" ''
+    ${lib.getExe pkgs.swww} init && ${lib.getExe pkgs.swww} img ${../../wallpapers/cat_leaves.png}
+    ${lib.getExe pkgs.waybar}
+    swaync
+    swayosd-server
+    hyprctl setcursor Bibata-Modern-Ice 22
+    ${lib.getExe pkgs.swaylock} -i ${../../wallpapers/cat_leaves.png}
+  '';
 in
 {
   wayland.windowManager.hyprland = {
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     enable = true;
-    systemd.enable = true;
+    systemd = {
+      enable = true;
+      variables = ["--all"];
+    };
     xwayland.enable = true;
 
     # plugins = [
@@ -22,14 +34,7 @@ in
           "eDP-1, 1920x1200@60, 0x0, 1" # personal monitor
         ];
 
-        exec-once = [
-          "waybar"
-          "hyprctl setcursor Bibata-Modern-Ice 22"
-          "swayosd-server"
-          "swaync"
-          "swww init && swww img ~/.dotfiles/wallpapers/akiakane.png" # wallpaper setup
-          "swaylock -i ~/.dotfiles/wallpapers/cat_leaves.png"
-        ];
+        exec-once = "${lib.getExe startScript}";
 
       general = {
           # no_border_on_floating = false
@@ -43,7 +48,7 @@ in
           "col.inactive_border" = "rgb(${colors.base02})";
           "col.active_border" = "rgb(${colors.base0E})";
       
-          cursor_inactive_timeout = 20;
+          cursor_inactive_timeout = 0;
           layout = "dwindle";
       
           resize_on_border = true; # resize windows
@@ -96,7 +101,7 @@ in
               noise = 0.020;
               contrast = 0.9;
               brightness = 0.83;
-              special = true; # nice but less smooth and  more expensive
+              special = true; # nice but more expensive
               popups = true;
           };
       };

@@ -3,6 +3,7 @@
   imports =
   [
     ./codium.nix
-    ./neovim.nix
+    ./nvchad
+    ./jupyter.nix
   ];
 }

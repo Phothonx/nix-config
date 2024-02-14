@@ -44,7 +44,6 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
   let
-
     systemConfig = {
       system = "x86_64-linux";
       hostName = "avalon";
@@ -54,9 +53,11 @@
     };
 
     userConfig = {
-        userName = "nico";
-        name = "Nicolas";
-        email = "";
+      userName = "nico";
+      name = "Nicolas";
+      email = "";
+      theme = "";
+      accent = "";
     };
 
   in 
