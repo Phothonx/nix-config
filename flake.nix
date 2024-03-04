@@ -18,22 +18,9 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # hycov = {
-    #   url = "github:DreamMaoMao/hycov";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-    # 
-    # hyprfocus = {
-    #   url = "github:VortexCoyote/hyprfocus";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-
     ags.url = "github:Aylur/ags";
+
+    NvChad.url = "github:NvChad/nix";
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -59,10 +46,8 @@
       theme = "";
       accent = "";
     };
-
   in 
   {
     nixosConfigurations = import ./nixos { inherit self nixpkgs inputs systemConfig userConfig; };
   };
-
 }

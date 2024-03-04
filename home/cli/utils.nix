@@ -7,6 +7,7 @@
       zip
       unzip
       ripgrep
+      fd
     ];
 
     programs = {

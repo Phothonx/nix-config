@@ -3,7 +3,7 @@
     users.users.${userConfig.userName} = {
     isNormalUser = true;
     description = userConfig.name;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     shell = pkgs.zsh;
   };
 

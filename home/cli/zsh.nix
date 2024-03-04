@@ -5,7 +5,12 @@
     dotDir = ".config/zsh";
     enableCompletion = true;
     enableAutosuggestions = true;
-    syntaxHighlighting.enable = true;
+
+    syntaxHighlighting = {
+      enable = true;
+      styles = {"alias" = "fg=magenta";};
+      highlighters = ["main" "brackets" "pattern" "cursor" "regexp" "root" "line"];
+    };
 
     history = {
       # path = "${config.xdg.dataHome}/zsh/zsh_history";

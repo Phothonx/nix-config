@@ -1,7 +1,8 @@
-{ pkgs, ...}: 
+{ pkgs, systemConfig, ...}: 
 {
   nix = {
     settings = {
+      warn-dirty = false;
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
     };
@@ -24,26 +25,14 @@
       ];
   };
 
-
-   services.logind.extraConfig = ''
-    HandlePowerKey=suspend
-    HandlePowerKeyLongPress=hibernate
-  '';
-
   nixpkgs = {
     config.allowUnfree = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    wget
-    git
-    vim
-  ];
-
-  time.timeZone = "Europe/Paris";
-  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = systemConfig.timeZone;
+  i18n.defaultLocale = systemConfig.locale;
   console = {
-    keyMap = "fr";
+    keyMap = systemConfig.layout;
   };
 
   system.stateVersion = "23.11";

@@ -157,7 +157,7 @@ in
       misc = {
           disable_hyprland_logo = true; # wallpaper covers it anyway
           disable_splash_rendering = true;
-          background_color = colors.base00;
+          background_color = "rgb(${colors.base00})";
 
           animate_manual_resizes = true;
           animate_mouse_windowdragging = true;
@@ -167,9 +167,9 @@ in
       
       binds = {};
       
-      XWayland = {
-          force_zero_scaling = true; # solve piexlated windows
-      };
+      # XWayland = {
+      #     force_zero_scaling = true; # solve piexlated windows
+      # };
       
       inherit bindings rules;
     };
