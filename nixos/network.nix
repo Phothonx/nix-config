@@ -1,4 +1,4 @@
-{ systemConfig, ... }: 
+{ systemConfig, ... }:
 {
   networking = {
     hostName = systemConfig.hostName;

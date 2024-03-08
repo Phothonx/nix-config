@@ -20,6 +20,8 @@ in
       ./user.nix
       ./wayland.nix
       ./xserver.nix
+      # ./gnome.nix
+      ./security.nix
     ];
   };
 }

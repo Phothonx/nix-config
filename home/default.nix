@@ -1,12 +1,12 @@
-{ config, ... }:
-let
-  colors = config.colorScheme.palette; # from nix-colors (./theme/colors.nix)
-in
+{ config, pkgs, userConfig, ... }:
 {
-  _module.args.colors = colors;
+  _module.args = rec {
+    theme = import ../theme {inherit pkgs userConfig;};
+    colors = theme.sheme.palette;
+  };
 
   imports = [
-    ./hyprland
+    ./hypr
     ./theme
     ./firefox
     ./ide
@@ -16,8 +16,7 @@ in
     ./rofi
     ./waybar
     ./cli
-    ./ags
     ./programming
-    ./apps
+    ./dunst
   ];
 }

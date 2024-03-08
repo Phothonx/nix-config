@@ -1,4 +1,4 @@
-{ systemConfig, userConfig, ... }: 
+{ systemConfig, ... }: 
 {
   services.xserver = {
     enable = true;

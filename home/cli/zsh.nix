@@ -1,4 +1,12 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
+let
+  no-padding = pkgs.writeShellScriptBin "no-padding" ''
+      # Toggle kitty padding
+      kitty @ set-spacing padding=0
+      nvim $*
+      kitty @ set-spacing padding=default
+    '';
+in
 {
   programs.zsh = {
     enable = true;
@@ -47,6 +55,11 @@
       htop = "${lib.getExe bottom}";
       btop = "${lib.getExe bottom}";
       top = "${lib.getExe bottom}";
+
+      # Nvchad
+      nvim = "${lib.getExe no-padding}";
+      nv = "nvim";
+      nvchad = "nvim";
 
       # system
       sc = "sudo systemctl";

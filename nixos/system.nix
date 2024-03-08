@@ -1,4 +1,4 @@
-{ pkgs, systemConfig, ...}: 
+{ pkgs, systemConfig, ... }:
 {
   nix = {
     settings = {
@@ -13,9 +13,13 @@
     };
   };
 
-  security.pam.services.swaylock = {}; # Make swaylock work
-  programs.xfconf.enable = true; # thunar
+  services.gnome.gnome-keyring.enable = true;
+
+  programs.dconf.enable = true; # gnome
   services.gvfs.enable = true; # Mount, trash, and other functionalities
+  services.dbus.implementation = "broker";
+
+  programs.xfconf.enable = true; # thunar
   services.tumbler.enable = true; # Thumbnail support for images
   programs.thunar = {
       enable = true;

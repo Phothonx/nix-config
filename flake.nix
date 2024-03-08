@@ -1,5 +1,4 @@
 {
-
   description = ''
   █▀█ █░█ █▀█ ▀█▀ █░█ █▀█ █▄░█ ▀▄▀   ▄▄   █▄░█ █ ▀▄▀ █▀█ █▀   █▀▀ █░░ ▄▀█ █▄▀ █▀▀   █▀▀ █▀█ █▄░█ █▀▀ █ █▀▀
   █▀▀ █▀█ █▄█ ░█░ █▀█ █▄█ █░▀█ █░█   ░░   █░▀█ █ █░█ █▄█ ▄█   █▀░ █▄▄ █▀█ █░█ ██▄   █▄▄ █▄█ █░▀█ █▀░ █ █▄█
@@ -14,11 +13,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-colors.url = "github:misterio77/nix-colors";
-
     hyprland.url = "github:hyprwm/Hyprland";
-
-    ags.url = "github:Aylur/ags";
+    hyprlock.url = "github:hyprwm/hyprlock";
+    hypridle.url = "github:hyprwm/hypridle";
 
     NvChad.url = "github:NvChad/nix";
 
@@ -43,10 +40,10 @@
       userName = "nico";
       name = "Nicolas";
       email = "";
-      theme = "";
-      accent = "";
+      sheme = "catppuccin-mocha"; # see in ./theme/shemes/*
+      wallpaper = "cat_leaves"; # see in ./wallpapers
     };
-  in 
+  in
   {
     nixosConfigurations = import ./nixos { inherit self nixpkgs inputs systemConfig userConfig; };
   };

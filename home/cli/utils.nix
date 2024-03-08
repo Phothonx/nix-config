@@ -3,10 +3,8 @@
   home.packages = with pkgs;
     [
       brightnessctl
-
       zip
       unzip
-      ripgrep
       fd
     ];
 
@@ -71,9 +69,9 @@
         };
       };
 
-      thefuck.enable = true;
-      ripgrep.enable = true;
-      fzf.enable = true;
-      lf.enable = true;
-    };
+    thefuck.enable = true;
+    ripgrep.enable = true;
+    fzf.enable = true;
+    lf.enable = true;
+  };
 }

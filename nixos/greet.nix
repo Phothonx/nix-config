@@ -1,4 +1,5 @@
-{ config, lib, userConfig, ... }: {
+{ config, lib, userConfig, ... }:
+{
   services.greetd = let
     session = {
       command = "${lib.getExe config.programs.hyprland.package}";
@@ -12,6 +13,4 @@
       initial_session = session;
     };
   };
-
-  security.pam.services.greetd.enableGnomeKeyring = true; # unlock GPG keyring on login
 }

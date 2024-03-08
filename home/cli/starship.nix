@@ -44,15 +44,15 @@
       };
 
       c = {
-        format = "[C $version](bold #${colors.base0C}) ";
+        format = "[C $version](bold #${colors.base0C}) | ";
       };
 
       ocaml = {
-        format = "[🐫 $version \($switch_indicator$switch_name\)](bold #${colors.base0A}) ";
+        format = "[🐫 $version \($switch_indicator$switch_name\)](bold #${colors.base0A}) | ";
       };
 
       python = {
-        format = "[🐍 $version \($virtualenv\)](bold #${colors.base0C}) ";
+        format = "[🐍 $version \($virtualenv\)](bold #${colors.base0C}) | ";
       };
     };
   };

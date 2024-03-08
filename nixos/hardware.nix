@@ -9,6 +9,7 @@
   services.logind.extraConfig = ''
     HandlePowerKey=suspend
     HandlePowerKeyLongPress=hibernate
+    HandleLidSwitchExternalPower=ignore
   '';
 
   services = {
