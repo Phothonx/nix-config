@@ -6,9 +6,6 @@ let
     dunst
     hyprctl setcursor ${theme.cursor.name} ${builtins.toString theme.cursor.size}
     wl-paste --watch cliphist store
-    dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE
-    hyprshade install
-    systemctl --user enable --now hyprshade.timer
     hyprlock
   '';
 in

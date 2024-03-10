@@ -18,6 +18,9 @@
       min-width: 0; /* Fix weird spacing in materia (waybar #450) */
       background-color: transparent;
       color: #${base0C};
+      font-size: 19px;
+      font-weight: bold;
+      padding: 10px 5px 10px 5px;
     }
 
     #workspaces button:hover {
@@ -34,15 +37,19 @@
     #backlight,
     #workspaces,
     #wireplumber,
+    #image,
+
+    #image {
+      margin: 20px 5px 5px 5px;
+    }
 
     #clock {
-      background-color: #${base00};
       color: #${base17};
       font-family: Ubuntu Nerd Font;
-      font-size: 30px;
+      font-size: 32px;
       font-weight: bold;
-      margin: 5px;
-      padding: 5px;
+      margin: 5px 5px 20px 5px;
+      padding: 10px 5px 10px 5px;
       border-radius: 8px;
     }
 
@@ -50,7 +57,7 @@
       background-color: #${base00};
       color: #${base0D};
       margin: 5px;
-      padding: 5px;
+      padding: 10px 5px 10px 5px;
       border-radius: 8px;
     }
 
@@ -58,7 +65,7 @@
       background-color: #${base00};
       color: #${base0A};
       margin: 5px;
-      padding: 5px;
+      padding: 10px 5px 10px 5px;
       border-radius: 8px;
     }
 
@@ -66,7 +73,7 @@
       background-color: #${base00};
       color: #${base0B};
       margin: 5px;
-      padding: 5px;
+      padding: 10px 5px 10px 5px;
       border-radius: 8px;
     }
 
@@ -83,7 +90,7 @@
       background-color: #${base00};
       color: #${base0C};
       margin: 5px;
-      padding: 5px;
+      padding: 10px 5px 10px 5px;
       border-radius: 8px;
     }
 
@@ -94,12 +101,12 @@
     tooltip {
       border-radius: 8px;
       padding: 15px;
-      background-color: #${base11};
+      background-color: #${base10};
     }
       
     tooltip label {
       padding: 5px;
-      background-color: #${base11};
+      background-color: #${base10};
     }
   '';
 }

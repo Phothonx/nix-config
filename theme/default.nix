@@ -36,7 +36,7 @@ rec {
     emoji = "Noto Color Emoji";
 
     sizes = rec {
-      desktop = 15;
+      desktop = 22;
       applications = 12;
       terminal = 9;
       popups = desktop;

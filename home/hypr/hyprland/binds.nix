@@ -7,20 +7,34 @@
       "SUPER ALT, mouse:272, resizewindow"
     ];
 
-    bindle = [
-      " , code:68, exec, wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 2%-"
-      " , code:69, exec, wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 2%+"
-      " , code:71, exec, brightnessctl set --min-value=4800 5%-"
-      " , code:72, exec, brightnessctl set --min-value=4800 +5%"
+    bindle = 
+    let
+      setVol = "wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@";
+      getVol = "\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g')\"";
+      notifVol = "dunstify -h int:value:${getVol} -i ${../../dunst/assets/volume.svg} -t 500 -r 2593 \"Volume: ${getVol}%\"";
+
+      setBright = "brightnessctl set --min-value=4800";
+      getBright = "\"$(( ($(cat /sys/class/backlight/*/brightness) * 100) / $(cat /sys/class/backlight/*/max_brightness) ))\"";
+      notifBright = "dunstify -h int:value:${getBright} -i ${../../dunst/assets/brightness.svg} -t 500 -r 2593 \"Brightness: ${getBright}%\"";
+    in
+    [
+      " , code:68, exec, ${setVol} 2%- && ${notifVol}"
+      " , code:69, exec, ${setVol} 2%+ && ${notifVol}"
+      " , code:71, exec, ${setBright} 5%- && ${notifBright}"
+      " , code:72, exec, ${setBright} +5% && ${notifBright}"
     ];
 
-    bind = [
+    bind = 
+    let
+      notifMute = "dunstify -i ${../../dunst/assets}/$( (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo \"volume-mute.svg\") || echo \"volume.svg\" ) -t 500 -r 2593 \"Toggle Mute\"";
+    in 
+    [
       "SUPER, Q, exec, ${lib.getExe pkgs.foot}"
       "SUPER, H, exec, ${lib.getExe pkgs.firefox}"
       "SUPER, R, exec, ${lib.getExe pkgs.wofi} --show drun"
       "CTRL ALT, L, exec, hyprlock"
 
-      " , code:67, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      " , code:67, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${notifMute}"
 
       "SUPER, S, exec, hyprshot -o ${config.home.homeDirectory}/Medias/Screenshots -m eDP-1"
       "SUPER SHIFT, S, exec, hyprshot -o ${config.home.homeDirectory}/Medias/Screenshots -m region"

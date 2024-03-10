@@ -1,5 +1,4 @@
 { pkgs, lib, config, ... }:
-let
 {
   programs.zsh = {
     enable = true;
@@ -37,7 +36,7 @@ let
       sudo = "sudo";
 
       # nixos
-      "avaBuild" = "cd ~/.dotfiles && sudo nixos-rebuild switch --flake .#avalon";
+      "avaBuild" = "cd ~/.dotfiles && git add . && sudo nixos-rebuild switch --flake .#avalon";
 
       # utils
       cat = "${lib.getExe bat} --style=plain";
@@ -50,7 +49,6 @@ let
       top = "${lib.getExe bottom}";
 
       # Nvchad
-      nvim = "${lib.getExe no-padding}";
       nv = "nvim";
       nvchad = "nvim";
 

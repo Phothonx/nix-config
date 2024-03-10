@@ -17,6 +17,5 @@
     ./cli
     ./programming
     ./dunst
-    ./anyrun
   ];
 }

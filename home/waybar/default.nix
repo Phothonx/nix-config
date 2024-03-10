@@ -1,4 +1,4 @@
-{ pkgs, config, colors, theme, ... }:
+{ pkgs, lib, config, colors, theme, ... }:
 {
   imports = [ ./style.nix ];
 
@@ -9,13 +9,12 @@
       mainBar = {
         layer = "top";
         position = "left";
-        width = 50;
-        height = 10;
+        width = 61;
         spacing = 6;
         margin-left = 10;
         margin-top = 20;
         margin-bottom = 20;
-        margin-right = 0;
+        margin-right = null;
 
         modules-left = [
           "image"
@@ -29,7 +28,7 @@
         ];
         modules-right = [
           "clock"
-        ];
+          ];
 
         "hyprland/workspaces" = {
           on-click = "activate";
@@ -53,16 +52,16 @@
           };
         };
 
-        "image" = {
+        "image" ={
           path = "${config.home.homeDirectory}/.dotfiles/wallpapers/logo/nix-logo.png";
-          size = 25;
-          on-click = " ";
+          size = 32;
+          on-click = "";
           tooltip = false;
         };
 
         clock = {
           format = "{:%H%n%M}";
-          tooltip-format = " ";
+          tooltip-format = "";
         };
 
         backlight = {
@@ -96,8 +95,8 @@
           format-disconnected = "󰤭";
           tooltip-format-wifi = "SSID: {essid}\nWidth: ⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}";
           tooltip-format-ethernet = "IFname:  {ifname}\nWidth: ⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}";
-	      tooltip-format-disconnected = "Disconnected"; 
-          on-click = " ";
+	        tooltip-format-disconnected = "Disconnected"; 
+          on-click = "";
         };
 
         wireplumber = {

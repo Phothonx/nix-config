@@ -13,7 +13,12 @@
     brightnessctl
     swww
     hyprkeys
-    cliphist
     hyprshot
+    helvum
+    wl-clipboard
   ];
+
+  services = {
+    cliphist.enable = true;
+  };
 }
