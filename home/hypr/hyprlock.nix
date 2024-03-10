@@ -1,4 +1,4 @@
-{ inputs, config, colors, ... }:
+{ inputs, config, theme, colors, ... }:
 {
   imports = [ inputs.hyprlock.homeManagerModules.hyprlock ];
 
@@ -10,42 +10,43 @@
 
     backgrounds = [{
       monitor = "";
-      path = "${config.home.homeDirectory}/.dotfiles/wallpapers/aesthic-wallpapers/30.png";
-      blur_size = 2;
+      path = "${theme.wallpaper}";
+      blur_size = 3;
       blur_passes = 3;
-      noise = 0.020;
+      noise = 0.018;
       contrast = 0.9;
       brightness = 0.83;
     }];
 
-    input-fields = [{
+    input-fields = with colors; [{
       monitor = "";
       size = {
-        width = 250;
-        height = 75;
+        width = 265;
+        height = 65;
       };
-      outline_thickness = 2;
-      dots_spacing = 0.3;
+      outline_thickness = 3;
+      dots_size = 0.2;
+      dots_spacing = 0.2;
       dots_center = true;
-      outer_color = "rgb(${colors.base07})";
-      inner_color = "rgb(${colors.base04})";
-      font_color = "rgb(${colors.base05})";
+      # dots_rounding = -2;
+      outer_color = "rgb(${base17})";
+      inner_color = "rgb(${base07})";
+      font_color = "rgb(${base00})";
       fade_on_empty = false;
-      placeholder_text = ''<span font_family="Ubuntu Nerd Font" foreground="##${colors.base05}">Password...</span>'';
+      placeholder_text = ''<span font_family="${theme.fonts.sansSerif}" foreground="##${colors.base04}">Password...</span>'';
+      rounding = 15;
+      # shadow_passes = 2;
+      # shadow_color = "rgb(${colors.base10})";
     }];
 
     labels = [{
       monitor = "";
       text = "$TIME";
-      font_family = "Ubuntu Nerd Font";
-      font_size = 50;
-      color = "rgb(${colors.base05})";
-      position = {
-        x = 0;
-        y = 80;
-      };
-        valign = "center";
-        halign = "center";
+      font_family = theme.fonts.sansSerif;
+      font_size = 75;
+      color = "rgb(${colors.base07})";
+      # shadow_passes = 2;
+      # shadow_color = "rgb(${colors.base10})";
       }];
   };
 }

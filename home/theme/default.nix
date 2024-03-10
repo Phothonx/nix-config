@@ -1,7 +1,7 @@
 { pkgs, theme, ... }:
 with theme;
 {
-  # home.packages = fonts.packages;
+  home.packages = fonts.packages ++ [ cursor.package ] ++ [ icons.package ];
 
   home.pointerCursor = {
     package = cursor.package;

@@ -24,6 +24,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -41,7 +45,7 @@
       name = "Nicolas";
       email = "";
       sheme = "catppuccin-mocha"; # see in ./theme/shemes/*
-      wallpaper = "cat_leaves"; # see in ./wallpapers
+      wallpaper = ./wallpapers/graphism/cat_leaves.png; # see in ./wallpapers (witho)
     };
   in
   {

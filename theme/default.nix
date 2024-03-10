@@ -36,24 +36,22 @@ rec {
     emoji = "Noto Color Emoji";
 
     sizes = rec {
-      desktop = 12;
+      desktop = 15;
       applications = 12;
-      terminal = applications;
+      terminal = 9;
       popups = desktop;
     };
 
     packages = with pkgs; [
-      nerdfonts.override { fonts = [
+      (nerdfonts.override { fonts = [
         "Ubuntu"
         "FiraCode"
         "JetBrainsMono"
         "Iosevka"
-      ]; }
+      ]; })
       noto-fonts-emoji
     ];
   };
 
-  wallpaper = ../../wallpapers/cat_leaves.png;
-
-  packages = fonts.packages ++ [ cursor.package ] ++ [ icons.package ];
+  wallpaper = userConfig.wallpaper;
 }

@@ -12,11 +12,11 @@
     ./ide
     ./terminal
     ./discord
-    ./sway
     ./rofi
     ./waybar
     ./cli
     ./programming
     ./dunst
+    ./anyrun
   ];
 }

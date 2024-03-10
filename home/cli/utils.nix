@@ -2,14 +2,12 @@
 {
   home.packages = with pkgs;
     [
-      brightnessctl
       zip
       unzip
       fd
     ];
 
     programs = {
-
       zoxide = {
         enable = true;
         enableZshIntegration = true;

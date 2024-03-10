@@ -1,9 +1,9 @@
-{ pkgs, config, ... }:
+{ pkgs, config, theme, colors, ... }:
 {
   services.dunst = {
     enable = true;
-    inherit (config.gtk) iconTheme;
-    settings = {
+    iconTheme = theme.icons;
+    settings = with colors; {
       global = {
         follow = "mouse";
         width = 500;
@@ -17,30 +17,29 @@
         frame_width = 2;
         gap_size = 8;
         separator_color = "frame";
-        font = "Ubuntu Nerd Font";
-        # format
+        font = theme.fonts.sansSerif;
         vertical_alignment = "center";
-        corner_radius = 8;
+        corner_radius = 15;
         mouse_left_click = "do_action";
         mouse_middle_click = "close_all";
         mouse_right_click = "close_current";
       };
-      # fullscreen_delay_everything = {fullscreen = "delay";};
-      # urgency_critical = {
-      #   background = c.error_container;
-      #   foreground = c.on_error_container;
-      #   frame_color = c.error;
-      # };
-      # urgency_low = {
-      #   background = c.secondary_container;
-      #   foreground = c.on_secondary_container;
-      #   frame_color = c.secondary;
-      # };
-      # urgency_normal = {
-      #   background = c.primary_container;
-      #   foreground = c.on_primary_container;
-      #   frame_color = c.primary;
-      # };
+      fullscreen_delay_everything = {fullscreen = "delay";};
+      urgency_critical = {
+        background = "#${base00}";
+        foreground = "#${base07}";
+        frame_color = "#${base08}";
+      };
+      urgency_low = {
+        background = "#${base00}";
+        foreground = "#${base07}";
+        frame_color = "#${base0A}";
+      };
+      urgency_normal = {
+        background = "#${base00}";
+        foreground = "#${base07}";
+        frame_color = "#${base0D}";
+      };
     };
   };
 }

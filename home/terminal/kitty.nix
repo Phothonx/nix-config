@@ -5,7 +5,6 @@
 
     shellIntegration = {
       enableZshIntegration = true;
-      mode = "";
     };
 
     font = {

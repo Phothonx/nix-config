@@ -2,12 +2,18 @@
 {
   imports =
   [
-    ./hyprland.nix
+    ./config.nix
     ./env.nix
+    ./rules.nix
+    ./binds.nix
   ];
 
-  home.packages = with pkgs;
-  [
+  home.packages = with pkgs; [
+    libnotify
+    brightnessctl
     swww
+    hyprkeys
+    cliphist
+    hyprshot
   ];
 }

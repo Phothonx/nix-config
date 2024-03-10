@@ -1,131 +1,24 @@
-{ pkgs, lib, config, colors, ... }:
+{ pkgs, config, colors, theme, ... }:
 {
+  imports = [ ./style.nix ];
+
   programs.waybar = {
     enable = true;
-
-    style = ''
-    * {
-      font-family: JetBrainsMono Nerd Font;
-      font-size: 17px;
-    }
-
-    window#waybar {
-      background-color: #${colors.base01};
-      border-radius: 7px;
-      color: #ffffff;
-      transition-property: background-color;
-      transition-duration: 0.3s;
-    }
-
-    #clock {
-      background-color: #${colors.base00};
-      color: #CDD6F4;
-      font-family: Ubuntu Nerd Font;
-      font-size: 28px;
-      font-weight: 700;
-      margin: 5px;
-      padding: 5px;
-      border-radius: 7px;
-    }
-
-    #workspaces button {
-      background-color: transparent;
-      /* Use box-shadow instead of border so the text isn't offset */
-      color: #${colors.base0E};
-    }
-
-    #workspaces button:hover {
-      color: #${colors.base0F};
-    }
-
-    #custom-power {
-      background-color: #${colors.base00};
-        color: #${colors.base08}; 
-        margin: 5px;
-        padding: 5px;
-        border-radius: 7px;
-    }
-
-    #workspaces button.active {
-      color: #${colors.base0A};
-    }
-
-    #clock,
-    #network,
-    #battery,
-    #backlight,
-    #workspaces,
-    #custom-menu,
-    #custom-power,
-    #wireplumber,
-
-    #network {
-      background-color: #${colors.base00};
-      color: #${colors.base0D};
-      margin: 5px;
-      padding: 5px;
-      border-radius: 7px;
-    }
-
-    #custom-menu {
-      background-color: #${colors.base00};
-      color: #${colors.base0E};
-      margin: 5px;
-      padding: 5px;
-      border-radius: 7px;
-    }
-
-    #backlight {
-      background-color: #${colors.base00};
-      color: #${colors.base0A};
-      margin: 5px;
-      padding: 5px;
-      border-radius: 7px;
-    }
-
-    #battery {
-      background-color: #${colors.base00};
-      color: #${colors.base0B};
-      margin: 5px;
-      padding: 5px;
-      border-radius: 7px;
-    }
-
-    #battery.warning {
-      background-color: #${colors.base00};
-      color: #${colors.base0C};
-    }
-
-    #battery.critical:not(.charging) {
-      color: #${colors.base08};
-    }
-
-    #wireplumber {
-      background-color: #${colors.base00};
-      color: #${colors.base0C};
-      margin: 5px;
-      padding: 5px;
-      border-radius: 7px;
-    }
-
-    #wireplumber.muted {
-      color: #${colors.base08};
-    }
-    '';
 
     settings = {
       mainBar = {
         layer = "top";
         position = "left";
         width = 50;
+        height = 10;
         spacing = 6;
         margin-left = 10;
         margin-top = 20;
         margin-bottom = 20;
-        margin-right = null;
+        margin-right = 0;
 
         modules-left = [
-          "custom/menu"
+          "image"
           "backlight"
           "battery"
           "network"
@@ -136,12 +29,11 @@
         ];
         modules-right = [
           "clock"
-          "custom/power"
-          ];
+        ];
 
         "hyprland/workspaces" = {
           on-click = "activate";
-          show-special = true;
+          show-special = false;
           format = "{icon}";
           format-icons = {
             "special" = "零";
@@ -161,51 +53,61 @@
           };
         };
 
-        "custom/menu" = {
-          format = "";
+        "image" = {
+          path = "${config.home.homeDirectory}/.dotfiles/wallpapers/logo/nix-logo.png";
+          size = 25;
+          on-click = " ";
           tooltip = false;
-          on-click = "sleep 0.1 && wofi --show drun";
-        };
-
-        "custom/power" = {
-          tooltip = false;
-          format = "";
         };
 
         clock = {
           format = "{:%H%n%M}";
-          tooltip = false;
+          tooltip-format = " ";
         };
 
         backlight = {
-          tooltip = false;
-          format = " {icon}\n{percent}%";
+          tooltip-format = "Brightness: {percent}%";
+          format = " {icon}";
           format-icons = ["" "" "" "" "" "" "" "" ""];
+          on-click = "brightnessctl set --min-value=4800 70%";
+          on-scroll-up = "brightnessctl set --min-value=4800 +5%";
+          on-scroll-down = "brightnessctl set --min-value=4800 5%-";
         };
 
         battery = {
           states = {
-            warning = 20;
-            critical = 15;
+            warning = 15;
+            critical = 5;
           };
-          format = " {icon}\n{capacity}%";
-          format-charging = " {icon}󱐋\n{capacity}%";
-          format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          format = " {icon}";
+          format-charging = "{icon}";
+          format-icons = {
+            default = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+            charging = ["󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
+          };
+          tooltip-format = "Capacity: {capacity}%\nTime until:{time}\nPower: {power}W";
         };
 
         network = {
-          format-wifi = " 󰤨\n{signalStrength}%";
+          interval = 5;
+          format-wifi = "{icon}";
+          format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
           format-ethernet = "󰈀";
           format-disconnected = "󰤭";
-          tooltip = false;
+          tooltip-format-wifi = "SSID: {essid}\nWidth: ⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}";
+          tooltip-format-ethernet = "IFname:  {ifname}\nWidth: ⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}";
+	      tooltip-format-disconnected = "Disconnected"; 
+          on-click = " ";
         };
 
         wireplumber = {
-          # format = " {icons}\n{volume}%";
-          format = "{volume}%";
-          format-muted = "";
-          # format-icons = ["" "" ""];
-          tooltip = false;
+          format = "{icon}";
+          format-icons = ["󰖀" "󰕾" ""];
+          format-muted = "󰝟";
+          tooltip = "Volume: {Volume}%\nNode: {node_name}";
+          on-click = "helvum";
+          on-scroll-up = "wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 2%+";
+          on-scroll-down = "wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 2%-";
         };
       };
     };

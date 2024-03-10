@@ -16,9 +16,9 @@
     base08 = "f38ba8"; # red
     base09 = "fab387"; # peach
     base0A = "f9e2af"; # yellow
-    base0B = "f9e2af"; # green
-    base0C = "f9e2af"; # teal
-    base0D = "f9e2af"; # blue
+    base0B = "a6e3a1"; # green
+    base0C = "94e2d5"; # teal
+    base0D = "89b4fa"; # blue
     base0E = "cba6f7"; # mauve
     base0F = "f5c2e7"; # pink
     base10 = "181825"; # mantle
@@ -56,5 +56,7 @@
     # lcyan = base15;
     # lblue = base16;
     # lpurple = base17;
+
+    # accent = base17;
   };
 }

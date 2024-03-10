@@ -22,6 +22,6 @@
     NIXOS_XDG_OPEN_USE_PORTAL=1;
 
     BROWSER = "firefox";
-    TERMINAL = "kitty";
+    TERMINAL = "foot";
   };
 }
