@@ -16,9 +16,7 @@
     hyprshot
     helvum
     wl-clipboard
+    cliphist
+    hyprpicker
   ];
-
-  services = {
-    cliphist.enable = true;
-  };
 }

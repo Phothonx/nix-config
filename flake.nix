@@ -41,7 +41,8 @@
       name = "Nicolas";
       email = "";
       sheme = "catppuccin-mocha"; # see in ./theme/shemes/*
-      wallpaper = ./wallpapers/graphism/cat_leaves.png; # see in ./wallpapers (witho)
+      accent = "";
+      wallpaper = ./wallpapers/graphism/crystal-waves-tern.png; # see in ./wallpapers
     };
   in
   {

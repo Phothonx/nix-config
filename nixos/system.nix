@@ -5,29 +5,25 @@
       warn-dirty = false;
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
+      builders-use-substitutes = true;
+      trusted-users = ["root" "@wheel"];
     };
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
+      dates = "daily";
+      options = "--delete-older-than 3d";
     };
   };
 
-  services.gnome.gnome-keyring.enable = true;
-
-  programs.dconf.enable = true; # gnome
-  services.gvfs.enable = true; # Mount, trash, and other functionalities
-  services.dbus.implementation = "broker";
-
-  programs.xfconf.enable = true; # thunar
-  services.tumbler.enable = true; # Thumbnail support for images
-  programs.thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-          thunar-archive-plugin
-          thunar-volman
-      ];
+  # faster rebuilding
+  documentation = {
+    enable = true;
+    doc.enable = false;
+    man.enable = true;
+    dev.enable = false;
   };
+  
+  services.dbus.implementation = "broker";
 
   nixpkgs = {
     config.allowUnfree = true;

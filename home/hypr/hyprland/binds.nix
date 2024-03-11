@@ -7,10 +7,10 @@
       "SUPER ALT, mouse:272, resizewindow"
     ];
 
-    bindle = 
+    bindle= 
     let
       setVol = "wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@";
-      getVol = "\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g')\"";
+      getVol = "\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' | sed 's/^0*//')\"";
       notifVol = "dunstify -h int:value:${getVol} -i ${../../dunst/assets/volume.svg} -t 500 -r 2593 \"Volume: ${getVol}%\"";
 
       setBright = "brightnessctl set --min-value=4800";
@@ -36,8 +36,10 @@
 
       " , code:67, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${notifMute}"
 
-      "SUPER, S, exec, hyprshot -o ${config.home.homeDirectory}/Medias/Screenshots -m eDP-1"
-      "SUPER SHIFT, S, exec, hyprshot -o ${config.home.homeDirectory}/Medias/Screenshots -m region"
+      "SUPER, S, exec, hyprshot -o ${config.xdg.userDirs.pictures}/Screenshots -c -m output"
+      "SUPER SHIFT, S, exec, hyprshot -o ${config.xdg.userDirs.pictures}/Screenshots -m region"
+
+      "SUPER SHIFT, C, exec, ${lib.getExe pkgs.hyprpicker} -f hex -a"
 
       "SUPER, C, killactive," 
       "SUPER SHIFT, M, exit,"

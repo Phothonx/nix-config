@@ -11,6 +11,8 @@
         origin = "top-right";
         offset = "15x15";
         progress_bar_height = 8;
+        progress_bar_frame_width = 0;
+        progress_bar_corner_radius = 5;
         padding = 15;
         horizontal_padding = 15;
         text_icon_padding = 15;
@@ -26,19 +28,22 @@
       };
       fullscreen_delay_everything = {fullscreen = "delay";};
       urgency_critical = {
-        background = "#${base00}";
+        background = "#${base10}";
         foreground = "#${base07}";
         frame_color = "#${base08}";
+        highlight = "#${base08}";
       };
       urgency_low = {
-        background = "#${base00}";
+        background = "#${base10}";
         foreground = "#${base07}";
         frame_color = "#${base0A}";
+        highlight = "#${base0A}";
       };
       urgency_normal = {
-        background = "#${base00}";
+        background = "#${base10}";
         foreground = "#${base07}";
-        frame_color = "#${base0D}";
+        frame_color = "#${base0E}";
+        highlight = "#${base0E}";
       };
     };
   };

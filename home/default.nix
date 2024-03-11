@@ -17,5 +17,7 @@
     ./cli
     ./programming
     ./dunst
+    ./xgd
+    ./gnome
   ];
 }

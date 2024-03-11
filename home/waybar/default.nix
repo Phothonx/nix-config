@@ -74,6 +74,7 @@
         };
 
         battery = {
+          interval = 5;
           states = {
             warning = 15;
             critical = 5;
@@ -84,7 +85,7 @@
             default = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
             charging = ["󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
           };
-          tooltip-format = "Capacity: {capacity}%\nTime until:{time}\nPower: {power}W";
+          tooltip-format = "Capacity: {capacity}%\nTime: {time}\nPower: {power}W";
         };
 
         network = {
@@ -103,7 +104,7 @@
           format = "{icon}";
           format-icons = ["󰖀" "󰕾" ""];
           format-muted = "󰝟";
-          tooltip = "Volume: {Volume}%\nNode: {node_name}";
+          tooltip = "Volume: {volume}%\nNode: {node_name}";
           on-click = "helvum";
           on-scroll-up = "wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 2%+";
           on-scroll-down = "wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 2%-";
