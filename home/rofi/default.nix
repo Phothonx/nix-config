@@ -1,6 +1,6 @@
-{ ... }:
+{ pkgs, colors, theme, ... }:
 {
-    programs.wofi = {
-        enable = true;
-    };
+  programs.wofi = {
+    enable = true;
+  };
 }

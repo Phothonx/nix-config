@@ -17,8 +17,8 @@
       all: initial; /* Remove GTK theme values (waybar #1351) */
       min-width: 0; /* Fix weird spacing in materia (waybar #450) */
       background-color: transparent;
-      color: #${base0C};
-      font-size: 19px;
+      color: #${base17};
+      font-size: 17px;
       font-weight: bold;
       padding: 10px 5px 10px 5px;
     }

@@ -16,7 +16,7 @@ rec {
   };
 
   icons = {
-    name = "morewaita-icon-theme";
+    name = "MoreWaita";
     package = pkgs.morewaita-icon-theme;
   };
 
@@ -30,7 +30,7 @@ rec {
 
   # TODO : test Lexend one day
   fonts = {
-    serif = "Ubuntu Nerd Font"; # ¯\_(ツ)_/¯
+    serif = "Ubuntu Nerd Font";
     sansSerif = "Ubuntu Nerd Font";
     monospace = "JetBrainsMono Nerd Font";
     emoji = "Noto Color Emoji";

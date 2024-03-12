@@ -11,11 +11,11 @@
     let
       setVol = "wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@";
       getVol = "\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' | sed 's/^0*//')\"";
-      notifVol = "dunstify -h int:value:${getVol} -i ${../../dunst/assets/volume.svg} -t 500 -r 2593 \"Volume: ${getVol}%\"";
+      notifVol = "dunstify -h int:value:${getVol} -i ${../../dunst/assets/volume.svg} -t 700 -r 2593 \"Volume: ${getVol}%\"";
 
       setBright = "brightnessctl set --min-value=4800";
       getBright = "\"$(( ($(cat /sys/class/backlight/*/brightness) * 100) / $(cat /sys/class/backlight/*/max_brightness) ))\"";
-      notifBright = "dunstify -h int:value:${getBright} -i ${../../dunst/assets/brightness.svg} -t 500 -r 2593 \"Brightness: ${getBright}%\"";
+      notifBright = "dunstify -h int:value:${getBright} -i ${../../dunst/assets/brightness.svg} -t 700 -r 2593 \"Brightness: ${getBright}%\"";
     in
     [
       " , code:68, exec, ${setVol} 2%- && ${notifVol}"

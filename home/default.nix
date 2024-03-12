@@ -19,5 +19,6 @@
     ./dunst
     ./xgd
     ./gnome
+    ./spotify
   ];
 }
