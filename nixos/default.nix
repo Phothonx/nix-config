@@ -23,6 +23,7 @@ in
       ./gnome.nix
       ./security.nix
       ./substituers.nix
+      ./bluetooth.nix
     ];
   };
 }

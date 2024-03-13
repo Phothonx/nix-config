@@ -17,6 +17,11 @@
     hyprlock.url = "github:hyprwm/hyprlock";
     hypridle.url = "github:hyprwm/hypridle";
 
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     NvChad.url = "github:NvChad/nix";
 
     firefox-addons = {

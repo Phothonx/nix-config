@@ -5,20 +5,15 @@
     colors = theme.sheme.palette;
   };
 
-  imports = [
-    ./hypr
-    ./theme
-    ./firefox
-    ./ide
-    ./terminal
-    ./discord
-    ./rofi
-    ./waybar
+  imports =
+  [
     ./cli
-    ./programming
-    ./dunst
-    ./xgd
-    ./gnome
-    ./spotify
+    ./config
+    ./dev
+    ./services
+    ./softwares
+    ./wayland
+
+    ./rofi
   ];
 }

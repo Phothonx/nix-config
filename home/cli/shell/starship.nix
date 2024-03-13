@@ -4,18 +4,18 @@
     enable = true;
     enableZshIntegration = true;
 
-    settings = {
+    settings = with colors; {
       format = ''$c$python$ocaml$directory$character'';      
       right_format = ''$git_branch$git_status'';    
 
       character = {
         format = "$symbol ";
-        success_symbol = "[❯❯](#${colors.base0B})";
-        error_symbol = "[❯❯](#${colors.base08})";
+        success_symbol = "[❯❯](#${base0B})";
+        error_symbol = "[❯❯](#${base08})";
       };
 
       directory = {
-        format = "[$path](#${colors.base0D})[$read_only](#${colors.base08}) "; 
+        format = "[$path](#${base0D})[$read_only](#${base08}) "; 
         read_only = "🔒";
         truncation_length = 4;
         truncation_symbol = "";
@@ -23,7 +23,7 @@
       };
 
       git_branch = {
-        format = "[🌱 $branch(:$remote_branch)](#${colors.base0F}) ";
+        format = "[🌱 $branch(:$remote_branch)](#${base0F}) ";
         truncation_length = 5;
         truncation_symbol = ".";
       };
@@ -38,21 +38,21 @@
         untracked = "🤷";
         stashed = "📦";
         modified = "📝";
-        staged = "[++\($count\)](#${colors.base0B})";
+        staged = "[++\($count\)](#${base0B})";
         renamed = "👅";
         deleted = "🗑";
       };
 
       c = {
-        format = "[C $version](bold #${colors.base0C}) | ";
+        format = "[C $version](bold #${base0C}) | ";
       };
 
       ocaml = {
-        format = "[🐫 $version \($switch_indicator$switch_name\)](bold #${colors.base0A}) | ";
+        format = "[🐫 $version \($switch_indicator$switch_name\)](bold #${base0A}) | ";
       };
 
       python = {
-        format = "[🐍 $version \($virtualenv\)](bold #${colors.base0C}) | ";
+        format = "[🐍 $version \($virtualenv\)](bold #${base0C}) | ";
       };
     };
   };

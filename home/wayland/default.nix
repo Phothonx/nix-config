@@ -3,7 +3,8 @@
   imports =
   [
     ./hyprland
+    ./waybar
+
     ./hyprlock.nix
-    ./hypridle.nix
   ];
 }

@@ -14,7 +14,10 @@
     swww
     hyprkeys
     hyprshot
+
     helvum
+    overskride
+
     wl-clipboard
     cliphist
     hyprpicker

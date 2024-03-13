@@ -50,6 +50,7 @@ rec {
         "Iosevka"
       ]; })
       noto-fonts-emoji
+      gnome.adwaita-icon-theme
     ];
   };
 

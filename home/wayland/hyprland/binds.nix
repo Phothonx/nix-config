@@ -11,11 +11,11 @@
     let
       setVol = "wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@";
       getVol = "\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' | sed 's/^0*//')\"";
-      notifVol = "dunstify -h int:value:${getVol} -i ${../../dunst/assets/volume.svg} -t 700 -r 2593 \"Volume: ${getVol}%\"";
+      notifVol = "dunstify -h int:value:${getVol} -i ${config.home.homeDirectory}/.dotfiles/home/services/dunst/assets/volume.svg -t 700 -r 2593 \"Volume: ${getVol}%\"";
 
       setBright = "brightnessctl set --min-value=4800";
       getBright = "\"$(( ($(cat /sys/class/backlight/*/brightness) * 100) / $(cat /sys/class/backlight/*/max_brightness) ))\"";
-      notifBright = "dunstify -h int:value:${getBright} -i ${../../dunst/assets/brightness.svg} -t 700 -r 2593 \"Brightness: ${getBright}%\"";
+      notifBright = "dunstify -h int:value:${getBright} -i ${config.home.homeDirectory}/.dotfiles/home/services/dunst/assets/brightness.svg -t 700 -r 2593 \"Brightness: ${getBright}%\"";
     in
     [
       " , code:68, exec, ${setVol} 2%- && ${notifVol}"
@@ -26,12 +26,12 @@
 
     bind = 
     let
-      notifMute = "dunstify -i ${../../dunst/assets}/$( (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo \"volume-mute.svg\") || echo \"volume.svg\" ) -t 500 -r 2593 \"Toggle Mute\"";
+      notifMute = "dunstify -i ${config.home.homeDirectory}/.dotfiles/home/services/dunst/assets/$( (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo \"volume-mute.svg\") || echo \"volume.svg\" ) -t 500 -r 2593 \"Toggle Mute\"";
     in 
     [
       "SUPER, Q, exec, ${lib.getExe pkgs.foot}"
       "SUPER, H, exec, ${lib.getExe pkgs.firefox}"
-      "SUPER, R, exec, ${lib.getExe pkgs.wofi} --show drun"
+      "SUPER, R, exec, anyrun"
       "CTRL ALT, L, exec, hyprlock"
 
       " , code:67, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${notifMute}"
