@@ -24,6 +24,7 @@ in
       ./security.nix
       ./substituers.nix
       ./bluetooth.nix
+      ./nh.nix
     ];
   };
 }

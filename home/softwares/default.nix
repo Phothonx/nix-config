@@ -8,5 +8,6 @@
     ./obs
     ./spotify
     ./terminal
+    ./zathura
   ];
 }

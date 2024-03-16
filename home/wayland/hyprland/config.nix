@@ -5,7 +5,6 @@ let
     ${lib.getExe pkgs.waybar}
     dunst
     hyprctl setcursor ${theme.cursor.name} ${builtins.toString theme.cursor.size}
-    wl-paste --watch cliphist store
     hyprlock
   '';
 in
@@ -128,6 +127,7 @@ in
         disable_splash_rendering = true;
         background_color = "rgb(${base00})";
 
+        focus_on_activate = true;
         animate_manual_resizes = true;
         animate_mouse_windowdragging = true;
         hide_cursor_on_touch = false;

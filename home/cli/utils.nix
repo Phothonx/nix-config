@@ -10,6 +10,7 @@
       zip
       unzip
       unrar
+      glow
 
       # Quality of life
       thefuck
@@ -20,7 +21,9 @@
       catimg
       rsync
 
-      neovim
+      # Fun fetching
+      cowsay
+      lolcat
     ];
 
   programs = {

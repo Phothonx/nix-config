@@ -1,0 +1,4 @@
+{ ... }:
+{
+  services.udiskie.enable = true;
+}

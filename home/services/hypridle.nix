@@ -4,6 +4,7 @@ let # Made by fufexan or linuxmobile idk XD
     ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
     # only suspend if audio isn't running
     if [ $? == 1 ]; then
+      sleep 1
       ${pkgs.systemd}/bin/systemctl suspend
     fi
   '';

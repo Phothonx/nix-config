@@ -16,7 +16,9 @@
     hyprshot
 
     helvum
+    easyeffects
     overskride
+    imv
 
     wl-clipboard
     cliphist

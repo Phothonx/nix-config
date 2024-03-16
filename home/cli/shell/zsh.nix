@@ -35,9 +35,6 @@
     shellAliases = with pkgs; {
       sudo = "sudo";
 
-      # nixos
-      "avaBuild" = "cd ~/.dotfiles && git add . && sudo nixos-rebuild switch --flake .#avalon";
-
       # utils
       cat = "${lib.getExe bat} --style=plain";
       grep = "${lib.getExe ripgrep}";
