@@ -1,7 +1,6 @@
 {
   description = ''
-  █▀█ █░█ █▀█ ▀█▀ █░█ █▀█ █▄░█ ▀▄▀   ▄▄   █▄░█ █ ▀▄▀ █▀█ █▀   █▀▀ █░░ ▄▀█ █▄▀ █▀▀   █▀▀ █▀█ █▄░█ █▀▀ █ █▀▀
-  █▀▀ █▀█ █▄█ ░█░ █▀█ █▄█ █░▀█ █░█   ░░   █░▀█ █ █░█ █▄█ ▄█   █▀░ █▄▄ █▀█ █░█ ██▄   █▄▄ █▄█ █░▀█ █▀░ █ █▄█
+  
   '';
 
   inputs = {
@@ -27,7 +26,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    NvChad.url = "github:NvChad/nix";
+    # NvChad.url = "github:NvChad/nix";
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";

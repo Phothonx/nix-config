@@ -1,5 +1,5 @@
 { colors, theme, ... }:
-{
+{ # i need to rewrite this config, this is awful
   programs.waybar.style = with colors; ''
     * {
       font-family: ${theme.fonts.sansSerif};
@@ -18,20 +18,24 @@
       min-width: 0; /* Fix weird spacing in materia (waybar #450) */
       background-color: transparent;
       color: #${base17};
-      font-size: 17px;
+      font-size: 14px;
       font-weight: bold;
       padding: 10px 5px 10px 5px;
+      border-radius: 8px;
     }
 
     #workspaces button:hover {
       color: #${base0D};
+      background-color: #${base01};
     }
 
     #workspaces button.active {
       color: #${base0E};
+      background-color: #${base01};
     }
 
     #clock,
+    #taskbar,
     #network,
     #battery,
     #backlight,
@@ -51,6 +55,34 @@
       margin: 5px 5px 20px 5px;
       padding: 10px 5px 10px 5px;
       border-radius: 8px;
+    }
+
+    #taskbar {
+      background-color: #${base00};
+      margin: 5px;
+      padding: 10px 5px 10px 5px;
+      border-radius: 8px;
+    }
+
+    #taskbar button {
+      margin: 5px 0px 0px 0px;
+      padding: 0px;
+      border-radius: 8px;
+    }
+
+    #taskbar button:hover {
+      background-color: #${base01};
+    }
+
+    #taskbar button.active {
+      background-color: #${base01};
+    }
+
+    #taskbar.empty {
+      background-color: transparent;
+      margin: 0px;
+      padding: 0px;
+      border-radius: 0px;
     }
 
     #network {
@@ -102,6 +134,7 @@
       border-radius: 8px;
       padding: 15px;
       background-color: #${base10};
+      font-size: 10px;
     }
       
     tooltip label {

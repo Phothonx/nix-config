@@ -8,7 +8,6 @@ let
 
   associations = {
     "text/html" = browser;
-    "application/json" = browser;
 
     "x-scheme-handler/http" = browser;
     "x-scheme-handler/https" = browser;

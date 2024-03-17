@@ -4,9 +4,7 @@
         "autoUpdate": false,
         "autoUpdateNotification": true,
         "useQuickCss": true,
-        "themeLinks": [
-            "https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css"
-        ],
+        "themeLinks": [],
         "enabledThemes": [],
         "enableReactDevtools": false,
         "frameless": false,

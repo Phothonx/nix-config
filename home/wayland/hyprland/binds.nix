@@ -32,6 +32,7 @@
       "SUPER, Q, exec, ${lib.getExe pkgs.foot}"
       "SUPER, H, exec, ${lib.getExe pkgs.firefox}"
       "SUPER, R, exec, anyrun"
+      "SUPER, E, exec, ${lib.getExe pkgs.gnome.nautilus}"
       "CTRL ALT, L, exec, hyprlock"
 
       " , code:67, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${notifMute}"
@@ -60,6 +61,8 @@
       "SUPER SHIFT, Space, workspaceopt, allfloat"
       "SUPER, G, togglesplit,"
       "SUPER, F, fullscreen,"
+
+      "SUPER, P, pin"
 
       "SUPER, A, togglespecialworkspace"
       "SUPER SHIFT, A, movetoworkspace, special"

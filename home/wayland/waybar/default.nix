@@ -27,6 +27,7 @@
           "hyprland/workspaces"
         ];
         modules-right = [
+          "wlr/taskbar"
           "clock"
           ];
 
@@ -47,12 +48,12 @@
             "9" = "九";
             "10" = "十";
           };
-          persistent_workspaces = {
+          persistent-workspaces = {
             "*" = 5;
           };
         };
 
-        "image" ={
+        image ={
           path = "${config.home.homeDirectory}/.dotfiles/wallpapers/logo/nix-logo.png";
           size = 32;
           on-click = "";
@@ -62,6 +63,17 @@
         clock = {
           format = "{:%H%n%M}";
           tooltip-format = "";
+        };
+
+        "wlr/taskbar" = {
+          all-outputs = true;
+          icon-theme = theme.icons.name;
+          icon-size = 24;
+          on-click = "activate";
+          on-click-middle = "close";
+          ignore-list = [
+            "Foot"
+          ]; 
         };
 
         backlight = {

@@ -14,6 +14,7 @@ with theme;
     sessionVariables = {
       XCURSOR_THEME = cursor.name;
       XCURSOR_SIZE = cursor.size;
+      XCURSOR_PATH = "/usr/share/icons:${config.xdg.dataHome}/icons";
     };
   };
 }
