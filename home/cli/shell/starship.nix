@@ -17,7 +17,7 @@
       directory = {
         format = "[$path](#${base0D})[$read_only](#${base08}) "; 
         read_only = "🔒";
-        truncation_length = 4;
+        truncation_length = 5;
         truncation_symbol = "";
         home_symbol = "🏠";
       };
