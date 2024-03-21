@@ -1,9 +1,2 @@
-# nixos-dots
----
-### To-Do
- - hyprland animations
- - hyprlock shadow
- - theme add shemes
+# dotfiles
 
- - cli neofetch, utils, zsh
- - 

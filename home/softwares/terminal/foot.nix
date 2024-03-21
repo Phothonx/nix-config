@@ -7,7 +7,9 @@
       main = {
         font = "${theme.fonts.monospace}:size=${builtins.toString theme.fonts.sizes.terminal}";
         box-drawings-uses-font-glyphs = "yes";
-        pad="25x25center";
+        underline-offset = "2";
+        underline-thickness = "1";
+        pad = "25x25center";
         selection-target = "clipboard";
         dpi-aware = "yes";
         notify = "dunstify -a \${app-id} -i \${app-id} \${title} \${body}";

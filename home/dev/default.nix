@@ -9,6 +9,7 @@
     gcc
     python3
 
+    opam
     ocaml
     ocamlPackages.utop
   ];
