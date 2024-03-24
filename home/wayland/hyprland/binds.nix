@@ -29,7 +29,7 @@
       notifMute = "dunstify -i ${config.home.homeDirectory}/.dotfiles/home/services/dunst/assets/$( (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo \"volume-mute.svg\") || echo \"volume.svg\" ) -t 500 -r 2593 \"Toggle Mute\"";
     in 
     [
-      "SUPER, Q, exec, ${lib.getExe pkgs.foot}"
+      "SUPER, Q, exec, ${lib.getExe pkgs.kitty}"
       "SUPER, H, exec, ${lib.getExe pkgs.firefox}"
       "SUPER, R, exec, anyrun"
       "SUPER, E, exec, ${lib.getExe pkgs.gnome.nautilus}"

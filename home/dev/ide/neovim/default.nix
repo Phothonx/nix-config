@@ -12,6 +12,7 @@
   vimPlugins.sniprun
 
   # LSP
+  nil
   pkgs.ocamlPackages.ocaml-lsp
   lua-language-server
   ccls

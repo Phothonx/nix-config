@@ -48,7 +48,7 @@ in
     NIXOS_XDG_OPEN_USE_PORTAL=1;
 
     BROWSER = "firefox";
-    TERMINAL = "foot";
+    TERMINAL = "kitty";
   };
 
   home.packages = with pkgs; [

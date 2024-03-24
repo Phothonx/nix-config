@@ -1,12 +1,16 @@
 { pkgs, lib, inputs, colors, config, theme, systemConfig, ... }:
 let
+  cavaLaunch = pkgs.writeShellScriptBin "cava-launch" ''
+  sleep 1 && ${lib.getExe pkgs.cava}
+  '';
+
   startScript = pkgs.writeShellScriptBin "start" ''
     ${lib.getExe pkgs.swww} init && ${lib.getExe pkgs.swww} img ${theme.wallpaper}
     ${lib.getExe pkgs.waybar}
     dunst
     hyprctl setcursor ${theme.cursor.name} ${builtins.toString theme.cursor.size}
     hyprlock
-  '';
+  ''; #     kitty -o background_opacity=0 -o window_padding_width=0 --class="kitty-cava" ${lib.getExe cavaLaunch}
 in
 {
   wayland.windowManager.hyprland = {
@@ -16,17 +20,28 @@ in
       enable = true;
       variables = ["--all"];
     };
+
+    # plugins = [
+    #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
+    # ];
+
     xwayland.enable = true;
 
     settings = with colors; {
-        "$MOD" = "SUPER";
+      "$MOD" = "SUPER";
 
-        monitor = [
-          "eDP-1, 1920x1200@60, 0x0, 1" # personal monitor
-        ];
+      monitor = [
+        "eDP-1, 1920x1200@60, 0x0, 1" # personal monitor
+      ];
 
-        exec-once = "${lib.getExe startScript}";
-        exec = "hyprshade";
+      exec-once = "${lib.getExe startScript}";
+      exec = "hyprshade";
+
+      plugin = {
+        # hyprwinwrap = {
+        #   class = "kitty-cava";
+        # };
+      };
 
       general = {
           # no_border_on_floating = false
@@ -46,7 +61,7 @@ in
       };
 
       decoration = {
-          rounding = 15;
+          rounding = 14;
 
           drop_shadow = true; # lil shadow <3
           shadow_range = 15;

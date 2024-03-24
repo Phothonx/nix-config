@@ -1,16 +1,21 @@
 { colors, theme, ... }:
-{ # i need to rewrite this config, this is awful
+{
   programs.waybar.style = with colors; ''
     * {
       font-family: ${theme.fonts.sansSerif};
       font-size: ${builtins.toString theme.fonts.sizes.desktop}px;
+
+      border-radius: 10px;
     }
 
     window#waybar {
       background-color: #${base10};
-      border-radius: 8px;
       transition-property: background-color;
       transition-duration: 0.3s;
+    }
+
+    button:hover {
+      background-color: #${base01};
     }
 
     #workspaces button {
@@ -20,8 +25,9 @@
       color: #${base17};
       font-size: 14px;
       font-weight: bold;
-      padding: 10px 5px 10px 5px;
-      border-radius: 8px;
+      padding: 7px 0px 7px 0px;
+      border-radius: 10px;
+      margin: 3px 5px 3px 5px;
     }
 
     #workspaces button:hover {
@@ -30,7 +36,7 @@
     }
 
     #workspaces button.active {
-      color: #${base0E};
+      color: #${base0F};
       background-color: #${base01};
     }
 
@@ -44,7 +50,7 @@
     #image,
 
     #image {
-      margin: 20px 5px 5px 5px;
+      margin: 20px 0px 10px 0px;
     }
 
     #clock {
@@ -52,22 +58,17 @@
       font-family: Ubuntu Nerd Font;
       font-size: 32px;
       font-weight: bold;
-      margin: 5px 5px 20px 5px;
-      padding: 10px 5px 10px 5px;
-      border-radius: 8px;
+      margin: 5px 0px 20px 0px;
     }
 
     #taskbar {
       background-color: #${base00};
-      margin: 5px;
-      padding: 10px 5px 10px 5px;
-      border-radius: 8px;
+      margin: 3px 0px 3px 0px;
+      padding: 5px;
     }
 
     #taskbar button {
-      margin: 5px 0px 0px 0px;
-      padding: 0px;
-      border-radius: 8px;
+      padding: 7px 0px 7px 0px;
     }
 
     #taskbar button:hover {
@@ -88,25 +89,22 @@
     #network {
       background-color: #${base00};
       color: #${base0D};
-      margin: 5px;
+      margin: 3px 0px 3px 0px;
       padding: 10px 5px 10px 5px;
-      border-radius: 8px;
     }
 
     #backlight {
       background-color: #${base00};
       color: #${base0A};
-      margin: 5px;
+      margin: 3px 0px 3px 0px;
       padding: 10px 5px 10px 5px;
-      border-radius: 8px;
     }
 
     #battery {
       background-color: #${base00};
       color: #${base0B};
-      margin: 5px;
+      margin: 3px 0px 3px 0px;
       padding: 10px 5px 10px 5px;
-      border-radius: 8px;
     }
 
     #battery.warning {
@@ -121,9 +119,8 @@
     #wireplumber {
       background-color: #${base00};
       color: #${base0C};
-      margin: 5px;
+      margin: 3px 0px 3px 0px;
       padding: 10px 5px 10px 5px;
-      border-radius: 8px;
     }
 
     #wireplumber.muted {
@@ -134,7 +131,7 @@
       border-radius: 8px;
       padding: 15px;
       background-color: #${base10};
-      font-size: 10px;
+      font-size: 6px;
     }
       
     tooltip label {

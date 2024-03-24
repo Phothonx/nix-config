@@ -4,7 +4,7 @@
     windowrulev2 = [
       "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
       "idleinhibit fullscreen, class:^(firefox)$"
-      "idleinhibit focus,class:foot"
+      "idleinhibit focus, class:^(kitty)$"
 
       "float, class:^(file_progress)$"
       "float, class:^(confirm)$"

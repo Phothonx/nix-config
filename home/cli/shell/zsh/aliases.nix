@@ -1,4 +1,18 @@
 { lib, pkgs, config, ... }:
+let
+  neovimWrapped = pkgs.writeShellScriptBin "neovimWrapped" ''
+    if true 
+    then
+      kitty @ set-spacing padding=0
+      kitty @ set-font-size 13
+      nvim $*
+      kitty @ set-font-size 15
+      kitty @ set-spacing padding=default
+    else
+      nvim $*
+    fi
+  ''; # TODO finish the shellscript !
+in
 {
   programs.zsh = {
     shellAliases = with pkgs; with lib; {
@@ -14,8 +28,7 @@
       btop = getExe bottom;
 
       # Nvchad
-      nv = "nvim";
-      nvchad = "nvim";
+      nv= lib.getExe neovimWrapped;
 
       # system
       sc = "sudo systemctl";

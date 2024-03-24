@@ -9,12 +9,12 @@
       mainBar = {
         layer = "top";
         position = "left";
-        width = 61;
-        spacing = 6;
+        width = 62;
         margin-left = 10;
         margin-top = 20;
         margin-bottom = 20;
         margin-right = null;
+        fixed-center = false;
 
         modules-left = [
           "image"
@@ -68,11 +68,12 @@
         "wlr/taskbar" = {
           all-outputs = true;
           icon-theme = theme.icons.name;
-          icon-size = 24;
+          icon-size = 26;
           on-click = "activate";
           on-click-middle = "close";
           ignore-list = [
-            "Foot"
+            "foot"
+            "kitty"
           ]; 
         };
 

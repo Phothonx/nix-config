@@ -94,7 +94,7 @@
         Config(
           desktop_actions: false,
           max_entries: 10,
-          terminal: Some("foot"),
+          terminal: Some("kitty"),
         )
     '';
     };
