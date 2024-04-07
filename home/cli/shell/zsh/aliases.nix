@@ -18,12 +18,14 @@ in
     shellAliases = with pkgs; with lib; {
       sudo = "sudo ";
 
+      # Nixos
+
       # utils
       cat = "${getExe bat} --style=plain";
       grep = getExe ripgrep;
       cd = "z";
       ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
-      l = "ls -lF --time-style=long-iso --icons";
+      l = "ls -laF --time-style=long-iso --icons";
       htop = getExe bottom;
       btop = getExe bottom;
 

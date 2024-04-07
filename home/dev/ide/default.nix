@@ -4,6 +4,5 @@
   [
     ./codium.nix
     ./neovim
-    ./jupyter.nix
   ];
 }

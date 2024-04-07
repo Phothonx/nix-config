@@ -52,7 +52,7 @@ in
           gaps_workspaces = 5;
 
           "col.inactive_border" = "rgb(${base00})";
-          "col.active_border" = "rgb(${base07}) rgb(${base0E}) 180deg";
+          "col.active_border" = "rgba(${base07}00) rgb(${base0E}) 180deg";
       
           cursor_inactive_timeout = 0;
           layout = "dwindle";

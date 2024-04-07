@@ -1,0 +1,47 @@
+python
+exit
+git add .
+nh os switch
+python 
+ocaml
+nix develop shells#python
+nix develop shells#python --no-write-lock-file
+dev python
+nix develop -c zsh shells#python
+nix develop shells#python -c zsh
+nix develop shells#python -c zsh --no-write-lock-file
+nix develop -c zsh shells#python --no-write-lock-file
+nix develop shells#python --no-write-lock-file -c zsh
+nix develop shells#c --no-write-lock-file -c zsh
+exit
+nix develop shells#ocaml --no-write-lock-file -c zsh
+l
+exit
+: 1712154879:0;cd sh
+: 1712243163:0;ls
+: 1712243164:0;nv
+: 1712243207:0;cd ide
+: 1712424167:0;nix flake update
+: 1712424255:0;nh os switch
+: 1712425507:0;sudo reboot
+: 1712426391:0;nv
+: 1712428200:0;nh os switch
+: 1712428210:0;nv
+: 1712428574:0;nh os switch
+: 1712428580:0;nv
+: 1712486287:0;git add .
+: 1712486290:0;nh os switch
+: 1712486380:0;nv
+: 1712487417:0;ls
+: 1712488215:0;nh
+: 1712488217:0;nv
+: 1712490359:0;v
+: 1712490360:0;nv
+: 1712492803:0;nh
+: 1712492805:0;nv
+: 1712496030:0;nh os switch
+: 1712496426:0;nv
+: 1712496442:0;cd
+: 1712507118:0;nv
+: 1712507124:0;:q
+: 1712507837:0;git add .

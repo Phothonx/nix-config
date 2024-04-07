@@ -5,7 +5,7 @@
     enableZshIntegration = true;
 
     settings = with colors; {
-      format = ''$c$python$ocaml$directory$character'';      
+      format = ''$nix_shell$c$python$ocaml$directory$character'';      
       right_format = ''$git_branch$git_status'';    
 
       character = {
@@ -20,6 +20,13 @@
         truncation_length = 5;
         truncation_symbol = "";
         home_symbol = "🏠";
+      };
+
+      nix_shell = {
+        format = "[🌨️ $name\($state\)](bold #${base15}) | ";
+        impure_msg = "[impure](bold red)";
+        pure_msg = "[pure](bold green)";
+        unknown_msg = "[unknown](bold yellow)";
       };
 
       git_branch = {
@@ -48,11 +55,11 @@
       };
 
       ocaml = {
-        format = "[🐫 $version \($switch_indicator$switch_name\)](bold #${base0A}) | ";
+        format = "[🐫 $version\($switch_indicator$switch_name\)](bold #${base0A}) | ";
       };
 
       python = {
-        format = "[🐍 $version \($virtualenv\)](bold #${base0C}) | ";
+        format = "[🐍 $version\($virtualenv\)](bold #${base0C}) | ";
       };
     };
   };

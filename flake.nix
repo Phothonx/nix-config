@@ -1,6 +1,10 @@
 {
   description = ''
-  
+        ____  __          __  __                        ________      __      
+       / __ \/ /_  ____  / /_/ /_  ____  ____  _  __   / ____/ /___ _/ /_____ 
+      / /_/ / __ \/ __ \/ __/ __ \/ __ \/ __ \| |/_/  / /_  / / __ `/ //_/ _ \
+     / ____/ / / / /_/ / /_/ / / / /_/ / / / />  <   / __/ / / /_/ / ,< /  __/
+    /_/   /_/ /_/\____/\__/_/ /_/\____/_/ /_/_/|_|  /_/   /_/\__,_/_/|_|\___/ 
   '';
 
   inputs = {
@@ -25,12 +29,15 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     anyrun = {
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # NvChad.url = "github:NvChad/nix";
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";

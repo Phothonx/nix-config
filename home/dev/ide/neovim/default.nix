@@ -1,26 +1,22 @@
-{ pkgs, config, ... }:
+{ inputs, pkgs, config, ... }:
 {
-  home.packages = with pkgs; [ 
-  neovim
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
 
-  gdb
-
-  yarn
-  nodejs
-
-  quarto
-  vimPlugins.sniprun
-
-  # LSP
-  nil
-  pkgs.ocamlPackages.ocaml-lsp
-  lua-language-server
-  ccls
-  nodePackages_latest.pyright
+    ./plugins.nix
+    ./mapping.nix
+    ./options.nix
   ];
 
-  # xdg.configFile."nvim/" = {
-  #   recursive = true;
-  #   source = ./config;
-  # };
+  programs.nixvim = {
+    enable = true;
+    defaultEditor = true;
+
+    colorschemes.catppuccin = {
+      enable = true;
+      flavour = "mocha";
+    };
+
+    globals.mapleader = " ";
+  };
 }

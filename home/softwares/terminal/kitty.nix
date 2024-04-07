@@ -82,9 +82,7 @@
 
     keybindings = {
         "ctrl+c" = "copy_or_interrupt";
-        "ctrl+v" = "paste_from_clipboard";
         "ctrl+shift+c" = "copy_to_clipboard";
-        "ctrl+shift+v" = "paste_from_clipboard";
 
         "ctrl+plus" = "increase_font_size";
         "ctrl+minus" = "decrease_font_size";
