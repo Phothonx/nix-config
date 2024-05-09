@@ -22,7 +22,10 @@ in
     profiles.default = {
       isDefault = true;
 
-      search.default = "Google";
+      search = {
+        default = "Google";
+        force = true;
+      };
 
       search.engines = {
         "Nix Packages" = {

@@ -16,14 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nh = {
-      url = "github:viperML/nh";
-      inputs.nixpkgs.follows = "nixpkgs"; # override this repo's nixpkgs snapshot
-    };
-
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprlock.url = "github:hyprwm/hyprlock";
-    hypridle.url = "github:hyprwm/hypridle";
     hyprland-plugins = {
     url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";

@@ -9,10 +9,13 @@ let
     ${lib.getExe pkgs.waybar}
     dunst
     hyprctl setcursor ${theme.cursor.name} ${builtins.toString theme.cursor.size}
+    kitty -o background_opacity=0 -o window_padding_width=0 --class="kitty-cava" ${lib.getExe cavaLaunch}
     hyprlock
-  ''; #     kitty -o background_opacity=0 -o window_padding_width=0 --class="kitty-cava" ${lib.getExe cavaLaunch}
+  '';
 in
 {
+  imports = [ inputs.hyprland.homeManagerModules.default ];
+
   wayland.windowManager.hyprland = {
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     enable = true;
@@ -37,11 +40,11 @@ in
       exec-once = "${lib.getExe startScript}";
       exec = "hyprshade";
 
-      plugin = {
-        # hyprwinwrap = {
-        #   class = "kitty-cava";
-        # };
-      };
+      # plugin = {
+      #   hyprwinwrap = {
+      #     class = "kitty-cava";
+      #   };
+      # };
 
       general = {
           # no_border_on_floating = false
@@ -52,7 +55,7 @@ in
           gaps_workspaces = 5;
 
           "col.inactive_border" = "rgb(${base00})";
-          "col.active_border" = "rgba(${base07}00) rgb(${base0E}) 180deg";
+          "col.active_border" = "rgb(${base07}) rgb(${base0E}) 180deg";
       
           cursor_inactive_timeout = 0;
           layout = "dwindle";

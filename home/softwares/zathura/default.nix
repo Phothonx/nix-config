@@ -1,4 +1,0 @@
-{ ... }:
-{
- programs.zathura.enable = true;
-}

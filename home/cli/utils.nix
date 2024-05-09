@@ -16,13 +16,15 @@
       thefuck
       ripgrep
       fzf
-      lf
+      ranger
       fd
       catimg
       rsync
 
       # Fun fetching
       cowsay
+      pipes
+      cbonsai
       lolcat
     ];
 
@@ -34,6 +36,7 @@
 
     eza = {
       enable = true;
+      enableZshIntegration = true;
       icons = true;
       extraOptions = [
         "--group-directories-first"

@@ -15,5 +15,10 @@
   services = {
     # for SSD/NVME
     fstrim.enable = true;
+
+    udisks2 = {
+      enable = true;
+      mountOnMedia = true;
+    };
   };
 }

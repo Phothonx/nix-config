@@ -14,7 +14,6 @@
         left = "";
       };
     };
-
     bufferline = {
       enable = true;
       alwaysShowBufferline = false;
@@ -46,10 +45,17 @@
       enable = true;
       autochdir = true;
       insertMappings = false;
-      openMapping = "<leader>t";
+      settings.openMapping = "<leader>t";
       direction = "float";
       floatOpts = {
         border = "curved";
+      };
+    };
+
+    molten = {
+      enable = true;
+      settings = {
+        auto_image_popup = true;
       };
     };
 

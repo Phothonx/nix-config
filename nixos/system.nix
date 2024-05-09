@@ -10,9 +10,13 @@
     };
     gc = {
       automatic = true;
-      dates = "daily";
+      dates = "weekly";
       options = "--delete-older-than 3d";
     };
+    extraOptions = ''
+        keep-outputs = true
+        keep-derivations = true
+    '';
     # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
     registry.nixpkgs.flake = inputs.nixpkgs;
     channel.enable = false;

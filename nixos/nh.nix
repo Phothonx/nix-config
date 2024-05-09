@@ -1,8 +1,6 @@
 { inputs, systemConfig, ... }:
 {
-  imports = [ inputs.nh.nixosModules.default ];
-
-    nh = {
+    programs.nh = {
     enable = true;
     flake = systemConfig.dotsPath;
     clean = {

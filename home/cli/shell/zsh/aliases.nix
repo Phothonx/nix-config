@@ -1,17 +1,17 @@
 { lib, pkgs, config, ... }:
 let
-  neovimWrapped = pkgs.writeShellScriptBin "neovimWrapped" ''
-    if true 
-    then
+  noPad = exec: (pkgs.writeShellScriptBin "noPad" ''
+    if echo $TERM | ${lib.getExe pkgs.ripgrep} kitty -q
+      then
       kitty @ set-spacing padding=0
       kitty @ set-font-size 13
-      nvim $*
+      ${exec} $*
       kitty @ set-font-size 15
       kitty @ set-spacing padding=default
     else
-      nvim $*
+      ${exec} $*
     fi
-  ''; # TODO finish the shellscript !
+  '');
 in
 {
   programs.zsh = {
@@ -24,13 +24,13 @@ in
       cat = "${getExe bat} --style=plain";
       grep = getExe ripgrep;
       cd = "z";
+      ranger = getExe (noPad (getExe ranger));
       ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
       l = "ls -laF --time-style=long-iso --icons";
-      htop = getExe bottom;
-      btop = getExe bottom;
 
-      # Nvchad
-      nv= lib.getExe neovimWrapped;
+      # Neovim
+      nvim = getExe (noPad "nvim");
+      nv = getExe (noPad "nvim");
 
       # system
       sc = "sudo systemctl";
@@ -47,6 +47,14 @@ in
       "...." = "cd ../../../";
       "....." = "cd ../../../../";
       "......" = "cd ../../../../../";
+
+      # lol
+      htop = getExe (noPad "${getExe bottom} -b");
+      btm = getExe (noPad (getExe bottom));
+      btop = getExe (noPad (getExe bottom));
+      cbonsai = getExe (noPad "${getExe cbonsai} -l -i -L 50");
+      "pipes.sh" = getExe (noPad "${getExe pipes} -R -p 3 -t 1");
+      cava = getExe (noPad "${getExe cava}");
     };
 
     shellGlobalAliases = {};
