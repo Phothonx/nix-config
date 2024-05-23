@@ -34,6 +34,7 @@
       "SUPER, R, exec, anyrun"
       "SUPER, E, exec, ${lib.getExe pkgs.gnome.nautilus}"
       "CTRL ALT, L, exec, hyprlock"
+      # "ALT, Tab, hyprexpo:expo, toggle "
 
       " , code:67, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${notifMute}"
 

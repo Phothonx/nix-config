@@ -6,5 +6,6 @@
     
     ./hypridle.nix
     ./polkit.nix
+    ./clipboard.nix
   ];
 }

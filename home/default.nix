@@ -10,6 +10,7 @@
     ./cli
     ./config
     ./dev
+    ./gaming
     ./services
     ./softwares
     ./wayland

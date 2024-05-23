@@ -25,6 +25,7 @@ in
       ./substituers.nix
       ./bluetooth.nix
       ./nh.nix
+      ./gaming.nix
     ];
   };
 }

@@ -24,10 +24,16 @@
           python311
           python311Packages.numpy
           python311Packages.matplotlib
+          python311Packages.scipy
         ];
         shellHook = ''
           echo "Python devShell"
         '';
+      };
+      "jupyter" = pkgs.mkShell {
+        buildInputs = with pkgs; [
+          imagemagick
+        ];
       };
       
       "ocaml" = pkgs.mkShell {

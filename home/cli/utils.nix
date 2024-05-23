@@ -26,6 +26,7 @@
       pipes
       cbonsai
       lolcat
+      nitch
     ];
 
   programs = {

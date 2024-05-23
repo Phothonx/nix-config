@@ -17,165 +17,301 @@ exit
 nix develop shells#ocaml --no-write-lock-file -c zsh
 l
 exit
-: 1712154879:0;cd sh
-: 1712243163:0;ls
-: 1712243164:0;nv
-: 1712243207:0;cd ide
-: 1712424167:0;nix flake update
-: 1712424255:0;nh os switch
-: 1712425507:0;sudo reboot
-: 1712426391:0;nv
-: 1712428200:0;nh os switch
-: 1712428210:0;nv
-: 1712428574:0;nh os switch
-: 1712428580:0;nv
-: 1712486287:0;git add .
-: 1712486290:0;nh os switch
-: 1712486380:0;nv
-: 1712487417:0;ls
-: 1712488215:0;nh
-: 1712488217:0;nv
-: 1712490359:0;v
-: 1712490360:0;nv
-: 1712492803:0;nh
-: 1712492805:0;nv
-: 1712496030:0;nh os switch
-: 1712496426:0;nv
-: 1712496442:0;cd
-: 1712507118:0;nv
-: 1712507124:0;:q
-: 1712507837:0;git add .
-: 1712507863:0;git commit -m "nixvim"
-: 1712507870:0;git push -u origin main
-: 1712508074:0;nv
-: 1712508660:0;git add .
-: 1712508663:0;nh os switch
-: 1712508735:0;cd
-: 1712508753:0;cd .do
-: 1712508763:0;nh os switch
-: 1712508891:0;catnip
-: 1712508911:0;cava
-: 1712520503:0;pw-cli i all | rg running
-: 1712520513:0;pw-cli i
-: 1712520516:0;pw-cli i all
-: 1712520521:0;pw-cli i all | rg running
-: 1712520608:0;pw-cli i all | rg running -q
-: 1712520616:0;pw-cli i all 2>&1 | rg running -q
-: 1712520668:0;hyprlock
-: 1712520775:0;nh os switch
-: 1712522126:0;Hyprland --help
-: 1712522139:0;hyprctl --help
-: 1712522165:0;hyprctl configerrors
-: 1712522167:0;hyprctl configerror
-: 1712522176:0;hyprctl configerrors
-: 1712522211:0;hyprctl configerrors --help
-: 1712522234:0;sudo reboot
-: 1712522268:0;nv
-: 1712587753:0;nv
-: 1712591675:0;ls
-: 1712591677:0;l
-: 1712591735:0;ls
-: 1712591738:0;nv
-: 1712599757:0;nv
-: 1712601106:0;nh os switch
-: 1712601123:0;git add .
-: 1712601140:0;nh os switch
-: 1712601224:0;cd Ven
-: 1712602263:0;nv
-: 1712602360:0;btm
-: 1712602459:0;r
-: 1712602459:0;btm
-: 1712602464:0;r
-: 1712602464:0;btm
-: 1712602467:0;ranger
-: 1712661841:0;nv
-: 1712845281:0;nv
-: 1712846694:0;cd TIP
-: 1713017375:0;nv
-: 1712846697:170779;nv
-: 1713019814:0;gcc 
-: 1713020950:11;python
-: 1713094465:0;cd .do
-: 1713094466:0;ls
-: 1713094472:0;nix flake update
-: 1713094528:0;nh os switch
-: 1713094633:0;git add .
-: 1713094636:0;nh os switch
-: 1713096221:0;sudo reboot
-: 1713101234:0;lq
-: 1713101236:0;l
-: 1713101251:0;tree
-: 1713123936:0;nv
-: 1713199844:0;nv
-: 1713200068:0;nh os switch
-: 1713201131:0;nv
-: 1713206390:0;nv
-: 1713257453:0;ls
-: 1713257456:0;cd TP-15
-: 1713257457:0;ls
-: 1713257626:0;....
-: 1713257627:0;ls
-: 1713257636:10;git clone https://github.com/PoserCanary/TP-Physique.git
-: 1713257739:0;ls
-: 1713259540:0;cd .dot
-: 1713259541:0;nv
-: 1713262910:0;nv
-: 1713381923:0;ls
-: 1713381925:127;nv
-: 1713382057:0;cd .do
-: 1713382058:0;n
-: 1713382059:0;nv
-: 1713449755:0;nmcli device wifi connect phone
-: 1713454978:0;nv
-: 1713475379:0;ls
-: 1713475382:0;cd phy
-: 1713647055:0;nix flake update
-: 1713647114:0;nh os switch
-: 1713647145:0;nv
-: 1713647228:0;nh os switch
-: 1713648283:0;cd .config
-: 1713648313:0;cd .dot
-: 1713648314:0;nh os switch
-: 1713648352:0;sudo reboot
-: 1713727548:0;nv
-: 1713727618:0;nh os switch
-: 1713727780:0;n
-: 1713727782:0;nv
-: 1713727813:0;nh os switch
-: 1713806086:0;nv
-: 1713806095:0;cd she
-: 1715109304:0;nix flake update
-: 1715109382:0;nh os test
-: 1715109501:0;ls
-: 1715109505:0;cd modules
-: 1715109506:0;ls
-: 1715109509:0;cd ..
-: 1715109513:0;nh os switch
-: 1715109631:0;cd home
-: 1715109725:0;ls
-: 1715109730:0;nv flake.nix
-: 1715109742:0;nh os switch
-: 1715109748:0;nh os test
-: 1715109780:0;cd home/services
-: 1715109789:48;nv hypridle.nix
-: 1715109839:0;nh os s
-: 1715109842:797;nh os test
-: 1715114532:9;nh os switch
-: 1715114894:0;cd ..
-: 1715114895:0;nv
-: 1715117853:0;nix flake update
-: 1715117866:0;nh os switch
-: 1715117875:0;nh os test
-: 1715118842:0;nh os switch
-: 1715119030:0;reboot
-: 1715252610:0;nv
-: 1715260141:0;nix registry list
-: 1715260196:0;nix develop shells#py
-: 1715260198:0;nix develop shells#c
-: 1715260392:0;nv
-: 1715266683:0;nh os switch
-: 1715266828:0;nv
-: 1715267025:0;nh os switch
-: 1715267074:0;nix registry list
-: 1715267124:0;nix develop shells
-: 1715267141:0;git add .
+cd sh
+ls
+nv
+cd ide
+nix flake update
+nh os switch
+sudo reboot
+nv
+nh os switch
+nv
+nh os switch
+nv
+git add .
+nh os switch
+nv
+ls
+nh
+nv
+v
+nv
+nh
+nv
+nh os switch
+nv
+cd
+nv
+\:q
+git add .
+git commit -m "nixvim"
+git push -u origin main
+nv
+git add .
+nh os switch
+cd
+cd .do
+nh os switch
+catnip
+cava
+pw-cli i all | rg running
+pw-cli i
+pw-cli i all
+pw-cli i all | rg running
+pw-cli i all | rg running -q
+pw-cli i all 2>&1 | rg running -q
+hyprlock
+nh os switch
+Hyprland --help
+hyprctl --help
+hyprctl configerrors
+hyprctl configerror
+hyprctl configerrors
+hyprctl configerrors --help
+sudo reboot
+nv
+nv
+ls
+l
+ls
+nv
+nv
+nh os switch
+git add .
+nh os switch
+cd Ven
+nv
+btm
+r
+btm
+r
+btm
+ranger
+nv
+nv
+cd TIP
+nv
+nv
+gcc 
+python
+cd .do
+ls
+nix flake update
+nh os switch
+git add .
+nh os switch
+sudo reboot
+lq
+l
+tree
+nv
+nv
+nh os switch
+nv
+nv
+ls
+cd TP-15
+ls
+....
+ls
+git clone https://github.com/PoserCanary/TP-Physique.git
+ls
+cd .dot
+nv
+nv
+ls
+nv
+cd .do
+n
+nv
+nmcli device wifi connect phone
+nv
+ls
+cd phy
+nix flake update
+nh os switch
+nv
+nh os switch
+cd .config
+cd .dot
+nh os switch
+sudo reboot
+nv
+nh os switch
+n
+nv
+nh os switch
+nv
+cd she
+nix flake update
+nh os test
+ls
+cd modules
+ls
+cd ..
+nh os switch
+cd home
+ls
+nv flake.nix
+nh os switch
+nh os test
+cd home/services
+nv hypridle.nix
+nh os s
+nh os test
+nh os switch
+cd ..
+nv
+nix flake update
+nh os switch
+nh os test
+nh os switch
+reboot
+nv
+nix registry list
+nix develop shells#py
+nix develop shells#c
+nv
+nh os switch
+nv
+nh os switch
+nix registry list
+nix develop shells
+git add .
+nv
+nh os switch
+nix registry list
+nix develop shells
+nix develop shells --no-write-lock-file
+nix develop shells#python --no-write-lock-file
+nix develop -c zsh shells#python --no-write-lock-file
+nix develop shells#python --no-write-lock-file -c zsh
+python
+exit
+cd dev
+nv
+git commit -m "global shells flake"
+git push -u origin main
+nix develop shells#python -c zsh
+nh os switch
+nix develop shells#python -c zsh
+exit
+nix develop shells#ocaml -c zsh
+ocaml
+nv
+nv
+nh os switch
+nv
+nix develop shells\#python -c zsh
+cd
+nv
+nh os switch
+nv
+nh os switch
+jupyter lab
+nv
+cd dev
+cd flake
+ls
+nix flake update
+....
+git add .
+nh os switch
+nix develop -h
+nix develop --help
+nix develop --command zsh shells#python
+nix develop -c zsh shells#python
+nv
+nh os switch
+nh os test
+nv
+loginctl lock-session
+nmcli device wifi connect phone
+nh os switch
+nix develop shells\#python -c zsh
+nv
+nix develop shells#python
+git add .
+exi
+exit
+: 1715712610:0;cd phy
+: 1715713446:0;nv
+: 1715713499:0;pipes.sh
+: 1715713526:0;cbonsai
+: 1715713594:0;cd dow
+: 1715716836:0;nv
+: 1715716983:0;git add .
+: 1715716986:0;nh os switch
+: 1715717088:0;nitch
+: 1715717204:0;nv
+: 1715765675:0;nv
+: 1715766008:0;pipes.sh
+: 1715769714:0;ls
+: 1715769715:0;nv
+: 1715779985:0;nix develop shells\#python
+: 1715779991:0;nix develop shells\#python -c zsh
+: 1715779997:0;cd phy
+: 1715784354:0;nv
+: 1715785941:0;cd flak
+: 1715785941:0;ls
+: 1715785947:23;nix flake update
+: 1715785986:0;cd .do
+: 1715785990:0;git add .
+: 1715785993:0;nh os switch
+: 1715786052:0;nix develop shells\#python -c zsh
+: 1715786084:0;cd flak
+: 1715786115:0;python
+: 1715786123:0;nv
+: 1715786133:0;cd DL7
+: 1715788126:0;nv
+: 1715788193:0;cd
+: 1715887110:0;nv
+: 1715888347:0;hyprctl clients
+: 1715888371:0;sudo hyprctl clients
+: 1715888378:0;hyprctl clients
+: 1715969838:0;nc
+: 1715969839:0;nv
+: 1715970002:0;cd Dow
+: 1716043935:0;nix flake update
+: 1716043989:0;nh os switch
+: 1716044104:0;nv
+: 1716044296:0;nix flake update
+: 1716044306:0;nh os switch
+: 1716045283:0;reboot
+: 1716051880:0;nv
+: 1716053105:0;git add add .
+: 1716053110:0;git add .
+: 1716053115:0;nh os switch
+: 1716053273:0;git add .
+: 1716053277:0;nh os switch
+: 1716053571:0;git add .
+: 1716053573:0;nh os switch
+: 1716053699:0;:
+: 1716053702:0;nh os switch
+: 1716054761:0;git add .
+: 1716054764:0;nh os switch
+: 1716062075:0;hyprlock
+: 1716062096:0;hyprctl
+: 1716062104:0;hyprctl clients
+: 1716194701:0;nv
+: 1716194944:0;git add .
+: 1716194947:0;nh os switch
+: 1716194958:0;nix flake update
+: 1716195037:0;nh os switch
+: 1716195954:0;kitty -o background_opacity=0 -o window_padding_width=0 --class="kitty-cava" cava
+: 1716200189:0;nv
+: 1716200227:0;nh os switch
+: 1716200265:0;reboot
+: 1716200331:0;nv
+: 1716200351:0;nh os switch
+: 1716232071:0;nv
+: 1716232093:0;nh os switch
+: 1716232106:0;nmcli device wifi connect phone
+: 1716232109:0;nmcli device wifi connect phon
+: 1716232112:0;nmcli device wifi connect phone
+: 1716232118:0;nh os switch
+: 1716298158:0;nv
+: 1716475603:0;nv
+: 1716494200:0;nv
+: 1716494495:0;git add .
