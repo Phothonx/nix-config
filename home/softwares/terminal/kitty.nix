@@ -4,7 +4,7 @@
     enable = true;
     settings = with colors; {
       # FONTS 
-      font_family = theme.fonts.monospace;
+      font_family = theme.fonts.monospace.name;
       font_size = "15";
 
       # CURSOR

@@ -7,14 +7,28 @@ with theme;
   ];
 
   home = {
-    packages = fonts.packages ++ [ cursor.package ] ++ [ icons.package ];
+    packages = [ fonts.serif.package ] ++ [ fonts.sansSerif.package ] ++ [ fonts.monospace.package ] ++ [ fonts.emoji.package ] ++ [ cursor.package ] ++ [ icons.package ] ++ [ qt.package ] ++ [ gtk.package ];
 
-    pointerCursor = cursor;
+    pointerCursor = {
+      inherit (cursor) name package size;
+      x11.enable = true;
+      gtk.enable = true;
+    };
 
     sessionVariables = {
       XCURSOR_THEME = cursor.name;
       XCURSOR_SIZE = cursor.size;
       XCURSOR_PATH = "/usr/share/icons:${config.xdg.dataHome}/icons";
+    };
+  };
+
+  fonts.fontconfig = { 
+    enable = true;
+    defaultFonts = {
+      emoji = [fonts.emoji.name];
+      monospace = [fonts.monospace.name];
+      serif = [fonts.serif.name];
+      sansSerif = [fonts.sansSerif.name];
     };
   };
 }

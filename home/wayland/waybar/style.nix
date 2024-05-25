@@ -2,7 +2,7 @@
 {
   programs.waybar.style = with colors; ''
     * {
-      font-family: ${theme.fonts.sansSerif};
+      font-family: ${theme.fonts.sansSerif.name};
       font-size: ${builtins.toString theme.fonts.sizes.desktop}px;
 
       border-radius: 10px;

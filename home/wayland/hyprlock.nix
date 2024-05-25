@@ -35,7 +35,7 @@
         fail_text = "rgb(${base0A})";
         fade_on_empty = true;
         fade_timeout = 3000;
-        placeholder_text = ''<span font_family="${theme.fonts.sansSerif}" foreground="##${colors.base04}">Password...</span>'';
+        placeholder_text = ''<span font_family="${theme.fonts.sansSerif.name}" foreground="##${colors.base04}">Password...</span>'';
         rounding = 15;
         shadow_passes = 3;
         shadow_size = 4;

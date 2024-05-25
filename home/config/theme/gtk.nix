@@ -12,20 +12,10 @@ with theme;
 
     cursorTheme = cursor;
     iconTheme = icons;
-
-    font  = { 
-      name = fonts.sansSerif;
+    theme = gtk;
+    font  = {
+      inherit (fonts.sansSerif) name package;
       size = fonts.sizes.applications;
-    };
-
-    theme = {
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "mauve" ];
-        size = "compact"; # "standard" "compact"
-        #tweaks = [ "rimless" ]; # "black" "rimless" "normal" 
-        variant = "mocha";
-      };
-      name = "Catppuccin-Mocha-Compact-Mauve-Dark";
     };
 
     gtk2 = {

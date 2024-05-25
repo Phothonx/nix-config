@@ -12,6 +12,6 @@ with theme;
   qt = {
     enable = true;
     platformTheme = "gtk";
-    style.package = pkgs.catppuccin-qt5ct;
+    style = qt;
   };
 }
