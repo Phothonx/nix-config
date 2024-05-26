@@ -380,3 +380,15 @@ exit
 : 1716727250:0;nh os test
 : 1716727822:0;git checkout 0b99ee68307ba5d4dbc1b9fd179fc64e8d68ec48
 : 1716727828:0;git add .
+: 1716727886:0;git commit -m "infinite recursion ;-;"
+: 1716727888:0;git checkout 0b99ee68307ba5d4dbc1b9fd179fc64e8d68ec48
+: 1716727909:0;ls
+: 1716727912:0;ls -la
+: 1716727937:0;nv .gitignore
+: 1716727945:0;ls -la
+: 1716727950:0;cd .config
+: 1716727950:0;ls
+: 1716727953:0;ls -la
+: 1716727955:0;cd ..
+: 1716727962:0;nv .gitignore
+: 1716727973:0;git add .
