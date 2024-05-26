@@ -6,7 +6,7 @@ let
     };
 in
 {
-  wallpaper = ./../../wallpapers/graphism/cat_leaves.png;
+  wallpaper = ./../../wallpapers/cat_leaves.png;
 
   cursor = {
     name = "Bibata-Modern-Ice";

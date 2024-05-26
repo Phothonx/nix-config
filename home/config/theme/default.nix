@@ -15,7 +15,7 @@ with artwork;
       fonts.emoji.package
       cursor.package
       icons.package
-      gnome.adwaita-icon-theme
+      pkgs.gnome.adwaita-icon-theme
       qt.package
       gtk.package
     ];
