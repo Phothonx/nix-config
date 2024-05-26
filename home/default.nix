@@ -1,8 +1,8 @@
-{ config, ... }:
+{ pkgs, ... }:
 {
-  _module.args = {
-    theme = config.artwork;
-    colors = config.artwork.palette;
+  _module.args = rec {
+    theme = import ./theme/theme.nix {inherit pkgs;};
+    colors = theme.palette;
   };
 
   imports =
@@ -14,7 +14,6 @@
     ./services
     ./softwares
     ./wayland
-    ./theme
 
     ./rofi
   ];
