@@ -19,7 +19,6 @@ in
       sudo = "sudo ";
 
       # Nixos
-      devsh = "nix develop shells#";
 
       # utils
       cat = "${getExe bat} --style=plain";

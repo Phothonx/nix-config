@@ -1,10 +1,10 @@
-{ colors, theme, pkgs, config, ...}:
+{ colors, artwork, pkgs, config, ...}:
 {
   programs.kitty = {
     enable = true;
     settings = with colors; {
       # FONTS 
-      font_family = theme.fonts.monospace.name;
+      font_family = artwork.fonts.monospace.name;
       font_size = "15";
 
       # CURSOR

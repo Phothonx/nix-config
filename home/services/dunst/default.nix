@@ -1,8 +1,8 @@
-{ pkgs, config, theme, colors, ... }:
+{ pkgs, config, artwork, colors, ... }:
 {
   services.dunst = {
     enable = true;
-    iconTheme = theme.icons;
+    iconTheme = artwork.icons;
     settings = with colors; {
       global = {
         width = 500;
@@ -18,7 +18,7 @@
         frame_width = 2;
         gap_size = 8;
         separator_color = "frame";
-        font = theme.fonts.sansSerif.name;
+        font = artwork.fonts.sansSerif.name;
         vertical_alignment = "center";
         corner_radius = 15;
         mouse_left_click = "do_action";

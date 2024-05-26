@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, colors, theme, ... }:
+{ pkgs, lib, inputs, colors, artwork, ... }:
 {
   programs.wofi = {
     enable = true;
@@ -25,8 +25,8 @@
     extraCss = with colors; ''
       * {
         transition: 200ms ease;
-        font-family: ${theme.fonts.sansSerif.name};
-	      font-size: ${builtins.toString theme.fonts.sizes.desktop};
+        font-family: ${artwork.fonts.sansSerif.name};
+	      font-size: ${builtins.toString artwork.fonts.sizes.desktop};
       }
 
       #window,

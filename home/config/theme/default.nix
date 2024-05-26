@@ -1,5 +1,5 @@
-{ pkgs, theme, config, ... }:
-with theme;
+{ pkgs, artwork, config, ... }:
+with artwork;
 {
   imports = [
     ./gtk.nix
@@ -7,7 +7,18 @@ with theme;
   ];
 
   home = {
-    packages = [ fonts.serif.package ] ++ [ fonts.sansSerif.package ] ++ [ fonts.monospace.package ] ++ [ fonts.emoji.package ] ++ [ cursor.package ] ++ [ icons.package ] ++ [ qt.package ] ++ [ gtk.package ];
+    packages =
+    [
+      fonts.serif.package
+      fonts.sansSerif.package
+      fonts.monospace.package
+      fonts.emoji.package
+      cursor.package
+      icons.package
+      gnome.adwaita-icon-theme
+      qt.package
+      gtk.package
+    ];
 
     pointerCursor = {
       inherit (cursor) name package size;
@@ -25,10 +36,10 @@ with theme;
   fonts.fontconfig = { 
     enable = true;
     defaultFonts = {
-      emoji = [fonts.emoji.name];
-      monospace = [fonts.monospace.name];
-      serif = [fonts.serif.name];
-      sansSerif = [fonts.sansSerif.name];
+      emoji = [ fonts.emoji.name ];
+      monospace = [ fonts.monospace.name ];
+      serif = [ fonts.serif.name ];
+      sansSerif = [ fonts.sansSerif.name ];
     };
   };
 }

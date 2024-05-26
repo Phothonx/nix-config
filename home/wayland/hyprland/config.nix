@@ -1,16 +1,16 @@
-{ pkgs, lib, inputs, colors, config, theme, systemConfig, ... }:
+{ pkgs, lib, inputs, colors, config, artwork, systemConfig, ... }:
 let
   cavaLaunch = pkgs.writeShellScriptBin "cava-launch" ''
   sleep 1 && ${lib.getExe pkgs.cava}
   '';
 
   startScript = pkgs.writeShellScriptBin "start" ''
-    ${lib.getExe pkgs.swww} init && ${lib.getExe pkgs.swww} img ${theme.wallpaper}
+    ${lib.getExe pkgs.swww} init && ${lib.getExe pkgs.swww} img ${artwork.wallpaper}
     ${lib.getExe pkgs.waybar}
     dunst
-    hyprctl setcursor ${theme.cursor.name} ${builtins.toString theme.cursor.size}
-    kitty -o background_opacity=0 -o window_padding_width=0 --class="kitty-cava" ${lib.getExe cavaLaunch}
     hypridle
+    hyprctl setcursor ${artwork.cursor.name} ${builtins.toString artwork.cursor.size}
+    kitty -o background_opacity=0 -o window_padding_width=0 --class="kitty-cava" ${lib.getExe cavaLaunch}
     hyprlock
   '';
 in
@@ -69,7 +69,6 @@ in
           "col.inactive_border" = "rgb(${base00})";
           "col.active_border" = "rgb(${base07}) rgb(${base0E}) 180deg";
       
-          cursor_inactive_timeout = 0;
           layout = "dwindle";
 
           resize_on_border = true; # resize windows
@@ -160,7 +159,6 @@ in
         focus_on_activate = true;
         animate_manual_resizes = true;
         animate_mouse_windowdragging = true;
-        hide_cursor_on_touch = false;
         disable_autoreload = true; # useless on nixos
       };
       

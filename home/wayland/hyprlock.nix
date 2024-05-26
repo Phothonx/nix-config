@@ -1,4 +1,4 @@
-{ inputs, config, theme, colors, ... }:
+{ inputs, config, artwork, colors, ... }:
 {
   programs.hyprlock = {
     enable = true;
@@ -11,7 +11,7 @@
 
       background = [{
         monitor = "";
-        path = "${theme.wallpaper}";
+        path = "${artwork.wallpaper}";
         blur_size = 3;
         blur_passes = 3;
         noise = 0.011;
@@ -35,7 +35,7 @@
         fail_text = "rgb(${base0A})";
         fade_on_empty = true;
         fade_timeout = 3000;
-        placeholder_text = ''<span font_family="${theme.fonts.sansSerif.name}" foreground="##${colors.base04}">Password...</span>'';
+        placeholder_text = ''<span font_family="${artwork.fonts.sansSerif.name}" foreground="##${colors.base04}">Password...</span>'';
         rounding = 15;
         shadow_passes = 3;
         shadow_size = 4;
@@ -47,7 +47,7 @@
       labels = [{
         monitor = "";
         text = ''<span font_weight="bold">$TIME</span>'';
-        font_family = theme.fonts.sansSerif;
+        font_family = artwork.fonts.sansSerif.name;
         font_size = 100;
         color = "rgb(${colors.base07})";
         position = "0, 140";

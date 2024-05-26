@@ -1,5 +1,5 @@
-{ pkgs, theme, config, ... }:
-with theme;
+{ pkgs, artwork, config, ... }:
+with artwork;
 {
   home.sessionVariables = {
     GTK_THEME = "Catppuccin-Mocha-Compact-Mauve-Dark";
@@ -13,7 +13,7 @@ with theme;
     cursorTheme = cursor;
     iconTheme = icons;
     theme = gtk;
-    font  = {
+    font  = { 
       inherit (fonts.sansSerif) name package;
       size = fonts.sizes.applications;
     };

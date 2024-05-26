@@ -60,7 +60,7 @@ in
     };
   };
 
-  palette = {
+  palette = rec {
     base00 = "1e1e2e"; # base
     base01 = "313244"; # surface 0
     base02 = "45475a"; # surface 1
@@ -85,7 +85,7 @@ in
     base15 = "89dceb"; # sky
     base16 = "74c7ec"; # sapphire
     base17 = "b4befe"; # lavender
-    # accent = base17;
+    accent = base17;
   };
 
   qt = {

@@ -8,11 +8,7 @@
       builders-use-substitutes = true;
       trusted-users = ["root" "@wheel"];
     };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 3d";
-    };
+    gc.automatic = false;
     extraOptions = ''
         keep-outputs = true
         keep-derivations = true

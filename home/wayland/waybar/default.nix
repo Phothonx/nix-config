@@ -1,4 +1,4 @@
-{ pkgs, lib, config, colors, theme, ... }:
+{ pkgs, lib, config, colors, artwork, ... }:
 {
   imports = [ ./style.nix ];
 
@@ -67,7 +67,7 @@
 
         "wlr/taskbar" = {
           all-outputs = true;
-          icon-theme = theme.icons.name;
+          icon-theme = artwork.icons.name;
           icon-size = 26;
           on-click = "activate";
           on-click-middle = "close";

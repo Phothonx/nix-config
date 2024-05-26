@@ -1,5 +1,5 @@
-{ pkgs, theme, config, ... }:
-with theme;
+{ pkgs, artwork, config, ... }:
+with artwork;
 {
   home.sessionVariables = {
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
@@ -11,7 +11,7 @@ with theme;
 
   qt = {
     enable = true;
-    platformTheme = "gtk";
-    style.package = pkgs.catppuccin-qt5ct;
+    platformTheme.name = "gtk";
+    style = qt;
   };
 }
