@@ -22,7 +22,7 @@
         text_color = "#${base07}";
         graph_color = "#${base17}";
         cursor_color = "#${base0F}";
-        selected_text_color = "#${base11}"; 
+        selected_text_color = "#${base11}";
         selected_bg_color = "#${base0E}"; 
         high_battery_color = "#${base0B}";
         medium_battery_color = "#${base0A}";
