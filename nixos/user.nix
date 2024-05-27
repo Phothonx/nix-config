@@ -7,8 +7,13 @@
     shell = pkgs.zsh;
   };
 
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
-  home-manager = {
+  imports = 
+  [
+  inputs.home-manager.nixosModules.home-manager
+  ./../artwork # my theming arguments for hm
+  ];
+
+home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "old";

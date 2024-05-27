@@ -55,9 +55,6 @@
       userName = "nico";
       name = "Nicolas";
       email = "";
-      sheme = "catppuccin-mocha"; # see in ./theme/shemes/*
-      accent = "";
-      wallpaper = ./wallpapers/graphism/crystal-waves-tern.png; # see in ./wallpapers
     };
   in
   {

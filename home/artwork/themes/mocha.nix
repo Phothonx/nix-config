@@ -6,7 +6,7 @@ let
     };
 in
 {
-  wallpaper = ./../../wallpapers/cat_leaves.png;
+  wallpaper = ./../../../wallpapers/cat_leaves.png;
 
   cursor = {
     name = "Bibata-Modern-Ice";
@@ -61,31 +61,31 @@ in
   };
 
   palette = rec {
-    base00 = "282828"; # bg0
-    base01 = "3c3836"; # bg1
-    base02 = "504945"; # bg2
-    base03 = "665c54"; # bg3
-    base04 = "7c6f64"; # bg4
-    base05 = "bdae93"; # fg3
-    base06 = "ebdbb2"; # fg1
-    base07 = "fbf1c7"; # fg0
-    base08 = "cc241d"; # red
-    base09 = "d65d0e"; # orange
-    base0A = "d79921"; # yellow
-    base0B = "98971a"; # green
-    base0C = "689d6a"; # aqua
-    base0D = "458588"; # blue
-    base0E = "b16286"; # purple
-    base0F = "9d0006"; # # red light mode
-    base10 = "1d2021"; # bg0_h
-    base11 = "1d2021"; # bg0_h
-    base12 = "fb4934"; # bred
-    base13 = "fabd2f"; # byellow
-    base14 = "b8bb26"; # bgreen
-    base15 = "8ec07c"; # baqua
-    base16 = "83a598"; # bblue
-    base17 = "d3869b"; # bpurple
-    accent = base0B;
+    base00 = "1e1e2e"; # base
+    base01 = "313244"; # surface 0
+    base02 = "45475a"; # surface 1
+    base03 = "585b70"; # surface 2
+    base04 = "6c7086"; # overlay 0
+    base05 = "7f849c"; # overlay 1
+    base06 = "9399b2"; # overlay 2
+    base07 = "cdd6f4"; # text
+    base08 = "f38ba8"; # red
+    base09 = "fab387"; # peach
+    base0A = "f9e2af"; # yellow
+    base0B = "a6e3a1"; # green
+    base0C = "94e2d5"; # teal
+    base0D = "89b4fa"; # blue
+    base0E = "cba6f7"; # mauve
+    base0F = "f5c2e7"; # pink
+    base10 = "181825"; # mantle
+    base11 = "11111b"; # crust
+    base12 = "eba0ac"; # maroon
+    base13 = "f5e0dc"; # rosewater
+    base14 = "94e2d5"; # teal
+    base15 = "89dceb"; # sky
+    base16 = "74c7ec"; # sapphire
+    base17 = "b4befe"; # lavender
+    accent = base17;
   };
 
   qt = {
