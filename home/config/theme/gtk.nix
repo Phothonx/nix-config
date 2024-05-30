@@ -1,4 +1,4 @@
-{ pkgs, artwork, config, ... }:
+{ artwork, config, ... }:
 with artwork;
 {
   home.sessionVariables = {

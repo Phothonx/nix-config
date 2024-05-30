@@ -1,4 +1,4 @@
-{ inputs, systemConfig, ... }:
+{ systemConfig, ... }:
 {
     programs.nh = {
     enable = true;

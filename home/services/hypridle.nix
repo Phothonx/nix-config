@@ -1,10 +1,9 @@
-{ pkgs, inputs, lib, config, ... }:
-let # Made by fufexan or linuxmobile idk XD
+{ pkgs, lib, ... }:
+let
   suspendScript = pkgs.writeShellScript "suspend-script" ''
     ${pkgs.pipewire}/bin/pw-cli i all 2>&1 | ${pkgs.ripgrep}/bin/rg running -q
     # only suspend if audio isn't running
     if [ $? == 1 ]; then
-      sleep 1
       ${pkgs.systemd}/bin/systemctl suspend
     fi
   '';
@@ -12,14 +11,21 @@ in
 {
   services.hypridle = {
     enable = true;
+    package = pkgs.hypridle;
     settings = {
-      beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
-      lockCmd = lib.getExe config.programs.hyprlock.package;
-
-      listeners = [
+      general = {
+        before_sleep_cmd = "${pkgs.systemd}/bin/loginctl lock-session";
+        lock_cmd = "pidof ${lib.getExe pkgs.hyprlock} || ${lib.getExe pkgs.hyprlock}";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
+      listener = [
         {
-          timeout = 1200;
-          onTimeout = suspendScript.outPath;
+          timeout = 300;
+          on-timeout = "${pkgs.systemd}/bin/loginctl lock-session";
+        }
+        {
+          timeout = 600;
+          on-timeout = suspendScript.outPath;
         }
       ];
     };

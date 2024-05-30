@@ -6,6 +6,7 @@
     ./env.nix
     ./rules.nix
     ./binds.nix
+    ./startup.nix
   ];
 
   home.packages = with pkgs; [

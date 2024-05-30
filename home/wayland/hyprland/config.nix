@@ -1,19 +1,4 @@
-{ pkgs, lib, inputs, colors, config, artwork, systemConfig, ... }:
-let
-  cavaLaunch = pkgs.writeShellScriptBin "cava-launch" ''
-  sleep 1 && ${lib.getExe pkgs.cava}
-  '';
-
-  startScript = pkgs.writeShellScriptBin "start" ''
-    ${lib.getExe pkgs.swww} init && ${lib.getExe pkgs.swww} img ${artwork.wallpaper}
-    ${lib.getExe pkgs.waybar}
-    dunst
-    hypridle
-    hyprctl setcursor ${artwork.cursor.name} ${builtins.toString artwork.cursor.size}
-    kitty -o background_opacity=0 -o window_padding_width=0 --class="kitty-cava" ${lib.getExe cavaLaunch}
-    hyprlock
-  '';
-in
+{ pkgs, inputs, colors, artwork, systemConfig, ... }:
 {
   imports = [ inputs.hyprland.homeManagerModules.default ];
 
@@ -25,44 +10,41 @@ in
       variables = ["--all"];
     };
 
-    # plugins = [
-    #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
-    #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-    # ];
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+    ];
 
     xwayland.enable = true;
 
-    settings = with colors; {
+    settings = with colors; with artwork; {
       "$MOD" = "SUPER";
 
       monitor = [
         "eDP-1, 1920x1200@60, 0x0, 1" # personal monitor
       ];
 
-      exec-once = "${lib.getExe startScript}";
-      exec = "hyprshade";
+      plugin = {
+        hyprwinwrap = {
+          class = "kitty-cava";
+        };
+        hyprexpo = {
+          columns = 3;
+          gap_size = 5;
+          bg_col = "rgb(111111)";
+          workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
 
-      # plugin = {
-      #   hyprwinwrap = {
-      #     class = "kitty-cava";
-      #   };
-      #   hyprexpo = {
-      #     columns = 3;
-      #     gap_size = 5;
-      #     bg_col = "rgb(111111)";
-      #     workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+          enable_gesture = true; # laptop touchpad, 4 fingers
+          gesture_distance = 300; # how far is the "max"
+          gesture_positive = true; # positive = swipe down. Negative = swipe up.
+        };
+      };
 
-      #     enable_gesture = true; # laptop touchpad, 4 fingers
-      #     gesture_distance = 300; # how far is the "max"
-      #     gesture_positive = true; # positive = swipe down. Negative = swipe up.
-      #   };
-      # };
-
-      general = {
+      general = with tweaks; {
           # no_border_on_floating = false
-          gaps_in = 5;
-          gaps_out = 20;
-          border_size = 2;
+          gaps_in = gaps_in;
+          gaps_out = gaps_out;
+          border_size = border_size;
 
           gaps_workspaces = 5;
 
@@ -74,22 +56,22 @@ in
           resize_on_border = true; # resize windows
       };
 
-      decoration = {
-          rounding = 14;
+      decoration = with tweaks; {
+          rounding = rounding;
 
-          drop_shadow = true; # lil shadow <3
-          shadow_range = 15;
-          shadow_render_power = 4;
-          "col.shadow" = "rgb(${base10})";
-          shadow_offset = "3 3";
+          drop_shadow = shadow.enabled; # lil shadow <3
+          shadow_range = shadow.range;
+          shadow_render_power = shadow.power;
+          "col.shadow" = "rgb(${shadow.color})";
+          shadow_offset = shadow.offset;
 
-          blur = { # this blurr <3
-              enabled = true;
-              size = 3;
-              passes = 3;
-              noise = 0.018;
-              contrast = 0.9;
-              brightness = 0.83;
+          blur = with blur; { # this blurr <3
+              enabled = enabled;
+              size = size;
+              passes = passes;
+              noise = noise;
+              contrast = contrast;
+              brightness = brightness;
               special = true; # nice but more expensive
               popups = true;
           };

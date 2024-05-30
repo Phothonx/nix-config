@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, colors, artwork, ... }:
+{ pkgs, inputs, colors, artwork, ... }:
 {
   programs.wofi = {
     enable = true;

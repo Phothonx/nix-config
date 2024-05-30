@@ -35,6 +35,8 @@
       "SUPER, E, exec, ${lib.getExe pkgs.gnome.nautilus}"
       "CTRL ALT, L, exec, hyprlock"
 
+      "SUPER, Tab, hyprexpo:expo, toggle"
+
       " , code:67, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${notifMute}"
 
       "SUPER, S, exec, hyprshot -o ${config.xdg.userDirs.pictures}/Screenshots -c -m output"

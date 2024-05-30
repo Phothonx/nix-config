@@ -1,4 +1,4 @@
-{ self, pkgs, ... }:
+{ self, pkgs, inputs, ... }:
 {
   nix.registry.self.flake = self; 
 
@@ -6,14 +6,14 @@
     gruvbox.configuration = {
       home-manager.extraSpecialArgs = rec {
         colors = artwork.palette;
-        artwork = import ./themes/gruvbox.nix { inherit pkgs; };
+        artwork = import ./themes/gruvbox.nix { inherit pkgs inputs; };
       };
     };
     
     mocha.configuration = {
       home-manager.extraSpecialArgs = rec {
         colors = artwork.palette;
-        artwork = import ./themes/mocha.nix { inherit pkgs; };
+        artwork = import ./themes/mocha.nix { inherit pkgs inputs; };
       };
     };
   };

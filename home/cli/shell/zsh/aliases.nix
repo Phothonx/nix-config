@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }:
+{ lib, pkgs, ... }:
 let
   noPad = exec: (pkgs.writeShellScriptBin "noPad" ''
     if echo $TERM | ${lib.getExe pkgs.ripgrep} kitty -q

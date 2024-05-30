@@ -2,12 +2,13 @@
 let
   pkgs = import nixpkgs { 
     inherit (systemConfig) system ; 
+    config.allowUnfree = true;
   };
   lib = nixpkgs.lib;
 in
 {
   "avalon" = nixpkgs.lib.nixosSystem {
-    specialArgs = { inherit self inputs systemConfig userConfig; }; # Default are lib, pkgs, config
+    specialArgs = { inherit pkgs lib self inputs systemConfig userConfig; }; # Default are lib, pkgs, config
     modules = [
       ../hosts/avalon/hardware-configuration.nix
       ./audio.nix

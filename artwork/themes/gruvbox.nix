@@ -1,11 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   font = fname: {
     package = (pkgs.nerdfonts.override { fonts = [ "${fname}" ]; });
     name = "${fname} Nerd Font";
     };
+
+  spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
 in
-{
+rec {
   wallpaper = ./../wallpapers/slow-rush.jpg;
 
   cursor = {
@@ -35,6 +37,10 @@ in
   };
 
   tweaks = {
+    gaps_in = 5;
+    gaps_out = 20;
+    border_size = 2;
+    rounding = 14;
     scaling = 1.0;
     opacity = {
       desktop = 1.0;
@@ -43,6 +49,7 @@ in
       popups = 1.0;
     };
     blur = {
+      enabled = true;
       size = 3;
       passes = 3;
       noise = 0.018;
@@ -54,7 +61,7 @@ in
       range = 15;
       power = 4;
       passes = 4;
-      color = "000000";
+      color = palette.base10;
       offset = "3 3";
       size = 3;
     };
@@ -101,5 +108,10 @@ in
       #tweaks = [ "rimless" ]; # "black" "rimless" "normal" 
       variant = "mocha";
     };
+  };
+
+  spicetify = {
+    package = spicePkgs.themes.catppuccin;
+    colorScheme = "mocha";
   };
 }

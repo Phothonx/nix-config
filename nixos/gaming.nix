@@ -19,8 +19,8 @@
     enable = true;
     settings = {
       custom = {
-        start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
-        end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+        start = "dunstify --timeout=1500 'GameMode started'";
+        end = "dunstify --timeout=1500 'GameMode ended'";
       };
     };
   };
