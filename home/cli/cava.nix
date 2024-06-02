@@ -4,6 +4,12 @@
     enable = true;
     settings = {
       input.method = "pipewire";
+      general = {
+        sensitivity = 75;
+      };
+      output = {
+        show_idle_bar_heads = 0;
+      };
       color = with colors; {
         gradient = 1;
         gradient_color_1 = "'#${base0C}'";

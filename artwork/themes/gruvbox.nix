@@ -38,9 +38,9 @@ rec {
 
   tweaks = {
     gaps_in = 5;
-    gaps_out = 20;
+    gaps_out = 10;
     border_size = 2;
-    rounding = 14;
+    rounding = 1;
     scaling = 1.0;
     opacity = {
       desktop = 1.0;
@@ -101,17 +101,14 @@ rec {
   };
 
   gtk = {
-    name = "Catppuccin-Mocha-Compact-Mauve-Dark";
-    package = pkgs.catppuccin-gtk.override {
-      accents = [ "mauve" ];
-      size = "compact"; # "standard" "compact"
-      #tweaks = [ "rimless" ]; # "black" "rimless" "normal" 
-      variant = "mocha";
-    };
+    name = "gruvbox-gtk-theme";
+    package = pkgs.gruvbox-gtk-theme;
   };
 
   spicetify = {
-    package = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
+    package = spicePkgs.themes.Onepunch;
+    colorScheme = "dark";
   };
+
+  discord = "https://raw.githubusercontent.com/shvedes/discord-gruvbox/main/gruvbox.theme.css";
 }

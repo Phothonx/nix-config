@@ -114,4 +114,6 @@ rec {
     package = spicePkgs.themes.catppuccin;
     colorScheme = "mocha";
   };
+
+  discord = "https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css";
 }

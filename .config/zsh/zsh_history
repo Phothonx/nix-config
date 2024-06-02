@@ -10,3 +10,141 @@ exit
 : 1717068243:0;nv
 : 1717068739:0;nh os switch
 : 1717068783:0;git add .
+: 1717068791:0;git push -u origin main
+: 1717068814:0;git commit -m "hypr-plugins"
+: 1717068820:0;git push -u origin main
+: 1717068846:0;reboot
+: 1717082489:0;nv
+: 1717168094:0;nv
+: 1717169061:0;nv
+: 1717169285:0;nh os switch
+: 1717169290:0;reboot
+: 1717169584:0;nv
+: 1717229127:0;nix flake update
+: 1717229211:0;git add .
+: 1717229216:0;nh os switch
+: 1717229776:0;nixos-rebuild test --flake self --specilisation gruvbox
+: 1717229787:0;nixos-rebuild test --flake self --specialisation gruvbox
+: 1717229827:0;nixos-rebuild test --flake self --specialisation mocha
+: 1717229842:0;sudo nixos-rebuild test --flake self --specialisation gruvbox
+: 1717229905:0;ls
+: 1717229909:0;nitch
+: 1717229928:0;sudo nixos-rebuild test --flake self --specialisation mocha
+: 1717229958:0;hyprctl reload
+: 1717231935:0;nv
+: 1717232031:0;ls
+: 1717232034:0;cd .config
+: 1717237057:0;cd Dev
+: 1717237057:0;ls
+: 1717237063:0;cd flake
+: 1717237064:0;ls
+: 1717237067:0;cd ..
+: 1717237068:0;ls
+: 1717237074:0;rmdir flake
+: 1717237079:0;ls
+: 1717237097:0;bat git diff
+: 1717237125:0;ls
+: 1717237130:0;mkdir flake
+: 1717237131:0;cd flake
+: 1717237132:0;ls
+: 1717237141:9;nv flake.nix
+: 1717237155:9;nv flake.lock
+: 1717237169:0;cd ..
+: 1717237174:0;ls
+: 1717237176:0;cd .do
+: 1717237179:0;git add .
+: 1717237197:0;cd
+: 1717237466:0;nv
+: 1717237520:0;ags --help
+: 1717237542:0;ags -c /home/nico/.config/ags/config.js
+: 1717237610:0;ags
+: 1717241015:0;ags --hel
+: 1717241018:0;ags --help
+: 1717241029:0;ags applauncher
+: 1717241056:0;ags -r applauncher
+: 1717241079:0;ags -t applauncher
+: 1717263786:0;hypridle
+: 1717232041:0;ls
+: 1717232042:0;l
+: 1717232370:0;ls
+: 1717232373:26;ags
+: 1717232409:0;mkdir ags
+: 1717232411:0;cd ags
+: 1717232413:0;ls
+: 1717237217:6;git clone https://github.com/ezerinz/dotfiles
+: 1717237227:368;nv
+: 1717237602:0;cd ~/.config
+: 1717237603:0;ls
+: 1717237604:0;cd ags
+: 1717237605:0;ls
+: 1717237606:26197;nv
+: 1717263941:0;cd .do
+: 1717263942:0;nv
+: 1717263954:0;hyprlock
+: 1717264669:0;cd .confi
+: 1717320405:0;nv
+: 1717320452:0;nh os switch
+: 1717320460:0;nix flake update
+: 1717320545:0;nh os switch
+: 1717320791:0;nv
+: 1717320943:0;sudo nixos-rebuild test --flake . --show-trace
+: 1717321079:0;sudo rm -r /nix/store/yz2dy1pr0d180w23rc2nv1nhrdcqnm2s-home-manager-generation
+: 1717321128:0;nh os switch
+: 1717321173:0;hyprctl reload
+: 1717321189:0;nv
+: 1717321219:0;nh os test
+: 1717322113:0;ags -t applauncher
+: 1717322130:0;cd .con
+: 1717322132:0;cd ag
+: 1717322133:0;ls
+: 1717322134:1897;nv
+: 1717324032:0;cd .do
+: 1717324033:0;nv
+: 1717326300:0;nh os switch
+: 1717326562:0;cd .config
+: 1717329449:0;nv
+: 1717330647:0;ls
+: 1717330664:0;cd settings
+: 1717330665:0;ls
+: 1717330670:17;bat settings.json
+: 1717330691:1153;nv settings.json
+: 1717331846:0;cd .do
+: 1717331847:0;nv
+: 1717332416:0;cd .config/vesk
+: 1717332524:0;git add .
+: 1717332527:0;nh os switch
+: 1717332586:0;reboot
+: 1717332698:0;ls
+: 1717332700:0;cd settings
+: 1717332702:0;l
+: 1717333731:0;ls
+: 1717333744:0;cp settings.json ~/.dotfiles/home/softwares/discord
+: 1717333750:0;disco
+: 1717333753:0;cd sof
+: 1717333755:0;cd discord
+: 1717333756:0;ls
+: 1717333759:0;cd .do
+: 1717333760:0;nv
+: 1717335694:0;git add .
+: 1717335697:0;nh os switch
+: 1717335780:0;cd .config
+: 1717335787:0;cd vesktop
+: 1717335792:0;cd .do
+: 1717335793:0;nv
+: 1717335834:0;cd 
+: 1717336049:0;nh os test
+: 1717336181:0;nv
+: 1717336199:0;nh os test
+: 1717336291:0;sudo nixos-rebuild test --flake . --specialisation gruvbox && vesktop && spotify
+: 1717336330:0;vesktop
+: 1717336343:0;vesktop --help
+: 1717336477:0;sudo nixos-rebuild test --flake . --specialisation mocha
+: 1717356836:0;nv
+: 1717336116:0;spotify --help
+: 1717336159:0;ls
+: 1717336162:0;cd settings
+: 1717336162:0;ls
+: 1717336166:12;bat settings.json
+: 1717349451:2;nmcli device wifi connect phone
+: 1717357296:0;cd .do
+: 1717357302:0;git add .

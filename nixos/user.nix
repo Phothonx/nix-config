@@ -16,7 +16,7 @@
 home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    backupFileExtension = "old";
+    backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs systemConfig userConfig; };
 
     users.${userConfig.userName} = {
