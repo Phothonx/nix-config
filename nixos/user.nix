@@ -4,7 +4,7 @@
     isNormalUser = true;
     description = userConfig.name;
     extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
 
   imports = 

@@ -2,7 +2,7 @@
 {
   imports = 
   [
-    ./zsh
+    ./nushell
 
     ./starship.nix
   ];

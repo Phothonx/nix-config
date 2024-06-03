@@ -2,7 +2,7 @@
 {
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
+    enableNushellIntegration = true;
 
     settings = with colors; {
       format = ''$nix_shell$c$python$ocaml$directory$character'';      

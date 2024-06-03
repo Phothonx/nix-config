@@ -2,6 +2,11 @@
 {
   home.packages = with pkgs;
     [
+      # Nix
+      nvd
+      nix-output-monitor
+      nix-tree
+
       # CLI Tools
       imagemagick
       yt-dlp
@@ -13,7 +18,6 @@
       glow
 
       # Quality of life
-      thefuck
       ripgrep
       fzf
       ranger
@@ -32,12 +36,11 @@
   programs = {
     zoxide = {
       enable = true;
-      enableZshIntegration = true;
+      enableNushellIntegration = true;
     };
 
     eza = {
       enable = true;
-      enableZshIntegration = true;
       icons = true;
       extraOptions = [
         "--group-directories-first"
@@ -51,6 +54,11 @@
         theme = "base16";
         pager = "less -FR";
       };
+    };
+
+    thefuck = {
+      enable = true;
+      enableNushellIntegration = true;
     };
   };
 }
