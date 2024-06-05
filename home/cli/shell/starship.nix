@@ -5,7 +5,7 @@
     enableNushellIntegration = true;
 
     settings = with colors; {
-      format = ''$nix_shell$c$python$ocaml$directory$character'';      
+      format = ''$nix_shell$c$python$ocaml$battery$directory$character'';      
       right_format = ''$git_branch$git_status'';    
 
       character = {
@@ -22,8 +22,25 @@
         home_symbol = "🏠";
       };
 
+      battery = {
+        format = "[$symbol$percentage](bold $style) | ";
+        full_symbol = "🔋";
+        charging_symbol = "⚡️";
+        discharging_symbol = "🪫";
+        display = [
+          {
+            threshold = 10;
+            style = "bold #${base08}";
+          }
+          {
+            threshold = 25;
+            style = "bold #${base0A}";
+          }
+        ];
+      };
+
       nix_shell = {
-        format = "[🌨️ $name\($state\)](bold #${base15}) | ";
+        format = "[🌨️$name\($state\)](bold #${base15}) | ";
         impure_msg = "[impure](bold red)";
         pure_msg = "[pure](bold green)";
         unknown_msg = "[unknown](bold yellow)";
@@ -51,15 +68,15 @@
       };
 
       c = {
-        format = "[C $version](bold #${base0C}) | ";
+        format = "[C$version](bold #${base0C}) | ";
       };
 
       ocaml = {
-        format = "[🐫 $version\($switch_indicator$switch_name\)](bold #${base0A}) | ";
+        format = "[🐫$version\($switch_indicator$switch_name\)](bold #${base0A}) | ";
       };
 
       python = {
-        format = "[🐍 $version\($virtualenv\)](bold #${base0C}) | ";
+        format = "[🐍$version\($virtualenv\)](bold #${base0C}) | ";
       };
     };
   };

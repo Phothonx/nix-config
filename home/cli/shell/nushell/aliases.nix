@@ -14,14 +14,19 @@ let
   ''));
 in
 {
+  home.sessionVariables = {
+    EDITOR = noPad "nvim";
+    VISUAL = noPad "nvim";
+  };
+
   programs.nushell.shellAliases = with pkgs; with lib; {
     # Git
-    ga = "${git} add";
-    gc = "${git} commit";
-    gd = "${git} diff";
-    gl = "${git} log";
-    gs = "${git} status";
-    gp = "${git} push -u origin main";
+    ga = "git add";
+    gc = "git commit";
+    gd = "git diff";
+    gl = "git log";
+    gs = "git status";
+    gp = "git push -u origin main";
 
     # Nixos
     ns = "nh os switch";

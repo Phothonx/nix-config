@@ -1,6 +1,6 @@
 { ... }:
 {
-  programs.nushell.extraConfig = ''
+  programs.nushell.configFile.text = ''
     let dark_theme = {
       # color for nushell primitives
       separator: white
@@ -66,6 +66,7 @@
       shape_vardecl: purple
       shape_raw_string: light_purple
     }
+
     $env.config = {
     show_banner: false # true or false to enable or disable the welcome banner at startup
 
@@ -125,7 +126,7 @@
         algorithm: "fuzzy"    # prefix or fuzzy
         external: {
             enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
-            max_results: 50 # setting it lower can improve completion performance at the cost of omitting some options
+            max_results: 10 # setting it lower can improve completion performance at the cost of omitting some options
             completer: null # check 'carapace_completer' above as an example
         }
         use_ls_colors: true # set this to true to enable file/path/directory completions using LS_COLORS
@@ -146,7 +147,7 @@
     use_grid_icons: true
     footer_mode: "25" # always, never, number_of_rows, auto
     float_precision: 2 # the precision for displaying floats in tables
-    buffer_editor: "nvim" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
+    buffer_editor: $env.EDITOR # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
     use_ansi_coloring: true
     bracketed_paste: true # enable bracketed paste, currently useless on windows
     edit_mode: vi # emacs, vi
@@ -189,7 +190,7 @@
         {
             name: completion_menu
             only_buffer_difference: false
-            marker: "| "
+            marker: ""
             type: {
                 layout: columnar
                 columns: 4
@@ -205,63 +206,12 @@
             }
         }
         {
-            name: ide_completion_menu
-            only_buffer_difference: false
-            marker: "| "
-            type: {
-                layout: ide
-                min_completion_width: 0,
-                max_completion_width: 50,
-                max_completion_height: 10, # will be limited by the available lines in the terminal
-                padding: 0,
-                border: true,
-                cursor_offset: 0,
-                description_mode: "prefer_right"
-                min_description_width: 0
-                max_description_width: 50
-                max_description_height: 10
-                description_offset: 1
-                # If true, the cursor pos will be corrected, so the suggestions match up with the typed text
-                #
-                # C:\> str
-                #      str join
-                #      str trim
-                #      str split
-                correct_cursor_pos: false
-            }
-            style: {
-                text: green
-                selected_text: { attr: r }
-                description_text: yellow
-                match_text: { attr: u }
-                selected_match_text: { attr: ur }
-            }
-        }
-        {
             name: history_menu
-            only_buffer_difference: true
-            marker: "? "
+            only_buffer_difference: false
+            marker: ""
             type: {
                 layout: list
                 page_size: 10
-            }
-            style: {
-                text: green
-                selected_text: green_reverse
-                description_text: yellow
-            }
-        }
-        {
-            name: help_menu
-            only_buffer_difference: true
-            marker: "? "
-            type: {
-                layout: description
-                columns: 4
-                col_width: 20     # Optional value. If missing all the screen width is used to calculate column width
-                col_padding: 2
-                selection_rows: 4
-                description_rows: 10
             }
             style: {
                 text: green
@@ -279,20 +229,8 @@
             mode: [emacs vi_normal vi_insert]
             event: {
                 until: [
+                    { send: historyhintcomplete }
                     { send: menu name: completion_menu }
-                    { send: menunext }
-                    { edit: complete }
-                ]
-            }
-        }
-        {
-            name: ide_completion_menu
-            modifier: control
-            keycode: char_n
-            mode: [emacs vi_normal vi_insert]
-            event: {
-                until: [
-                    { send: menu name: ide_completion_menu }
                     { send: menunext }
                     { edit: complete }
                 ]
@@ -306,65 +244,11 @@
             event: { send: menu name: history_menu }
         }
         {
-            name: help_menu
-            modifier: none
-            keycode: f1
-            mode: [emacs, vi_insert, vi_normal]
-            event: { send: menu name: help_menu }
-        }
-        {
             name: completion_previous_menu
             modifier: shift
             keycode: backtab
             mode: [emacs, vi_normal, vi_insert]
             event: { send: menuprevious }
-        }
-        {
-            name: next_page_menu
-            modifier: control
-            keycode: char_x
-            mode: emacs
-            event: { send: menupagenext }
-        }
-        {
-            name: undo_or_previous_page_menu
-            modifier: control
-            keycode: char_z
-            mode: emacs
-            event: {
-                until: [
-                    { send: menupageprevious }
-                    { edit: undo }
-                ]
-            }
-        }
-        {
-            name: escape
-            modifier: none
-            keycode: escape
-            mode: [emacs, vi_normal, vi_insert]
-            event: { send: esc }    # NOTE: does not appear to work
-        }
-        {
-            name: cancel_command
-            modifier: control
-            keycode: char_c
-            mode: [emacs, vi_normal, vi_insert]
-            event: { send: ctrlc }
-        }
-        {
-            name: clear_screen
-            modifier: control
-            keycode: char_l
-            mode: [emacs, vi_normal, vi_insert]
-            event: { send: clearscreen }
-        }
-        {
-            name: search_history
-            modifier: control
-            keycode: char_q
-            mode: [emacs, vi_normal, vi_insert]
-            event: { send: searchhistory }
         }
         {
             name: open_command_editor
@@ -434,26 +318,7 @@
             modifier: control
             keycode: right
             mode: [emacs, vi_normal, vi_insert]
-            event: {
-                until: [
-                    { send: historyhintwordcomplete }
-                    { edit: movewordright }
-                ]
-            }
-        }
-        {
-            name: move_to_line_start
-            modifier: control
-            keycode: char_a
-            mode: [emacs, vi_normal, vi_insert]
-            event: { edit: movetolinestart }
-        }
-        {
-            name: delete_one_character_backward
-            modifier: none
-            keycode: backspace
-            mode: [emacs, vi_insert]
-            event: { edit: backspace }
+            event: { edit: movewordright }
         }
         {
             name: delete_one_word_backward
@@ -461,20 +326,6 @@
             keycode: backspace
             mode: [emacs, vi_insert]
             event: { edit: backspaceword }
-        }
-        {
-            name: delete_one_character_forward
-            modifier: none
-            keycode: delete
-            mode: [emacs, vi_insert]
-            event: { edit: delete }
-        }
-        {
-            name: delete_one_character_forward
-            modifier: control
-            keycode: delete
-            mode: [emacs, vi_insert]
-            event: { edit: delete }
         }
         {
             name: move_left
