@@ -37,6 +37,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    firefox-gnome-theme.url = "github:rafaelmardojai/firefox-gnome-theme";
+
     spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 

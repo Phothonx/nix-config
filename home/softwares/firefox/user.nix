@@ -4,7 +4,6 @@
     "browser.download.panel.shown" = true;
     "identity.fxaccounts.enabled" = false;
     
-    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
     "app.update.auto" = false;
 
