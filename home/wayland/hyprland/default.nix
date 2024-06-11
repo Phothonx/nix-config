@@ -8,19 +8,4 @@
     ./binds.nix
     ./startup.nix
   ];
-
-  home.packages = with pkgs; [
-    libnotify
-    brightnessctl
-    swww
-    hyprkeys
-    hyprshot
-
-    helvum
-    imv
-
-    wl-clipboard
-    cliphist
-    hyprpicker
-  ];
 }

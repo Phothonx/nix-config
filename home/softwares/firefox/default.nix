@@ -1,8 +1,7 @@
 { pkgs, inputs, ... }:
 {
   imports = [
-    # ./prefs.nix
-    # ./user.nix
+    ./arkenfox.nix
     ./theme.nix
   ];
 

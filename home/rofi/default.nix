@@ -1,10 +1,6 @@
 { pkgs, inputs, colors, artwork, ... }:
 {
-  programs.wofi = {
-    enable = true;
-  };
-
-  imports = [inputs.anyrun.homeManagerModules.default];
+  imports = [ inputs.anyrun.homeManagerModules.default ];
 
   programs.anyrun = {
     enable = true;
@@ -13,8 +9,9 @@
         applications
       ];
 
-      width.absolute = 800;
+      width.fraction = 0.3;
       y.fraction = 0.5 ;
+      x.fraction = 0.5 ;
       layer = "overlay";
       closeOnClick = true;
       showResultsImmediately = true;

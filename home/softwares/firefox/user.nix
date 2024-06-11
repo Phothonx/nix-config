@@ -4,7 +4,6 @@
     "browser.download.panel.shown" = true;
     "identity.fxaccounts.enabled" = false;
     
-
     "app.update.auto" = false;
 
     "browser.bookmarks.restore_default_bookmarks" = false;
@@ -79,10 +78,7 @@
     "network.captive-portal-service.enabled" = false;
     "network.connectivity-service.enabled" = false; /* 0361: disable Network Connectivity checks [FF65+] ***/
 
-    /*** [SECTION 0400]: SAFE BROWSING (SB) ***/
-    # "_user.js.parrot" = "0400 syntax error: the parrot's passed on!";
-
-    /*** [SECTION 0600]: BLOCK IMPLICIT OUTBOUND [not explicitly asked for - e.g. clicked on] ***/
+     /*** [SECTION 0600]: BLOCK IMPLICIT OUTBOUND [not explicitly asked for - e.g. clicked on] ***/
     # "_user.js.parrot" = "0600 syntax error: the parrot's no more!";
     "network.prefetch-next" = false; /* 0601: disable link prefetching ***/
     "network.dns.disablePrefetch" = true; /* 0602: disable DNS prefetching ***/
@@ -161,15 +157,12 @@
     "browser.tabs.searchclipboardfor.middleclick" = false;
     /** DOWNLOADS ***/
     "browser.download.useDownloadDir" = false;
-    "browser.download.alwaysOpenPanel" = false;
+    "browser.download.alwaysOpenPanel" = true;
     "browser.download.manager.addToRecentDocs" = false;
     "browser.download.always_ask_before_handling_new_types" = true;
     /** EXTENSIONS ***/
     "extensions.enabledScopes" = 8;
     "extensions.postDownloadThirdPartyPrompt" = false;
-
-    /*** [SECTION 2700]: ETP (ENHANCED TRACKING PROTECTION) ***/
-    # "_user.js.parrot" = "2700 syntax error: the parrot's joined the bleedin' choir invisible!";
 
     /*** [SECTION 2800]: SHUTDOWN & SANITIZING ***/
     # "_user.js.parrot" = "2800 syntax error: the parrot's bleedin' demised!";
