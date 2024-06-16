@@ -22,7 +22,7 @@
     extraCss = with colors; ''
       * {
         transition: 200ms ease;
-        font-family: ${artwork.fonts.sansSerif.name};
+        font-family: ${artwork.fonts.normal.name};
 	      font-size: ${builtins.toString artwork.fonts.sizes.desktop};
       }
 

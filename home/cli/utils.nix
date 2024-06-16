@@ -29,6 +29,7 @@
       cowsay
       pipes
       cbonsai
+      cmatrix
       lolcat
       nitch
     ];
@@ -54,11 +55,6 @@
         theme = "base16";
         pager = "less -FR";
       };
-    };
-
-    thefuck = {
-      enable = true;
-      enableNushellIntegration = true;
     };
   };
 }

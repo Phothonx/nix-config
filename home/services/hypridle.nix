@@ -15,7 +15,7 @@
       general = with pkgs; with lib; {
         ignore_dbus_inhibit = true;
         before_sleep_cmd = "loginctl lock-session";
-        lock_cmd = "${getExe hyprlock}";
+        lock_cmd = "pidof ${getExe hyprlock} or ${getExe hyprlock}";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
       listener = [

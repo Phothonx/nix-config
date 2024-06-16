@@ -12,6 +12,10 @@
         format = "$symbol ";
         success_symbol = "[❯❯](#${base0B})";
         error_symbol = "[❯❯](#${base08})";
+        vimcmd_symbol = "[n❮](#${base09})";
+        vimcmd_replace_one_symbol = "[r❯](#${base0F})";
+        vimcmd_replace_symbol = "[r❯](#${base0F})";
+        vimcmd_visual_symbol = "[v❮](#${base0E})";
       };
 
       directory = {

@@ -1,4 +1,4 @@
-{ artwork, ... }:
+{ pkgs, artwork, ... }:
 with artwork;
 {
   home.sessionVariables = {
@@ -12,6 +12,9 @@ with artwork;
   qt = {
     enable = true;
     platformTheme.name = "gtk";
-    style = qt;
+    style = {
+      name ="Catppuccin-Mocha";
+      package = pkgs.catppuccin-qt5ct;
+    };
   };
 }

@@ -4,7 +4,7 @@
     enable = true;
     settings = with colors; {
       # FONTS 
-      font_family = artwork.fonts.monospace.name;
+      font_family = artwork.fonts.mono.name;
       font_size = "15";
 
       # CURSOR

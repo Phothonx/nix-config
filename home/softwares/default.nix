@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = 
   [
@@ -7,5 +7,9 @@
     ./gnome
     ./spotify
     ./terminal
+  ];
+
+  home.packages = with pkgs; [
+    bitwarden-desktop
   ];
 }

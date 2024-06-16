@@ -7,11 +7,7 @@
     shell = pkgs.nushell;
   };
 
-  imports = 
-  [
-  inputs.home-manager.nixosModules.home-manager
-  ./../artwork # my theming arguments for hm
-  ];
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
 
 home-manager = {
     useUserPackages = true;

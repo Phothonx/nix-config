@@ -1,4 +1,4 @@
-{ pkgs, inputs, artwork, ... }:
+{ pkgs, inputs, ... }:
 let
   spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
 in
@@ -8,8 +8,8 @@ in
   programs.spicetify = {
     enable = true;
     spotifyPackage = pkgs.spotify; # unstable package
-    theme = artwork.spicetify.package;
-    colorScheme = artwork.spicetify.colorScheme;
+    theme = spicePkgs.themes.catppuccin;
+    colorScheme = "mocha";
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
       shuffle # shuffle+ (special characters are sanitized out of ext names)

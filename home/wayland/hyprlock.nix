@@ -58,7 +58,7 @@
         {
           monitor = "";
           text = ''<span font_weight="bold">$TIME</span>'';
-          font_family = artwork.fonts.sansSerif.name;
+          font_family = artwork.fonts.normal.name;
           font_size = 100;
           color = "rgb(${colors.base07})";
           position = "0, 120";

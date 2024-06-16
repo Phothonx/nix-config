@@ -18,7 +18,7 @@
         frame_width = 2;
         gap_size = 8;
         separator_color = "frame";
-        font = artwork.fonts.sansSerif.name;
+        font = artwork.fonts.normal.name;
         vertical_alignment = "center";
         corner_radius = 15;
         mouse_left_click = "do_action";

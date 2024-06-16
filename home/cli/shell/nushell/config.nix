@@ -1,5 +1,10 @@
 { ... }:
 {
+  programs.carapace = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
+
   programs.nushell.configFile.text = ''
     let dark_theme = {
       # color for nushell primitives
@@ -229,7 +234,6 @@
             mode: [emacs vi_normal vi_insert]
             event: {
                 until: [
-                    { send: historyhintcomplete }
                     { send: menu name: completion_menu }
                     { send: menunext }
                     { edit: complete }

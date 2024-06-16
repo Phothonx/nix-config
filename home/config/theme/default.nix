@@ -9,15 +9,11 @@ with artwork;
   home = {
     packages =
     [
-      fonts.serif.package
-      fonts.sansSerif.package
-      fonts.monospace.package
+      fonts.normal.package
+      fonts.mono.package
       fonts.emoji.package
       cursor.package
       icons.package
-      pkgs.gnome.adwaita-icon-theme
-      qt.package
-      gtk.package
     ];
 
     pointerCursor = {
@@ -37,9 +33,9 @@ with artwork;
     enable = true;
     defaultFonts = {
       emoji = [ fonts.emoji.name ];
-      monospace = [ fonts.monospace.name ];
-      serif = [ fonts.serif.name ];
-      sansSerif = [ fonts.sansSerif.name ];
+      monospace = [ fonts.mono.name ];
+      serif = [ fonts.normal.name ];
+      sansSerif = [ fonts.normal.name ];
     };
   };
 }

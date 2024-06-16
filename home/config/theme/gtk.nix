@@ -1,4 +1,4 @@
-{ artwork, config, ... }:
+{ artwork, config, pkgs, ... }:
 with artwork;
 {
   home.sessionVariables = {
@@ -12,9 +12,17 @@ with artwork;
 
     cursorTheme = cursor;
     iconTheme = icons;
-    theme = gtk;
+    theme = {
+      name = "Catppuccin-Mocha-Compact-Mauve-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "mauve" ];
+        size = "compact"; # "standard" "compact"
+        #tweaks = [ "rimless" ]; # "black" "rimless" "normal" 
+        variant = "mocha";
+      };
+    };
     font  = { 
-      inherit (fonts.sansSerif) name package;
+      inherit (fonts.normal) name package;
       size = fonts.sizes.applications;
     };
 

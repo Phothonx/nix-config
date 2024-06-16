@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports =
   [
@@ -18,8 +18,6 @@
     helvum
     imv
 
-    wl-clipboard
-    cliphist
     hyprpicker
   ];
 }

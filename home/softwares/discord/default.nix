@@ -8,7 +8,7 @@
       "autoUpdate": false,
       "autoUpdateNotification": true,
       "useQuickCss": true,
-      "themeLinks": [ "${artwork.discord}" ],
+      "themeLinks": [ "https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css" ],
       "enabledThemes": [],
       "enableReactDevtools": false,
       "frameless": false,
