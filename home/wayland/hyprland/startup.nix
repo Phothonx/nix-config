@@ -2,7 +2,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     exec-once = with lib; with pkgs;[
-      "${getExe swww} init && ${getExe swww} img ${artwork.wallpaper}"
+      "swww-daemon && swww img ${artwork.wallpaper} --transition-type none"
       "hyprctl setcursor ${artwork.cursor.name} ${builtins.toString artwork.cursor.size}"
       (getExe waybar)
       (getExe dunst)

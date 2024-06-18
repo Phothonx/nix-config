@@ -113,7 +113,7 @@
       input  = {
         kb_layout = "${systemConfig.layout}";
         kb_options = "ctrl:nocaps"; # disable capslock
-        repeat_rate = 47; # on long press
+        repeat_rate = 45; # on long press
         repeat_delay = 225; # time to hold before repeating
         sensitivity = 0.25;
         accel_profile = "flat"; # no mouse acceleration
@@ -143,9 +143,10 @@
         animate_mouse_windowdragging = true;
         disable_autoreload = true; # useless on nixos
       };
-      
-      binds = {};
 
+      debug = {
+        disable_logs = false;
+      };
     };
  };
 }

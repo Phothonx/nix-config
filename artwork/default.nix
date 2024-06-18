@@ -18,8 +18,8 @@ rec {
     normal = nerdFont "Ubuntu";
     mono = nerdFont "JetBrainsMono";
     emoji = {
-      package = pkgs.twitter-color-emoji;
-      name = "twitter-color-emoji";
+      package = pkgs.noto-fonts-emoji;
+      name = "Noto Color Emoji";
     };
     sizes = {
       desktop = 22;
@@ -29,15 +29,15 @@ rec {
   };
 
   icons = { 
-    name = "Papirus-Dark";
-    package = pkgs.papirus-icon-theme.override { color = "yaru"; };
+    name = "MoreWaita";
+    package = pkgs.morewaita-icon-theme;
   };
 
   tweaks = {
     gaps_in = 5;
-    gaps_out = 20;
+    gaps_out = 10;
     border_size = 2;
-    rounding = 14;
+    rounding = 7;
     scaling = 1.0;
     opacity = {
       desktop = 1.0;

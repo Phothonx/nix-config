@@ -1,31 +1,39 @@
 { pkgs, lib, ... }:
-# let
-#   suspendScript = pkgs.writeShellScript "suspend-script" ''
-#     ${pkgs.pipewire}/bin/pw-cli i all 2>&1 | ${pkgs.ripgrep}/bin/rg running -q
-#     # only suspend if audio isn't running
-#     if [ $? == 1 ]; then
-#       ${pkgs.systemd}/bin/systemctl suspend
-#     fi
-#   '';
-# in
+with pkgs; with lib; 
+let
+  lock = "${systemd}/bin/loginctl lock-session";
+  suspend = "${systemd}/bin/loginctl suspend";
+
+  suspendScript = writeShellScript "suspend-script" ''
+    ${pipewire}/bin/pw-cli i all 2>&1 | ${ripgrep}/bin/rg running -q
+    # only suspend if audio isn't running
+    if [ $? == 1 ]; then
+      ${suspend}
+    fi
+  '';
+in
 {
   services.hypridle = {
     enable = true;
     settings = {
-      general = with pkgs; with lib; {
-        ignore_dbus_inhibit = true;
-        before_sleep_cmd = "loginctl lock-session";
-        lock_cmd = "pidof ${getExe hyprlock} or ${getExe hyprlock}";
+      general = {
+        before_sleep_cmd = lock;
+        lock_cmd = getExe hyprlock;
+        unlock_cmd = "pkill -USR1 hyprlock";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
       listener = [
         {
-          timeout = 20;
-          on-timeout = "loginctl lock-session";
+          timeout = 600;
+          on-timeout = "dunstify -u 0 \"Hypridle\" \"You're idling since 10min !\" && brightnessctl set --min-value=4800 50%";
         }
         {
-          timeout = 25;
-          on-timeout = "systemctl suspend";
+          timeout = 780;
+          on-timeout = lock;
+        }
+        {
+          timeout = 900;
+          on-timeout = getExe suspendScript;
         }
       ];
     };

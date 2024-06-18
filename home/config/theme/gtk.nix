@@ -3,7 +3,6 @@ with artwork;
 {
   home.sessionVariables = {
     GTK_THEME = "Catppuccin-Mocha-Compact-Mauve-Dark";
-    GDK_BACKEND = "wayland";
 	  GTK_USE_PORTAL = "1";
   };
 

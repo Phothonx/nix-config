@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       general = {
-        hide_cursor = true;
+        hide_cursor = false;
         disable_loading_bar = true;
         ignore_empty_input = true;
         grace = 5;
@@ -27,12 +27,12 @@
       input-field = with colors; [
         {
           monitor = "";
-          size = "255, 55";
+          size = "250, 50";
           outline_thickness = 2;
           dots_size = 0.25;
-          dots_spacing = 0.42;
+          dots_spacing = 0.5;
           dots_center = true;
-          dots_rounding = -2;
+          dots_rounding = -1;
           outer_color = "rgb(${base0E})";
           inner_color = "rgb(${base00})";
           font_color = "rgb(${base07})";
@@ -42,32 +42,69 @@
           fail_transition = 300;
           fade_on_empty = true;
           fade_timeout = 3000;
-          placeholder_text = "<i><span foreground=\"##${base04}\">Password...</span></i>";
+          placeholder_text = "<i>Password...</i>";
           rounding = 15;
-          shadow_passes = 3;
-          shadow_size = 5;
-          shadow_color = "rgb(${colors.base10})";
-          shadow_boost = 1.3;
-          position = "0, -40";
+          position = "0, 60";
           halign = "center";
-          valign = "center";
+          valign = "bottom";
+          shadow_passes = 2;
+          shadow_size = 4;
+          shadow_color = "rgb(${colors.base10})";
         }
       ];
 
       label = [
         {
           monitor = "";
-          text = ''<span font_weight="bold">$TIME</span>'';
-          font_family = artwork.fonts.normal.name;
-          font_size = 100;
+          text = "cmd[update:1000] echo \"<b><big> $(date +\"%H\") </big></b>\"";
           color = "rgb(${colors.base07})";
-          position = "0, 120";
+          font_size = 120;
+          font_family = artwork.fonts.normal.name;
+          position = "0, 20";
           halign = "center";
           valign = "center";
-          shadow_passes = 3;
-          shadow_size = 5;
+          shadow_passes = 2;
+          shadow_size = 4;
           shadow_color = "rgb(${colors.base10})";
-          shadow_boost = 1.3;
+        }
+        {
+          monitor = "";
+          text = "cmd[update:1000] echo \"<b><big> $(date +\"%M\") </big></b>\"";
+          color = "rgb(${colors.base07})";
+          font_size = 120;
+          font_family = artwork.fonts.normal.name;
+          position = "0, -140";
+          halign = "center";
+          valign = "center";
+          shadow_passes = 2;
+          shadow_size = 4;
+          shadow_color = "rgb(${colors.base10})";
+        }
+        {
+          monitor = "";
+          text = "cmd[update:1000] echo \"<b><big> $(date +\"%d %b\") </big></b>\"";
+          color = "rgb(${colors.base03})";
+          font_size = 16;
+          font_family = artwork.fonts.normal.name;
+          position = "0, -160";
+          halign = "center";
+          valign = "center";
+          shadow_passes = 2;
+          shadow_size = 4;
+          shadow_color = "rgb(${colors.base10})";
+        }
+        {
+          monitor = "";
+          text = "cmd[update:1000] echo \"<b><big> $(date +\"%A\") </big></b>\"";
+          color = "rgb(${colors.base03})";
+          font_size = 16;
+          font_family = artwork.fonts.normal.name;
+          position = "0, -180";
+          halign = "center";
+          valign = "center";
+          shadow_passes = 2;
+          shadow_size = 4;
+          shadow_color = "rgb(${colors.base10})";         
         }
       ];
     };

@@ -7,13 +7,13 @@ with artwork;
   ];
 
   home = {
-    packages =
-    [
+    packages = [
       fonts.normal.package
       fonts.mono.package
       fonts.emoji.package
       cursor.package
       icons.package
+      pkgs.gnome.adwaita-icon-theme
     ];
 
     pointerCursor = {
