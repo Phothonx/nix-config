@@ -14,7 +14,5 @@
     ./softwares
     ./wayland
     ./gaming
-
-    ./rofi
   ];
 }

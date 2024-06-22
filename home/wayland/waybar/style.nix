@@ -3,140 +3,211 @@
   programs.waybar.style = with colors; ''
     * {
       font-family: ${artwork.fonts.normal.name};
-      font-size: ${builtins.toString artwork.fonts.sizes.desktop}px;
-
-      border-radius: 10px;
+      font-size: 22px;
+      border-radius: 4px;
+      color: #${base07};
     }
 
     window#waybar {
-      background-color: #${base10};
-      transition-property: background-color;
-      transition-duration: 0.3s;
+      background-color: transparent;
     }
 
-    button:hover {
-      background-color: #${base01};
+    .modules-left, .modules-right {
+      background-color: #${base11};
+      border-radius: 10px;
+      padding: 6px;
+    }
+
+    .modules-center {
+      background-color: #${base11};
+      padding: 3px 6px 3px 6px;
+      border-radius: 10px;
     }
 
     #workspaces button {
-      all: initial; /* Remove GTK theme values (waybar #1351) */
-      min-width: 0; /* Fix weird spacing in materia (waybar #450) */
-      background-color: transparent;
-      color: #${base17};
-      font-size: 14px;
-      font-weight: bold;
-      padding: 7px 0px 7px 0px;
-      border-radius: 10px;
-      margin: 3px 5px 3px 5px;
-    }
-
-    #workspaces button:hover {
-      color: #${base0D};
-      background-color: #${base01};
-    }
-
-    #workspaces button.active {
-      color: #${base0F};
-      background-color: #${base01};
-    }
-
-    #clock,
-    #taskbar,
-    #network,
-    #battery,
-    #backlight,
-    #workspaces,
-    #wireplumber,
-    #image,
-
-    #image {
-      margin: 20px 0px 10px 0px;
-    }
-
-    #clock {
-      color: #${base17};
-      font-family: Ubuntu Nerd Font;
-      font-size: 32px;
-      font-weight: bold;
-      margin: 5px 0px 20px 0px;
-    }
-
-    #taskbar {
+      min-height: 34px;
+      font-size: 18px;
       background-color: #${base00};
       margin: 3px 0px 3px 0px;
-      padding: 5px;
+    }
+    #workspaces button:hover {
+      background-color: #${base02};
+    }
+    #workspaces button.active {
+      background-color: #${accent};
+    }
+    #workspaces button.urgent {
+      background-color: #${base08};
     }
 
+    #image {
+      background-color: transparent;
+      margin: 6px 0px 3px 0px;
+    }
+    #custom-quit, custom-reboot, custom-power, custom-lock {
+      background-color: transparent;
+      color: #${base07};
+      margin: 3px 0px 3px 0px;
+    }
+    #custom-quit:hover {
+      color: #${base08};
+    }
+    #custom-reboot:hover {
+      color: #${base08};
+    }
+    #custom-power:hover {
+      color: #${base08};
+    }
+    #custom-lock:hover {
+      color: #${base08};
+    }
+    
+    #battery {
+      min-height: 43px;
+      background-color: #${base00};
+      color: #${base0F};
+      margin: 9px 0px 3px 0px;
+    }
+    #battery:hover {
+      background-color: #${base02};
+    }
+    #battery.charging, #battery.plugged {
+      color: #${base0B};
+    }
+    #battery.warning {
+      color: #${base0A};
+    }
+    @keyframes blink {
+      to {
+        color: #${base07};
+      } 
+    }
+
+    /* Using steps() instead of linear as a timing function to limit cpu usage */
+    #battery.critical:not(.charging) {
+      color: #${base08};
+      animation-name: blink;
+      animation-duration: 0.5s;
+      animation-timing-function: steps(12);
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    } 
+
+    #network {
+      min-height: 43px;
+      background-color: #${base00};
+      margin: 3px 0px 3px 0px;
+      color: #${base0E};
+    }
+    #network:hover {
+      background-color: #${base02};
+    }
+    #network.disconnected {
+      color: #${base0A};
+    }
+    #network.disabled {
+      color: #${base08};
+    }
+
+    #bluetooth {
+      color: #${base0D};
+      padding: 3px 0px 3px 0px;
+      margin: 3px 0px 3px 0px;
+    }
+    #bluetooth.disabled {
+      color: #${base08};
+    }
+    #bluetooth.off {
+      color: #${base0A};
+    }
+
+    #wireplumber {
+      min-height: 43px;
+      background-color: #${base00};
+      margin: 3px 0px 3px 0px;
+      color: #${base0C};
+    }
+    #wireplumber:hover {
+      background-color: #${base02};
+    }
+    #wireplumber.muted {
+      color: #${base08};
+    }
+
+    #privacy {
+      background-color: transparent;
+    }
+
+    #privacy-item {
+      background-color: transparent;
+      margin: 7px 0px 7px 0px;
+      padding-left: 11px;
+    }
+
+    #backlight {
+      min-height: 43px;
+      background-color: #${base00};
+      margin: 3px 0px 0px 0px;
+      color: #${base0A};
+    }
+    #backlight:hover {
+      background-color: #${base02};
+    }
+    
+    #taskbar {
+      margin: 0px 0px 3px 0px;
+      background-color: #${base00};
+    }
     #taskbar button {
-      padding: 7px 0px 7px 0px;
+      min-height: 31px;
+      padding-top: 9px;
     }
-
     #taskbar button:hover {
-      background-color: #${base01};
+      background-color: #${base02};
     }
-
     #taskbar button.active {
-      background-color: #${base01};
+      background-color: #${accent};
     }
-
     #taskbar.empty {
       background-color: transparent;
       margin: 0px;
       padding: 0px;
-      border-radius: 0px;
     }
 
-    #network {
+    #tray {
+      padding: 6px 0px 6px 0px;
       background-color: #${base00};
-      color: #${base0D};
       margin: 3px 0px 3px 0px;
-      padding: 10px 5px 10px 5px;
+    }
+    #tray:hover {
+      background-color: #${base02};
     }
 
-    #backlight {
+    #tray.empty {
+      margin: 0px;
+      padding: 0px;
+      background-color: transparent;
+    }
+
+    #tray menu {
+      font-size: 18;
       background-color: #${base00};
-      color: #${base0A};
-      margin: 3px 0px 3px 0px;
-      padding: 10px 5px 10px 5px;
     }
 
-    #battery {
-      background-color: #${base00};
-      color: #${base0B};
-      margin: 3px 0px 3px 0px;
-      padding: 10px 5px 10px 5px;
+    #clock {
+      font-size: 31px;
+      font-weight: bold;
+      margin: 9px 0px 6px 0px;
     }
 
-    #battery.warning {
-      background-color: #${base00};
-      color: #${base0C};
-    }
-
-    #battery.critical:not(.charging) {
-      color: #${base08};
-    }
-
-    #wireplumber {
-      background-color: #${base00};
-      color: #${base0C};
-      margin: 3px 0px 3px 0px;
-      padding: 10px 5px 10px 5px;
-    }
-
-    #wireplumber.muted {
-      color: #${base08};
-    }
-    
     tooltip {
-      border-radius: 8px;
-      padding: 15px;
       background-color: #${base10};
-      font-size: 6px;
     }
       
     tooltip label {
-      padding: 5px;
+      padding: 3px;
       background-color: #${base10};
+      font-size: 17px;
     }
   '';
 }

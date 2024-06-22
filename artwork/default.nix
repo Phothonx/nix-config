@@ -6,7 +6,7 @@ let
 };
 in
 rec {
-  wallpaper = ./wallpapers/cat_leaves.png;
+  wallpaper = ./wallpapers/lavender-cat.png;
 
   cursor = {
     name = "Bibata-Modern-Ice";
@@ -34,10 +34,10 @@ rec {
   };
 
   tweaks = {
-    gaps_in = 5;
+    gaps_in = 10;
     gaps_out = 10;
     border_size = 2;
-    rounding = 7;
+    rounding = 10;
     scaling = 1.0;
     opacity = {
       desktop = 1.0;

@@ -62,7 +62,7 @@ in
     # Fun
     cbonsai = noPad "${getExe cbonsai} -l -i -L 50";
     pipes = noPad "${getExe pipes} -R -p 3 -t 1";
-    cava = noPad cava;
+    cava = noPad "cava";
     ni = getExe nitch;
 
     # Navigation

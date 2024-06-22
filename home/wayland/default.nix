@@ -6,6 +6,7 @@
     ./waybar
 
     ./hyprlock.nix
+    ./walker.nix
   ];
 
   home.packages = with pkgs; [
