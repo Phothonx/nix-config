@@ -175,7 +175,7 @@
     }
 
     #tray {
-      padding: 6px 0px 6px 0px;
+      padding: 9px 0px 9px 0px;
       background-color: #${base00};
       margin: 3px 0px 3px 0px;
     }
