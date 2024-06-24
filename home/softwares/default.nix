@@ -4,7 +4,7 @@
   [
     ./discord
     ./firefox
-    ./gnome
+    ./utils
     ./spotify
     ./terminal
   ];

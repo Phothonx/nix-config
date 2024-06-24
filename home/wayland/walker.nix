@@ -131,6 +131,9 @@
 
       #scrollbar {
         opacity: 0;
+        outline: none;
+        outline-width: 0px;
+        border: none;
       }
       
       #list {

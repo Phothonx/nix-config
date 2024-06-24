@@ -14,4 +14,6 @@
 
     WLR_NO_HARDWARE_CURSORS = "1";
   };
+
+  wayland.windowManager.hyprland.settings.env = [ "QT_QPA_PLATFORMTHEME,qt5ct" ];
 }
