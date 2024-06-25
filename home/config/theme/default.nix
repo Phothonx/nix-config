@@ -13,7 +13,9 @@ with artwork;
       fonts.emoji.package
       cursor.package
       icons.package
+
       pkgs.gnome.adwaita-icon-theme
+      (pkgs.nerdfonts.override { fonts = [ "SpaceMono" ]; })
     ];
 
     pointerCursor = {

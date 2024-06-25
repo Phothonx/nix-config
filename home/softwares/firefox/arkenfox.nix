@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
 {
   imports = [ inputs.arkenfox-nixos.hmModules.arkenfox ];
 
@@ -15,6 +15,8 @@
       "0100" = {
         enable = true;
         "0102"."browser.startup.page".value = 3; 
+        "0103"."browser.startup.homepage".value = "${config.home.homeDirectory}/.mozilla/firefox/default/startpage/index.html";
+        "0104"."browser.newtabpage.enabled".value = false;
       };
       "0200".enable = true;
       "0300".enable = true;

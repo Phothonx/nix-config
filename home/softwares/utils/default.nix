@@ -1,8 +1,6 @@
 { colors, pkgs, ... }:
 {
   home.packages = with pkgs; [
-
-
     # Filemanager
     gnome.nautilus # nemo when adw-gtk support it ( #cope :) )
     gnome.nautilus-python

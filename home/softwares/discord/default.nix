@@ -6,7 +6,7 @@
   xdg.configFile."vesktop/settings/settings.json".text = ''
     {
       "autoUpdate": false,
-      "autoUpdateNotification": true,
+      "autoUpdateNotification": false,
       "useQuickCss": true,
       "themeLinks": [ "https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css" ],
       "enabledThemes": [],

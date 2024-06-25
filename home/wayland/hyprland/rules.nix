@@ -21,7 +21,9 @@
 
       "float, class:^(org.pipewire.Helvum)$"
       "size 1400 800, class:^(org.pipewire.Helvum)$"
-      "center, class:^(org.pipewire.Helvum)$"
+
+      "float, class:^(com.saivert.pwvucontrol)$"
+      "size 1100 600, class:^(com.saivert.pwvucontrol)$"
 
       "float, class:^(org.gnome.Nautilus)$"
       "float, class:^(org.gnome.NautilusPreviewer)$"
@@ -29,17 +31,8 @@
       "center, class:^(org.gnome.Nautilus)$"
       "center, class:^(org.gnome.NautilusPreviewer)$"
 
-      "float, title:^(Calculator)$"
-      "size 550 700, title:^(Calculator)$"
-      "center, title:^(Calculator)$"
-
-      "float, title:^(Characters)$"
-      "size 800 900, title:^(Characters)$"
-      "center, title:^(Characters)$"
-
       "float, title:^(Amberol)$"
       "size 800 1000, title:^(Amberol)$"
-      "center, title:^(Amberol)$"
 
       "float, class:^(org.gnome.Loupe)$"
       "center, class:^(org.gnome.Loupe)$"
@@ -49,6 +42,9 @@
 
       "float, title:^(Picture-in-Picture)$"
       "pin, title:^(Picture-in-Picture)$"
+
+      "size 1400 900, class:^(kitty)$"
+      "size 1700 1100, class:^(firefox)$"
     ];
   };
 }

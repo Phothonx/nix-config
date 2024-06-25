@@ -20,7 +20,7 @@
       # Quality of life
       ripgrep
       fzf
-      ranger
+      yazi
       fd
       catimg
       rsync
