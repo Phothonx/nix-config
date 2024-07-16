@@ -12,7 +12,7 @@
       id = 0;
       isDefault = true;
       name = "default";
-  
+       
       extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
         bitwarden
         ublock-origin

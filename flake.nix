@@ -40,8 +40,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    firefox-gnome-theme = {
-      url = "github:rafaelmardojai/firefox-gnome-theme";
+    MiniFox = {
+      url = "git+https://codeberg.org/awwpotato/MiniFox";
       flake = false;
     };
     arkenfox-nixos.url = "github:dwarfmaster/arkenfox-nixos";

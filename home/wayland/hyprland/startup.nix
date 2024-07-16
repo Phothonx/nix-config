@@ -9,7 +9,7 @@
       (getExe dunst)
       (getExe hypridle)
       # "${getExe kitty} -o background_opacity=0 -o window_padding_width=0 --class=\"kitty-cava\" ${getExe cava}"
-      "${getExe hyprlock} --immediate"
+      # "${getExe hyprlock} --immediate"
     ]; 
   };
 }

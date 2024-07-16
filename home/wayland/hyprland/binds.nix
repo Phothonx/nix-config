@@ -18,10 +18,10 @@
       notifBright = "dunstify -h int:value:${getBright} -i ${config.home.homeDirectory}/.dotfiles/home/services/dunst/assets/brightness.svg -t 700 -r 2593 \"Brightness: ${getBright}%\"";
     in
     [
-      " , code:68, exec, ${setVol} 2%- && ${notifVol}"
-      " , code:69, exec, ${setVol} 2%+ && ${notifVol}"
-      " , code:71, exec, ${setBright} 5%- && ${notifBright}"
-      " , code:72, exec, ${setBright} +5% && ${notifBright}"
+      " , XF86AudioLowerVolume, exec, ${setVol} 2%- && ${notifVol}"
+      " , XF86AudioRaiseVolume, exec, ${setVol} 2%+ && ${notifVol}"
+      " , XF86MonBrightnessDown, exec, ${setBright} 5%- && ${notifBright}"
+      " , XF86MonBrightnessUp, exec, ${setBright} +5% && ${notifBright}"
     ];
 
     bind = 
@@ -37,7 +37,7 @@
 
       # "SUPER, Tab, hyprexpo:expo, toggle"
 
-      " , code:67, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${notifMute}"
+      " , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${notifMute}"
 
       "SUPER, S, exec, hyprshot -o ${config.home.homeDirectory}/Medias/Screenshots -c -m output"
       "SUPER SHIFT, S, exec, hyprshot -o ${config.home.homeDirectory}/Medias/Screenshots -m region"
@@ -69,27 +69,27 @@
       "SUPER, A, togglespecialworkspace"
       "SUPER SHIFT, A, movetoworkspace, special"
 
-      "SUPER, code:10, workspace, 1"
-      "SUPER, code:11, workspace, 2"
-      "SUPER, code:12, workspace, 3"
-      "SUPER, code:13, workspace, 4"
-      "SUPER, code:14, workspace, 5"
-      "SUPER, code:15, workspace, 6"
-      "SUPER, code:16, workspace, 7"
-      "SUPER, code:17, workspace, 8"
-      "SUPER, code:18, workspace, 9"
-      "SUPER, code:19, workspace, 10"
+      "SUPER, ampersand, workspace, 1"
+      "SUPER, eacute, workspace, 2"
+      "SUPER, quotedbl, workspace, 3"
+      "SUPER, apostrophe, workspace, 4"
+      "SUPER, parenleft, workspace, 5"
+      "SUPER, minus, workspace, 6"
+      "SUPER, egrave, workspace, 7"
+      "SUPER, underscore, workspace, 8"
+      "SUPER, ccedilla, workspace, 9"
+      "SUPER, agrave, workspace, 10"
 
-      "SUPER SHIFT, code:10, movetoworkspacesilent, 1"
-      "SUPER SHIFT, code:11, movetoworkspacesilent, 2"
-      "SUPER SHIFT, code:12, movetoworkspacesilent, 3"
-      "SUPER SHIFT, code:13, movetoworkspacesilent, 4"
-      "SUPER SHIFT, code:14, movetoworkspacesilent, 5"
-      "SUPER SHIFT, code:15, movetoworkspacesilent, 6"
-      "SUPER SHIFT, code:16, movetoworkspacesilent, 7"
-      "SUPER SHIFT, code:17, movetoworkspacesilent, 8"
-      "SUPER SHIFT, code:18, movetoworkspacesilent, 9"
-      "SUPER SHIFT, code:19, movetoworkspacesilent, 10" 
+      "SUPER SHIFT, ampersand, movetoworkspacesilent, 1"
+      "SUPER SHIFT, eacute, movetoworkspacesilent, 2"
+      "SUPER SHIFT, quotedbl, movetoworkspacesilent, 3"
+      "SUPER SHIFT, apostrophe, movetoworkspacesilent, 4"
+      "SUPER SHIFT, parenleft, movetoworkspacesilent, 5"
+      "SUPER SHIFT, minus, movetoworkspacesilent, 6"
+      "SUPER SHIFT, egrave, movetoworkspacesilent, 7"
+      "SUPER SHIFT, underscore, movetoworkspacesilent, 8"
+      "SUPER SHIFT, ccedilla, movetoworkspacesilent, 9"
+      "SUPER SHIFT, agrave, movetoworkspacesilent, 10" 
 
       "SUPER CTRL, right, workspace, r+1"
       "SUPER CTRL, left, workspace, r-1"

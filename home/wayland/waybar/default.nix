@@ -99,7 +99,7 @@
           icon-size = 25;
           on-click = "activate";
           on-click-right = "close";
-          ignore-list = [ "kitty" "vesktop" ]; 
+          ignore-list = [ "kitty" "vesktop" "win0" "win1" "win2" "win3" ]; 
           tooltip = false;
         };
 

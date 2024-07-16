@@ -65,6 +65,9 @@ rec {
   };
 
   palette = rec {
+
+    # -------- Base24 --------
+
     base00 = "1e1e2e"; # base
     base01 = "313244"; # surface 0
     base02 = "45475a"; # surface 1
@@ -80,15 +83,50 @@ rec {
     base0C = "94e2d5"; # teal
     base0D = "89b4fa"; # blue
     base0E = "cba6f7"; # mauve
-    base0F = "f5c2e7"; # pink
+    base0F = "eba0ac"; # maroon
     base10 = "181825"; # mantle
     base11 = "11111b"; # crust
-    base12 = "eba0ac"; # maroon
+    base12 = "f5c2e7"; # pink
     base13 = "f5e0dc"; # rosewater
     base14 = "94e2d5"; # teal
     base15 = "89dceb"; # sky
     base16 = "74c7ec"; # sapphire
     base17 = "b4befe"; # lavender
+
+    # -------- Usage --------
+  
     accent = base0E;
+    laccent = base17;
+
+    bg0 = base11;
+    bg1 = base10;
+    bg2 = base00;
+
+    ele0 = base01;
+    ele1 = base02;
+    ele2 = base03;
+
+    select = base02;
+    text = base07;
+    shadow = "#010102"; # basicly black lol
+
+    # Normal colors
+    red = base08;
+    orange = base09;
+    yellow = base0A;
+    green = base0B;
+    cyan = base0C;
+    blue = base0D;
+    purple = base0E;
+    brown = base0F;
+    # Bright/light colors
+    lred = base12;
+    lyellow = base13;
+    lgreen = base14;
+    lcyan = base15;
+    lblue = base16;
+    lpurple = base17;
+
+
   };
 }

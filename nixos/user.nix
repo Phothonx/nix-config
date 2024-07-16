@@ -7,6 +7,8 @@
     shell = pkgs.nushell;
   };
 
+  # environment.pathsToLink = [ "/share/bash-completion" ]; # for bash autocompletion
+
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
 home-manager = {

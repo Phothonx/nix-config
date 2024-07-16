@@ -16,6 +16,7 @@
       unzip
       unrar
       glow
+      wev
 
       # Quality of life
       ripgrep
