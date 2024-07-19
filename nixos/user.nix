@@ -4,10 +4,10 @@
     isNormalUser = true;
     description = userConfig.name;
     extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
-    shell = pkgs.nushell;
+    shell = pkgs.bash;
   };
 
-  # environment.pathsToLink = [ "/share/bash-completion" ]; # for bash autocompletion
+  environment.pathsToLink = [ "/share/bash-completion" ]; # for bash autocompletion
 
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 

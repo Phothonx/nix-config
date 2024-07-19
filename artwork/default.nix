@@ -6,7 +6,7 @@ let
 };
 in
 rec {
-  wallpaper = ./wallpapers/lavender-cat.png;
+  wallpaper = ./wallpapers/lavender-cat.jpg;
 
   cursor = {
     name = "Bibata-Modern-Ice";

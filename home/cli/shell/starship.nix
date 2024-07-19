@@ -2,7 +2,7 @@
 {
   programs.starship = {
     enable = true;
-    enableNushellIntegration = true;
+    enableBashIntegration = true;
 
     settings = with colors; {
       format = ''$nix_shell$c$python$ocaml$battery$directory$character'';      

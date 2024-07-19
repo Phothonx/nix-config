@@ -13,14 +13,7 @@
       background = [
         {
           monitor = "";
-          path = "${./../../artwork/wallpapers/magma.png}";
-          # blur_size = 3;
-          # blur_passes = 3;
-          # noise = 0.011;
-          # contrast = 0.9;
-          # brightness = 0.83;
-          # vibrancy = 0.1696;
-          # vibrancy_darkness = 0.0;
+          path = "${./../../artwork/wallpapers/cat_leaves.png}";
         }
       ];
 
@@ -60,7 +53,7 @@
           color = "rgb(${colors.base07})";
           font_size = 120;
           font_family = artwork.fonts.normal.name;
-          position = "0, 20";
+          position = "0, 100";
           halign = "center";
           valign = "center";
           shadow_passes = 2;
@@ -73,7 +66,7 @@
           color = "rgb(${colors.base07})";
           font_size = 120;
           font_family = artwork.fonts.normal.name;
-          position = "0, -140";
+          position = "0, -50";
           halign = "center";
           valign = "center";
           shadow_passes = 2;

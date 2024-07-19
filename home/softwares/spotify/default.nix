@@ -1,21 +1,24 @@
 { pkgs, inputs, ... }:
 let
-  spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in
 {
-  imports = [ inputs.spicetify-nix.homeManagerModule ];
+  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
   programs.spicetify = {
     enable = true;
-    spotifyPackage = pkgs.spotify; # unstable package
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
+    theme = spicePkgs.themes.starryNight;
+    colorScheme = "base";
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
       shuffle # shuffle+ (special characters are sanitized out of ext names)
       hidePodcasts
       loopyLoop
       popupLyrics
+      keyboardShortcut
+      addToQueueTop
+      showQueueDuration
+      volumePercentage
     ];
   };
 }

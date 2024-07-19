@@ -46,7 +46,10 @@
     };
     arkenfox-nixos.url = "github:dwarfmaster/arkenfox-nixos";
 
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
