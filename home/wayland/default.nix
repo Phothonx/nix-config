@@ -15,6 +15,8 @@
     swww
     hyprshot
 
+    libgcc
+
     pwvucontrol
     helvum
     imv
