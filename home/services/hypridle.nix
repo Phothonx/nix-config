@@ -1,7 +1,8 @@
 { pkgs, lib, ... }:
 with pkgs; with lib; 
 let
-  lock = "${systemd}/bin/loginctl lock-session";
+  lock = "wpctl set-mute @DEFAULT_AUDIO_SINK@ 1 && ${systemd}/bin/loginctl lock-session && sleep 1";
+
   suspend = "${systemd}/bin/loginctl suspend";
 
   suspendScript = writeShellScript "suspend-script" ''
@@ -30,11 +31,11 @@ in
           on-resume = "brightnessctl set --min-value=4800 90% && brightnessctl -sd platform::kbd_backlight set 1";
         }
         {
-          timeout = 780;
+          timeout = 660;
           on-timeout = lock;
         }
         {
-          timeout = 900;
+          timeout = 720;
           on-timeout = getExe suspendScript;
         }
       ];

@@ -2,14 +2,16 @@ return {
   {
     "iron.nvim",
 
-    ft = {"ml", "mli", "py" },
-    keys = {
-      {'<space>rs', '<cmd>IronRepl<cr>', desc = "Start iron Repl" },
-      {'<space>rr', '<cmd>IronRestart<cr>', desc = "Restart Iron"},
-      {'<space>rf', '<cmd>IronFocus<cr>', desc = "Focus Iron window"},
-      {'<space>rh', '<cmd>IronHide<cr>', desc = "Hide Iron window"},
-    },
     cmd = { "IronRepl" },
+
+    ft = {"ml", "mli", "py" },
+
+    keys = {
+      {"<space>rs", "<cmd>IronRepl<cr>", desc = "Start iron Repl" },
+      {"<space>rr", "<cmd>IronRestart<cr>", desc = "Restart Iron"},
+      {"<space>rf", "<cmd>IronFocus<cr>", desc = "Focus Iron window"},
+      {"<space>rh", "<cmd>IronHide<cr>", desc = "Hide Iron window"},
+    },
 
     after = function ()
       local view = require("iron.view")

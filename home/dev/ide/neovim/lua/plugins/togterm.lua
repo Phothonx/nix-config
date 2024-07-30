@@ -2,14 +2,17 @@ return {
    {
     "toggleterm.nvim",
 
-    cmd = "ToggleTerm";
+    cmd = "ToggleTerm",
 
     keys = {
-      { "<leader>t", "<CMD>ToggleTerm<CR>", desc = "Toggle terminal" },
+      { "<c-t>", "<CMD>ToggleTerm<CR>", desc = "Toggle terminal" },
     },
 
     after = function ()
-      require("toggleterm").setup()
+      require("toggleterm").setup({
+        size = 25,
+        autochdir = true,
+      })
     end,
   }
 }

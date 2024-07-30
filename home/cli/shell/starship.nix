@@ -5,7 +5,7 @@
     enableBashIntegration = true;
 
     settings = with colors; {
-      format = ''$nix_shell$c$python$ocaml$battery$directory$character'';      
+      format = ''$battery$nix_shell$c$python$ocaml$directory$character'';      
       right_format = ''$git_branch$git_status'';    
 
       character = {

@@ -21,6 +21,7 @@
       nvim-web-devicons
       nui-nvim
       image-nvim
+      vim-repeat
 
       # COLORSHEME
       catppuccin-nvim
@@ -31,32 +32,50 @@
       vim-startuptime
       neo-tree-nvim
       toggleterm-nvim
-      # lualine-nvim
+      lualine-nvim
       gitsigns-nvim
-      # trouble-nvim
       which-key-nvim
       telescope-nvim
       iron-nvim
 
-      # INDENT
-      # guess-indent-nvim
-      indent-blankline-nvim
-      # vim-illuminate
-
       # UTILS
-      nvim-surround
+      indent-blankline-nvim
       nvim-autopairs
-      
-      # LSP
+
+      # SNIP
+      luasnip
 
       # CMP
+      nvim-cmp
+      cmp_luasnip
+      cmp-fuzzy-buffer
+      cmp-fuzzy-path
+
       # DAP
 
       # NAV
-      # vim-repeat
       leap-nvim
-      # flit-nvim
       better-escape-nvim
+      
+      # LSP, FMT
+      nvim-lspconfig
+      conform-nvim
+    ];
+
+    extraPackages = with pkgs; [
+      libgcc
+
+      # LSP
+      ccls
+      lua-language-server
+      pyright
+      ocamlPackages.lsp
+      nil
+      marksman
+
+      # REPLS 
+      ocamlPackages.utop
+      python3
     ];
 
     extraLuaConfig = ''
@@ -66,14 +85,12 @@
       -- PLUGINS --
       require("lz.n").load("plugins")
 
-      -- OPTIONS --
-      require("config.options")
-      
-      -- MAPPING --
+      -- CONFIG --
       require("config.mappings")
+      require("config.options")
 
       -- COLORSHEME --
-      require("catppuccin")
+      require("config.catppuccin")
       vim.cmd.colorscheme "catppuccin"
     '';
   };

@@ -17,6 +17,7 @@
       unrar
       glow
       wev
+      bitwarden-cli
 
       # Quality of life
       ripgrep

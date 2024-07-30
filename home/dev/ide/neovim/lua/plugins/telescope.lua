@@ -1,7 +1,9 @@
 return {
   {
     "telescope.nvim",
+
     cmd = "Telescope",
+
     keys = {
       { "<leader>ff", mode = "n", "<cmd>Telescope find_files<cr>" },
       { "<leader>fg", mode = "n", "<cmd>Telescope live_grep<cr>" },
@@ -10,7 +12,7 @@ return {
     },
 
     after = function ()
-      require("telescope").setup()
+      require('telescope').setup()
     end,
-  }
+  },
 }

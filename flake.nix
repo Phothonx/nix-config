@@ -57,7 +57,7 @@
     systemConfig = {
       system = "x86_64-linux";
       hostName = "avalon";
-      timeZone = "Europe/Paris";
+      timeZone = "US/Eastern"; # Europe/Paris
       locale = "en_US.UTF-8";
       layout = "fr";
       dotsPath = "/home/nico/.dotfiles"; # a string is important (or nh will always evaluate the same dotfiles from the nix store)

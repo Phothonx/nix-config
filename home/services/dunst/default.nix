@@ -45,7 +45,7 @@
       };
       urgency_normal = {
         frame_color = "#${base0E}";
-        highlight = "#${base0A}";
+        highlight = "#${base0E}";
         fullscreen = "show";
       };
     };

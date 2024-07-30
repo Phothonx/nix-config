@@ -2,6 +2,17 @@ require("catppuccin").setup({
   flavour = "mocha",
   show_end_of_buffer = true,
   term_colors = true,
+  dim_inactive = {
+    enabled = false,
+    shade = "dark",
+    percentage = 0.15,
+  },
+  styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+    comments = { "italic" }, -- Change the style of comments
+    conditionals = { "italic" },
+    loops = { "bold" },
+    functions = { "bold" },
+  },
   intergrations = {
     native_lsp = {
       enabled = true,
@@ -29,6 +40,7 @@ require("catppuccin").setup({
       style = "nvchad",
     },
     neotree = true;
+    nvim_surround = false,
     cmp = true,
     which_key = true,
     indent_blankline = {
