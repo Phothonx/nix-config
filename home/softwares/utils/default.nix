@@ -2,10 +2,10 @@
 {
   home.packages = with pkgs; [
     # Filemanager
-    gnome.nautilus # nemo when adw-gtk support it ( #cope :) )
-    gnome.nautilus-python
+    nautilus # nemo when adw-gtk support it ( #cope :) )
+    nautilus-python
     nautilus-open-any-terminal
-    gnome.sushi # Nautilus previewer
+    sushi # Nautilus previewer
 
     # Doc viewer
     evince 

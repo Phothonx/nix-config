@@ -22,19 +22,7 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    walker.url = "github:abenz1267/walker";
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -57,7 +45,7 @@
     systemConfig = {
       system = "x86_64-linux";
       hostName = "avalon";
-      timeZone = "US/Eastern"; # Europe/Paris
+      timeZone = "Europe/Paris"; # US/Eastern
       locale = "en_US.UTF-8";
       layout = "fr";
       dotsPath = "/home/nico/.dotfiles"; # a string is important (or nh will always evaluate the same dotfiles from the nix store)

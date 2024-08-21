@@ -32,12 +32,6 @@ in
       nd = "nix develop -c $env.SHELL";
 
       # Replacements
-      htop = noPad "${getExe bottom} -b";
-      btm = noPad bottom;
-      cat = getExe bat;
-      grep = getExe ripgrep;
-      find = getExe fd;
-      df = getExe duf;
       cd = "z";
 
       # Utils

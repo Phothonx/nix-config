@@ -12,7 +12,7 @@ let # inspired/copypasted from linuxmobile <3
     );
 in
 {
-  home.sessionVariables = {
+  home.sessionVariables = with config.xdg; {
     XDG_CURRENT_DESKTOP = "Hyprland";
 	  XDG_SESSION_DESKTOP = "Hyprland";
 	  XDG_SESSION_TYPE = "wayland";
@@ -20,6 +20,15 @@ in
 
     BROWSER = "firefox";
     TERMINAL = "kitty";
+
+    # home cleaning
+    HISTFILE = "${stateHome}/bash/history";
+    CARGO_HOME = "${dataHome}/cargo";
+    IPYTHONDIR = "${configHome}/ipython";
+    JUPYTER_CONFIG_DIR = "${configHome}/jupyter";
+    XCOMPOSECACHE = "${cacheHome}/X11/xcompose"; 
+    OPAMROOT = "${dataHome}/opam";
+    ERRFILE = "${cacheHome}/X11/xsession-errors";
   };
 
   home.packages = with pkgs; [

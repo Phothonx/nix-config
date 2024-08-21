@@ -1,8 +1,8 @@
 { ... }:
 {  
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   services.logind.extraConfig = ''
@@ -17,7 +17,7 @@
 
     udisks2 = {
       enable = true;
-      mountOnMedia = true;
+      mountOnMedia = false;
     };
   };
 }

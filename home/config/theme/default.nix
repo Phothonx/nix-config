@@ -14,7 +14,7 @@ with artwork;
       cursor.package
       icons.package
 
-      pkgs.gnome.adwaita-icon-theme
+      pkgs.adwaita-icon-theme
       (pkgs.nerdfonts.override { fonts = [ "SpaceMono" ]; })
     ];
 

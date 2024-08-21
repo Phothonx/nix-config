@@ -37,6 +37,7 @@
       which-key-nvim
       telescope-nvim
       iron-nvim
+      neorg
 
       # UTILS
       indent-blankline-nvim
@@ -77,6 +78,8 @@
       ocamlPackages.utop
       python3
     ];
+
+    extraLuaPackages = luaPkgs: with luaPkgs; [ lua-utils-nvim nvim-nio pathlib-nvim ];
 
     extraLuaConfig = ''
       vim.g.mapleader = " "

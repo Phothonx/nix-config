@@ -7,6 +7,7 @@
       experimental-features = [ "nix-command" "flakes" ];
       builders-use-substitutes = true;
       trusted-users = ["root" "@wheel"];
+      use-xdg-base-directories = true;
     };
     gc.automatic = false;
     extraOptions = ''
