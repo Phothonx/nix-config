@@ -1,0 +1,8 @@
+{ ... }:
+{
+  imports =
+  [
+    ./codium.nix
+    ./neovim
+  ];
+}

@@ -1,63 +1,40 @@
 {
-  description = ''
-        ____  __          __  __                        ________      __      
-       / __ \/ /_  ____  / /_/ /_  ____  ____  _  __   / ____/ /___ _/ /_____ 
-      / /_/ / __ \/ __ \/ __/ __ \/ __ \/ __ \| |/_/  / /_  / / __ `/ //_/ _ \
-     / ____/ / / / /_/ / /_/ / / / /_/ / / / />  <   / __/ / / /_/ / ,< /  __/
-    /_/   /_/ /_/\____/\__/_/ /_/\____/_/ /_/_/|_|  /_/   /_/\__,_/_/|_|\___/ 
-  '';
+  description = ''My personal config's flake'';
 
   inputs = {
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # NixPkgs & Unstable
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Home manager
+    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    walker.url = "github:abenz1267/walker";
-
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    MiniFox = {
-      url = "git+https://codeberg.org/awwpotato/MiniFox";
-      flake = false;
-    };
-    arkenfox-nixos.url = "github:dwarfmaster/arkenfox-nixos";
-
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
   let
-    systemConfig = {
-      system = "x86_64-linux";
-      hostName = "avalon";
-      timeZone = "Europe/Paris"; # US/Eastern
-      locale = "en_US.UTF-8";
-      layout = "fr";
-      dotsPath = "/home/nico/.dotfiles"; # a string is important (or nh will always evaluate the same dotfiles from the nix store)
-    };
+    lib = nixpkgs.lib;
 
-    userConfig = {
-      userName = "nico";
-      name = "Nicolas";
-      email = "";
-    };
+    mkSystem = pkgs: system: hostName:
+      lib.nixosSystem {
+        inherit system;
+        modules = [
+          # host config file
+          ./hosts/${hostName}/configuration.nix
+          # Global modules, defining options for all hosts
+          self.outputs.nixosModules.default
+        ];
+        specialArgs = { inherit inputs hostName; };
+      };
   in
   {
-    nixosConfigurations = import ./nixos { inherit self nixpkgs inputs systemConfig userConfig; };
+    nixosModules.default = import ./modules/nixos;
+    homeManagerModules.default = import ./modules/home-manager;
+
+    nixosConfigurations = {
+      "avalon" = mkSystem nixpkgs "x86-64_linux" "avalon";
+    };
   };
 }

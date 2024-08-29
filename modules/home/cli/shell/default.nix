@@ -1,0 +1,9 @@
+{ ... }:
+{
+  imports = 
+  [
+    ./bash
+
+    ./starship.nix
+  ];
+}
