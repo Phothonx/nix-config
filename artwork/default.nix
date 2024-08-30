@@ -3,7 +3,7 @@ let
   nerdFont = fname: {
     package = (pkgs.nerdfonts.override { fonts = [ "${fname}" ]; });
     name = "${fname} Nerd Font";
-};
+  };
 in
 rec {
   wallpaper = ./wallpapers/lavender-cat.jpg;

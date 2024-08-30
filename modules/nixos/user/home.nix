@@ -1,4 +1,4 @@
-{ config, lib, self, ... }:
+{ config, lib, self, inputs, ... }:
 with lib;
 let
   cfg = config.user.home-manager;
@@ -7,10 +7,12 @@ let
     mkOption { inherit type default description; };
 in
 {
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
+
   options.user.home-manager = with types; {
     enable = mkEnableOption "Enable homemanager";
     stateVersion = mkOpt str "23.11" "home-manager stateVersion";
-    imports = mkOpt (listOf str) [] "additional home-manager modules";
+    imports = mkOpt (listOf path) [] "additional home-manager modules";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +24,7 @@ in
       extraSpecialArgs = { inherit inputs; };
 
       users.${userName} = {
-        imports = [ self.outputs.homeManagerModules.default ] ++ cfg.imports;
+        imports = [ ./../../home ] ++ cfg.imports;
         home.username = userName;
         home.homeDirectory = "/home/${userName}";
         home.stateVersion = cfg.stateVersion;

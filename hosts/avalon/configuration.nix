@@ -30,5 +30,4 @@
   user.home-manager.imports = [ ./home.nix ];
   # === DO NOT TOUCH ! ===
   user.home-manager.stateVersion = "23.11";
-
 }

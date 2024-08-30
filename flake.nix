@@ -11,6 +11,9 @@
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Walker
+    walker.url = "github:abenz1267/walker";
+
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -24,15 +27,12 @@
           # host config file
           ./hosts/${hostName}/configuration.nix
           # Global modules, defining options for all hosts
-          self.outputs.nixosModules.default
+          ./modules/nixos
         ];
         specialArgs = { inherit inputs hostName; };
       };
   in
   {
-    nixosModules.default = import ./modules/nixos;
-    homeManagerModules.default = import ./modules/home-manager;
-
     nixosConfigurations = {
       "avalon" = mkSystem nixpkgs "x86-64_linux" "avalon";
     };
