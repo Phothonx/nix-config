@@ -1,6 +1,11 @@
-{ lib, pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = with inputs.nixos-hardware.nixosModules; [ 
+    ./hardware-configuration.nix
+    common-pc-ssd
+    common-cpu-intel
+    common-pc-laptop-acpi_call
+  ];
 
   environment.systemPackages = with pkgs; [
     git
@@ -13,6 +18,7 @@
   hardware.audio.enable = true;
   hardware.network.enable = true;
   hardware.bluetooth.enable = true;
+  hardware.power.enable = true;
   
   # System
   system.boot.enable = true;

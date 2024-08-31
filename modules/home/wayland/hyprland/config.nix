@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 with lib;
 let
   cfg = config.wayland.windowManager.hyprland;
@@ -6,6 +6,13 @@ let
 in
 {
   config = mkIf cfg.enable { 
+    home.packages = with pkgs; [
+      brightnessctl
+      swww
+      hyprshot
+      hyprpicker
+    ];
+
     wayland.windowManager.hyprland = {
       systemd = {
         enable = true;

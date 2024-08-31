@@ -37,7 +37,7 @@ in
         "SUPER, Q, exec, ${lib.getExe pkgs.kitty}"
         "SUPER, H, exec, ${lib.getExe pkgs.firefox}"
         "SUPER, R, exec, walker"
-        "SUPER, E, exec, ${lib.getExe pkgs.gnome.nautilus}"
+        "SUPER, E, exec, ${lib.getExe pkgs.nautilus}"
         "CTRL ALT, L, exec, hyprlock"
 
         # "SUPER, Tab, hyprexpo:expo, toggle"

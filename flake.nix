@@ -10,6 +10,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # Walker
     walker.url = "github:abenz1267/walker";
 

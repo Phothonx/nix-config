@@ -1,4 +1,4 @@
-{ config, lib, inputs, ... }:
+{ config, lib, inputs, pkgs, ... }:
 with lib;
 let
   cfg = config.system.nix;
@@ -13,6 +13,12 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      nvd
+      nix-output-monitor
+      nix-tree 
+    ];
+
     nix = {
       settings = {
         inherit (cfg) substituters trusted-public-keys;

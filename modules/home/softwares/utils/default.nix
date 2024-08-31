@@ -22,11 +22,15 @@ in
       # Video mpv frontend
       celluloid
 
-      # AUdio player 
+      # Audio player 
       amberol
 
       # Image viewer
       loupe
+
+      # Audio
+      pwvucontrol
+      helvum
     ];
   };
 }
