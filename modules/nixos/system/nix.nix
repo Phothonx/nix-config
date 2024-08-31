@@ -26,6 +26,7 @@ in
         use-xdg-base-directories = true;
         builders-use-substitutes = true;
         trusted-users = ["root" config.user.name];
+        flake-registry = ""; # Disable global flake registry
       };
 
       gc = {
@@ -38,6 +39,8 @@ in
       registry.nixpkgs.flake = inputs.nixpkgs;
       channel.enable = false;
     };
+
+    nixpkgs.config.allowUnfree = true;
     
     # but NIX_PATH is still used by many useful tools, so we set it to the same value as the one used by this flake.
     # Make `nix repl '<nixpkgs>'` use the same nixpkgs as the one used by this flake.

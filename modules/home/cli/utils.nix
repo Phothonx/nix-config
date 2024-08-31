@@ -1,62 +1,67 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
+with lib;
+let
+  cfg = config.cli;
+in
 {
-  home.packages = with pkgs;
-    [
-      # Nix
-      nvd
-      nix-output-monitor
-      nix-tree
+  options.cli = {
+    tools.enable = mkEnableOption "Cli tools";
+    qof.enable = mkEnableOption "QUality of life commands";
+    fun.enable = mkEnableOption "Fun commands";
+  };
 
-      # CLI Tools
-      imagemagick
-      yt-dlp
-      cfspeedtest
-      duf
-      zip
-      unzip
-      unrar
-      glow
-      wev
-      bitwarden-cli
+  config = mkMerge [
+    (mkIf cfg.tools.enable {
+      home.packages = with pkgs; [
+        # CLI Tools
+        imagemagick
+        cfspeedtest
+        duf
+        zip
+        unzip
+        unrar
+        glow
+        wev
+        bitwarden-cli
+      ];
 
-      # Quality of life
-      ripgrep
-      fzf
-      yazi
-      fd
-      catimg
-      rsync
+      programs.yt-dlp.enable = true;
+    })
 
-      # Fun fetching
-      cowsay
-      pipes
-      cbonsai
-      cmatrix
-      lolcat
-      nitch
-    ];
+    (mkIf cfg.qof.enable {
+      home.packages = with pkgs; [
+        # Quality of life
+        catimg
+        rsync
+      ];
 
-  programs = {
-    zoxide = {
-      enable = true;
-      enableBashIntegration = true;
-    };
+      programs.zoxide.enable = true;
+      programs.zoxide.enableBashIntegration = true;
 
-    eza = {
-      enable = true;
-      icons = true;
-      extraOptions = [
+      programs.eza.enable = true;
+      programs.eza.icons = true;
+      programs.eza.extraOptions = [
         "--group-directories-first"
         "--header"
       ];
-    };
 
-    bat = {
-      enable = true;
-      config = {
-        theme = "base16";
-        pager = "less -FR";
-      };
-    };
-  };
+      programs.bat.enable = true;
+      programs.ripgrep.enable = true;
+      programs.fzf.enable = true;
+      programs.yazi.enable = true;
+      programs.fd.enable = true;
+    })
+
+    (mkIf cfg.fun.enable {
+      home.packages = with pkgs; [
+        # Fun fetching
+        cowsay
+        pipes
+        cbonsai
+        cmatrix
+        lolcat
+        nitch
+      ];
+    })
+  ];
 }

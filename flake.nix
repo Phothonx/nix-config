@@ -3,25 +3,31 @@
 
   inputs = {
 
-    # NixPkgs & Unstable
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # NixPkgs unstable
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Walker
     walker.url = "github:abenz1267/walker";
 
+    # Spicetify
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Firefox
+    arkenfox-nixos.url = "github:dwarfmaster/arkenfox-nixos";
+    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    MiniFox.url = "git+https://codeberg.org/awwpotato/MiniFox";
+    MiniFox.flake = false;
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { ... }@inputs:
   let
-    lib = nixpkgs.lib;
-
-    mkSystem = pkgs: system: hostName:
-      lib.nixosSystem {
+    mkSystem = nixpkgs: system: hostName:
+      nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           # host config file
@@ -34,7 +40,7 @@
   in
   {
     nixosConfigurations = {
-      "avalon" = mkSystem nixpkgs "x86-64_linux" "avalon";
+      "avalon" = mkSystem inputs.nixpkgs "x86_64-linux" "avalon";
     };
   };
 }

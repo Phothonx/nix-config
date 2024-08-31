@@ -4,6 +4,5 @@
     ./hardware
     ./system
     ./user
-    ./desktop
   ];
 }

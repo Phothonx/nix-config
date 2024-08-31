@@ -2,7 +2,10 @@
 {
   imports = [
     ./wayland
-    ./theme
-
+    ./softwares
+    ./services
+    ./dev
+    ./config
+    ./cli
   ];
 }

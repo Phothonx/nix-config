@@ -12,9 +12,11 @@
   # Hardware
   hardware.audio.enable = true;
   hardware.network.enable = true;
+  hardware.bluetooth.enable = true;
   
   # System
   system.boot.enable = true;
+  services.greetd.enable = true;
   system.locale.enable = true;
   system.nix.enable = true;
   system.time.enable = true;

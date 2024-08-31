@@ -1,4 +1,4 @@
-{ config, lib, self, inputs, ... }:
+{ config, lib, unstable, inputs, ... }:
 with lib;
 let
   cfg = config.user.home-manager;
@@ -21,7 +21,7 @@ in
       useUserPackages = true;
       useGlobalPkgs = true;
       backupFileExtension = "hm.old";
-      extraSpecialArgs = { inherit inputs; };
+      extraSpecialArgs = { inherit inputs unstable; };
 
       users.${userName} = {
         imports = [ ./../../home ] ++ cfg.imports;

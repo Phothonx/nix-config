@@ -1,8 +1,13 @@
-{ ... }:
+{ config, lib, ... }:
+with lib;
+let
+  cfg = config.programs.git;
+in
 {
-  programs.git = {
-    enable = true;
-    userName  = "Phothonx";
-    userEmail = "86020708+Phothonx@users.noreply.github.com";
+  config = mkIf cfg.enable {
+    programs.git = {
+      userName  = "Phothonx";
+      userEmail = "86020708+Phothonx@users.noreply.github.com";
+    };
   };
 }

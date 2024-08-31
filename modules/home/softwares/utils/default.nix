@@ -1,45 +1,32 @@
-{ colors, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+with lib;
+let
+  cfg = config.desktopApps;
+in
 {
-  home.packages = with pkgs; [
-    # Filemanager
-    nautilus # nemo when adw-gtk support it ( #cope :) )
-    nautilus-python
-    nautilus-open-any-terminal
-    sushi # Nautilus previewer
+  options.desktopApps = {
+    enable = mkEnableOption "Enable desktop apps like filemanager, doc viewer...";
+  };
 
-    # Doc viewer
-    evince 
+  config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      # Filemanager
+      nautilus
+      nautilus-python
+      nautilus-open-any-terminal
+      sushi # Nautilus previewer
 
-    # Video mpv frontend
-    celluloid
+      # Doc viewer
+      evince 
 
-    # AUdio player 
-    amberol
+      # Video mpv frontend
+      celluloid
 
-    # Image viewer
-    loupe
-  ];
+      # AUdio player 
+      amberol
 
-  programs = with colors; {
-    imv = {
-      enable = true;
-      settings = {
-        options.background = base11;
-        aliases.x = "close";
-      };
-    };
-
-    zathura = {
-      enable = true;
-      mappings = {
-        "" = "navigate next";
-        D = "toggle_page_mode";
-        "[fullscreen] " = "zoom in";
-      };
-      options = {
-        default-bg = "#${base11}";
-        default-fg = "#${base07}";
-      };
-    };
+      # Image viewer
+      loupe
+    ];
   };
 }
