@@ -8,7 +8,6 @@ let
   tuigreet = "${getExe pkgs.greetd.tuigreet} --time --remember-session --sessions ${hyprland-session}";
 in
 {
-
   config = mkIf cfg.enable {
     services.greetd = {
       settings = {

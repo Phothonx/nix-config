@@ -1,4 +1,4 @@
-{ config, lib, inputs, pkgs, ... }:
+{ config, lib, inputs, pkgs, self, ... }:
 with lib;
 let
   cfg = config.system.nix;
@@ -10,6 +10,7 @@ in
     enable = mkEnableOption "Enable nix configuration management";
     substituters = mkOpt (listOf str) [] "Add extra substituters";
     trusted-public-keys = mkOpt (listOf str) [] "Extra substituers's keys";
+    flakeLocation = mkOpt str "~/.dotfiles" "The location of the main flake";
   };
 
   config = mkIf cfg.enable {
@@ -17,6 +18,8 @@ in
       nvd
       nix-output-monitor
       nix-tree 
+      just
+      expect
     ];
 
     nix = {
@@ -43,10 +46,13 @@ in
 
       # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
       registry.nixpkgs.flake = inputs.nixpkgs;
+      registry.self.flake = self;
       channel.enable = false;
     };
 
     nixpkgs.config.allowUnfree = true;
+
+    environment.sessionVariables.FLAKE = cfg.flakeLocation;
     
     # but NIX_PATH is still used by many useful tools, so we set it to the same value as the one used by this flake.
     # Make `nix repl '<nixpkgs>'` use the same nixpkgs as the one used by this flake.

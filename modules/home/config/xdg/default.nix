@@ -9,7 +9,6 @@ in
       XDG_CURRENT_DESKTOP = "Hyprland";
 	    XDG_SESSION_DESKTOP = "Hyprland";
 	    XDG_SESSION_TYPE = "wayland";
-      NIXOS_XDG_OPEN_USE_PORTAL=1;
 
       BROWSER = "firefox";
       TERMINAL = "kitty";
@@ -32,6 +31,7 @@ in
     xdg = {
       portal = {
         enable = true;
+        xdgOpenUsePortal = true;
         config.common.default = "*";
         extraPortals = [
           pkgs.xdg-desktop-portal-gtk

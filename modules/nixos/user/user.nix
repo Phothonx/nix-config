@@ -9,7 +9,7 @@ in {
     name = mkOpt str "phothonx" "Account username";
     fullName = mkOpt str "Phothonx" "Full user name";
     email = mkOpt str "" "Self-explainatory";
-    initialPassword = mkOpt str "password" "Self-explainatory";
+    hashedPasswordFile = mkOpt str "password" "Self-explainatory";
     # icon = mkOpt (nullOr package) defaultIcon "Profile picture";
     # prompt-init = mkBoolOpt true "Initial shell on opening";
     extraGroups = mkOpt (listOf str) [ ] "Groups assignation";
@@ -20,7 +20,7 @@ in {
     users.users.${cfg.name} = {
       isNormalUser = true;
       description = cfg.fullName;
-      inherit (cfg) name initialPassword extraGroups;
+      inherit (cfg) name hashedPasswordFile extraGroups;
       home = "/home/${cfg.name}";
       group = "users";
       # shell = pkgs.zsh;

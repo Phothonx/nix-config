@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 {
   # Wayland
   wayland.windowManager.hyprland.enable = true;
@@ -24,6 +24,7 @@
   # Dev
   programs.neovim.enable = true;
   programs.vscode.enable = true;
+  nix.registry.dev.flake = inputs.nix-profile-devshells;
 
   # Config
   xdg.enable = true;

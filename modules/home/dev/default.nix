@@ -3,5 +3,6 @@
   imports =
   [
     ./ide
+    ./direnv.nix
   ];
 }

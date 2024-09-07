@@ -1,8 +1,7 @@
 {
-  description = ''My personal config's flake'';
+  description = ''My personal config flake'';
 
   inputs = {
-
     # NixPkgs unstable
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -12,6 +11,9 @@
 
     # Hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    # Agenix
+    agenix.url = "github:ryantm/agenix";
 
     # Walker
     walker.url = "github:abenz1267/walker";
@@ -25,9 +27,13 @@
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     MiniFox.url = "git+https://codeberg.org/awwpotato/MiniFox";
     MiniFox.flake = false;
+     
+    # Devshells
+    nix-profile-devshells.url = "github:Phothonx/nix-profile-devshells";
+    nix-profile-devshells.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
   let
     mkSystem = nixpkgs: system: hostName:
       nixpkgs.lib.nixosSystem {
@@ -38,12 +44,12 @@
           # Global modules, defining options for all hosts
           ./modules/nixos
         ];
-        specialArgs = { inherit inputs hostName; };
+        specialArgs = { inherit self inputs hostName; };
       };
   in
   {
     nixosConfigurations = {
-      "avalon" = mkSystem inputs.nixpkgs "x86_64-linux" "avalon";
+      "avalon" = mkSystem nixpkgs "x86_64-linux" "avalon";
     };
   };
 }

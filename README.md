@@ -1,5 +1,8 @@
 # Nix-config
 
-
-*For your viewing pleasure...*
-![preview](./assets/preview.png)
+### To-do
+[] vulnix & lynis & lanzaboot
+[] disko & impermanence
+[] nom & nvd
+[] devhsells integration
+[] tlp & battery optimisation
