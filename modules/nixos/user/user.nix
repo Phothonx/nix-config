@@ -2,8 +2,6 @@
 with lib;
 let
   cfg = config.user;
-  mkOpt = type: default: description:
-    mkOption { inherit type default description; };
 in {
   options.user = with types; {
     name = mkOpt str "phothonx" "Account username";

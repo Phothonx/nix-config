@@ -2,15 +2,12 @@
 with lib;
 let
   cfg = config.system.nix;
-  mkOpt = type: default: description:
-    mkOption { inherit type default description; };
 in
 {
   options.system.nix = with types; {
     enable = mkEnableOption "Enable nix configuration management";
     substituters = mkOpt (listOf str) [] "Add extra substituters";
     trusted-public-keys = mkOpt (listOf str) [] "Extra substituers's keys";
-    flakeLocation = mkOpt str "~/.dotfiles" "The location of the main flake";
   };
 
   config = mkIf cfg.enable {
@@ -18,8 +15,6 @@ in
       nvd
       nix-output-monitor
       nix-tree 
-      just
-      expect
     ];
 
     nix = {
@@ -38,11 +33,7 @@ in
         flake-registry = ""; # Disable global flake registry
       };
 
-      gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 7d";
-      };
+      gc.automatic = false;
 
       # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
       registry.nixpkgs.flake = inputs.nixpkgs;
@@ -52,8 +43,6 @@ in
 
     nixpkgs.config.allowUnfree = true;
 
-    environment.sessionVariables.FLAKE = cfg.flakeLocation;
-    
     # but NIX_PATH is still used by many useful tools, so we set it to the same value as the one used by this flake.
     # Make `nix repl '<nixpkgs>'` use the same nixpkgs as the one used by this flake.
     environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";

@@ -1,10 +1,8 @@
-{ config, lib, unstable, inputs, ... }:
+{ config, lib, unstable, inputs, self, ... }:
 with lib;
 let
   cfg = config.user.home-manager;
   userName = config.user.name;
-  mkOpt = type: default: description:
-    mkOption { inherit type default description; };
 in
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
@@ -24,7 +22,7 @@ in
       extraSpecialArgs = { inherit inputs unstable; };
 
       users.${userName} = {
-        imports = [ ./../../home ] ++ cfg.imports;
+        imports = [ self.outputs.nixosModules.home-manager ] ++ cfg.imports;
         home.username = userName;
         home.homeDirectory = "/home/${userName}";
         home.stateVersion = cfg.stateVersion;

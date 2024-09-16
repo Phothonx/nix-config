@@ -23,6 +23,7 @@ in
         glow
         wev
         bitwarden-cli
+        just
       ];
 
       programs.yt-dlp.enable = true;

@@ -40,7 +40,7 @@ in
         # Utils
         la = "ls -la";
         l = "ls -l";
-        tree = "${getExe eza} --tree --icons --tree";
+        # tree = "${getExe eza} --tree --icons --tree";
 
         # Neovim
         nvim = noPad "nvim";

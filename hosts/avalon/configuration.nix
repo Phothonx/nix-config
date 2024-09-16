@@ -26,10 +26,18 @@
   hardware.power.enable = true;
   
   # System
+  programs.nh.enable = true;
+  programs.nh.flake = "/home/nico/.dotfiles";
   system.boot.enable = true;
   services.greetd.enable = true;
   system.locale.enable = true;
   system.nix.enable = true;
+  system.nix.substituters = [
+    "https://walker-git.cachix.org"
+  ];
+  system.nix.trusted-public-keys = [
+    "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
+  ];
   system.time.enable = true;
   system.xkb.enable = true;
   system.agenix.enable = true;

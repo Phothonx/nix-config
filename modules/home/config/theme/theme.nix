@@ -2,9 +2,7 @@
 with lib;
 let
   cfg = config.theme;
-  hexColor = types.strMatching "([0-9a-fA-F]{3}){1,2}"; # no #
-  mkOpt' = type: default:
-    mkOption { inherit type default; };
+  hexColor = types.strMatching "([0-9a-fA-F]{3}){1,2}"; # no # 
   nerdFont = fname: {
     package = (pkgs.nerdfonts.override { fonts = [ "${fname}" ]; });
     name = "${fname} Nerd Font";

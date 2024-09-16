@@ -2,8 +2,9 @@
   description = ''My personal config flake'';
 
   inputs = {
-    # NixPkgs unstable
+    # NixPkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -31,23 +32,43 @@
     # Devshells
     nix-profile-devshells.url = "github:Phothonx/nix-profile-devshells";
     nix-profile-devshells.inputs.nixpkgs.follows = "nixpkgs";
+
+    # # Disko
+    # disko.url = "github:nix-community/disko";
+    # disko.inputs.nixpkgs.follows = "nixpkgs";
+    # 
+    # # Impermanence
+    # inputs.impermanence.url = "github:nix-community/impermanence";
+
+    # Nix on droid
+    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
+    nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
   let
+    mkLib = nixpkgs:
+      nixpkgs.lib.extend (self: super: 
+        (import ./lib super) // inputs.home-manager.lib
+      );
+
     mkSystem = nixpkgs: system: hostName:
       nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          # host config file
           ./hosts/${hostName}/configuration.nix
-          # Global modules, defining options for all hosts
-          ./modules/nixos
+          self.outputs.nixosModules.default
         ];
-        specialArgs = { inherit self inputs hostName; };
+        specialArgs = {
+          inherit self inputs hostName;
+          lib = mkLib nixpkgs;
+        };
       };
   in
   {
+    nixosModules.default = import ./modules/nixos;
+    nixosModules.home-manager = import ./modules/home;
+
     nixosConfigurations = {
       "avalon" = mkSystem nixpkgs "x86_64-linux" "avalon";
     };

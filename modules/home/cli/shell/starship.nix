@@ -49,7 +49,7 @@ in
         };
 
         nix_shell = {
-          format = "[🌨️$name\($state\)](bold #${base15}) | ";
+          format = "[🌨️ $name\($state\)](bold #${base15}) | ";
           impure_msg = "[impure](bold red)";
           pure_msg = "[pure](bold green)";
           unknown_msg = "[unknown](bold yellow)";
@@ -77,15 +77,15 @@ in
         };
 
         c = {
-          format = "[C$version](bold #${base0C}) | ";
+          format = "[C $version](bold #${base0C}) | ";
         };
 
         ocaml = {
-          format = "[🐫$version\($switch_indicator$switch_name\)](bold #${base0A}) | ";
+          format = "[🐫 $version\($switch_indicator$switch_name\)](bold #${base0A}) | ";
         };
 
         python = {
-          format = "[🐍$version\($virtualenv\)](bold #${base0C}) | ";
+          format = "[🐍 $version\($virtualenv\)](bold #${base0C}) | ";
         };
       };
     };
