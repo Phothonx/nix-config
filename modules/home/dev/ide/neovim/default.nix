@@ -42,6 +42,7 @@ in
         telescope-nvim
         iron-nvim
         neorg
+        render-markdown-nvim
 
         # UTILS
         indent-blankline-nvim

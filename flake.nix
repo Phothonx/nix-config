@@ -4,7 +4,7 @@
   inputs = {
     # NixPkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -15,9 +15,11 @@
 
     # Agenix
     agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Walker
     walker.url = "github:abenz1267/walker";
+    walker.inputs.nixpkgs.follows = "nixpkgs";
 
     # Spicetify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
@@ -25,13 +27,21 @@
 
     # Firefox
     arkenfox-nixos.url = "github:dwarfmaster/arkenfox-nixos";
+    arkenfox-nixos.inputs.nixpkgs.follows = "nixpkgs";
+
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
+
     MiniFox.url = "git+https://codeberg.org/awwpotato/MiniFox";
     MiniFox.flake = false;
      
     # Devshells
     nix-profile-devshells.url = "github:Phothonx/nix-profile-devshells";
     nix-profile-devshells.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Alejandra
+    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
+    alejandra.inputs.nixpkgs.follows = "nixpkgs";
 
     # # Disko
     # disko.url = "github:nix-community/disko";
@@ -47,12 +57,30 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
   let
-    mkLib = nixpkgs:
-      nixpkgs.lib.extend (self: super: 
-        (import ./lib super) // inputs.home-manager.lib
+    mkLib = pkgs:
+      pkgs.lib.extend (self: super: 
+        (import ./lib { inherit pkgs; lib = super; }) // inputs.home-manager.lib
       );
 
+    systems = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
+
+    withSystems = systems: withPkgs:
+      nixpkgs.lib.genAttrs systems (system:
+        (withPkgs nixpkgs.legacyPackages.${system})
+      );
+
+    forEachSystems = withSystems systems;
+
     mkSystem = nixpkgs: system: hostName:
+    let
+      # https://discourse.nixos.org/t/using-nixpkgs-legacypackages-system-vs-import/17462
+      # https://zimbatm.com/notes/1000-instances-of-nixpkgs
+      pkgs = nixpkgs.legacyPackages.${system};
+      lib = mkLib pkgs;
+    in
       nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
@@ -60,12 +88,15 @@
           self.outputs.nixosModules.default
         ];
         specialArgs = {
-          inherit self inputs hostName;
-          lib = mkLib nixpkgs;
+          inherit self inputs lib hostName;
         };
       };
   in
   {
+    packages = forEachSystems (pkgs: import ./packages pkgs);
+
+    formatter = forEachSystems (pkgs: inputs.alejandra.defaultPackage.${pkgs.system});
+
     nixosModules.default = import ./modules/nixos;
     nixosModules.home-manager = import ./modules/home;
 

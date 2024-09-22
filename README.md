@@ -14,6 +14,7 @@
 - [x] 🖼️ Hyprland config
 - [ ] 🎚️ Fabric bar & widgets
 - [ ] 🤖 nix-on-droid
+- [ ] 🐍 Xonsh & carapace completion
 
 *for your viewing pleasure*
 ![preview.png](./assets/preview.png)

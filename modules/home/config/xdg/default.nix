@@ -14,7 +14,6 @@ in
       TERMINAL = "kitty";
 
       # home cleaning
-      HISTFILE = "${stateHome}/bash/history";
       CARGO_HOME = "${dataHome}/cargo";
       IPYTHONDIR = "${configHome}/ipython";
       JUPYTER_CONFIG_DIR = "${configHome}/jupyter";

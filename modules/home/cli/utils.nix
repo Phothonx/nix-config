@@ -49,7 +49,10 @@ in
       programs.bat.enable = true;
       programs.ripgrep.enable = true;
       programs.fzf.enable = true;
-      programs.yazi.enable = true;
+      programs.yazi = {
+        enable = true;
+        package = wrapNoPad pkgs.yazi;
+      };
       programs.fd.enable = true;
     })
 

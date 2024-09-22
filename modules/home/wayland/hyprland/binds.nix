@@ -36,7 +36,7 @@ in
       [
         "SUPER, Q, exec, ${lib.getExe pkgs.kitty}"
         "SUPER, H, exec, ${lib.getExe pkgs.firefox}"
-        "SUPER, R, exec, walker"
+        "SUPER, R, exec, tofi-drun"
         "SUPER, E, exec, ${lib.getExe pkgs.nautilus}"
         "CTRL ALT, L, exec, hyprlock"
 

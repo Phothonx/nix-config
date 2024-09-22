@@ -7,5 +7,6 @@
 
     ./hyprlock.nix
     ./walker.nix
+    ./tofi.nix
   ];
 }

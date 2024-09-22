@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 let
   cfg = config.programs.cava;
@@ -7,6 +7,7 @@ in
 {
   config = mkIf cfg.enable {
     programs.cava = {
+      package = wrapNoPad pkgs.cava;
       settings = {
         input.method = "pipewire";
         general = {
