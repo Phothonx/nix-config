@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ config, lib, ... }:
 with lib;
 let
   cfg = config.home-manager.users.${config.user.name}.programs.fish;

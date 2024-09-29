@@ -9,10 +9,12 @@ in
     programs.hyprlock = {
       settings = {
         general = {
-          hide_cursor = false;
+          hide_cursor = true;
           disable_loading_bar = true;
           ignore_empty_input = true;
-          grace = 5;
+
+          no_fade_in = true;
+          immediate_render = true;
         };
 
         background = [

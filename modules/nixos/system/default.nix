@@ -9,6 +9,5 @@
     ./xkb.nix
     ./greet.nix
     ./agenix.nix
-    ./hyprland.nix
   ];
 }

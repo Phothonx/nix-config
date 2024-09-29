@@ -24,9 +24,9 @@ in
         wev
         bitwarden-cli
         just
+        yt-dlp
+        btop
       ];
-
-      programs.yt-dlp.enable = true;
     })
 
     (mkIf cfg.qof.enable {
@@ -34,6 +34,12 @@ in
         # Quality of life
         catimg
         rsync
+        bat
+        ripgrep
+        fzf
+        yazi
+        fd
+        atuin
       ];
 
       programs.zoxide.enable = true;
@@ -45,15 +51,6 @@ in
         "--group-directories-first"
         "--header"
       ];
-
-      programs.bat.enable = true;
-      programs.ripgrep.enable = true;
-      programs.fzf.enable = true;
-      programs.yazi = {
-        enable = true;
-        package = wrapNoPad pkgs.yazi;
-      };
-      programs.fd.enable = true;
     })
 
     (mkIf cfg.fun.enable {

@@ -39,8 +39,6 @@
   cli.qof.enable = true;
   programs.git.enable = true;
   programs.cava.enable = true;
-  programs.bottom.enable = true;
   programs.starship.enable = true;
   programs.bash.enable = true;
-  programs.carapace.enable = true;
 }

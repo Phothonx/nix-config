@@ -21,7 +21,7 @@ in {
       inherit (cfg) name hashedPasswordFile extraGroups;
       home = "/home/${cfg.name}";
       group = "users";
-      # shell = pkgs.zsh;
+      shell = pkgs.bashInteractive;
     } // cfg.extraOptions;
 
     users.mutableUsers = false;
