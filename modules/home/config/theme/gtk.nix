@@ -1,6 +1,10 @@
-{ lib, config, pkgs, ... }:
-with lib;
-let
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.gtk;
   inherit (config) theme;
 
@@ -35,7 +39,7 @@ let
     @define-color sidebar_fg_color #${base07};          /* Sidebar foreground color */
     @define-color sidebar_backdrop_color #${base11};    /* Sidebar backdrop background color */
     @define-color sidebar_shade_color #${base11};       /* Sidebar shade color */
-     
+
     @define-color warning_bg_color #${base0A};          /* Background for widgets and elements that show a warning */
     @define-color warning_fg_color #${base11};          /* Foreground for widgets and elements that show a warning */
     @define-color warning_color #${base0A};             /* Warning text label */
@@ -52,19 +56,18 @@ let
     @define-color destructive_fg_color #${base11};      /* Destructive foreground color */
     @define-color destructive_color #${base0F};         /* Destructive text label */
   '';
-in
-{
+in {
   config = mkIf cfg.enable {
     home.sessionVariables = {
       GTK_THEME = "adw-gtk3";
-	    GTK_USE_PORTAL = "1";
+      GTK_USE_PORTAL = "1";
       GDK_BACKEND = "wayland";
     };
 
     gtk = with theme; {
       cursorTheme = cursor;
       iconTheme = icons;
-      font  = { 
+      font = {
         inherit (fonts.normal) name package;
         size = fonts.sizes.applications;
       };

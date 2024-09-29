@@ -1,15 +1,18 @@
-{ lib, config, pkgs, ... }:
-with lib;
-let
-  cfg = config.system.power;
-in
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.system.power;
+in {
   options.hardware.power = {
     enable = mkEnableOption "Laptop Power saving settings";
   };
 
   config = {
-    environment.systemPackages = with pkgs; [ powertop ];
+    environment.systemPackages = with pkgs; [powertop];
 
     powerManagement.powertop.enable = true;
 
@@ -29,14 +32,14 @@ in
         PLATFORM_PROFILE_ON_BAT = "low-power";
 
         # Disable turbo boost:
-        CPU_BOOST_ON_AC=1;
-        CPU_BOOST_ON_BAT=0;
-        CPU_HWP_DYN_BOOST_ON_AC=1;
-        CPU_HWP_DYN_BOOST_ON_BAT=0;
+        CPU_BOOST_ON_AC = 1;
+        CPU_BOOST_ON_BAT = 0;
+        CPU_HWP_DYN_BOOST_ON_AC = 1;
+        CPU_HWP_DYN_BOOST_ON_BAT = 0;
 
         # Enable runtime power management
-        RUNTIME_PM_ON_AC="auto";
-        RUNTIME_PM_ON_BAT="auto";
+        RUNTIME_PM_ON_AC = "auto";
+        RUNTIME_PM_ON_BAT = "auto";
 
         # Change CPU energy/performance policy to balance_power (default is balance_performance)
         CPU_ENERGY_PERF_POLICY_ON_AC = "balance_power";
@@ -50,9 +53,9 @@ in
         CPU_MIN_PERF_ON_BAT = 0;
         CPU_MAX_PERF_ON_BAT = 50;
 
-       #Optional helps save long term battery health
-       START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
-       STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+        #Optional helps save long term battery health
+        START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
+        STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
       };
     };
   };

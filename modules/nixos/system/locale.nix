@@ -1,9 +1,11 @@
-{ config, lib, ... }:
-with lib;
-let
-  cfg = config.system.locale;
-in
 {
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.system.locale;
+in {
   options.system.locale = {
     enable = mkEnableOption "Enable locale settings";
   };

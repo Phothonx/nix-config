@@ -1,13 +1,15 @@
-{ lib, pkgs, ... }:
-with lib;
 {
-  wrapNoPad = package:
-  let
+  lib,
+  pkgs,
+  ...
+}:
+with lib; {
+  wrapNoPad = package: let
     exec = package.meta.mainProgram;
     # https://ryantm.github.io/nixpkgs/builders/trivial-builders/#trivial-builder-writeShellApplication
     noPad = pkgs.writeShellApplication {
       name = package.pname;
-      runtimeInputs = [ pkgs.ripgrep ];
+      runtimeInputs = [pkgs.ripgrep];
       text = ''
         if echo "$TERM" | rg kitty -q
         then
@@ -24,7 +26,7 @@ with lib;
     # https://nixos.wiki/wiki/Nix_Cookbook#Wrapping_packages
     pkgs.symlinkJoin {
       name = package.name;
-      paths = [ package noPad ];
+      paths = [package noPad];
       # using package.name is wrong ?
       # wrapprogram can't be used in this case ?
     };

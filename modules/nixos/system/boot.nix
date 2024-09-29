@@ -1,9 +1,11 @@
-{ config, lib, ... }:
-with lib;
-let
-  cfg = config.system.boot;
-in
 {
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.system.boot;
+in {
   options.system.boot = {
     enable = mkEnableOption "Enable boot";
   };

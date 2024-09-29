@@ -1,10 +1,12 @@
-{ config, lib, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.services.dunst;
   inherit (config) theme;
-in
-{
+in {
   config = mkIf cfg.enable {
     services.dunst = {
       iconTheme = theme.icons;
@@ -37,7 +39,7 @@ in
           foreground = "#${base07}";
           background = "#${base10}";
         };
-        fullscreen_delay_everything = { fullscreen = "delay"; };
+        fullscreen_delay_everything = {fullscreen = "delay";};
         urgency_critical = {
           frame_color = "#${base08}";
           highlight = "#${base08}";

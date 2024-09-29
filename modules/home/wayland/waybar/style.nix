@@ -1,10 +1,12 @@
-{config, lib, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.programs.waybar;
   inherit (config) theme;
-in
-{
+in {
   config = mkIf cfg.enable {
     programs.waybar.style = with theme.palette; ''
       * {
@@ -67,7 +69,7 @@ in
       #custom-lock:hover {
         color: #${base08};
       }
-      
+
       #battery {
         min-height: 43px;
         background-color: #${base00};
@@ -86,7 +88,7 @@ in
       @keyframes blink {
         to {
           color: #${base07};
-        } 
+        }
       }
 
       /* Using steps() instead of linear as a timing function to limit cpu usage */
@@ -97,7 +99,7 @@ in
         animation-timing-function: steps(12);
         animation-iteration-count: infinite;
         animation-direction: alternate;
-      } 
+      }
 
       #network {
         min-height: 43px;
@@ -159,7 +161,7 @@ in
       #backlight:hover {
         background-color: #${base02};
       }
-      
+
       #taskbar {
         margin: 0px 0px 3px 0px;
         background-color: #${base00};
@@ -209,7 +211,7 @@ in
       tooltip {
         background-color: #${base10};
       }
-        
+
       tooltip label {
         padding: 3px;
         background-color: #${base10};

@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.desktopApps;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.desktopApps;
+in {
   options.desktopApps = {
     enable = mkEnableOption "Enable desktop apps like filemanager, doc viewer...";
   };
@@ -17,12 +20,12 @@ in
       sushi # Nautilus previewer
 
       # Doc viewer
-      evince 
+      evince
 
       # Video mpv frontend
       celluloid
 
-      # Audio player 
+      # Audio player
       amberol
 
       # Image viewer

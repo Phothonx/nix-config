@@ -1,9 +1,11 @@
-{ config, lib, ... }:
-with lib;
-let
-  cfg = config.programs.nh;
-in
 {
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.programs.nh;
+in {
   config = mkIf cfg.enable {
     programs.nh = {
       clean.enable = true;

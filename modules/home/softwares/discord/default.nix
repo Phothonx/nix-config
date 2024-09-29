@@ -1,15 +1,18 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.programs.vesktop;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.programs.vesktop;
+in {
   options.programs.vesktop = {
     enable = mkEnableOption "Enable vesktop discord client";
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ pkgs.vesktop ];
+    home.packages = [pkgs.vesktop];
 
     xdg.configFile."vesktop/settings/settings.json".text = ''
       {

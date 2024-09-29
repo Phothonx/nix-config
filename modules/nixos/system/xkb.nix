@@ -1,9 +1,11 @@
-{ config, lib, ... }:
-with lib;
-let
-  cfg = config.system.xkb;
-in
 {
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.system.xkb;
+in {
   options.system.xkb = {
     enable = mkEnableOption "Enable xkb config";
   };

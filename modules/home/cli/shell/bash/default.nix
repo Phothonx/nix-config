@@ -1,9 +1,12 @@
-{ config, pkgs, lib, ... }:
-with lib;
-let
-  cfg = config.programs.bash;
-in
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.programs.bash;
+in {
   config = mkIf cfg.enable {
     programs.bash = {
       historyFile = "${config.xdg.stateHome}/bash/history";

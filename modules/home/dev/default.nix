@@ -1,7 +1,5 @@
-{ ... }:
-{
-  imports =
-  [
+{...}: {
+  imports = [
     ./ide
     ./direnv.nix
   ];

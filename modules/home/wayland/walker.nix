@@ -1,11 +1,14 @@
-{ config, lib, inputs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  inputs,
+  ...
+}:
+with lib; let
   cfg = config.programs.walker;
   inherit (config) theme;
-in
-{
-  imports = [ inputs.walker.homeManagerModules.default ];
+in {
+  imports = [inputs.walker.homeManagerModules.default];
 
   config = mkIf cfg.enable {
     programs.walker = {
@@ -39,7 +42,7 @@ in
           margin_spinner = 0;
           hide_spinner = true;
         };
-        runner.excludes = [ "rm" ];
+        runner.excludes = ["rm"];
         clipboard = {
           max_entries = 10;
           image_height = 300;
@@ -100,22 +103,23 @@ in
         ];
       };
       theme = {
-        style = with theme.palette; with theme; ''
+        style = with theme.palette;
+        with theme; ''
           * {
             font: bold 1.1rem "${fonts.normal.name}";
             color: #${base07};
             border-radius: 8px;
           }
-          
+
           #window {
             background: transparent;
           }
-          
+
           #box {
             padding: 10px;
             min-height: 0;
           }
-  
+
           #search {
             font: italic 1.2rem "${fonts.normal.name}";
             border-radius: 8px;
@@ -129,18 +133,18 @@ in
             padding-top: 5px;
             padding-bottom: 5px;
           }
-  
+
           #search placeholder {
             opacity: 0.5;
           }
-  
+
           #scrollbar {
             opacity: 0;
             outline: none;
             outline-width: 0px;
             border: none;
           }
-          
+
           #list {
             margin-top: 30px;
             border: 2px solid #${accent};
@@ -149,39 +153,39 @@ in
             min-height: 0;
             padding: 5px;
           }
-          
+
           list *:selected {
             background: #${base00};
             border-radius: 3px;
           }
-  
+
           .item {
             padding: 5px;
           }
-          
+
           .icon {
             padding-right: 10px;
           }
-          
+
           .textwrapper {
           }
-          
+
           .label {
           }
-          
+
           .sub {
             opacity: 0.5;
           }
-          
+
           .activationlabel {
             opacity: 0.25;
           }
-          
+
           .activation .activationlabel {
             opacity: 1;
             color: #76946a;
           }
-          
+
           .activation .textwrapper,
           .activation .icon,
           .activation .search {

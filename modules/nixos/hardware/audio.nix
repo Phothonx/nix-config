@@ -1,9 +1,11 @@
-{ config, lib, ... }:
-with lib;
-let
-  cfg = config.hardware.audio;
-in
 {
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.hardware.audio;
+in {
   options.hardware.audio = with types; {
     enable = mkEnableOption "Enable pipewire";
   };

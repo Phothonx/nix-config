@@ -1,9 +1,12 @@
-{ pkgs, lib, config, ... }:
-with lib;
-let
-  cfg = config.wayland.windowManager.hyprland;
-in
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.wayland.windowManager.hyprland;
+in {
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
       bindm = [
@@ -12,8 +15,7 @@ in
         "SUPER ALT, mouse:272, resizewindow"
       ];
 
-      bindle = 
-      let
+      bindle = let
         setVol = "wpctl set-volume --limit 1.2 @DEFAULT_AUDIO_SINK@";
         getVol = "\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' | sed 's/^0*//')\"";
         notifVol = "dunstify -h int:value:${getVol} -i ${config.home.homeDirectory}/.dotfiles/home/services/dunst/assets/volume.svg -t 700 -r 2593 \"Volume: ${getVol}%\"";
@@ -21,19 +23,16 @@ in
         setBright = "brightnessctl set --min-value=4800";
         getBright = "\"$(( ($(cat /sys/class/backlight/*/brightness) * 100) / $(cat /sys/class/backlight/*/max_brightness) ))\"";
         notifBright = "dunstify -h int:value:${getBright} -i ${config.home.homeDirectory}/.dotfiles/home/services/dunst/assets/brightness.svg -t 700 -r 2593 \"Brightness: ${getBright}%\"";
-      in
-      [
+      in [
         " , XF86AudioLowerVolume, exec, ${setVol} 2%- && ${notifVol}"
         " , XF86AudioRaiseVolume, exec, ${setVol} 2%+ && ${notifVol}"
         " , XF86MonBrightnessDown, exec, ${setBright} 5%- && ${notifBright}"
         " , XF86MonBrightnessUp, exec, ${setBright} +5% && ${notifBright}"
       ];
 
-      bind = 
-      let
+      bind = let
         notifMute = "dunstify -i ${config.home.homeDirectory}/.dotfiles/home/services/dunst/assets/$( (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo \"volume-mute.svg\") || echo \"volume.svg\" ) -t 500 -r 2593 \"Toggle Mute\"";
-      in 
-      [
+      in [
         "SUPER, Q, exec, ${lib.getExe pkgs.kitty}"
         "SUPER, H, exec, ${lib.getExe pkgs.firefox}"
         "SUPER, R, exec, tofi-drun"
@@ -49,7 +48,7 @@ in
 
         "SUPER SHIFT, C, exec, ${lib.getExe pkgs.hyprpicker} -f hex -a"
 
-        "SUPER, C, killactive," 
+        "SUPER, C, killactive,"
         "SUPER SHIFT, M, exit,"
         "SUPER, M, exec, hyprctl reload"
 
@@ -94,12 +93,12 @@ in
         "SUPER SHIFT, egrave, movetoworkspacesilent, 7"
         "SUPER SHIFT, underscore, movetoworkspacesilent, 8"
         "SUPER SHIFT, ccedilla, movetoworkspacesilent, 9"
-        "SUPER SHIFT, agrave, movetoworkspacesilent, 10" 
+        "SUPER SHIFT, agrave, movetoworkspacesilent, 10"
 
         "SUPER CTRL, right, workspace, r+1"
         "SUPER CTRL, left, workspace, r-1"
         "SUPER, mouse_down, workspace, e+1"
-        "SUPER, mouse_up, workspace, e-1"  
+        "SUPER, mouse_up, workspace, e-1"
       ];
     };
   };

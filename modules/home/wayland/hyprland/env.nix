@@ -1,9 +1,11 @@
-{ lib, config, ... }:
-with lib;
-let
-  cfg = config.wayland.windowManager.hyprland;
-in
 {
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.wayland.windowManager.hyprland;
+in {
   config = mkIf cfg.enable {
     home.sessionVariables = {
       HYPRLAND_LOG_WLR = 1;
@@ -12,8 +14,8 @@ in
 
       NIXOS_OZONE_WL = "1";
       _JAVA_AWT_WM_NONEREPARENTING = "1";
-      
-      CLUTTER_BACKEND="wayland";
+
+      CLUTTER_BACKEND = "wayland";
 
       MOZ_ENABLE_WAYLAND = "1";
 

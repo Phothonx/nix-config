@@ -1,11 +1,16 @@
-{ config, lib, unstable, inputs, self, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  unstable,
+  inputs,
+  self,
+  ...
+}:
+with lib; let
   cfg = config.user.home-manager;
   userName = config.user.name;
-in
-{
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+in {
+  imports = [inputs.home-manager.nixosModules.home-manager];
 
   options.user.home-manager = with types; {
     enable = mkEnableOption "Enable homemanager";
@@ -19,10 +24,10 @@ in
       useUserPackages = true;
       useGlobalPkgs = true;
       backupFileExtension = "hm.old";
-      extraSpecialArgs = { inherit inputs unstable; };
+      extraSpecialArgs = {inherit inputs unstable;};
 
       users.${userName} = {
-        imports = [ self.outputs.nixosModules.home-manager ] ++ cfg.imports;
+        imports = [self.outputs.nixosModules.home-manager] ++ cfg.imports;
         home.username = userName;
         home.homeDirectory = "/home/${userName}";
         home.stateVersion = cfg.stateVersion;

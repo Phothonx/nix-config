@@ -1,10 +1,13 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.programs.cava;
   inherit (config) theme;
-in
-{
+in {
   config = mkIf cfg.enable {
     programs.cava = {
       package = wrapNoPad pkgs.cava;

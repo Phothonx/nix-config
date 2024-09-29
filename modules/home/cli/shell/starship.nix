@@ -1,17 +1,19 @@
-{ lib, config, ... }:
-with lib;
-let
+{
+  lib,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.programs.starship;
   inherit (config) theme;
-in
-{
+in {
   config = mkIf cfg.enable {
     programs.starship = {
       enableBashIntegration = true;
 
       settings = with theme.palette; {
-        format = ''$battery$nix_shell$c$python$ocaml$directory$character'';      
-        right_format = ''$git_branch$git_status'';    
+        format = ''$battery$nix_shell$c$python$ocaml$directory$character'';
+        right_format = ''$git_branch$git_status'';
 
         character = {
           format = "$symbol ";
@@ -24,7 +26,7 @@ in
         };
 
         directory = {
-          format = "[$path](#${base0D})[$read_only](#${base08}) "; 
+          format = "[$path](#${base0D})[$read_only](#${base08}) ";
           read_only = "🔒";
           truncation_length = 5;
           truncation_symbol = "";

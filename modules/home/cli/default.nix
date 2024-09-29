@@ -1,7 +1,5 @@
-{ ... }:
-{
-  imports = 
-  [
+{...}: {
+  imports = [
     ./shell
 
     ./cava.nix

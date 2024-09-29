@@ -1,10 +1,13 @@
-{ pkgs, lib, config, ... }:
-with lib;
-let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.theme;
   inherit (config) theme;
-in
-{
+in {
   config = mkIf cfg.enable {
     home = with theme; {
       packages = [
@@ -15,7 +18,7 @@ in
         icons.package
 
         pkgs.adwaita-icon-theme
-        (pkgs.nerdfonts.override { fonts = [ "SpaceMono" ]; })
+        (pkgs.nerdfonts.override {fonts = ["SpaceMono"];})
       ];
 
       pointerCursor = {
@@ -31,13 +34,13 @@ in
       };
     };
 
-    fonts.fontconfig = with theme; { 
+    fonts.fontconfig = with theme; {
       enable = true;
       defaultFonts = {
-        emoji = [ fonts.emoji.name ];
-        monospace = [ fonts.mono.name ];
-        serif = [ fonts.normal.name ];
-        sansSerif = [ fonts.normal.name ];
+        emoji = [fonts.emoji.name];
+        monospace = [fonts.mono.name];
+        serif = [fonts.normal.name];
+        sansSerif = [fonts.normal.name];
       };
     };
   };

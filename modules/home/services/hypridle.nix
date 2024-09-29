@@ -1,7 +1,11 @@
-{ config, pkgs, lib, ... }:
-with pkgs; 
-with lib;
-let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with pkgs;
+with lib; let
   cfg = config.services.hypridle;
 
   wpctl = getExe' wireplumber "wpctl";
@@ -21,8 +25,7 @@ let
       ${suspend}
     fi
   '';
-in
-{
+in {
   config = mkIf cfg.enable {
     # Hyprlock don't have the time to fully laod
     # https://github.com/hyprwm/hypridle/issues/49

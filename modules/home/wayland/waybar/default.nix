@@ -1,11 +1,13 @@
-{ lib, config, ... }:
-with lib;
-let
+{
+  lib,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.programs.waybar;
   inherit (config) theme;
-in
-{
-  imports = [ ./style.nix ];
+in {
+  imports = [./style.nix];
 
   config = mkIf cfg.enable {
     programs.waybar = {
@@ -21,9 +23,9 @@ in
           fixed-center = true;
           spacing = 0;
 
-          modules-left = [ "group/logo-power" "battery" "group/connections" "group/audio" "backlight" ];
-          modules-center = [ "hyprland/workspaces" ];
-          modules-right = [ "wlr/taskbar" "tray" "clock" ];
+          modules-left = ["group/logo-power" "battery" "group/connections" "group/audio" "backlight"];
+          modules-center = ["hyprland/workspaces"];
+          modules-right = ["wlr/taskbar" "tray" "clock"];
 
           "hyprland/workspaces" = {
             on-click = "activate";
@@ -70,24 +72,24 @@ in
             tooltip = false;
           };
           "custom/quit" = {
-              format = "󰗼";
-              tooltip = false;
-              on-click = "systemctl suspend";
+            format = "󰗼";
+            tooltip = false;
+            on-click = "systemctl suspend";
           };
           "custom/lock" = {
-              format = "󰍁";
-              tooltip = false;
-              on-click = "hyprlock --immediate";
+            format = "󰍁";
+            tooltip = false;
+            on-click = "hyprlock --immediate";
           };
           "custom/reboot" = {
-              format = "󰜉";
-              tooltip = false;
-              on-click = "reboot";
+            format = "󰜉";
+            tooltip = false;
+            on-click = "reboot";
           };
           "custom/power" = {
-              format = "󰤂";
-              tooltip = false;
-              on-click = "shutdown now";
+            format = "󰤂";
+            tooltip = false;
+            on-click = "shutdown now";
           };
 
           clock = {
@@ -103,7 +105,7 @@ in
             icon-size = 25;
             on-click = "activate";
             on-click-right = "close";
-            ignore-list = [ "kitty" "vesktop" "win0" "win1" "win2" "win3" ]; 
+            ignore-list = ["kitty" "vesktop" "win0" "win1" "win2" "win3"];
             tooltip = false;
           };
 
@@ -154,7 +156,7 @@ in
             tooltip = false;
             tooltip-format-wifi = "SSID: {essid}\nWidth: ⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}";
             tooltip-format-ethernet = "IFname:  {ifname}\nWidth: ⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}";
-	          tooltip-format-disconnected = "Disconnected"; 
+            tooltip-format-disconnected = "Disconnected";
           };
 
           bluetooth = {
@@ -197,37 +199,37 @@ in
           };
 
           "privacy#in" = {
-	          icon-spacing = 4; 
-	          icon-size = 21;
-	          transition-duration = 250;
-	          modules = [
-	          	{ 
-                type = "audio-in"; 
+            icon-spacing = 4;
+            icon-size = 21;
+            transition-duration = 250;
+            modules = [
+              {
+                type = "audio-in";
                 tooltip = false;
               }
-	          ];
+            ];
           };
           "privacy#out" = {
-	          icon-spacing = 4; 
-	          icon-size = 24;
-	          transition-duration = 250;
-	          modules = [
-	          	{ 
-                type = "audio-out"; 
+            icon-spacing = 4;
+            icon-size = 24;
+            transition-duration = 250;
+            modules = [
+              {
+                type = "audio-out";
                 tooltip = false;
               }
-	          ];
+            ];
           };
           "privacy#sc" = {
-	          icon-spacing = 4; 
-	          icon-size = 21;
-	          transition-duration = 250;
-	          modules = [
-	          	{ 
-                type = "screenshare"; 
+            icon-spacing = 4;
+            icon-size = 21;
+            transition-duration = 250;
+            modules = [
+              {
+                type = "screenshare";
                 tooltip = false;
               }
-	          ];
+            ];
           };
 
           tray = {

@@ -1,9 +1,11 @@
-{ lib, config, ... }:
-with lib;
-let
-  cfg = config.wayland.windowManager.hyprland;
-in
 {
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.wayland.windowManager.hyprland;
+in {
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
       windowrulev2 = [

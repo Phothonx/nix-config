@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ...}:
-with lib;
-let
-  cfg = config.services.polkit;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.services.polkit;
+in {
   options.services.polkit = {
     enable = mkEnableOption "Enable polkit";
   };

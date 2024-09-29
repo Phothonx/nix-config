@@ -1,7 +1,5 @@
-{ ... }:
-{
-  imports =
-  [
+{...}: {
+  imports = [
     ./config.nix
     ./env.nix
     ./rules.nix

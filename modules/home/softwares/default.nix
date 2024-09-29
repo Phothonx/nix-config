@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-{
-  imports = 
-  [
+{pkgs, ...}: {
+  imports = [
     ./discord
     ./firefox
     ./utils

@@ -34,7 +34,7 @@
 
     MiniFox.url = "git+https://codeberg.org/awwpotato/MiniFox";
     MiniFox.flake = false;
-     
+
     # Devshells
     nix-profile-devshells.url = "github:Phothonx/nix-profile-devshells";
     nix-profile-devshells.inputs.nixpkgs.follows = "nixpkgs";
@@ -46,7 +46,7 @@
     # # Disko
     # disko.url = "github:nix-community/disko";
     # disko.inputs.nixpkgs.follows = "nixpkgs";
-    # 
+    #
     # # Impermanence
     # inputs.impermanence.url = "github:nix-community/impermanence";
 
@@ -55,11 +55,19 @@
     nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
     mkLib = pkgs:
-      pkgs.lib.extend (self: super: 
-        (import ./lib { inherit pkgs; lib = super; }) // inputs.home-manager.lib
+      pkgs.lib.extend (
+        self: super:
+          (import ./lib {
+            inherit pkgs;
+            lib = super;
+          })
+          // inputs.home-manager.lib
       );
 
     systems = [
@@ -68,14 +76,13 @@
     ];
 
     withSystems = systems: withPkgs:
-      nixpkgs.lib.genAttrs systems (system:
-        (withPkgs nixpkgs.legacyPackages.${system})
+      nixpkgs.lib.genAttrs systems (
+        system: (withPkgs nixpkgs.legacyPackages.${system})
       );
 
     forEachSystems = withSystems systems;
 
-    mkSystem = nixpkgs: system: hostName:
-    let
+    mkSystem = nixpkgs: system: hostName: let
       # https://discourse.nixos.org/t/using-nixpkgs-legacypackages-system-vs-import/17462
       # https://zimbatm.com/notes/1000-instances-of-nixpkgs
       pkgs = nixpkgs.legacyPackages.${system};
@@ -91,8 +98,7 @@
           inherit self inputs lib hostName;
         };
       };
-  in
-  {
+  in {
     packages = forEachSystems (pkgs: import ./packages pkgs);
 
     formatter = forEachSystems (pkgs: inputs.alejandra.defaultPackage.${pkgs.system});

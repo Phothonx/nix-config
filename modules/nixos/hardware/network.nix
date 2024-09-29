@@ -1,6 +1,10 @@
-{ config, hostName, lib, ... }:
-with lib;
-let
+{
+  config,
+  hostName,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.hardware.network;
 in {
   options.hardware.network = with types; {
@@ -13,7 +17,7 @@ in {
       networkmanager.enable = true;
     };
 
-    user.extraGroups = [ "networkmanager" ];
+    user.extraGroups = ["networkmanager"];
 
     # https://github.com/NixOS/nixpkgs/issues/180175
     systemd.services.NetworkManager-wait-online.enable = false;

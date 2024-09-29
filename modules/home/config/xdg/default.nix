@@ -1,14 +1,17 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.xdg;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.xdg;
+in {
   config = mkIf cfg.enable {
     home.sessionVariables = with config.xdg; {
       XDG_CURRENT_DESKTOP = "Hyprland";
-	    XDG_SESSION_DESKTOP = "Hyprland";
-	    XDG_SESSION_TYPE = "wayland";
+      XDG_SESSION_DESKTOP = "Hyprland";
+      XDG_SESSION_TYPE = "wayland";
 
       BROWSER = "firefox";
       TERMINAL = "kitty";
@@ -17,7 +20,7 @@ in
       CARGO_HOME = "${dataHome}/cargo";
       IPYTHONDIR = "${configHome}/ipython";
       JUPYTER_CONFIG_DIR = "${configHome}/jupyter";
-      XCOMPOSECACHE = "${cacheHome}/X11/xcompose"; 
+      XCOMPOSECACHE = "${cacheHome}/X11/xcompose";
       OPAMROOT = "${dataHome}/opam";
       ERRFILE = "${cacheHome}/X11/xsession-errors";
     };

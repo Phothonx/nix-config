@@ -1,7 +1,5 @@
-{ ... }:
-{
-  imports =
-  [
+{...}: {
+  imports = [
     ./codium.nix
     ./neovim
   ];

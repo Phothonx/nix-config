@@ -1,9 +1,12 @@
-{ config, lib, inputs, ... }:
-with lib;
-let 
+{
+  config,
+  lib,
+  inputs,
+  ...
+}:
+with lib; let
   cfg = config.programs.firefox.theme;
-in
-{ 
+in {
   options.programs.firefox.theme = {
     enable = mkEnableOption "Use firefox custom css & startpage";
   };
@@ -28,7 +31,7 @@ in
         "browser.uidensity" = 1;
         "svg.context-properties.content.enabled" = true;
         "browser.urlbar.suggest.calculator" = true;
-        # Theme options 
+        # Theme options
         "uc.tweak.no-window-controls" = true;
       };
     };

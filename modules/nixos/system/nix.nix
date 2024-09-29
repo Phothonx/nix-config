@@ -1,9 +1,14 @@
-{ config, lib, inputs, pkgs, self, ... }:
-with lib;
-let
-  cfg = config.system.nix;
-in
 {
+  config,
+  lib,
+  inputs,
+  pkgs,
+  self,
+  ...
+}:
+with lib; let
+  cfg = config.system.nix;
+in {
   options.system.nix = with types; {
     enable = mkEnableOption "Enable nix configuration management";
     substituters = mkOpt (listOf str) [] "Add extra substituters";
@@ -14,14 +19,14 @@ in
     environment.systemPackages = with pkgs; [
       nvd
       nix-output-monitor
-      nix-tree 
+      nix-tree
     ];
 
     nix = {
       settings = {
         inherit (cfg) substituters trusted-public-keys;
 
-        experimental-features = [ "nix-command" "flakes" ];
+        experimental-features = ["nix-command" "flakes"];
         http-connections = 50;
         warn-dirty = false;
         log-lines = 50;

@@ -1,10 +1,13 @@
-{ config, lib, inputs, ... }:
-with lib;
-let
-  cfg = config.programs.firefox.arkenfox;
-in
 {
-  imports = [ inputs.arkenfox-nixos.hmModules.arkenfox ];
+  config,
+  lib,
+  inputs,
+  ...
+}:
+with lib; let
+  cfg = config.programs.firefox.arkenfox;
+in {
+  imports = [inputs.arkenfox-nixos.hmModules.arkenfox];
 
   config = mkIf cfg.enable {
     programs.firefox = {
@@ -13,12 +16,12 @@ in
       };
 
       profiles.default.arkenfox = {
-        # https://arkenfox.dwarfmaster.net/ 
+        # https://arkenfox.dwarfmaster.net/
         enable = true;
         "0000".enable = true;
         "0100" = {
           enable = true;
-          "0102"."browser.startup.page".value = 3; 
+          "0102"."browser.startup.page".value = 3;
           "0103"."browser.startup.homepage".value = "${config.home.homeDirectory}/.mozilla/firefox/default/startpage/index.html";
           "0104"."browser.newtabpage.enabled".value = false;
         };

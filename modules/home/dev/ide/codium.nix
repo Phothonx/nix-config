@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.programs.vscode;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.programs.vscode;
+in {
   config = mkIf cfg.enable {
     programs.vscode = {
       package = pkgs.vscodium;

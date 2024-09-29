@@ -1,6 +1,10 @@
-{ pkgs, inputs, config, ... }:
 {
-  imports = with inputs.nixos-hardware.nixosModules; [ 
+  pkgs,
+  inputs,
+  config,
+  ...
+}: {
+  imports = with inputs.nixos-hardware.nixosModules; [
     ./hardware-configuration.nix
     common-pc-ssd
     common-cpu-intel
@@ -23,7 +27,7 @@
   hardware.network.enable = true;
   hardware.bluetooth.enable = true;
   hardware.power.enable = true;
-  
+
   # System
   programs.nh.enable = true;
   programs.nh.flake = "/home/nico/.dotfiles";
@@ -46,14 +50,14 @@
   # === DO NOT TOUCH ! ===
   system.stateVersion = "23.11";
 
-  # User 
+  # User
   programs.xonsh.enable = true;
   user.name = "nico";
   user.fullName = "Nicolas";
   user.hashedPasswordFile = config.age.secrets.secret1.path;
-  user.extraGroups = [ "wheel" "audio" "video" ];
+  user.extraGroups = ["wheel" "audio" "video"];
   user.home-manager.enable = true;
-  user.home-manager.imports = [ ./home.nix ];
+  user.home-manager.imports = [./home.nix];
   # === DO NOT TOUCH ! ===
   user.home-manager.stateVersion = "23.11";
 }

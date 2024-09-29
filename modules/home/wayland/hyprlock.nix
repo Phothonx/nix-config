@@ -1,10 +1,12 @@
-{ config, lib, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.programs.hyprlock;
   inherit (config) theme;
-in
-{
+in {
   config = mkIf cfg.enable {
     programs.hyprlock = {
       settings = {
@@ -104,7 +106,7 @@ in
             valign = "center";
             shadow_passes = 2;
             shadow_size = 4;
-            shadow_color = "rgb(${base10})";         
+            shadow_color = "rgb(${base10})";
           }
         ];
       };

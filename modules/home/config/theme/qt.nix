@@ -1,9 +1,12 @@
-{ pkgs, config, lib, ... }:
-with lib;
-let
-  cfg = config.qt;
-in
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.qt;
+in {
   config = mkIf cfg.enable {
     home.sessionVariables = {
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";

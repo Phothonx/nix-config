@@ -1,7 +1,5 @@
-{ ... }:
-{
-  imports = 
-  [
+{...}: {
+  imports = [
     ./bash
 
     ./starship.nix

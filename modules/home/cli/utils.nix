@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.cli;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.cli;
+in {
   options.cli = {
     tools.enable = mkEnableOption "Cli tools";
     qof.enable = mkEnableOption "QUality of life commands";

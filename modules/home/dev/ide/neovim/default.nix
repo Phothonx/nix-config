@@ -1,72 +1,76 @@
-{ pkgs, config, lib, ... }:
-with lib;
-let
-  cfg = config.programs.neovim;
-in
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.programs.neovim;
+in {
   config = mkIf cfg.enable {
     programs.neovim = {
-
       defaultEditor = true;
       withPython3 = true;
       vimAlias = true;
       vimdiffAlias = true;
 
-      plugins = with pkgs.vimPlugins; 
-      [
-        # LAZY LOADER
-        lz-n
+      plugins = with pkgs.vimPlugins;
+        [
+          # LAZY LOADER
+          lz-n
 
-        # TS
-        nvim-treesitter.withAllGrammars
+          # TS
+          nvim-treesitter.withAllGrammars
 
-        # DEPS
-        plenary-nvim
-        nvim-web-devicons
-        nui-nvim
-        image-nvim
-        vim-repeat
+          # DEPS
+          plenary-nvim
+          nvim-web-devicons
+          nui-nvim
+          image-nvim
+          vim-repeat
 
-        # COLORSHEME
-        catppuccin-nvim
-      ]
-      ++ map (p: { plugin = p; optional = true; }) [
+          # COLORSHEME
+          catppuccin-nvim
+        ]
+        ++ map (p: {
+          plugin = p;
+          optional = true;
+        }) [
+          # UI
+          vim-startuptime
+          neo-tree-nvim
+          toggleterm-nvim
+          lualine-nvim
+          gitsigns-nvim
+          which-key-nvim
+          telescope-nvim
+          iron-nvim
+          neorg
+          render-markdown-nvim
 
-        # UI  
-        vim-startuptime
-        neo-tree-nvim
-        toggleterm-nvim
-        lualine-nvim
-        gitsigns-nvim
-        which-key-nvim
-        telescope-nvim
-        iron-nvim
-        neorg
-        render-markdown-nvim
+          # UTILS
+          indent-blankline-nvim
+          nvim-autopairs
 
-        # UTILS
-        indent-blankline-nvim
-        nvim-autopairs
+          # SNIP
+          luasnip
 
-        # SNIP
-        luasnip
+          # CMP
+          nvim-cmp
+          cmp_luasnip
+          cmp-fuzzy-buffer
+          cmp-fuzzy-path
 
-        # CMP
-        nvim-cmp
-        cmp_luasnip
-        cmp-fuzzy-buffer
-        cmp-fuzzy-path
+          # DAP
 
-        # DAP
+          # NAV
+          leap-nvim
+          better-escape-nvim
 
-        # NAV
-        leap-nvim
-        better-escape-nvim
-        
-        # LSP, FMT
-        nvim-lspconfig
-        conform-nvim
-      ];
+          # LSP, FMT
+          nvim-lspconfig
+          conform-nvim
+        ];
 
       extraPackages = with pkgs; [
         libgcc
@@ -79,12 +83,12 @@ in
         nil
         marksman
 
-        # REPLS 
+        # REPLS
         ocamlPackages.utop
         python3
       ];
 
-      extraLuaPackages = luaPkgs: with luaPkgs; [ lua-utils-nvim nvim-nio pathlib-nvim ];
+      extraLuaPackages = luaPkgs: with luaPkgs; [lua-utils-nvim nvim-nio pathlib-nvim];
 
       extraLuaConfig = ''
         vim.g.mapleader = " "
