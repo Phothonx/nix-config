@@ -20,6 +20,8 @@ in {
       nvd
       nix-output-monitor
       nix-tree
+      alejandra
+      inputs.nix-index-database.packages.${pkgs.system}.default
     ];
 
     nix = {

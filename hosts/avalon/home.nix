@@ -23,7 +23,7 @@
 
   # Dev
   programs.neovim.enable = true;
-  programs.vscode.enable = true;
+  # programs.vscode.enable = true;
   nix.registry.dev.flake = inputs.nix-profile-devshells;
 
   # Config
@@ -38,6 +38,9 @@
   cli.qof.enable = true;
   programs.git.enable = true;
   programs.cava.enable = true;
+  programs.eza.enable = true;
+  programs.zoxide.enable = true;
   programs.starship.enable = true;
-  programs.bash.enable = true;
+  # programs.bash.enable = true;
+  programs.fish.enable = true;
 }

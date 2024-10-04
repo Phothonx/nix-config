@@ -51,7 +51,6 @@
   system.stateVersion = "23.11";
 
   # User
-  programs.xonsh.enable = true;
   user.name = "nico";
   user.fullName = "Nicolas";
   user.hashedPasswordFile = config.age.secrets.secret1.path;

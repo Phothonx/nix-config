@@ -35,6 +35,10 @@
     MiniFox.url = "git+https://codeberg.org/awwpotato/MiniFox";
     MiniFox.flake = false;
 
+    # Nix-index database
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
     # Devshells
     nix-profile-devshells.url = "github:Phothonx/nix-profile-devshells";
     nix-profile-devshells.inputs.nixpkgs.follows = "nixpkgs";

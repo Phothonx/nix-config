@@ -44,16 +44,6 @@ in {
         fd
         atuin
       ];
-
-      programs.zoxide.enable = true;
-      programs.zoxide.enableBashIntegration = true;
-
-      programs.eza.enable = true;
-      programs.eza.icons = true;
-      programs.eza.extraOptions = [
-        "--group-directories-first"
-        "--header"
-      ];
     })
 
     (mkIf cfg.fun.enable {

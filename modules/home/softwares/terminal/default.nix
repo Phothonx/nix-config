@@ -9,6 +9,11 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     programs.kitty = {
+      shellIntegration = {
+        enableBashIntegration = true;
+        mode = "no-cursor";
+      };
+
       settings = with theme.palette; {
         # FONTS
         font_family = theme.fonts.mono.name;
