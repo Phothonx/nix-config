@@ -41,6 +41,7 @@
   programs.eza.enable = true;
   programs.zoxide.enable = true;
   programs.starship.enable = true;
+  programs.btop.enable = true;
   # programs.bash.enable = true;
   programs.fish.enable = true;
 }

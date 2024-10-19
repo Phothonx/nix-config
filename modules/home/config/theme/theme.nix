@@ -44,8 +44,8 @@ in {
     };
 
     tweaks = mkOpt' attrs {
-      gaps_in = 5;
-      gaps_out = 10;
+      gaps_in = 7;
+      gaps_out = 15;
       border_size = 2;
       rounding = 10;
       scaling = 1.0;
@@ -56,20 +56,21 @@ in {
         popups = 1.0;
       };
       blur = {
-        enabled = true;
-        size = 3;
-        passes = 3;
+        enabled = false;
+        size = 4;
+        passes = 1;
         noise = 0.018;
         contrast = 0.9;
         brightness = 0.83;
+        vibrancy = 0.17;
       };
       shadow = {
         enabled = true;
-        range = 15;
+        range = 10;
         power = 4;
-        passes = 4;
+        passes = 5;
         color = config.theme.palette.shadow;
-        offset = "3 3";
+        offset = "4 4";
         size = 3;
       };
     };

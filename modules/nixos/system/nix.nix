@@ -21,6 +21,7 @@ in {
       nix-output-monitor
       nix-tree
       alejandra
+      nixfmt-rfc-style
       inputs.nix-index-database.packages.${pkgs.system}.default
     ];
 

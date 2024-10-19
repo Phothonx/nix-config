@@ -54,19 +54,16 @@ in {
         # };
 
         general = with tweaks; {
-          # no_border_on_floating = false
-          gaps_in = gaps_in;
-          gaps_out = gaps_out;
           border_size = border_size;
 
+          gaps_in = gaps_in;
+          gaps_out = gaps_out;
           gaps_workspaces = 5;
 
-          "col.inactive_border" = "rgb(${base00})";
-          "col.active_border" = "rgb(${base07}) rgb(${base0E}) 180deg";
+          "col.inactive_border" = "rgb(${base10})";
+          "col.active_border" = "rgb(${base0E}) rgb(${base0D}) 180deg";
 
           layout = "dwindle";
-
-          resize_on_border = true; # resize windows
         };
 
         decoration = with tweaks; {
@@ -79,13 +76,14 @@ in {
           shadow_offset = shadow.offset;
 
           blur = with blur; {
-            # this blurr <3
-            enabled = enabled;
-            size = size;
-            passes = passes;
-            noise = noise;
-            contrast = contrast;
-            brightness = brightness;
+            inherit (blur) enabled
+              size
+              passes
+              noise
+              contrast
+              brightness
+              vibrancy;
+
             special = true; # nice but more expensive
             popups = true;
           };
@@ -94,49 +92,43 @@ in {
         dwindle = {
           preserve_split = true;
           smart_split = true; # choose split direction with cursor position on window
-          special_scale_factor = 0.9;
         };
 
         animations = {
           enabled = true;
-          bezier = [
-            # taken from NotAShelf
-            "linear, 0.0, 0.0, 1.0, 1.0" # border
-
-            # linuxmobile
-            "fluent_decel, 0, 0.2, 0.4, 1"
-            "easeOutCirc, 0, 0.55, 0.45, 1"
+          bezier = [ # https://easings.net/#
+            "linear, 0.0, 0.0, 1.0, 1.0"
             "easeOutCubic, 0.33, 1, 0.68, 1"
-            "easeinoutsine, 0.37, 0, 0.63, 1"
+            "overshot, 0.35, 0.9, 0.4, 1.1"
           ];
           animation = [
-            "windowsIn, 1, 1.7, easeOutCubic, slide" # window open
-            "windowsOut, 1, 1.7, easeOutCubic, slide" # window close
-            "specialWorkspace, 1, 3, fluent_decel, slidevert" # special
+            "windows, 1, 3, overshot, popin"
 
-            # fading
-            "fadeIn, 1, 3, easeOutCubic" # fade in (open) -> layers and windows
-            "fadeOut, 1, 3, easeOutCubic" # fade out (close) -> layers and windows
-            "border, 1, 2.7, easeOutCirc" # for animating the border's color switch speed
-            "workspaces, 1, 2, fluent_decel, slidevert" # styles: slide, slidevert, fade, slidefade, slidefadevert
-            "specialWorkspace, 1, 3, fluent_decel, slidevert"
+            "fade, 1, 3, easeOutCubic"
 
-            "borderangle, 1, 100, linear, loop" # border
+            "workspaces, 1, 3, overshot, slidevert"
+
+            "border, 1, 2, easeOutCubic"
+            "borderangle, 1, 50, linear, loop"
           ];
         };
 
         input = {
           kb_layout = "fr";
           kb_options = "ctrl:nocaps"; # disable capslock
-          repeat_rate = 45; # on long press
-          repeat_delay = 225; # time to hold before repeating
+          # fkeys:basic_13-24 
+          repeat_rate = 40; # on long press
+          repeat_delay = 250; # time to hold before repeating
+
           sensitivity = 0.25;
           accel_profile = "flat"; # no mouse acceleration
-          scroll_method = "2fg"; # 2 finger scroll
           follow_mouse = 1; # window focus under mouse
           float_switch_override_focus = 2; # same but with floating windows
+
+          scroll_method = "2fg"; # 2 finger scroll
           touchpad = {
             disable_while_typing = false;
+            clickfinger_behavior = true;
             natural_scroll = true; # invert
             scroll_factor = 0.75;
           };
@@ -145,13 +137,21 @@ in {
         gestures = {
           workspace_swipe = true; # 3 fingers
           workspace_swipe_distance = 250;
-          workspace_swipe_cancel_ratio = 0.7;
+          workspace_swipe_cancel_ratio = 0.5;
         };
 
         misc = {
           disable_hyprland_logo = true;
           disable_splash_rendering = true;
           background_color = "rgb(${base00})";
+
+          font_family = fonts.mono.name;
+          mouse_move_enables_dpms = true;
+          key_press_enables_dpms = true;
+
+          enable_swallow = true;
+          swallow_regex = "^(kitty)$";
+          swallow_exception_regex = "^(xev|wev)$";
 
           focus_on_activate = true;
           animate_manual_resizes = true;

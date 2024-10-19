@@ -7,5 +7,6 @@
     ./utils.nix
     ./zoxide.nix
     ./eza.nix
+    ./btop.nix
   ];
 }

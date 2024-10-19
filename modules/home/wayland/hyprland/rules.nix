@@ -53,6 +53,10 @@ in {
         "size 1400 900, class:^(kitty)$"
         "size 1700 1100, class:^(firefox)$"
       ];
+
+      workspace = [
+        "special:special, gapsout:70"
+      ];
     };
   };
 }

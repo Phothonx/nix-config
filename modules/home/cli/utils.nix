@@ -28,7 +28,6 @@ in {
         bitwarden-cli
         just
         yt-dlp
-        btop
       ];
     })
 

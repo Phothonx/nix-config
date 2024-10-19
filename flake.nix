@@ -17,10 +17,6 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Walker
-    walker.url = "github:abenz1267/walker";
-    walker.inputs.nixpkgs.follows = "nixpkgs";
-
     # Spicetify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
@@ -42,10 +38,6 @@
     # Devshells
     nix-profile-devshells.url = "github:Phothonx/nix-profile-devshells";
     nix-profile-devshells.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Alejandra
-    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-    alejandra.inputs.nixpkgs.follows = "nixpkgs";
 
     # # Disko
     # disko.url = "github:nix-community/disko";
@@ -105,7 +97,7 @@
   in {
     packages = forEachSystems (pkgs: import ./packages pkgs);
 
-    formatter = forEachSystems (pkgs: inputs.alejandra.defaultPackage.${pkgs.system});
+    formatter = forEachSystems (pkgs: pkgs.alejandra);
 
     nixosModules.default = import ./modules/nixos;
     nixosModules.home-manager = import ./modules/home;
