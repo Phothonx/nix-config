@@ -39,7 +39,7 @@ in {
         "SUPER, E, exec, ${lib.getExe pkgs.nautilus}"
         "CTRL ALT, L, exec, hyprlock"
 
-        # "SUPER, Tab, hyprexpo:expo, toggle"
+        "SUPER SHIFT, Tab, hyprexpo:expo, toggle"
 
         " , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${notifMute}"
 

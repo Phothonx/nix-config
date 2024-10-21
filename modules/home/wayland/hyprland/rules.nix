@@ -56,6 +56,7 @@ in {
 
       workspace = [
         "special:special, gapsout:70"
+        "special:special, on-created-empty:kitty"
       ];
     };
   };

@@ -10,17 +10,25 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
-      exec-once = with lib;
+      exec-once =
       with pkgs; [
         "swww-daemon"
         "swww img ${theme.wallpaper} --transition-type none"
+
         "hyprctl setcursor ${theme.cursor.name} ${builtins.toString theme.cursor.size}"
+
         "${wl-clipboard}/bin/wl-paste --watch cliphist store"
+
         (getExe waybar)
+
         (getExe dunst)
-        # (getExe hypridle)
-        # "${getExe kitty} -o background_opacity=0 -o window_padding_width=0 --class=\"kitty-cava\" ${getExe cava}"
-        # "${getExe hyprlock} --immediate"
+
+        "hyprshade install"
+        "systemctl --user enable --now hyprshade.timer"
+      ];
+
+      exec = [
+        "hyprshade auto"
       ];
     };
   };

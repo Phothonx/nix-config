@@ -3,7 +3,7 @@
   wayland.windowManager.hyprland.enable = true;
   programs.waybar.enable = true;
   programs.hyprlock.enable = true;
-  # programs.walker.enable = true;
+  programs.hyprshade.enable = true;
   programs.tofi.enable = true;
 
   # Sofwares

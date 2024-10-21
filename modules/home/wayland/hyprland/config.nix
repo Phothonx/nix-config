@@ -11,6 +11,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       brightnessctl
+      brillo
       swww
       hyprshot
       hyprpicker
@@ -22,36 +23,32 @@ in {
         variables = ["--all"];
       };
 
-      # plugins = [
-      #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
-      #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-      # ];
+      plugins = with pkgs; [
+        hyprlandPlugins.hyprexpo
+        hyprlandPlugins.hy3
+        hyprlandPlugins.hyprsplit
+      ];
 
       xwayland.enable = true;
 
       settings = with theme.palette;
       with theme; {
-        "$MOD" = "SUPER";
-
         monitor = [
           "eDP-1, 1920x1200@60, 0x0, 1" # personal monitor
         ];
 
-        # plugin = {
-        #   hyprwinwrap = {
-        #     class = "kitty-cava";
-        #   };
-        #   hyprexpo = {
-        #     columns = 3;
-        #     gap_size = 5;
-        #     bg_col = "rgb(${base11})";
-        #     workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+        plugin = {
+          hyprexpo = {
+            columns = 3;
+            gap_size = 5;
+            bg_col = "rgb(${base11})";
+            workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
 
-        #     enable_gesture = true; # laptop touchpad, 4 fingers
-        #     gesture_distance = 300; # how far is the "max"
-        #     gesture_positive = true; # positive = swipe down. Negative = swipe up.
-        #   };
-        # };
+            enable_gesture = true; # laptop touchpad, 4 fingers
+            gesture_distance = 300; # how far is the "max"
+            gesture_positive = true; # positive = swipe down. Negative = swipe up.
+          };
+        };
 
         general = with tweaks; {
           border_size = border_size;
@@ -96,27 +93,27 @@ in {
 
         animations = {
           enabled = true;
-          bezier = [ # https://easings.net/#
+          bezier = [ # https://easings.net/
             "linear, 0.0, 0.0, 1.0, 1.0"
             "easeOutCubic, 0.33, 1, 0.68, 1"
             "overshot, 0.35, 0.9, 0.4, 1.1"
           ];
           animation = [
             "windows, 1, 3, overshot, popin"
+            "windowsOut, 1, 3, overshot, slide"
 
             "fade, 1, 3, easeOutCubic"
 
             "workspaces, 1, 3, overshot, slidevert"
 
             "border, 1, 2, easeOutCubic"
-            "borderangle, 1, 50, linear, loop"
+            "borderangle, 1, 75, linear, loop"
           ];
         };
 
         input = {
           kb_layout = "fr";
-          kb_options = "ctrl:nocaps"; # disable capslock
-          # fkeys:basic_13-24 
+          kb_options = "caps:escape,fkeys:basic_13-24"; # disable capslock & weird-already-binded utilskeys
           repeat_rate = 40; # on long press
           repeat_delay = 250; # time to hold before repeating
 
@@ -151,7 +148,7 @@ in {
 
           enable_swallow = true;
           swallow_regex = "^(kitty)$";
-          swallow_exception_regex = "^(xev|wev)$";
+          swallow_exception_regex = "^(*(xev|wev)*)$";
 
           focus_on_activate = true;
           animate_manual_resizes = true;

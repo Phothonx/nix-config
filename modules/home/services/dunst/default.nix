@@ -12,48 +12,72 @@ in {
       iconTheme = theme.icons;
       settings = with theme.palette; {
         global = {
-          width = 400;
-          height = 400;
-          notification_limit = 0;
-          origin = "top-center";
-          offset = "0x10";
           follow = "mouse";
-          progress_bar_height = 8;
-          idle_threshold = 120;
-          markup = "full";
+
+          width = "(200, 700)";
+          height = "(25, 400)";
+
+          notification_limit = 5;
+
+          origin = "top-center";
+          offset = "0x8";
+
+          progress_bar_height = 6;
           progress_bar_frame_width = 0;
           progress_bar_corner_radius = 5;
-          padding = 15;
-          horizontal_padding = 15;
-          text_icon_padding = 15;
+
+          icon_corner_radius = 5;
+
+          indicate_hidden = false;
+
+          separator_height = 0;
+
+          padding = 10;
+          horizontal_padding = 10;
+          text_icon_padding = 10;
+
           frame_width = 2;
-          gap_size = 0;
-          separator_color = "frame";
+
+          idle_threshold = 60;
+
           font = theme.fonts.normal.name;
-          vertical_alignment = "center";
+
+          sticky_history = false;
+          history_length = 50;
+
           corner_radius = 15;
+
           mouse_left_click = "do_action";
           mouse_middle_click = "close_all";
           mouse_right_click = "close_current";
-          layer = "overlay";
+
+          markup = "full";
+
+          alignment = "center";
+
+          fullscreen = "show";
+
+          min_icon_size = 64;
+          max_icon_size = 64;
+
+          timeout = 4;
+
+          frame_color = "#${base00}";
           foreground = "#${base07}";
           background = "#${base10}";
-        };
-        fullscreen_delay_everything = {fullscreen = "delay";};
-        urgency_critical = {
-          frame_color = "#${base08}";
-          highlight = "#${base08}";
-          fullscreen = "show";
+          highlight = "#${base0E}";
         };
         urgency_low = {
-          frame_color = "#${base00}";
-          highlight = "#${base0E}";
-          fullscreen = "show";
+          highlight = "#${base0D}";
+          frame_color = "#${base0D}";
         };
         urgency_normal = {
-          frame_color = "#${base0E}";
           highlight = "#${base0E}";
-          fullscreen = "show";
+          frame_color = "#${base0E}";
+        };
+        urgency_critical = {
+          highlight = "#${base08}";
+          frame_color = "#${base08}";
         };
       };
     };
