@@ -9,21 +9,22 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     services.dunst = {
-      iconTheme = theme.icons;
+      iconTheme.name = theme.icons.name;
+      iconTheme.package = theme.icons.package;
       settings = with theme.palette; {
         global = {
           follow = "mouse";
 
-          width = "(200, 700)";
-          height = "(25, 400)";
+          width = "(0, 700)";
+          height = "(0, 400)";
 
           notification_limit = 5;
 
           origin = "top-center";
           offset = "0x8";
 
-          progress_bar_height = 6;
-          progress_bar_frame_width = 0;
+          progress_bar_height = 8;
+          progress_bar_frame_width = 1;
           progress_bar_corner_radius = 5;
 
           icon_corner_radius = 5;
@@ -57,8 +58,8 @@ in {
 
           fullscreen = "show";
 
-          min_icon_size = 64;
-          max_icon_size = 64;
+          min_icon_size = 32;
+          max_icon_size = 32;
 
           timeout = 4;
 

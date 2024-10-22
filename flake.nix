@@ -67,7 +67,6 @@
       );
 
     systems = [
-      "aarch64-linux"
       "x86_64-linux"
     ];
 
@@ -81,11 +80,18 @@
     mkSystem = nixpkgs: system: hostName: let
       # https://discourse.nixos.org/t/using-nixpkgs-legacypackages-system-vs-import/17462
       # https://zimbatm.com/notes/1000-instances-of-nixpkgs
-      pkgs = nixpkgs.legacyPackages.${system};
+
+      # need to import if i want overlays & unfree packages
+      # pkgs = nixpkgs.legacyPackages.${system}.appendOverlays [ self.outputs.overlays.additions self.overlays.modifications ];
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ self.outputs.overlays.additions self.overlays.modifications ];
+        config.allowUnfree = true;
+      };
       lib = mkLib pkgs;
     in
       nixpkgs.lib.nixosSystem {
-        inherit system;
+        inherit system pkgs; # to clean
         modules = [
           ./hosts/${hostName}/configuration.nix
           self.outputs.nixosModules.default
@@ -96,6 +102,8 @@
       };
   in {
     packages = forEachSystems (pkgs: import ./packages pkgs);
+
+    overlays = import ./overlays {inherit inputs;};
 
     formatter = forEachSystems (pkgs: pkgs.alejandra);
 

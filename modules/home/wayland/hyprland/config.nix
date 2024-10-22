@@ -12,6 +12,8 @@ in {
     home.packages = with pkgs; [
       brightnessctl
       brillo
+      volume
+      brightness
       swww
       hyprshot
       hyprpicker

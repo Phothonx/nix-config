@@ -49,7 +49,7 @@ in {
       channel.enable = false;
     };
 
-    nixpkgs.config.allowUnfree = true;
+    # nixpkgs.config.allowUnfree = true; declared when importing pkgs
 
     # but NIX_PATH is still used by many useful tools, so we set it to the same value as the one used by this flake.
     # Make `nix repl '<nixpkgs>'` use the same nixpkgs as the one used by this flake.

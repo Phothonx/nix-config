@@ -15,19 +15,11 @@ in {
         "SUPER ALT, mouse:272, resizewindow"
       ];
 
-      bindle = let
-        setVol = "wpctl set-volume --limit 1.2 @DEFAULT_AUDIO_SINK@";
-        getVol = "\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' | sed 's/^0*//')\"";
-        notifVol = "dunstify -h int:value:${getVol} -i ${config.home.homeDirectory}/.dotfiles/home/services/dunst/assets/volume.svg -t 700 -r 2593 \"Volume: ${getVol}%\"";
-
-        setBright = "brightnessctl set --min-value=4800";
-        getBright = "\"$(( ($(cat /sys/class/backlight/*/brightness) * 100) / $(cat /sys/class/backlight/*/max_brightness) ))\"";
-        notifBright = "dunstify -h int:value:${getBright} -i ${config.home.homeDirectory}/.dotfiles/home/services/dunst/assets/brightness.svg -t 700 -r 2593 \"Brightness: ${getBright}%\"";
-      in [
-        " , XF86AudioLowerVolume, exec, ${setVol} 2%- && ${notifVol}"
-        " , XF86AudioRaiseVolume, exec, ${setVol} 2%+ && ${notifVol}"
-        " , XF86MonBrightnessDown, exec, ${setBright} 5%- && ${notifBright}"
-        " , XF86MonBrightnessUp, exec, ${setBright} +5% && ${notifBright}"
+      bindle = with pkgs; [
+        " , XF86AudioLowerVolume, exec, ${volume}/bin/volume down 2"
+        " , XF86AudioRaiseVolume, exec, ${volume}/bin/volume up 2"
+        " , F5, exec, ${brightness}/bin/brightness down 5"
+        " , F6, exec, ${brightness}/bin/brightness up 5"
       ];
 
       bind = let
@@ -41,7 +33,7 @@ in {
 
         "SUPER SHIFT, Tab, hyprexpo:expo, toggle"
 
-        " , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${notifMute}"
+        " , XF86AudioMute, exec, ${pkgs.volume}/bin/volume toggle"
 
         "SUPER, S, exec, hyprshot -o ${config.home.homeDirectory}/Medias/Screenshots -c -m output"
         "SUPER SHIFT, S, exec, hyprshot -o ${config.home.homeDirectory}/Medias/Screenshots -m region"

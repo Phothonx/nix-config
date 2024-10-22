@@ -1,2 +1,3 @@
-{pkgs, ...}: {
-}
+pkgs:
+import ./scripts pkgs //
+{}
