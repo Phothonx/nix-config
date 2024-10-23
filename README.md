@@ -10,10 +10,10 @@
 - [ ] 🌍 Common hosts config
 - [ ] 🧹 xdg clean home
 - [x] 📚 Add custom lib
-- [ ] 📦 Add ustom packages & overlays
+- [x] 📦 Add ustom packages & overlays
 - [ ] 🖼️ Hyprland config
 - [ ] Hyprland plugins
-- [ ] Gamma shading
+- [x] Gamma shading
 - [ ] 🎚️ Fabric bar & widgets
 - [ ] 🤖 nix-on-droid
 - [ ] 🐟 Fish & carapace completion

@@ -11,7 +11,6 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       brightnessctl
-      brillo
       volume
       brightness
       swww
@@ -27,7 +26,6 @@ in {
 
       plugins = with pkgs; [
         hyprlandPlugins.hyprexpo
-        hyprlandPlugins.hy3
         hyprlandPlugins.hyprsplit
       ];
 
@@ -49,6 +47,10 @@ in {
             enable_gesture = true; # laptop touchpad, 4 fingers
             gesture_distance = 300; # how far is the "max"
             gesture_positive = true; # positive = swipe down. Negative = swipe up.
+          };
+
+          hyprsplit = {
+            num_workspaces = 6;
           };
         };
 
@@ -88,9 +90,15 @@ in {
           };
         };
 
+        master = {
+          allow_small_split = false;
+          mfact = 60;
+        };
+        
         dwindle = {
+          force_split = 2;
           preserve_split = true;
-          smart_split = true; # choose split direction with cursor position on window
+          # smart_split = true; # choose split direction with cursor position on window
         };
 
         animations = {
@@ -103,6 +111,7 @@ in {
           animation = [
             "windows, 1, 3, overshot, popin"
             "windowsOut, 1, 3, overshot, slide"
+            "windowsMove, 1, 1, overshot"
 
             "fade, 1, 3, easeOutCubic"
 
@@ -148,9 +157,9 @@ in {
           mouse_move_enables_dpms = true;
           key_press_enables_dpms = true;
 
-          enable_swallow = true;
-          swallow_regex = "^(kitty)$";
-          swallow_exception_regex = "^(*(xev|wev)*)$";
+        #  enable_swallow = true;
+        #  swallow_regex = "^(kitty)$";
+        #  swallow_exception_regex = "^(xev|wev)$";
 
           focus_on_activate = true;
           animate_manual_resizes = true;

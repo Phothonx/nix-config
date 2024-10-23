@@ -18,79 +18,125 @@ in {
       bindle = with pkgs; [
         " , XF86AudioLowerVolume, exec, ${volume}/bin/volume down 2"
         " , XF86AudioRaiseVolume, exec, ${volume}/bin/volume up 2"
-        " , F5, exec, ${brightness}/bin/brightness down 5"
-        " , F6, exec, ${brightness}/bin/brightness up 5"
+        " , XF86MonBrightnessDown, exec, ${brightness}/bin/brightness down 5"
+        " , XF86MonBrightnessUp, exec, ${brightness}/bin/brightness up 5"
       ];
 
-      bind = let
-        notifMute = "dunstify -i ${config.home.homeDirectory}/.dotfiles/home/services/dunst/assets/$( (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo \"volume-mute.svg\") || echo \"volume.svg\" ) -t 500 -r 2593 \"Toggle Mute\"";
-      in [
-        "SUPER, Q, exec, ${lib.getExe pkgs.kitty}"
-        "SUPER, H, exec, ${lib.getExe pkgs.firefox}"
-        "SUPER, R, exec, tofi-drun"
-        "SUPER, E, exec, ${lib.getExe pkgs.nautilus}"
-        "CTRL ALT, L, exec, hyprlock"
+      binde = [
+      ### RESIZE ###
+        "SUPER SHIFT ALT, left, resizeactive, -5% 0%"
+        "SUPER SHIFT ALT, right, resizeactive, 5% 0%"
+        "SUPER SHIFT ALT, up, resizeactive, 0% 5%"
+        "SUPER SHIFT ALT, down, resizeactive, 0% -5%"
+        "SUPER SHIFT ALT, L, resizeactive, -5% 0%"
+        "SUPER SHIFT ALT, M, resizeactive, 5% 0%"
+        "SUPER SHIFT ALT, K, resizeactive, 0% 5%"
+        "SUPER SHIFT ALT, J, resizeactive, 0% -5%"
+      ];
 
+      bindl = with pkgs; [
+        " , XF86AudioMute, exec, ${volume}/bin/volume toggle"
+      ];
+
+      bind = with pkgs; [
+      ### APPS SHORTCUTS ###
+        "SUPER, Q, exec, ${kitty}/bin/kitty"
+        "SUPER SHIFT, Q, exec, [float] kitty"
+        "SUPER, Z, exec, ${zed-editor}/bin/zed"
+        "SUPER, F, exec, ${firefox}/bin/firefox"
+        "SUPER, R, exec, ${tofi}/bin/tofi-drun"
+        "SUPER, E, exec, ${nautilus}/bin/nautilus"
+        "SUPER, D, exec, ${vesktop}/bin/vesktop"
+        "CTRL ALT, L, exec, ${hyprlock}/bin/hyprlock"
+
+      ### PLUGINS ###
         "SUPER SHIFT, Tab, hyprexpo:expo, toggle"
 
-        " , XF86AudioMute, exec, ${pkgs.volume}/bin/volume toggle"
+      ### SCREENSHOTS ###
+        "SUPER, S, exec, hyprshot --mode active --mode output --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
+        "SUPER ALT, S, exec, hyprshot --mode window --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
+        "SUPER SHIFT, S, exec, hyprshot --freeze --mode region --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
 
-        "SUPER, S, exec, hyprshot -o ${config.home.homeDirectory}/Medias/Screenshots -c -m output"
-        "SUPER SHIFT, S, exec, hyprshot -o ${config.home.homeDirectory}/Medias/Screenshots -m region"
+        "SUPER, P, exec, ${hyprpicker}/bin/hyprpicker --format hex --autocopy"
 
-        "SUPER SHIFT, C, exec, ${lib.getExe pkgs.hyprpicker} -f hex -a"
-
+      ### CLOSE ###
         "SUPER, C, killactive,"
-        "SUPER SHIFT, M, exit,"
-        "SUPER, M, exec, hyprctl reload"
+        "SUPER SHIFT CTRL, B, exit,"
 
+      ### MOVE FOCUS ###
         "SUPER, left, movefocus, l"
         "SUPER, right, movefocus, r"
         "SUPER, up, movefocus, u"
         "SUPER, down, movefocus, d"
-        "SUPER, L, movefocus, l"
-        "SUPER, M, movefocus, r"
+        "SUPER, H, movefocus, l"
+        "SUPER, L, movefocus, r"
         "SUPER, K, movefocus, u"
         "SUPER, J, movefocus, d"
-        "SUPER, Tab, cyclenext, "
-        "SUPER, Tab, bringactivetotop, "
 
+        "SUPER, Tab, cyclenext, "
+        "SUPER, Tab, alterzorder, top"
+
+      ### MOVE WINDOWS ###
+        "SUPER ALT, left, movewindow, l"
+        "SUPER ALT, right, movewindow, r"
+        "SUPER ALT, up, movewindow, u"
+        "SUPER ALT, down, movewindow, d"
+        "SUPER ALT, H, movewindow, l"
+        "SUPER ALT, L, movewindow, r"
+        "SUPER ALT, K, movewindow, u"
+        "SUPER ALT, J, movewindow, d"
+
+        "SUPER SHIFT, left, swapwindow, l"
+        "SUPER SHIFT, right, swapwindow, r"
+        "SUPER SHIFT, up, swapwindow, u"
+        "SUPER SHIFT, down, swapwindow, d"
+        "SUPER SHIFT, H, swapwindow, l"
+        "SUPER SHIFT, L, swapwindow, r"
+        "SUPER SHIFT, K, swapwindow, u"
+        "SUPER SHIFT, J, swapwindow, d"
+
+      ### FLOAT & SPLIT ###
         "SUPER, Space, togglefloating,"
         "SUPER SHIFT, Space, workspaceopt, allfloat"
+        
         "SUPER, G, togglesplit,"
+        
         "SUPER, F, fullscreen,"
 
         "SUPER, P, pin"
 
+      ### WORKSPACES ###
         "SUPER, A, togglespecialworkspace"
-        "SUPER SHIFT, A, movetoworkspace, special"
+        "SUPER SHIFT, A, split:movetoworkspace, special"
 
-        "SUPER, ampersand, workspace, 1"
-        "SUPER, eacute, workspace, 2"
-        "SUPER, quotedbl, workspace, 3"
-        "SUPER, apostrophe, workspace, 4"
-        "SUPER, parenleft, workspace, 5"
-        "SUPER, minus, workspace, 6"
-        "SUPER, egrave, workspace, 7"
-        "SUPER, underscore, workspace, 8"
-        "SUPER, ccedilla, workspace, 9"
-        "SUPER, agrave, workspace, 10"
+        "SUPER, ampersand, split:workspace, 1"
+        "SUPER, eacute, split:workspace, 2"
+        "SUPER, quotedbl, split:workspace, 3"
+        "SUPER, apostrophe, split:workspace, 4"
+        "SUPER, parenleft, split:workspace, 5"
+        "SUPER, minus, split:workspace, 6"
+        "SUPER, egrave, split:workspace, 7"
+        "SUPER, underscore, split:workspace, 8"
+        "SUPER, ccedilla, split:workspace, 9"
+        "SUPER, agrave, split:workspace, 10"
 
-        "SUPER SHIFT, ampersand, movetoworkspacesilent, 1"
-        "SUPER SHIFT, eacute, movetoworkspacesilent, 2"
-        "SUPER SHIFT, quotedbl, movetoworkspacesilent, 3"
-        "SUPER SHIFT, apostrophe, movetoworkspacesilent, 4"
-        "SUPER SHIFT, parenleft, movetoworkspacesilent, 5"
-        "SUPER SHIFT, minus, movetoworkspacesilent, 6"
-        "SUPER SHIFT, egrave, movetoworkspacesilent, 7"
-        "SUPER SHIFT, underscore, movetoworkspacesilent, 8"
-        "SUPER SHIFT, ccedilla, movetoworkspacesilent, 9"
-        "SUPER SHIFT, agrave, movetoworkspacesilent, 10"
+        "SUPER SHIFT, ampersand, split:movetoworkspacesilent, 1"
+        "SUPER SHIFT, eacute, split:movetoworkspacesilent, 2"
+        "SUPER SHIFT, quotedbl, split:movetoworkspacesilent, 3"
+        "SUPER SHIFT, apostrophe, split:movetoworkspacesilent, 4"
+        "SUPER SHIFT, parenleft, split:movetoworkspacesilent, 5"
+        "SUPER SHIFT, minus, split:movetoworkspacesilent, 6"
+        "SUPER SHIFT, egrave, split:movetoworkspacesilent, 7"
+        "SUPER SHIFT, underscore, split:movetoworkspacesilent, 8"
+        "SUPER SHIFT, ccedilla, split:movetoworkspacesilent, 9"
+        "SUPER SHIFT, agrave, split:movetoworkspacesilent, 10"
 
-        "SUPER CTRL, right, workspace, r+1"
-        "SUPER CTRL, left, workspace, r-1"
-        "SUPER, mouse_down, workspace, e+1"
-        "SUPER, mouse_up, workspace, e-1"
+        "SUPER CTRL, j, split:workspace, e +1"
+        "SUPER CTRL, k, split:workspace, e -1"
+        "SUPER CTRL, down, split:workspace, e +1"
+        "SUPER CTRL, up, split:workspace, e -1"
+
+        "SUPER, O, split:grabroguewindows"
       ];
     };
   };
