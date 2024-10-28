@@ -36,7 +36,7 @@ in {
         enable_audio_bell = "no";
 
         # WINDOW LAYOUT
-        window_padding_width = "20";
+        window_padding_width = "5";
         placement_strategy = "center";
         hide_window_decorations = "no";
         confirm_os_window_close = "0";

@@ -50,7 +50,7 @@ in {
           };
 
           hyprsplit = {
-            num_workspaces = 6;
+            num_workspaces = 5;
           };
         };
 
@@ -162,8 +162,8 @@ in {
         #  swallow_exception_regex = "^(xev|wev)$";
 
           focus_on_activate = true;
-          animate_manual_resizes = true;
-          animate_mouse_windowdragging = true;
+          animate_manual_resizes = false;
+          animate_mouse_windowdragging = false;
           disable_autoreload = true; # useless on nixos
         };
 

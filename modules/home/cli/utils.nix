@@ -28,6 +28,10 @@ in {
         bitwarden-cli
         just
         yt-dlp
+
+        # auditing
+        vulnix
+        lynis
       ];
     })
 

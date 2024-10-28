@@ -11,8 +11,8 @@
 - [ ] 🧹 xdg clean home
 - [x] 📚 Add custom lib
 - [x] 📦 Add ustom packages & overlays
-- [ ] 🖼️ Hyprland config
-- [ ] Hyprland plugins
+- [x] 🖼️ Hyprland config
+- [x] Hyprland plugins
 - [x] Gamma shading
 - [ ] 🎚️ Fabric bar & widgets
 - [ ] 🤖 nix-on-droid
@@ -20,7 +20,27 @@
 - [ ] 💽 Server VM - wireguard - nextcloud
 - [ ] Zen browser
 - [ ] Zed code editor & jupyter support ?
-- [ ] Custom culorsheme
 
 *for your viewing pleasure*
 ![preview.png](./assets/preview.png)
+
+### Agenix
+```
+# To create a secret ( /!\ don't forget to modify secret.nix)
+agenix -e [SECRET NAME].age
+```
+
+### Borg backup
+```
+# Timer before next backup
+systemctl status borgbackup-job-[JOB NAME].timer
+
+# Get infos
+borg-job-[JOB NAME] list
+borg-job-[JOB NAME] info
+
+# Restoring files
+mkdir mount
+borg mount [REPO] ./mount/
+borg umount ./mount/
+```

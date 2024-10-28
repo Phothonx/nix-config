@@ -5,14 +5,14 @@
   ...
 }:
 with lib; let
-  cfg = config.system.power;
+  cfg = config.hardware.power;
 in {
   options.hardware.power = {
     enable = mkEnableOption "Laptop Power saving settings";
   };
 
-  config = {
-    environment.systemPackages = with pkgs; [powertop];
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ powertop ];
 
     powerManagement.powertop.enable = true;
 

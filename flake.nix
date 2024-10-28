@@ -4,7 +4,7 @@
   inputs = {
     # NixPkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -39,10 +39,10 @@
     nix-profile-devshells.url = "github:Phothonx/nix-profile-devshells";
     nix-profile-devshells.inputs.nixpkgs.follows = "nixpkgs";
 
-    # # Disko
-    # disko.url = "github:nix-community/disko";
-    # disko.inputs.nixpkgs.follows = "nixpkgs";
-    #
+    # Disko
+    disko.url = "github:nix-community/disko/latest";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+    
     # # Impermanence
     # inputs.impermanence.url = "github:nix-community/impermanence";
 
@@ -112,6 +112,8 @@
 
     nixosConfigurations = {
       "avalon" = mkSystem nixpkgs "x86_64-linux" "avalon";
+      # "camlann" = mkSystem inputs.nixpkgs-stable "" "camlann";
+      # "merlin" = mkSystem nixpkgs "" "merlin";
     };
   };
 }

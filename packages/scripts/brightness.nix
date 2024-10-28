@@ -44,6 +44,5 @@ writeShellApplication {
       --hints=int:value:"$value" \
       --replace 2593 \
       --timeout=1000 \
-      || true
   '';
 }

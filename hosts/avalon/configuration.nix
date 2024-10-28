@@ -9,6 +9,8 @@
     common-pc-ssd
     common-cpu-intel
     common-pc-laptop-acpi_call
+
+    ./borgbackup.nix
   ];
 
   services.logind = {
@@ -35,14 +37,6 @@
   services.greetd.enable = true;
   system.locale.enable = true;
   system.nix.enable = true;
-  system.nix.substituters = [
-    "https://walker-git.cachix.org"
-    "https://walker.cachix.org"
-  ];
-  system.nix.trusted-public-keys = [
-    "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
-    "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
-  ];
   system.time.enable = true;
   system.xkb.enable = true;
   system.agenix.enable = true;

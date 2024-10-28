@@ -43,7 +43,7 @@ in {
         "SUPER, Q, exec, ${kitty}/bin/kitty"
         "SUPER SHIFT, Q, exec, [float] kitty"
         "SUPER, Z, exec, ${zed-editor}/bin/zed"
-        "SUPER, F, exec, ${firefox}/bin/firefox"
+        "SUPER, B, exec, ${firefox}/bin/firefox"
         "SUPER, R, exec, ${tofi}/bin/tofi-drun"
         "SUPER, E, exec, ${nautilus}/bin/nautilus"
         "SUPER, D, exec, ${vesktop}/bin/vesktop"
