@@ -77,13 +77,16 @@ in {
           shadow_offset = shadow.offset;
 
           blur = with blur; {
-            inherit (blur) enabled
+            inherit
+              (blur)
+              enabled
               size
               passes
               noise
               contrast
               brightness
-              vibrancy;
+              vibrancy
+              ;
 
             special = true; # nice but more expensive
             popups = true;
@@ -94,7 +97,7 @@ in {
           allow_small_split = false;
           mfact = 60;
         };
-        
+
         dwindle = {
           force_split = 2;
           preserve_split = true;
@@ -103,7 +106,8 @@ in {
 
         animations = {
           enabled = true;
-          bezier = [ # https://easings.net/
+          bezier = [
+            # https://easings.net/
             "linear, 0.0, 0.0, 1.0, 1.0"
             "easeOutCubic, 0.33, 1, 0.68, 1"
             "overshot, 0.35, 0.9, 0.4, 1.1"
@@ -157,9 +161,9 @@ in {
           mouse_move_enables_dpms = true;
           key_press_enables_dpms = true;
 
-        #  enable_swallow = true;
-        #  swallow_regex = "^(kitty)$";
-        #  swallow_exception_regex = "^(xev|wev)$";
+          #  enable_swallow = true;
+          #  swallow_regex = "^(kitty)$";
+          #  swallow_exception_regex = "^(xev|wev)$";
 
           focus_on_activate = true;
           animate_manual_resizes = false;

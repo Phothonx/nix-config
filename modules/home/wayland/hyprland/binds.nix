@@ -23,7 +23,7 @@ in {
       ];
 
       binde = [
-      ### RESIZE ###
+        ### RESIZE ###
         "SUPER SHIFT ALT, left, resizeactive, -5% 0%"
         "SUPER SHIFT ALT, right, resizeactive, 5% 0%"
         "SUPER SHIFT ALT, up, resizeactive, 0% 5%"
@@ -39,7 +39,7 @@ in {
       ];
 
       bind = with pkgs; [
-      ### APPS SHORTCUTS ###
+        ### APPS SHORTCUTS ###
         "SUPER, Q, exec, ${kitty}/bin/kitty"
         "SUPER SHIFT, Q, exec, [float] kitty"
         "SUPER, Z, exec, ${zed-editor}/bin/zed"
@@ -49,21 +49,21 @@ in {
         "SUPER, D, exec, ${vesktop}/bin/vesktop"
         "CTRL ALT, L, exec, ${hyprlock}/bin/hyprlock"
 
-      ### PLUGINS ###
+        ### PLUGINS ###
         "SUPER SHIFT, Tab, hyprexpo:expo, toggle"
 
-      ### SCREENSHOTS ###
+        ### SCREENSHOTS ###
         "SUPER, S, exec, hyprshot --mode active --mode output --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
         "SUPER ALT, S, exec, hyprshot --mode window --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
         "SUPER SHIFT, S, exec, hyprshot --freeze --mode region --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
 
         "SUPER, P, exec, ${hyprpicker}/bin/hyprpicker --format hex --autocopy"
 
-      ### CLOSE ###
+        ### CLOSE ###
         "SUPER, C, killactive,"
         "SUPER SHIFT CTRL, B, exit,"
 
-      ### MOVE FOCUS ###
+        ### MOVE FOCUS ###
         "SUPER, left, movefocus, l"
         "SUPER, right, movefocus, r"
         "SUPER, up, movefocus, u"
@@ -76,7 +76,7 @@ in {
         "SUPER, Tab, cyclenext, "
         "SUPER, Tab, alterzorder, top"
 
-      ### MOVE WINDOWS ###
+        ### MOVE WINDOWS ###
         "SUPER ALT, left, movewindow, l"
         "SUPER ALT, right, movewindow, r"
         "SUPER ALT, up, movewindow, u"
@@ -95,17 +95,17 @@ in {
         "SUPER SHIFT, K, swapwindow, u"
         "SUPER SHIFT, J, swapwindow, d"
 
-      ### FLOAT & SPLIT ###
+        ### FLOAT & SPLIT ###
         "SUPER, Space, togglefloating,"
         "SUPER SHIFT, Space, workspaceopt, allfloat"
-        
+
         "SUPER, G, togglesplit,"
-        
+
         "SUPER, F, fullscreen,"
 
         "SUPER, P, pin"
 
-      ### WORKSPACES ###
+        ### WORKSPACES ###
         "SUPER, A, togglespecialworkspace"
         "SUPER SHIFT, A, split:movetoworkspace, special"
 

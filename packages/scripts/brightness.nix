@@ -6,10 +6,10 @@
 }:
 writeShellApplication {
   name = "brightness";
-  text = '' 
-    # usage: brightness up 5 #will increment screen brightness by 5% smoothly 
-    
-    # time=$(($2*30000)) #takes 0.03s per 1% 
+  text = ''
+    # usage: brightness up 5 #will increment screen brightness by 5% smoothly
+
+    # time=$(($2*30000)) #takes 0.03s per 1%
 
     max=$(${brightnessctl}/bin/brightnessctl max)
     min=$(echo "$max"*0.05 | ${bc}/bin/bc -l)

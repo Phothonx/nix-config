@@ -11,7 +11,7 @@ in {
     programs.fish = {
       # To temporarily bypass an alias, we preceed the command with a \
       # EG: the ls command is aliased, but to use the normal ls command you would type \ls
-      
+
       shellAliases = {
         # --- Replacements ---
         ls = "eza";
@@ -60,7 +60,7 @@ in {
         tree = "tree -CAhF --dirsfirst";
         treed = "tree -CAFd";
         mountedinfo = "df -hT";
-    
+
         # Alias's for archives
         mktar = "tar -cvf";
         mkbz2 = "tar -cvjf";

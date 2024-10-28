@@ -4,7 +4,7 @@
 - [ ] 🔐 vulnix & lynis check, lanzaboot
 - [ ] 💾 disko & impermanence
 - [x] 📃 nh easy rebuild & outputs
-- [ ] 🛠️ Personal devhsells integration
+- [x] 🛠️ Personal devhsells integration
 - [ ] 🔋 tlp battery optimisation
 - [x] 🧱 Modular nixos config
 - [ ] 🌍 Common hosts config
@@ -16,13 +16,19 @@
 - [x] Gamma shading
 - [ ] 🎚️ Fabric bar & widgets
 - [ ] 🤖 nix-on-droid
-- [ ] 🐟 Fish & carapace completion
+- [x] 🐟 Fish & carapace completion
 - [ ] 💽 Server VM - wireguard - nextcloud
 - [ ] Zen browser
 - [ ] Zed code editor & jupyter support ?
 
 *for your viewing pleasure*
 ![preview.png](./assets/preview.png)
+
+### Deshells
+```
+# permanent devshells using profile
+nix develop --profile ./.profile [FLAKE]#[DEVSHELL]
+```
 
 ### Agenix
 ```
@@ -42,5 +48,6 @@ borg-job-[JOB NAME] info
 # Restoring files
 mkdir mount
 borg mount [REPO] ./mount/
+# Then umount
 borg umount ./mount/
 ```

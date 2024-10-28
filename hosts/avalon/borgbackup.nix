@@ -1,8 +1,10 @@
-{ config, pkgs, ... }:
-let
-  home = "/home/${config.user.name}";
-in
 {
+  config,
+  pkgs,
+  ...
+}: let
+  home = "/home/${config.user.name}";
+in {
   services.borgbackup.jobs."avalon" = {
     inhibitsSleep = true;
 
@@ -22,10 +24,10 @@ in
     startAt = "daily";
 
     postCreate = ''
-    ${pkgs.dunst}/bin/dunstify\
-      "Borg backup created : $archivename" \
-      --urgency=normal \
-      --timeout=3000 \
+      ${pkgs.dunst}/bin/dunstify\
+        "Borg backup created : $archivename" \
+        --urgency=normal \
+        --timeout=3000 \
     '';
   };
 }

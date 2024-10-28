@@ -5,10 +5,10 @@
 }:
 writeShellApplication {
   name = "volume";
-  text = '' 
+  text = ''
     # usage: volume up 5 #will increase volume by 5%
-    # volumte toggle #will toggle mute 
-    
+    # volumte toggle #will toggle mute
+
     case "$1" in
       up)
         ${wireplumber}/bin/wpctl set-volume --limit 1.1 @DEFAULT_AUDIO_SINK@ "$2"%+
@@ -36,7 +36,7 @@ writeShellApplication {
     else
       image=${./assets/volume.svg}
     fi
-    
+
     ${dunst}/bin/dunstify\
       "Volume $value%" \
       --urgency=low \

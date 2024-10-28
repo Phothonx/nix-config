@@ -12,7 +12,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ powertop ];
+    environment.systemPackages = with pkgs; [powertop];
 
     powerManagement.powertop.enable = true;
 

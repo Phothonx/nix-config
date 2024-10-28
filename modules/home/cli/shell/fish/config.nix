@@ -6,8 +6,8 @@
 }:
 with lib; let
   cfg = config.programs.fish;
-in {    
-  imports = [ inputs.nix-index-database.hmModules.nix-index ];
+in {
+  imports = [inputs.nix-index-database.hmModules.nix-index];
 
   config = mkIf cfg.enable {
     programs.nix-index = {

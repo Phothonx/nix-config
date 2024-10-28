@@ -1,3 +1,3 @@
 pkgs:
-import ./scripts pkgs //
-{}
+import ./scripts pkgs
+// {}

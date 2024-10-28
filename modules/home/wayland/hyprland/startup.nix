@@ -10,8 +10,7 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
-      exec-once =
-      with pkgs; [
+      exec-once = with pkgs; [
         "swww-daemon"
         "swww img ${theme.wallpaper} --transition-type none"
 

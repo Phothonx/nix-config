@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./codium.nix
     ./neovim
+    ./zed
   ];
 }

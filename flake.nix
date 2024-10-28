@@ -42,7 +42,7 @@
     # Disko
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     # # Impermanence
     # inputs.impermanence.url = "github:nix-community/impermanence";
 
@@ -80,12 +80,11 @@
     mkSystem = nixpkgs: system: hostName: let
       # https://discourse.nixos.org/t/using-nixpkgs-legacypackages-system-vs-import/17462
       # https://zimbatm.com/notes/1000-instances-of-nixpkgs
-
       # need to import if i want overlays & unfree packages
       # pkgs = nixpkgs.legacyPackages.${system}.appendOverlays [ self.outputs.overlays.additions self.overlays.modifications ];
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ self.outputs.overlays.additions self.overlays.modifications ];
+        overlays = [self.outputs.overlays.additions self.overlays.modifications];
         config.allowUnfree = true;
       };
       lib = mkLib pkgs;
