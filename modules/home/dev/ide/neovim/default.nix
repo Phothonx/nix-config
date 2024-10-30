@@ -17,93 +17,100 @@ in {
       plugins = with pkgs.vimPlugins;
         [
           # LAZY LOADER
-          lz-n
+          lazy-nvim
 
           # TS
           nvim-treesitter.withAllGrammars
 
           # DEPS
           plenary-nvim
-          nvim-web-devicons
           nui-nvim
-          image-nvim
+          nvim-web-devicons
           vim-repeat
 
           # COLORSHEME
           catppuccin-nvim
-        ]
-        ++ map (p: {
-          plugin = p;
-          optional = true;
-        }) [
+
           # UI
-          vim-startuptime
           neo-tree-nvim
-          toggleterm-nvim
-          lualine-nvim
-          gitsigns-nvim
-          which-key-nvim
           telescope-nvim
           iron-nvim
-          neorg
-          render-markdown-nvim
-
-          # UTILS
           indent-blankline-nvim
-          nvim-autopairs
-
-          # SNIP
-          luasnip
 
           # CMP
           nvim-cmp
+          luasnip
           cmp_luasnip
-          cmp-fuzzy-buffer
-          cmp-fuzzy-path
-
-          # DAP
+          cmp-nvim-lsp
+          cmp-cmdline
+          cmp-buffer
+          cmp-path
 
           # NAV
           leap-nvim
-          better-escape-nvim
 
-          # LSP, FMT
+          # LSP
           nvim-lspconfig
-          conform-nvim
         ];
 
       extraPackages = with pkgs; [
-        libgcc
+        gcc
+        python3
 
         # LSP
         ccls
         lua-language-server
-        pyright
+        ruff-lsp
         ocamlPackages.lsp
-        nil
-        marksman
-
-        # REPLS
-        ocamlPackages.utop
-        python3
+        nixd
+        alejandra
       ];
 
       extraLuaPackages = luaPkgs: with luaPkgs; [lua-utils-nvim nvim-nio pathlib-nvim];
 
+      # https://nixalted.com/
       extraLuaConfig = ''
         vim.g.mapleader = " "
         vim.g.maplocalleader = "\\"
 
-        -- PLUGINS --
-        require("lz.n").load("plugins")
+        -- LAZY-NVIM --
+        require("lazy").setup({
+          performance = {
+            reset_packpath = false,
+            rtp = {
+              reset = false,
+                disabled_plugins = {
+                  "gzip",
+                  -- "matchit",
+                  -- "matchparen",
+                  -- "netrwPlugin",
+                  "tarPlugin",
+                  "tohtml",
+                  "tutor",
+                  "zipPlugin",
+                },
+            }
+          },
+
+          spec = {
+            -- Import plugins from lua/plugins
+            { import = "plugins" },
+          },
+
+          dev = {
+            path = "${pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start",
+            patterns = {""}, -- Specify that all of our plugins will use the dev dir. Empty string is a wildcard! <- the one who wrote that is a liar XD
+          },
+
+          install = {
+            -- Safeguard in case we forget to install a plugin with Nix
+            missing = false,
+          },
+        })
 
         -- CONFIG --
         require("config.mappings")
         require("config.options")
-
-        -- COLORSHEME --
-        require("config.catppuccin")
-        vim.cmd.colorscheme "catppuccin"
       '';
     };
 

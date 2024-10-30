@@ -1,6 +1,6 @@
 return {
   {
-    "telescope.nvim",
+    "nvim-telescope/telescope.nvim",
 
     cmd = "Telescope",
 
@@ -11,8 +11,5 @@ return {
       { "<leader>fh", mode = "n", "<cmd>Telescope help_tags<cr>" },
     },
 
-    after = function ()
-      require('telescope').setup()
-    end,
   },
 }

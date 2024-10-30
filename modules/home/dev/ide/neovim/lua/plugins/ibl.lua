@@ -1,17 +1,16 @@
 return {
   {
-    "indent-blankline.nvim",
+    "lukas-reineke/indent-blankline.nvim",
 
-    event = { "BufReadPost", "BufNewFile" },
+    main = "ibl",
 
-    after = function()
-      require("ibl").setup({
-        scope = {
-          show_start = false,
-          show_end = false,
-          show_exact_scope = false,
-        },
-      })
-    end,
-  }
+    event = { "BufReadPre", "BufNewFile" },
+
+    opts = {
+      scope = {
+        enabled = false,
+      },
+    },
+
+  },
 }

@@ -17,7 +17,7 @@ in {
       settings = with theme.palette; {
         # FONTS
         font_family = theme.fonts.mono.name;
-        font_size = "15";
+        font_size = "13";
 
         # CURSOR
         cursor = "#${base13}";
