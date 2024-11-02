@@ -4,27 +4,42 @@
   lib,
   ...
 }:
-with pkgs;
-with lib; let
+let
   cfg = config.services.hypridle;
 
-  wpctl = getExe' wireplumber "wpctl";
-  hylock = getExe' hyprlock "hyprlock";
-  hyctl = getExe' hyprland "hyprctl";
-  brctl = getExe' brightnessctl "brightnessctl";
-  pwcli = getExe' pipewire "pw-cli";
-  rg = getExe' ripgrep "rg";
+  inherit (lib) mkIf;
+  inherit (pkgs) writeShellScript;
 
-  lock = "${getExe' systemd "loginctl"} lock-session";
-  suspend = "${getExe' systemd "systemctl"} suspend";
+  brightnessDownScript = writeShellScript "brightness-down-script" ''
+    ${pkgs.brightnessctl}/bin/brightnessctl --save --min-value=4800 set 50%-
+    ${pkgs.brightnessctl}/bin/brightnessctl --device="platform::kbd_backlight" --save set 0
+  '';
+
+  brightnessRestoreScript = writeShellScript "brightness-restore-script" ''
+    ${pkgs.brightnessctl}/bin/brightnessctl --restore --min-value=4800
+    ${pkgs.brightnessctl}/bin/brightnessctl --device="platform::kbd_backlight" --restore
+  '';
 
   suspendScript = writeShellScript "suspend-script" ''
-    ${pwcli} i all 2>&1 | ${rg} running -q
+    ${pkgs.wireplumber}/bin/wpctl status | ${pkgs.ripgrep}/bin/rg active -q
     # only suspend if audio isn't running
     if [ $? == 1 ]; then
-      ${suspend}
+      ${pkgs.systemd}/bin/systemctl suspend
     fi
   '';
+
+  beforeSleepScript = writeShellScript "before-sleep-script" ''
+    ${pkgs.systemd}/bin/loginctl lock-session
+    ${pkgs.brightnessctl}/bin/brightnessctl --device="platform::kbd_backlight" --save set 0
+    ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
+  '';
+
+  afterSleepScript = writeShellScript "after-sleep-script" ''
+    ${pkgs.hyprland}/bin/hyprctl dispatch dpms on
+    ${pkgs.brightnessctl}/bin/brightnessctl --device="platform::kbd_backlight" --restore
+    ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+  '';
+
 in {
   config = mkIf cfg.enable {
     # Hyprlock don't have the time to fully laod
@@ -33,24 +48,24 @@ in {
     services.hypridle = {
       settings = {
         general = {
-          before_sleep_cmd = "${lock} && ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ 1 && ${brctl} -d platform::kbd_backlight set 0";
-          after_sleep_cmd = "${hyctl} dispatch dpms on && ${brctl} -d platform::kbd_backlight set 1 && ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ 0";
-          lock_cmd = "pidof hyprlock || ${hylock}";
+          before_sleep_cmd = beforeSleepScript.outPath;
+          after_sleep_cmd = afterSleepScript.outPath;
+          lock_cmd = "pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock";
           unlock_cmd = "pkill -USR1 hyprlock";
         };
         listener = [
           {
-            timeout = 120;
-            on-timeout = "${brctl} -s --min-value=4800 set 50%- && ${brctl} -d platform::kbd_backlight set 0";
-            on-resume = "${brctl} -r --min-value=4800 && ${brctl} -d platform::kbd_backlight set 1";
+            timeout = 300;
+            on-timeout = brightnessDownScript.outPath;
+            on-resume = brightnessRestoreScript.outPath;
           }
           {
-            timeout = 150;
-            on-timeout = lock;
+            timeout = 330;
+            on-timeout = "${pkgs.systemd}/bin/loginctl lock-session";
           }
           {
-            timeout = 180;
-            on-timeout = getExe' suspendScript "suspend-script";
+            timeout = 380;
+            on-timeout = suspendScript.outPath;
           }
         ];
       };

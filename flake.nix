@@ -36,8 +36,8 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     # Devshells
-    nix-profile-devshells.url = "github:Phothonx/nix-profile-devshells";
-    nix-profile-devshells.inputs.nixpkgs.follows = "nixpkgs";
+    nix-devshells.url = "github:Phothonx/nix-devshells";
+    nix-devshells.inputs.nixpkgs.follows = "nixpkgs";
 
     # Disko
     disko.url = "github:nix-community/disko/latest";

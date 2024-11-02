@@ -24,7 +24,7 @@
   # Dev
   programs.neovim.enable = true;
   programs.zed-editor.enable = true;
-  nix.registry.dev.flake = inputs.nix-profile-devshells;
+  nix.registry.dev.flake = inputs.nix-devshells;
 
   # Config
   xdg.enable = true;
