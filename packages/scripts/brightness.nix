@@ -35,14 +35,14 @@ writeShellApplication {
 
     # change regex remove decimals
     actual=$(${brightnessctl}/bin/brightnessctl get)
-    value=$(echo "$actual"/"$max" | bc -l | sed -E 's/[^0-9.]//g; s/^0*([1-9]*)\.([0-9][0-9])0*$/\1\2/; s/^$/0/')
+    value=$(echo "$actual"/"$max" | ${bc}/bin/bc -l | sed -E 's/[^0-9.]//g; s/^0*([1-9]*)\.([0-9][0-9])0*$/\1\2/; s/^$/0/')
 
     ${dunst}/bin/dunstify \
       "Brightness $value%" \
       --urgency=low \
       --hints=string:image-path:"${./assets/brightness.svg}" \
       --hints=int:value:"$value" \
-      --replace 2593 \
+      --replace=2593 \
       --timeout=1000 \
   '';
 }

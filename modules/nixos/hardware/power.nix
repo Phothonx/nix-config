@@ -14,6 +14,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [powertop];
 
+    powerManagement.enable = true;
     powerManagement.powertop.enable = true;
 
     services.thermald.enable = true;
@@ -26,6 +27,7 @@ in {
 
         # Change CPU energy/performance policy to power (default is balance_power)
         CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "balance_power";
 
         # Enable the platform profile low-power
         PLATFORM_PROFILE_ON_AC = "balanced";
@@ -41,17 +43,14 @@ in {
         RUNTIME_PM_ON_AC = "auto";
         RUNTIME_PM_ON_BAT = "auto";
 
-        # Change CPU energy/performance policy to balance_power (default is balance_performance)
-        CPU_ENERGY_PERF_POLICY_ON_AC = "balance_power";
-
         # Enable Wi-Fi power save (default is off)
         WIFI_PWR_ON_AC = "on";
         WIFI_PWR_ON_BAT = "on";
 
         CPU_MIN_PERF_ON_AC = 0;
-        CPU_MAX_PERF_ON_AC = 100;
+        CPU_MAX_PERF_ON_AC = 90;
         CPU_MIN_PERF_ON_BAT = 0;
-        CPU_MAX_PERF_ON_BAT = 50;
+        CPU_MAX_PERF_ON_BAT = 70;
 
         #Optional helps save long term battery health
         START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge

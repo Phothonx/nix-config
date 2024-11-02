@@ -37,7 +37,7 @@ writeShellApplication {
       image=${./assets/volume.svg}
     fi
 
-    ${dunst}/bin/dunstify\
+    ${dunst}/bin/dunstify \
       "Volume $value%" \
       --urgency=low \
       --hints=string:image-path:"$image" \

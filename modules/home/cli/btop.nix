@@ -16,7 +16,7 @@ in {
       };
     };
 
-    xdg.configFile."btop/themes".text = ''
+    xdg.configFile."btop/themes/catppuccin_mocha.theme".text = ''
       # Main background, empty for terminal default, need to be empty if you want transparent background
       theme[main_bg]="#1e1e2e"
 
