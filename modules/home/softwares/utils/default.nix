@@ -34,6 +34,8 @@ in {
       # Audio
       pwvucontrol
       helvum
+
+      bitwarden
     ];
   };
 }

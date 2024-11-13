@@ -6,4 +6,5 @@ let
   systems = [avalon];
 in {
   "secret1.age".publicKeys = users ++ systems;
+  "secret2.age".publicKeys = users ++ systems;
 }

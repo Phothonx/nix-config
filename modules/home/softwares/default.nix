@@ -5,5 +5,6 @@
     ./utils
     ./spotify
     ./terminal
+    ./games
   ];
 }

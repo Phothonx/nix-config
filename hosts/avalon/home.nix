@@ -1,4 +1,10 @@
-{inputs, ...}: {
+{inputs, pkgs, ...}: {
+
+  home.packages = with pkgs; [
+    mindustry-wayland
+    tt
+  ];
+
   # Wayland
   wayland.windowManager.hyprland.enable = true;
   programs.waybar.enable = true;
@@ -14,6 +20,9 @@
   programs.firefox.theme.enable = true;
   programs.firefox.arkenfox.enable = true;
   programs.vesktop.enable = true;
+
+  # games
+  game.steam.enable = true;
 
   # Services
   services.polkit.enable = true;
