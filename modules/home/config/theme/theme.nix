@@ -8,7 +8,7 @@ with lib; let
   cfg = config.theme;
   hexColor = types.strMatching "([0-9a-fA-F]{3}){1,2}"; # no #
   nerdFont = fname: {
-    package = pkgs.nerdfonts.override {fonts = ["${fname}"];};
+    package = pkgs.nerd-fonts.${fname};
     name = "${fname} Nerd Font";
   };
 in {
@@ -25,8 +25,8 @@ in {
     };
 
     fonts = mkOpt' attrs {
-      normal = nerdFont "Ubuntu";
-      mono = nerdFont "JetBrainsMono";
+      normal = nerdFont "ubuntu";
+      mono = nerdFont "jetbrains-mono";
       emoji = {
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";

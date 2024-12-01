@@ -9,8 +9,6 @@
     common-pc-ssd
     common-cpu-intel
     common-pc-laptop-acpi_call
-
-    ./borgbackup.nix
   ];
 
   services.logind = {

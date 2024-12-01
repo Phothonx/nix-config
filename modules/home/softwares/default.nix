@@ -6,5 +6,6 @@
     ./spotify
     ./terminal
     ./games
+    ./qutebrowser
   ];
 }

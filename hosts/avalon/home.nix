@@ -18,9 +18,10 @@
   programs.spicetify.enable = true;
   programs.firefox.enable = true;
   programs.firefox.theme.enable = true;
+  programs.qutebrowser.enable = true;
   programs.firefox.arkenfox.enable = true;
   programs.vesktop.enable = true;
-
+ 
   # games
   game.steam.enable = true;
 
@@ -46,7 +47,7 @@
   cli.fun.enable = true;
   cli.qof.enable = true;
   programs.git.enable = true;
-  programs.cava.enable = true;
+  programs.cava.enable = false;
   programs.eza.enable = true;
   programs.zoxide.enable = true;
   programs.starship.enable = true;

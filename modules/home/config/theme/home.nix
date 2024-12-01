@@ -18,7 +18,6 @@ in {
         icons.package
 
         pkgs.adwaita-icon-theme
-        (pkgs.nerdfonts.override {fonts = ["SpaceMono"];})
       ];
 
       pointerCursor = {
