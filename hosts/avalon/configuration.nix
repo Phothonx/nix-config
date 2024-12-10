@@ -8,7 +8,6 @@
     ./hardware-configuration.nix
     common-pc-ssd
     common-cpu-intel
-    common-pc-laptop-acpi_call
   ];
 
   services.logind = {

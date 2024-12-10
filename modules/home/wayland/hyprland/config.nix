@@ -70,11 +70,13 @@ in {
         decoration = with tweaks; {
           rounding = rounding;
 
-          drop_shadow = shadow.enabled; # lil shadow <3
-          shadow_range = shadow.range;
-          shadow_render_power = shadow.power;
-          "col.shadow" = "rgb(${shadow.color})";
-          shadow_offset = shadow.offset;
+          shadow = {
+            enabled = shadow.enabled; # lil shadow <3
+            range = shadow.range;
+            render_power = shadow.power;
+            color = "rgb(${shadow.color})";
+            offset = shadow.offset;
+          };
 
           blur = with blur; {
             inherit

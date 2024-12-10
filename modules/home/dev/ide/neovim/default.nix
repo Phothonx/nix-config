@@ -6,6 +6,7 @@
 }:
 with lib; let
   cfg = config.programs.neovim;
+  inherit (config) theme;
 in {
   config = mkIf cfg.enable {
     programs.neovim = {
@@ -16,108 +17,69 @@ in {
 
       plugins = with pkgs.vimPlugins;
         [
-          # LAZY LOADER
-          lazy-nvim
+          # lSP
+          nvim-lspconfig
 
           # TS
           nvim-treesitter.withAllGrammars
 
-          # DEPS
-          plenary-nvim
-          nui-nvim
-          nvim-web-devicons
-          vim-repeat
+          # MINI <3
+          mini-nvim
 
-          # COLORSHEME
-          catppuccin-nvim
-
-          # UI
-          neo-tree-nvim
-          telescope-nvim
-          iron-nvim
-          indent-blankline-nvim
-
-          # CMP
-          nvim-cmp
-          luasnip
-          cmp_luasnip
-          cmp-nvim-lsp
-          cmp-cmdline
-          cmp-buffer
-          cmp-path
-
-          # NAV
-          leap-nvim
-
-          # LSP
-          nvim-lspconfig
+	  # NEORG
+	  plenary-nvim
+	  nui-nvim
+	  nvim-nio
+	  neorg
         ];
 
       extraPackages = with pkgs; [
         gcc
         python3
 
-        # LSP
+        # LSP / FORMATTERS
         ccls
         lua-language-server
-        ruff-lsp
+        ruff
         ocamlPackages.lsp
         nixd
         alejandra
       ];
 
-      extraLuaPackages = luaPkgs: with luaPkgs; [lua-utils-nvim nvim-nio pathlib-nvim];
+      extraLuaPackages = luaPkgs : [
+        luaPkgs.pathlib-nvim # For neorg
+        luaPkgs.lua-utils-nvim # For neorg
+      ];
 
       # https://nixalted.com/
-      extraLuaConfig = ''
-        vim.g.mapleader = " "
-        vim.g.maplocalleader = "\\"
-
-        -- LAZY-NVIM --
-        require("lazy").setup({
-          performance = {
-            reset_packpath = false,
-            rtp = {
-              reset = false,
-                disabled_plugins = {
-                  "gzip",
-                  -- "matchit",
-                  -- "matchparen",
-                  -- "netrwPlugin",
-                  "tarPlugin",
-                  "tohtml",
-                  "tutor",
-                  "zipPlugin",
-                },
-            }
+      extraLuaConfig = with theme.palette; ''
+        require("mini.base16").setup({
+          palette = {
+            base00 = "#${base00}",
+            base01 = "#${base01}",
+            base02 = "#${base02}",
+            base03 = "#${base03}",
+            base04 = "#${base04}",
+            base05 = "#${base05}",
+            base06 = "#${base06}",
+            base07 = "#${base07}",
+            base08 = "#${base08}",
+            base09 = "#${base09}",
+            base0A = "#${base0A}",
+            base0B = "#${base0B}",
+            base0C = "#${base0C}",
+            base0D = "#${base0D}",
+            base0E = "#${base0E}",
+            base0F = "#${base0F}",
           },
-
-          spec = {
-            -- Import plugins from lua/plugins
-            { import = "plugins" },
-          },
-
-          dev = {
-            path = "${pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start",
-            patterns = {""}, -- Specify that all of our plugins will use the dev dir. Empty string is a wildcard! <- the one who wrote that is a liar XD
-          },
-
-          install = {
-            -- Safeguard in case we forget to install a plugin with Nix
-            missing = false,
-          },
+          use_cterm = true,
         })
-
-        -- CONFIG --
-        require("config.mappings")
-        require("config.options")
       '';
     };
 
-    home.file."lua" = {
+    home.file.".config/nvim" = {
       recursive = true;
-      source = ./lua;
-      target = ".config/nvim/lua";
+      source = ./nvim;
     };
   };
 }

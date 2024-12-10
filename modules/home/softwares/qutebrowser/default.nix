@@ -7,7 +7,7 @@ with lib; let
   cfg = config.programs.qutebrowser;
 in {
   config = mkIf cfg.enable {
-    programs.quetebrowser = {
+    programs.qutebrowser = {
 
       settings = {};
 
