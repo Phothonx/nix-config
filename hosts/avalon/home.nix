@@ -3,6 +3,10 @@
   home.packages = with pkgs; [
     mindustry-wayland
     tt
+    aseprite
+    neovide
+    qutebrowser
+    libreoffice
   ];
 
   # Wayland

@@ -26,11 +26,22 @@ in {
           # MINI <3
           mini-nvim
 
-	  # NEORG
-	  plenary-nvim
-	  nui-nvim
-	  nvim-nio
-	  neorg
+          # CMP
+          luasnip
+          nvim-cmp
+          cmp-path
+          cmp-nvim-lsp
+          cmp-cmdline
+          cmp-buffer
+          cmp-cmdline-history
+          cmp_luasnip
+
+          # NEORG
+          plenary-nvim
+          nui-nvim
+          nvim-nio
+          neorg
+          pkgs.tree-sitter-grammars.tree-sitter-norg-meta
         ];
 
       extraPackages = with pkgs; [
@@ -39,9 +50,12 @@ in {
 
         # LSP / FORMATTERS
         ccls
+        clang-tools
         lua-language-server
+        pyright
         ruff
         ocamlPackages.lsp
+        ocamlPackages.ocamlformat
         nixd
         alejandra
       ];

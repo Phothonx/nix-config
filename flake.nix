@@ -90,7 +90,7 @@
       lib = mkLib pkgs;
     in
       nixpkgs.lib.nixosSystem {
-        inherit system pkgs; # to clean
+        inherit system pkgs;
         modules = [
           ./hosts/${hostName}/configuration.nix
           self.outputs.nixosModules.default

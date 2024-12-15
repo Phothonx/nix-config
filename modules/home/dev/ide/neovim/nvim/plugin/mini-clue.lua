@@ -1,5 +1,5 @@
 require("mini.clue").setup({
-  delay = 300,
+  delay = 200,
 
   triggers = {
     -- Leader triggers
@@ -54,3 +54,6 @@ end
 
 vim.keymap.set('n', '<leader>cg', toggle_global_clue, { desc = "Toggle clue globally"; })
 vim.keymap.set('n', '<leader>cb', toggle_buffer_clue, { desc = "Toggle clue for a buffer"; })
+
+-- au FileType special_ft lua MiniClue.ensure_buf_triggers()
+

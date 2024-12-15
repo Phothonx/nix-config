@@ -36,13 +36,7 @@ vim.api.nvim_create_autocmd('User', {
   end,
 })
 
--- Open files keybind
 vim.keymap.set("n", "<leader>e", function()
-  -- Open directory of current file (in last used state) focused on the file
-  MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-end, { desc = "Open Files from cfd"})
-
-vim.keymap.set("n", "<leader>E", function()
   -- Open directory of current file (in last used state) focused on the file
   MiniFiles.open(nil, false)
 end, { desc = "Open Files from cwd"})
