@@ -46,6 +46,10 @@ in {
 
       extraPackages = with pkgs; [
         gcc
+        git
+        fzf
+        cmake
+        tree-sitter
         python3
 
         # LSP / FORMATTERS

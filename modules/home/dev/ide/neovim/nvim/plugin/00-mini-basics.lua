@@ -1,49 +1,46 @@
-require("mini.basics").setup({
-    -- Options. Set to `false` to disable.
-    options = {
-      -- Basic options ('number', 'ignorecase', and many more)
-      basic = true,
-      -- Extra UI features ('winblend', 'cmdheight=0', ...)
-      extra_ui = false,
-      -- Presets for window borders ('single', 'double', ...)
-      win_borders = 'single',
-    },
+-- This is mosty taken from mini.basics
+local o = vim.o
+local opt = vim.opt
 
-    -- Mappings. Set to `false` to disable.
-    mappings = {
-      -- Basic mappings (better 'jk', save with Ctrl+S, ...)
-      basic = true,
-      -- Prefix for mappings that toggle common options ('wrap', 'spell', ...).
-      -- Supply empty string to not create these mappings.
-      option_toggle_prefix = [[\]],
-      -- Window navigation with <C-hjkl>, resize with <C-arrow>
-      windows = true,
-      -- Move cursor in Insert, Command, and Terminal mode with <M-hjkl>
-      move_with_alt = true,
-    },
 
-    -- Auto. Set to `false` to disable
-    autocommands = {
-      -- Basic autocommands (highlight on yank, start Insert in terminal, ...)
-      basic = true,
-      -- Set 'relativenumber' only in linewise and blockwise Visual mode
-      relnum_in_visual_mode = true,
-    },
+-- General
+o.undofile    = true  -- Enable persistent undo (see also `:h undodir`)
 
-    -- Whether to disable showing non-error feedback
-    silent = false,
-})
+o.backup      = false -- Don't store backup while overwriting the file
+o.writebackup = false -- Don't store backup while overwriting the file
+
+-- Appearance
+o.termguicolors = true -- Enable gui colors
+o.breakindent   = true    -- Indent wrapped lines to match line start
+o.cursorline    = true    -- Highlight current line
+o.number        = true    -- Show line numbers
+o.splitbelow    = true    -- Horizontal splits will be below
+o.splitright    = true    -- Vertical splits will be to the right
+
+o.ruler         = false   -- Don't show cursor position in command line
+o.showmode      = false   -- Don't show mode in command line
+o.wrap          = false   -- Display long lines as just one line
+
+o.signcolumn    = 'yes'   -- Always show sign column (otherwise it will shift text)
+o.fillchars     = 'eob: ' -- Don't show `~` outside of buffer
 
 -- indenting
-vim.o.expandtab = true
-vim.o.shiftwidth = 2
-vim.o.smartindent = true
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
+o.expandtab = true -- tabs to spaces
+o.shiftwidth = 2 -- nb of spaces for indenting
+o.smartindent = true -- auto indent smart
+o.tabstop = 2 -- size of tabs in spaces
 
-vim.o.numberwidth = 1
+-- Editing
+o.ignorecase  = true -- Ignore case when searching (use `\C` to force not doing that)
+o.smartcase   = true -- Don't ignore case when searching if pattern has upper case
+o.incsearch   = true -- Show search results while typing
+o.infercase   = true -- Infer letter cases for a richer built-in keyword completion
 
-vim.o.splitbelow = true
-vim.o.splitright = true
+o.completeopt   = 'menuone,noinsert,noselect' -- Customize completions
+o.virtualedit   = 'block'                     -- Allow going past the end of line in visual block mode
+o.formatoptions = 'qjl1'                      -- Don't autoformat comments
 
-vim.o.clipboard = "unnamedplus"
+-- Search
+o.ignorecase = true -- ignore case in search
+o.smartcase = true -- but enable if used
+o.hlsearch = false -- clear highlight
