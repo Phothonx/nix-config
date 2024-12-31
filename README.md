@@ -1,5 +1,12 @@
 # Nix-config
 
+### Small To-do
+- [] finish bash/fish config
+- browser librewolf
+- cleanup flake inputs
+- neovim config ++
+- hyprland config ++
+
 ### To-do
 - [ ] 🔐 vulnix & lynis check, lanzaboot
 - [ ] 💾 disko & impermanence
@@ -14,9 +21,9 @@
 - [x] 🖼️ Hyprland config
 - [x] Hyprland plugins
 - [x] Gamma shading
-- [ ] 🎚️ Fabric bar & widgets
+- [ ] 🎚️ Fabric/astal bar & widgets
 - [ ] 🤖 nix-on-droid
-- [x] 🐟 Fish & carapace completion
+- [ ] 🐟 Fish & carapace completion
 - [ ] 💽 Server VM - wireguard - nextcloud
 - [ ] Zen browser
 - [ ] Zed code editor & jupyter support ?
@@ -34,20 +41,4 @@ nix develop --profile ./.profile [FLAKE]#[DEVSHELL]
 ```
 # To create a secret ( /!\ don't forget to modify secret.nix)
 agenix -e [SECRET NAME].age
-```
-
-### Borg backup
-```
-# Timer before next backup
-systemctl status borgbackup-job-[JOB NAME].timer
-
-# Get infos
-borg-job-[JOB NAME] list
-borg-job-[JOB NAME] info
-
-# Restoring files
-mkdir mount
-borg mount [REPO] ./mount/
-# Then umount
-borg umount ./mount/
 ```

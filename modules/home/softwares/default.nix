@@ -5,7 +5,5 @@
     ./utils
     ./spotify
     ./terminal
-    ./games
-    ./qutebrowser
   ];
 }

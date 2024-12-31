@@ -2,15 +2,15 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
-with lib; let
+let
+  inherit (lib) mkIf;
   cfg = config.programs.firefox;
-in {
+in
+{
   imports = [
     ./arkenfox.nix
-    ./theme.nix
   ];
 
   config = mkIf cfg.enable {
@@ -20,12 +20,11 @@ in {
         isDefault = true;
         name = "default";
 
-        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           bitwarden
           ublock-origin
           skip-redirect
           sponsorblock
-          localcdn
         ];
 
         search = {
@@ -40,22 +39,12 @@ in {
                 {
                   template = "https://search.nixos.org/packages";
                   params = [
-                    {
-                      name = "type";
-                      value = "packages";
-                    }
-                    {
-                      name = "channel";
-                      value = "unstable";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
+                    { name = "type"; value = "packages"; }
+                    { name = "channel"; value = "unstable"; }
+                    { name = "query"; value = "{searchTerms}"; }
                   ];
                 }
               ];
-
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@np"];
             };
@@ -64,34 +53,13 @@ in {
                 {
                   template = "https://home-manager-options.extranix.com";
                   params = [
-                    {
-                      name = "release";
-                      value = "master";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
+                    { name = "release"; value = "unstable"; }
+                    { name = "query"; value = "{searchTerms}"; }
                   ];
                 }
               ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@hm"];
-            };
-            "NixOS Wiki" = {
-              urls = [
-                {
-                  template = "https://wiki.nixos.org/index.php";
-                  params = [
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@nw"];
             };
           };
         };

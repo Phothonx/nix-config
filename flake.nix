@@ -10,6 +10,10 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # NUR
+    nur.url = "github:nix-community/NUR";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
+
     # Hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -21,15 +25,9 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Firefox
+    # Arkenfox
     arkenfox-nixos.url = "github:dwarfmaster/arkenfox-nixos";
     arkenfox-nixos.inputs.nixpkgs.follows = "nixpkgs";
-
-    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
-
-    MiniFox.url = "git+https://codeberg.org/awwpotato/MiniFox";
-    MiniFox.flake = false;
 
     # Nix-index database
     nix-index-database.url = "github:nix-community/nix-index-database";
@@ -39,23 +37,24 @@
     nix-devshells.url = "github:Phothonx/nix-devshells";
     nix-devshells.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Disko
-    disko.url = "github:nix-community/disko/latest";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
+    # # Disko
+    # disko.url = "github:nix-community/disko/latest";
+    # disko.inputs.nixpkgs.follows = "nixpkgs";
 
     # # Impermanence
     # inputs.impermanence.url = "github:nix-community/impermanence";
 
-    # Nix on droid
-    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
-    nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
+    # # Nix on droid
+    # nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
+    # nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
     ...
-  } @ inputs: let
+  } @ inputs:
+  let
     mkLib = pkgs:
       pkgs.lib.extend (
         self: super:
@@ -84,7 +83,11 @@
       # pkgs = nixpkgs.legacyPackages.${system}.appendOverlays [ self.outputs.overlays.additions self.overlays.modifications ];
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [self.outputs.overlays.additions self.overlays.modifications];
+        overlays = [
+          self.outputs.overlays.additions
+          self.overlays.modifications
+          inputs.nur.overlays.default
+          ];
         config.allowUnfree = true;
       };
       lib = mkLib pkgs;

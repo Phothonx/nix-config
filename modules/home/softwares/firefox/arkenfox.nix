@@ -4,15 +4,20 @@
   inputs,
   ...
 }:
-with lib; let
+let
+  inherit (lib) mkIf;
+  inherit (inputs) arkenfox-nixos;
   cfg = config.programs.firefox.arkenfox;
 in {
-  imports = [inputs.arkenfox-nixos.hmModules.arkenfox];
+
+  # creates options programs.firefox.arkenfox.enable
+
+  imports = [arkenfox-nixos.hmModules.arkenfox];
 
   config = mkIf cfg.enable {
     programs.firefox = {
       arkenfox = {
-        version = "126.0";
+        version = "master";
       };
 
       profiles.default.arkenfox = {
@@ -22,7 +27,6 @@ in {
         "0100" = {
           enable = true;
           "0102"."browser.startup.page".value = 3;
-          "0103"."browser.startup.homepage".value = "${config.home.homeDirectory}/.mozilla/firefox/default/startpage/index.html";
           "0104"."browser.newtabpage.enabled".value = false;
         };
         "0200".enable = true;

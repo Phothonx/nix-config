@@ -1,12 +1,11 @@
 {
   config,
   lib,
-  pkgs,
   ...
-}: 
+}:
 let
   cfg = config.game;
-  inherit (lib) mkIf mkEnableOption;
+  inherit (lib) mkEnableOption;
 in
 {
   options.game = {

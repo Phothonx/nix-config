@@ -26,13 +26,8 @@
   programs.kitty.enable = true;
   programs.spicetify.enable = true;
   programs.firefox.enable = true;
-  programs.firefox.theme.enable = true;
-  programs.qutebrowser.enable = true;
   programs.firefox.arkenfox.enable = true;
   programs.vesktop.enable = true;
- 
-  # games
-  game.steam.enable = true;
 
   # Services
   services.polkit.enable = true;
