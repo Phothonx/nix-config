@@ -25,8 +25,8 @@ in {
       };
 
       plugins = with pkgs; [
-        hyprlandPlugins.hyprexpo
-        hyprlandPlugins.hyprsplit
+        # hyprlandPlugins.hyprexpo
+        # hyprlandPlugins.hyprsplit
       ];
 
       xwayland.enable = true;

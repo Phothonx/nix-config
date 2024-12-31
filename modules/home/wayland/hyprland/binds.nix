@@ -50,7 +50,7 @@ in {
         "CTRL ALT, L, exec, ${hyprlock}/bin/hyprlock"
 
         ### PLUGINS ###
-        "SUPER SHIFT, Tab, hyprexpo:expo, toggle"
+        # "SUPER SHIFT, Tab, hyprexpo:expo, toggle"
 
         ### SCREENSHOTS ###
         "SUPER, S, exec, hyprshot --mode active --mode output --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
@@ -107,36 +107,36 @@ in {
 
         ### WORKSPACES ###
         "SUPER, A, togglespecialworkspace"
-        "SUPER SHIFT, A, split:movetoworkspace, special"
+        "SUPER SHIFT, A, movetoworkspace, special"
 
-        "SUPER, ampersand, split:workspace, 1"
-        "SUPER, eacute, split:workspace, 2"
-        "SUPER, quotedbl, split:workspace, 3"
-        "SUPER, apostrophe, split:workspace, 4"
-        "SUPER, parenleft, split:workspace, 5"
-        "SUPER, minus, split:workspace, 6"
-        "SUPER, egrave, split:workspace, 7"
-        "SUPER, underscore, split:workspace, 8"
-        "SUPER, ccedilla, split:workspace, 9"
-        "SUPER, agrave, split:workspace, 10"
+        "SUPER, ampersand, workspace, 1"
+        "SUPER, eacute, workspace, 2"
+        "SUPER, quotedbl, workspace, 3"
+        "SUPER, apostrophe, workspace, 4"
+        "SUPER, parenleft, workspace, 5"
+        "SUPER, minus, workspace, 6"
+        "SUPER, egrave, workspace, 7"
+        "SUPER, underscore, workspace, 8"
+        "SUPER, ccedilla, workspace, 9"
+        "SUPER, agrave, workspace, 10"
 
-        "SUPER SHIFT, ampersand, split:movetoworkspacesilent, 1"
-        "SUPER SHIFT, eacute, split:movetoworkspacesilent, 2"
-        "SUPER SHIFT, quotedbl, split:movetoworkspacesilent, 3"
-        "SUPER SHIFT, apostrophe, split:movetoworkspacesilent, 4"
-        "SUPER SHIFT, parenleft, split:movetoworkspacesilent, 5"
-        "SUPER SHIFT, minus, split:movetoworkspacesilent, 6"
-        "SUPER SHIFT, egrave, split:movetoworkspacesilent, 7"
-        "SUPER SHIFT, underscore, split:movetoworkspacesilent, 8"
-        "SUPER SHIFT, ccedilla, split:movetoworkspacesilent, 9"
-        "SUPER SHIFT, agrave, split:movetoworkspacesilent, 10"
+        "SUPER SHIFT, ampersand, movetoworkspacesilent, 1"
+        "SUPER SHIFT, eacute, movetoworkspacesilent, 2"
+        "SUPER SHIFT, quotedbl, movetoworkspacesilent, 3"
+        "SUPER SHIFT, apostrophe, movetoworkspacesilent, 4"
+        "SUPER SHIFT, parenleft, movetoworkspacesilent, 5"
+        "SUPER SHIFT, minus, movetoworkspacesilent, 6"
+        "SUPER SHIFT, egrave, movetoworkspacesilent, 7"
+        "SUPER SHIFT, underscore, movetoworkspacesilent, 8"
+        "SUPER SHIFT, ccedilla, movetoworkspacesilent, 9"
+        "SUPER SHIFT, agrave, movetoworkspacesilent, 10"
 
-        "SUPER CTRL, j, split:workspace, e +1"
-        "SUPER CTRL, k, split:workspace, e -1"
-        "SUPER CTRL, down, split:workspace, e +1"
-        "SUPER CTRL, up, split:workspace, e -1"
+        "SUPER CTRL, j, workspace, e +1"
+        "SUPER CTRL, k, workspace, e -1"
+        "SUPER CTRL, down, workspace, e +1"
+        "SUPER CTRL, up, workspace, e -1"
 
-        "SUPER, O, split:grabroguewindows"
+        # "SUPER, O, grabroguewindows"
       ];
     };
   };

@@ -36,16 +36,16 @@ map({ 'i', 'x' }, '<C-S>', '<Esc><Cmd>silent! update | redraw<CR>', { desc = 'Sa
 
 local map_toggle = function(lhs, rhs, desc) map('n', 't' .. lhs, rhs, { desc = desc }) end
 map_toggle('b', '<Cmd>lua vim.o.bg = vim.o.bg == "dark" and "light" or "dark"; print(vim.o.bg)<CR>',       "Toggle 'background'")
-map_toggle('c', '<Cmd>setlocal cursorline! cursorline?<CR>',                                               "Toggle 'cursorline'")
-map_toggle('C', '<Cmd>setlocal cursorcolumn! cursorcolumn?<CR>',                                           "Toggle 'cursorcolumn'")
-map_toggle('d', '<Cmd>lua print(MiniBasics.toggle_diagnostic())<CR>',                                      'Toggle diagnostic')
-map_toggle('h', '<Cmd>let v:hlsearch = 1 - v:hlsearch | echo (v:hlsearch ? "  " : "no") . "hlsearch"<CR>', 'Toggle search highlight')
-map_toggle('i', '<Cmd>setlocal ignorecase! ignorecase?<CR>',                                               "Toggle 'ignorecase'")
-map_toggle('l', '<Cmd>setlocal list! list?<CR>',                                                           "Toggle 'list'")
-map_toggle('n', '<Cmd>setlocal number! number?<CR>',                                                       "Toggle 'number'")
-map_toggle('r', '<Cmd>setlocal relativenumber! relativenumber?<CR>',                                       "Toggle 'relativenumber'")
-map_toggle('s', '<Cmd>setlocal spell! spell?<CR>',                                                         "Toggle 'spell'")
-map_toggle('w', '<Cmd>setlocal wrap! wrap?<CR>',                                                           "Toggle 'wrap'")
+map_toggle('c', '<Cmd>setlocal cursorline! cursorline?<CR>',          "Toggle 'cursorline'")
+map_toggle('C', '<Cmd>setlocal cursorcolumn! cursorcolumn?<CR>',      "Toggle 'cursorcolumn'")
+map_toggle('d', '<Cmd>lua print(MiniBasics.toggle_diagnostic())<CR>', 'Toggle diagnostic')
+map_toggle('h', '<Cmd>lua vim.o.hlsearch = not vim.o.hlsearch<CR>',   'Toggle search highlight')
+map_toggle('i', '<Cmd>setlocal ignorecase! ignorecase?<CR>',          "Toggle 'ignorecase'")
+map_toggle('l', '<Cmd>setlocal list! list?<CR>',                      "Toggle 'list'")
+map_toggle('n', '<Cmd>setlocal number! number?<CR>',                  "Toggle 'number'")
+map_toggle('r', '<Cmd>setlocal relativenumber! relativenumber?<CR>',  "Toggle 'relativenumber'")
+map_toggle('s', '<Cmd>setlocal spell! spell?<CR>',                    "Toggle 'spell'")
+map_toggle('w', '<Cmd>setlocal wrap! wrap?<CR>',                      "Toggle 'wrap'")
 
 -- Window navigation
 map('n', '<C-H>', '<C-w>h', { desc = 'Focus on left window' })
@@ -63,6 +63,8 @@ map('n', '<C-Right>', '"<Cmd>vertical resize +" . v:count1 . "<CR>"', { expr = t
 -- to be immediately shown.
 map('c', '<M-h>', '<Left>',  { silent = false, desc = 'Left' })
 map('c', '<M-l>', '<Right>', { silent = false, desc = 'Right' })
+map('c', '<M-j>', '<Down>',  { silent = false, desc = 'Down' })
+map('c', '<M-k>', '<Up>',    { silent = false, desc = '' })
 
 -- Don't `noremap` in insert mode to have these keybindings behave exactly
 -- like arrows (crucial inside TelescopePrompt)

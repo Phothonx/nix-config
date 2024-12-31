@@ -1,12 +1,17 @@
 {inputs, pkgs, ...}: {
 
-  home.packages = with pkgs; [
+  home.packages =
+  let
+    tex = (pkgs.texlive.combine {
+      inherit (pkgs.texlive) scheme-basic
+        dvisvgm dvipng # for preview and export as html
+        wrapfig amsmath ulem hyperref capt-of;
+    });
+  in with pkgs; [
     mindustry-wayland
     tt
-    aseprite
     neovide
-    qutebrowser
-    libreoffice
+    tex
   ];
 
   # Wayland

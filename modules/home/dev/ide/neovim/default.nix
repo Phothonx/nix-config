@@ -22,6 +22,8 @@ in {
 
           # TS
           nvim-treesitter.withAllGrammars
+          pkgs.tree-sitter-grammars.tree-sitter-norg-meta
+          nvim-treesitter-parsers.norg
 
           # MINI <3
           mini-nvim
@@ -41,15 +43,13 @@ in {
           nui-nvim
           nvim-nio
           neorg
-          pkgs.tree-sitter-grammars.tree-sitter-norg-meta
         ];
 
       extraPackages = with pkgs; [
         gcc
+        cmake
         git
         fzf
-        cmake
-        tree-sitter
         python3
 
         # LSP / FORMATTERS
@@ -61,15 +61,15 @@ in {
         ocamlPackages.lsp
         ocamlPackages.ocamlformat
         nixd
+        nil
         alejandra
       ];
 
-      extraLuaPackages = luaPkgs : [
-        luaPkgs.pathlib-nvim # For neorg
-        luaPkgs.lua-utils-nvim # For neorg
+      extraLuaPackages = luaPkgs : with luaPkgs; [
+        pathlib-nvim # For neorg
+        lua-utils-nvim # For neorg
       ];
 
-      # https://nixalted.com/
       extraLuaConfig = with theme.palette; ''
         require("mini.base16").setup({
           palette = {

@@ -5,7 +5,6 @@ local filter_hide = function(fs_entry) return not vim.startswith(fs_entry.name, 
 
 local toggle_dotfiles = function()
   show_dotfiles = not show_dotfiles
-
   local new_filter = show_dotfiles and filter_show or filter_hide
   MiniFiles.refresh({ content = { filter = new_filter } })
 end

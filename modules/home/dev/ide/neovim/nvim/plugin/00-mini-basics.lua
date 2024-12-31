@@ -43,4 +43,10 @@ o.formatoptions = 'qjl1'                      -- Don't autoformat comments
 -- Search
 o.ignorecase = true -- ignore case in search
 o.smartcase = true -- but enable if used
-o.hlsearch = false -- clear highlight
+o.hlsearch = true -- do not clear highlight
+
+-- Neovide
+if vim.g.neovide then
+  vim.g.neovide_scale_factor = 0.9
+  vim.g.neovide_hide_mouse_when_typing = true
+end
