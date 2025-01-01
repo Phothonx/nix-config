@@ -1,12 +1,5 @@
 # Nix-config
 
-### Small To-do
-- [] finish bash/fish config
-- browser librewolf
-- cleanup flake inputs
-- neovim config ++
-- hyprland config ++
-
 ### To-do
 - [ ] 🔐 vulnix & lynis check, lanzaboot
 - [ ] 💾 disko & impermanence

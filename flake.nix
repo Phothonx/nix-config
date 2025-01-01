@@ -21,10 +21,6 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Spicetify
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
-
     # Arkenfox
     arkenfox-nixos.url = "github:dwarfmaster/arkenfox-nixos";
     arkenfox-nixos.inputs.nixpkgs.follows = "nixpkgs";

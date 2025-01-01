@@ -24,9 +24,9 @@
   # Sofwares
   desktopApps.enable = true;
   programs.kitty.enable = true;
-  programs.spicetify.enable = true;
   programs.firefox.enable = true;
   programs.firefox.arkenfox.enable = true;
+  programs.spotify-player.enable = true;
   programs.vesktop.enable = true;
 
   # Services
