@@ -53,8 +53,8 @@ in
                 {
                   template = "https://home-manager-options.extranix.com";
                   params = [
-                    { name = "release"; value = "master"; }
                     { name = "query"; value = "{searchTerms}"; }
+                    { name = "release"; value = "master"; }
                   ];
                 }
               ];

@@ -12,8 +12,9 @@ o.writebackup = false -- Don't store backup while overwriting the file
 -- Appearance
 o.termguicolors = true -- Enable gui colors
 o.breakindent   = true    -- Indent wrapped lines to match line start
-o.cursorline    = true    -- Highlight current line
+o.cursorline    = false -- Highlight current line
 o.number        = true    -- Show line numbers
+o.numberwidth   = 4       -- size of gutter for line numbers
 o.splitbelow    = true    -- Horizontal splits will be below
 o.splitright    = true    -- Vertical splits will be to the right
 
@@ -22,7 +23,9 @@ o.showmode      = false   -- Don't show mode in command line
 o.wrap          = false   -- Display long lines as just one line
 
 o.signcolumn    = 'yes'   -- Always show sign column (otherwise it will shift text)
-o.fillchars     = 'eob: ' -- Don't show `~` outside of buffer
+opt.fillchars = { eob = " " } -- Don't show `~` outside of buffer
+
+opt.shortmess:append "sI" -- disable nvim intro
 
 -- indenting
 o.expandtab = true -- tabs to spaces
@@ -39,6 +42,12 @@ o.infercase   = true -- Infer letter cases for a richer built-in keyword complet
 o.completeopt   = 'menuone,noinsert,noselect' -- Customize completions
 o.virtualedit   = 'block'                     -- Allow going past the end of line in visual block mode
 o.formatoptions = 'qjl1'                      -- Don't autoformat comments
+
+o.scrolloff = 6
+
+o.mouse = "a"
+
+o.laststatus = 2 -- status line averywhere
 
 -- Search
 o.ignorecase = true -- ignore case in search

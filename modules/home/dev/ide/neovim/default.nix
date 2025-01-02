@@ -92,6 +92,8 @@ in {
           },
           use_cterm = true,
         })
+
+        vim.api.nvim_set_hl(0, "ColorColumn", { fg = "#${base00}", })
       '';
     };
 

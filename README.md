@@ -23,15 +23,3 @@
 
 *for your viewing pleasure*
 ![preview.png](./assets/preview.png)
-
-### Deshells
-```
-# permanent devshells using profile
-nix develop --profile ./.profile [FLAKE]#[DEVSHELL]
-```
-
-### Agenix
-```
-# To create a secret ( /!\ don't forget to modify secret.nix)
-agenix -e [SECRET NAME].age
-```

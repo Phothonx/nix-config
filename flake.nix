@@ -110,8 +110,6 @@
 
     nixosConfigurations = {
       "avalon" = mkSystem nixpkgs "x86_64-linux" "avalon";
-      # "camlann" = mkSystem inputs.nixpkgs-stable "" "camlann";
-      # "merlin" = mkSystem nixpkgs "" "merlin";
     };
   };
 }
