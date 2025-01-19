@@ -21,10 +21,6 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Arkenfox
-    arkenfox-nixos.url = "github:dwarfmaster/arkenfox-nixos";
-    arkenfox-nixos.inputs.nixpkgs.follows = "nixpkgs";
-
     # Nix-index database
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
@@ -32,84 +28,44 @@
     # Devshells
     nix-devshells.url = "github:Phothonx/nix-devshells";
     nix-devshells.inputs.nixpkgs.follows = "nixpkgs";
-
-    # # Disko
-    # disko.url = "github:nix-community/disko/latest";
-    # disko.inputs.nixpkgs.follows = "nixpkgs";
-
-    # # Impermanence
-    # inputs.impermanence.url = "github:nix-community/impermanence";
-
-    # # Nix on droid
-    # nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
-    # nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
+    home-manager,
     ...
   } @ inputs:
   let
-    mkLib = pkgs:
-      pkgs.lib.extend (
-        self: super:
-          (import ./lib {
-            inherit pkgs;
-            lib = super;
-          })
-          // inputs.home-manager.lib
-      );
+    inherit (self) outputs;
+    lib = nixpkgs.lib // home-manager.lib;
 
     systems = [
       "x86_64-linux"
     ];
 
-    withSystems = systems: withPkgs:
-      nixpkgs.lib.genAttrs systems (
-        system: (withPkgs nixpkgs.legacyPackages.${system})
-      );
-
-    forEachSystems = withSystems systems;
-
-    mkSystem = nixpkgs: system: hostName: let
-      # https://discourse.nixos.org/t/using-nixpkgs-legacypackages-system-vs-import/17462
-      # https://zimbatm.com/notes/1000-instances-of-nixpkgs
-      # need to import if i want overlays & unfree packages
-      # pkgs = nixpkgs.legacyPackages.${system}.appendOverlays [ self.outputs.overlays.additions self.overlays.modifications ];
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          self.outputs.overlays.additions
-          self.overlays.modifications
-          inputs.nur.overlays.default
-          ];
-        config.allowUnfree = true;
-      };
-      lib = mkLib pkgs;
-    in
-      nixpkgs.lib.nixosSystem {
-        inherit system pkgs;
-        modules = [
-          ./hosts/${hostName}/configuration.nix
-          self.outputs.nixosModules.default
-        ];
-        specialArgs = {
-          inherit self inputs lib hostName;
-        };
-      };
+    pkgsFor = lib.genAttrs systems (
+      system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+    );
+    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+    mkNixosSystems = hostNames: lib.genAttrs hostNames (hostName: lib.nixosSystem {
+        modules = [ ./hosts/${hostName}/configuration.nix ];
+        specialArgs = { inherit self inputs outputs hostName; };
+      });
   in {
-    packages = forEachSystems (pkgs: import ./packages pkgs);
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home;
 
     overlays = import ./overlays {inherit inputs;};
 
-    formatter = forEachSystems (pkgs: pkgs.alejandra);
-
-    nixosModules.default = import ./modules/nixos;
-    nixosModules.home-manager = import ./modules/home;
-
-    nixosConfigurations = {
-      "avalon" = mkSystem nixpkgs "x86_64-linux" "avalon";
-    };
+    packages = forEachSystem (pkgs: import ./packages pkgs);
+    formatter = forEachSystem (pkgs: pkgs.alejandra);
+    nixosConfigurations = mkNixosSystems [
+      "avalon"
+    ];
   };
 }
