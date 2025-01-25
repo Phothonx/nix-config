@@ -29,29 +29,11 @@ in {
         "eDP-1, 1920x1200@60, 0x0, 1" # personal monitor
       ];
 
-      plugin = {
-        hyprexpo = {
-          columns = 3;
-          gap_size = 5;
-          bg_col = "rgb(${base11})";
-          workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
-
-          enable_gesture = true; # laptop touchpad, 4 fingers
-          gesture_distance = 300; # how far is the "max"
-          gesture_positive = true; # positive = swipe down. Negative = swipe up.
-        };
-
-        hyprsplit = {
-          num_workspaces = 5;
-        };
-      };
-
       general = {
         border_size = 2;
 
-        gaps_in = 7;
-        gaps_out = 15;
-        gaps_workspaces = 5;
+        gaps_in = 4;
+        gaps_out = 8;
 
         "col.inactive_border" = "rgb(${base10})";
         "col.active_border" = "rgb(${base0E}) rgb(${base0D}) 180deg";
@@ -60,24 +42,22 @@ in {
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 0;
 
         shadow = {
           enabled = true;
           range = 10;
-          render_power = 4;
-          color = "rgb(000000)";
-          offset = "4 4";
+          render_power = 2;
+          color = "rgba(0, 0, 0, 0.25)";
         };
 
         blur = {
           enabled = false;
-          size = 4;
-          passes = 1;
-          noise = 0.018;
-          contrast = 0.9;
-          brightness = 0.83;
-          vibrancy = 0.17;
+          size = 5;
+          passes = 3;
+          new_optimizations = true;
+          contrast = 1;
+          brightness = 1;
           special = true; # nice but more expensive
           popups = true;
         };
@@ -98,21 +78,13 @@ in {
         enabled = true;
         bezier = [
           # https://easings.net/
-          "linear, 0.0, 0.0, 1.0, 1.0"
-          "easeOutCubic, 0.33, 1, 0.68, 1"
-          "overshot, 0.35, 0.9, 0.4, 1.1"
+          "myBezier, .5, .25, 0, 1"
         ];
         animation = [
-          "windows, 1, 3, overshot, popin"
-          "windowsOut, 1, 3, overshot, slide"
-          "windowsMove, 1, 1, overshot"
-
-          "fade, 1, 3, easeOutCubic"
-
-          "workspaces, 1, 3, overshot, slidevert"
-
-          "border, 1, 2, easeOutCubic"
-          "borderangle, 1, 75, linear, loop"
+          "windows, 1, 2.5, myBezier, popin 80%"
+          "border, 1, 2.5, myBezier"
+          "fade, 1, 2.5, myBezier"
+          "workspaces, 1, 2.5, myBezier, slidefade 20%"
         ];
       };
 

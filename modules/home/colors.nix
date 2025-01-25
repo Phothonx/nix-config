@@ -11,7 +11,6 @@ let
 in
 {
   options.colorScheme = {
-
     base24 = mkOption {
       type = types.attrsOf hexColorCode;
       default = {
@@ -44,39 +43,32 @@ in
 
     palette = mkOption {
       type = types.attrsOf hexColorCode;
-#      default = with cfg.base24 {
-#        accent = base0E;
-#        laccent = base17;
-#
-#        bg0 = base11;
-#        bg1 = base10;
-#        bg2 = base00;
-#
-#        ele0 = base01;
-#        ele1 = base02;
-#        ele2 = base03;
-#
-#        select = base02;
-#        text = base07;
-#
-#        # Normal colors
-#        red = base08;
-#        orange = base09;
-#        yellow = base0A;
-#        green = base0B;
-#        cyan = base0C;
-#        blue = base0D;
-#        purple = base0E;
-#        brown = base0F;
-#
-#        # Bright/light colors
-#        lred = base12;
-#        lyellow = base13;
-#        lgreen = base14;
-#        lcyan = base15;
-#        lblue = base16;
-#        lpurple = base17;
-#      };
+      default = with cfg.base24; {
+        background = base00;
+        black = base01;
+        b_black = base02;
+        grey = base03;
+        l_grey = base04;
+        foreground = base05;
+        white = base06;
+        b_white = base07;
+        red = base08;
+        orange = base09;
+        yellow = base0A;
+        green = base0B;
+        cyan = base0C;
+        blue = base0D;
+        purple = base0E;
+        brown = base0F;
+        d_background = base10;
+        dt_background = base11;
+        b_red = base12;
+        b_yellow = base13;
+        b_green = base14;
+        b_cyan = base15;
+        b_blue = base16;
+        b_purple = base17;
+     };
     };
   };
 }

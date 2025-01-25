@@ -7,6 +7,10 @@
 }:
 {
   environment.systemPackages = with pkgs; [
+    git
+    vim
+    wget
+
     nvd
     nix-output-monitor
     nix-tree

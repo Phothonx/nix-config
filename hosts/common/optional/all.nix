@@ -13,5 +13,7 @@
     ./systemd-boot.nix
     ./tlp.nix
     ./xkb.nix
+    ./steam.nix
+    ./graphics.nix
   ];
 }
