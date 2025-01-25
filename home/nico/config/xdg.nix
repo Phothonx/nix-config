@@ -1,9 +1,8 @@
 {
   config,
-    pkgs,
-    ...
-}:
-{
+  pkgs,
+  ...
+}: {
   home.sessionVariables = with config.xdg; {
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
@@ -12,7 +11,7 @@
     BROWSER = "firefox";
     TERMINAL = "kitty";
 
-# home cleaning
+    # home cleaning
     CARGO_HOME = "${dataHome}/cargo";
     IPYTHONDIR = "${configHome}/ipython";
     JUPYTER_CONFIG_DIR = "${configHome}/jupyter";

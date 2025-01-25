@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   programs.fish.enable = true;
 
   # https://wiki.nixos.org/wiki/Fish

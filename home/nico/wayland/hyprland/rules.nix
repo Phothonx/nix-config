@@ -1,8 +1,4 @@
-{
-  config,
-  ...
-}:
-{
+{config, ...}: {
   wayland.windowManager.hyprland.settings = {
     windowrulev2 = [
       "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"

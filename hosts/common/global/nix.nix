@@ -4,8 +4,7 @@
   pkgs,
   self,
   ...
-}:
-{
+}: {
   environment.systemPackages = with pkgs; [
     git
     vim
@@ -40,7 +39,7 @@
 
     # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
     registry.nixpkgs.flake = inputs.nixpkgs;
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
     registry.self.flake = self;
     channel.enable = false;

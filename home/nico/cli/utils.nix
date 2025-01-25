@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # CLI Tools
     imagemagick
@@ -10,6 +6,8 @@
     duf
     zip
     unzip
+    unp
+    tree
     unrar
     glow
     wev

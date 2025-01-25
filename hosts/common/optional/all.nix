@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ./agenix.nix
     ./bluetooth.nix

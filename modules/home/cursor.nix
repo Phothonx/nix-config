@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-let
-  cfg = config.cursor;
-in
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
+  cfg = config.cursor;
+in {
   options.cursor = {
     name = lib.mkOption {
       type = lib.types.str;
@@ -23,9 +26,10 @@ in
   };
 
   config = {
-    home = { packages = [
-      cfg.package
-    ];
+    home = {
+      packages = [
+        cfg.package
+      ];
       pointerCursor = {
         inherit (cfg) name package size;
         x11.enable = true;

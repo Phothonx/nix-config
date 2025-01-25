@@ -1,8 +1,4 @@
-{
-  inputs,
-  ...
-}:
-{
+{inputs, ...}: {
   imports = with inputs.nixos-hardware.nixosModules; [
     ./hardware-configuration.nix
     common-pc-ssd

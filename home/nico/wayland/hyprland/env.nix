@@ -1,7 +1,4 @@
-{
-  ...
-}:
-{
+{...}: {
   home.sessionVariables = {
     HYPRLAND_LOG_WLR = 1;
     HYPRLAND_NO_RT = 1;

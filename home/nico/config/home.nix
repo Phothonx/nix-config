@@ -1,5 +1,4 @@
-{ outputs, ... }:
-{
+{outputs, ...}: {
   imports = [
     outputs.homeManagerModules.colors
     outputs.homeManagerModules.cursor

@@ -1,5 +1,9 @@
-{ lib, config, pkgs, ... }:
-let
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
   cfg = config.fontsProfiles;
 
   mkFontOption = name: pkg: {
@@ -15,14 +19,14 @@ let
     };
   };
 
-  mkSizeOption = size: lib.mkOption {
-    type = lib.types.int;
-    default = size;
-    description = "Size in pixels for font profile";
-    example = "14";
-  };
-in
-{
+  mkSizeOption = size:
+    lib.mkOption {
+      type = lib.types.int;
+      default = size;
+      description = "Size in pixels for font profile";
+      example = "14";
+    };
+in {
   options.fontsProfiles = {
     enable = lib.mkEnableOption "Whether to enable font profiles";
 
@@ -40,7 +44,7 @@ in
     fonts.fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ cfg.monospace.name ];
+        monospace = [cfg.monospace.name];
       };
     };
 

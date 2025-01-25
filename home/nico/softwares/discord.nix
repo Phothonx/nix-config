@@ -1,7 +1,3 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   home.packages = [pkgs.vesktop];
 }

@@ -1,11 +1,6 @@
-{
-  config,
-  ...
-}:
-let
+{config, ...}: let
   inherit (config) fontsProfiles;
-in
-{
+in {
   programs.tofi = {
     enable = true;
     settings = {

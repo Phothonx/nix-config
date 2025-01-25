@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     profiles.default = {
@@ -29,9 +25,18 @@
               {
                 template = "https://search.nixos.org/packages";
                 params = [
-                  { name = "type"; value = "packages"; }
-                  { name = "channel"; value = "unstable"; }
-                  { name = "query"; value = "{searchTerms}"; }
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "channel";
+                    value = "unstable";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
                 ];
               }
             ];
@@ -43,8 +48,14 @@
               {
                 template = "https://home-manager-options.extranix.com";
                 params = [
-                  { name = "query"; value = "{searchTerms}"; }
-                  { name = "release"; value = "master"; }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                  {
+                    name = "release";
+                    value = "master";
+                  }
                 ];
               }
             ];

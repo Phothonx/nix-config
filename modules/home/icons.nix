@@ -1,10 +1,12 @@
-{ lib, config, pkgs, ... }:
-let
-  cfg = config.icons;
-in
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
+  cfg = config.icons;
+in {
   options.icons = {
-
     name = lib.mkOption {
       type = lib.types.str;
       default = "Morewaita";
@@ -16,8 +18,6 @@ in
       example = "pkgs.morewaita-icon-theme";
     };
   };
-
-
 
   config = {
     home.packages = [

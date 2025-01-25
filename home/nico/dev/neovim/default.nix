@@ -2,11 +2,9 @@
   pkgs,
   config,
   ...
-}:
-let
+}: let
   inherit (config) colorScheme;
-in
-{
+in {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -14,8 +12,7 @@ in
     vimAlias = true;
     vimdiffAlias = true;
 
-    plugins = with pkgs.vimPlugins;
-    [
+    plugins = with pkgs.vimPlugins; [
       rose-pine
       oxocarbon-nvim
       tokyonight-nvim
@@ -70,10 +67,11 @@ in
       alejandra
     ];
 
-    extraLuaPackages = luaPkgs : with luaPkgs; [
-      pathlib-nvim # For neorg
-      lua-utils-nvim # For neorg
-    ];
+    extraLuaPackages = luaPkgs:
+      with luaPkgs; [
+        pathlib-nvim # For neorg
+        lua-utils-nvim # For neorg
+      ];
 
     extraLuaConfig = with colorScheme.base24; ''
       ---- https://github.com/chriskempson/base16/blob/master/styling.md

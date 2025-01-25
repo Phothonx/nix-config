@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    # ./bash
+    ./bash
     ./fish
 
     ./starship.nix

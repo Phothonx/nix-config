@@ -1,8 +1,4 @@
-{
-  config,
-  ...
-}:
-let
+{config, ...}: let
   inherit (config) fontsProfiles colorScheme lockimg;
 in {
   programs.hyprlock = {

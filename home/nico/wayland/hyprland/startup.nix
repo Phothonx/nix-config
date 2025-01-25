@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (config) wallpaper cursor;
   inherit (lib) getExe;
 in {

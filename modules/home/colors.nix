@@ -2,14 +2,12 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   cfg = config.colorScheme;
   inherit (lib) types mkOption;
 
   hexColorCode = types.strMatching "([0-9a-fA-F]{3}){1,2}";
-in
-{
+in {
   options.colorScheme = {
     base24 = mkOption {
       type = types.attrsOf hexColorCode;
@@ -68,7 +66,7 @@ in
         b_cyan = base15;
         b_blue = base16;
         b_purple = base17;
-     };
+      };
     };
   };
 }

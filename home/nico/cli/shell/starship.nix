@@ -1,8 +1,4 @@
-{
-  config,
-    ...
-}:
-{
+{config, ...}: {
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
@@ -35,14 +31,14 @@
         charging_symbol = "⚡️";
         discharging_symbol = "🪫";
         display = [
-        {
-          threshold = 10;
-          style = "bold #${base08}";
-        }
-        {
-          threshold = 25;
-          style = "bold #${base0A}";
-        }
+          {
+            threshold = 10;
+            style = "bold #${base08}";
+          }
+          {
+            threshold = 25;
+            style = "bold #${base0A}";
+          }
         ];
       };
 
@@ -60,7 +56,7 @@
       };
 
       git_status = {
-# format = "[\[$all_status\]](bold #${colors.base07}) "; #$ahead_behind
+        # format = "[\[$all_status\]](bold #${colors.base07}) "; #$ahead_behind
         conflicted = "🏳";
         ahead = "🏎💨";
         behind = "😰";

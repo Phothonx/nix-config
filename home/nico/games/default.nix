@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ./mindustry.nix
   ];

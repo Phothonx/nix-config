@@ -2,8 +2,7 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (config) colorScheme icons fontsProfiles cursor;
 
   extraCss = with colorScheme.base24; ''
@@ -77,7 +76,7 @@ in {
     gtk2 = {
       configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
       extraConfig = ''
-        '';
+      '';
     };
 
     gtk3 = {

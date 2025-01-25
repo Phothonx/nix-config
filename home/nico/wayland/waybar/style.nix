@@ -1,11 +1,6 @@
-{
-  config,
-  ...
-}:
-let
+{config, ...}: let
   inherit (config) colorScheme fontsProfiles;
-in
-{
+in {
   programs.waybar.style = with colorScheme.base24; ''
     * {
       font-family: ${fontsProfiles.regular.name};

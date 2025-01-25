@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-let
+{pkgs, ...}: let
   inherit (pkgs) writeShellScript;
 
   brightnessDownScript = writeShellScript "brightness-down-script" ''
@@ -34,7 +30,6 @@ let
     ${pkgs.brightnessctl}/bin/brightnessctl --device="platform::kbd_backlight" --restore
     ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
   '';
-
 in {
   # Hyprlock don't have the time to fully laod
   # https://github.com/hyprwm/hypridle/issues/49

@@ -1,11 +1,7 @@
-{
-  config,
-  ...
-}:
-let
+{config, ...}: let
   inherit (config) icons;
 in {
-  imports = [ ./style.nix ];
+  imports = [./style.nix];
 
   programs.waybar = {
     enable = true;

@@ -2,8 +2,7 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (config) colorScheme fontsProfiles;
 in {
   home.packages = with pkgs; [
@@ -79,11 +78,13 @@ in {
         bezier = [
           # https://easings.net/
           "myBezier, .5, .25, 0, 1"
+          "quart, 0.25, 1, 0.5, 1"
         ];
         animation = [
           "windows, 1, 2.5, myBezier, popin 80%"
           "border, 1, 2.5, myBezier"
           "fade, 1, 2.5, myBezier"
+          "borderangle, 1, 6, quart"
           "workspaces, 1, 2.5, myBezier, slidefade 20%"
         ];
       };

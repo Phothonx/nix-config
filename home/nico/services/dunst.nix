@@ -1,11 +1,6 @@
-{
-  config,
-  ...
-}:
-let
+{config, ...}: let
   inherit (config) colorScheme icons fontsProfiles;
-in
-{
+in {
   services.dunst = {
     enable = true;
     iconTheme.name = icons.name;

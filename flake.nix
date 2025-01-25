@@ -35,8 +35,7 @@
     nixpkgs,
     home-manager,
     ...
-  } @ inputs:
-  let
+  } @ inputs: let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib;
 
@@ -52,10 +51,12 @@
         }
     );
     forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
-    mkNixosSystems = hostNames: lib.genAttrs hostNames (hostName: lib.nixosSystem {
-        modules = [ ./hosts/${hostName}/configuration.nix ];
-        specialArgs = { inherit self inputs outputs hostName; };
-      });
+    mkNixosSystems = hostNames:
+      lib.genAttrs hostNames (hostName:
+        lib.nixosSystem {
+          modules = [./hosts/${hostName}/configuration.nix];
+          specialArgs = {inherit self inputs outputs hostName;};
+        });
   in {
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home;
