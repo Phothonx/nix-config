@@ -9,13 +9,13 @@ in {
   options.icons = {
     name = lib.mkOption {
       type = lib.types.str;
-      default = "Morewaita";
-      example = "Morewaita";
+      default = "Papirus-Dark";
+      example = "Papirus-Dark";
     };
     package = lib.mkOption {
       type = lib.types.package;
-      default = pkgs.morewaita-icon-theme;
-      example = "pkgs.morewaita-icon-theme";
+      default = pkgs.papirus-icon-theme;
+      example = "pkgs.papirus-icon-theme";
     };
   };
 

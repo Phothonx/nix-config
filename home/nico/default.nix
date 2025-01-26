@@ -2,6 +2,7 @@
   imports = [
     ./wayland
     ./softwares
+    ./games
     ./services
     ./dev
     ./config

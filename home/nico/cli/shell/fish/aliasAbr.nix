@@ -8,6 +8,10 @@
       # --- Replacements ---
       ls = "eza";
       cd = "z";
+      cp = "cp --verbose";
+      mv = "mv --verbose";
+      rm = "rm -I --verbose";
+      mkdir = "mkdir --parents --verbose";
     };
 
     shellAbbrs = {
@@ -17,20 +21,23 @@
       "..." = "cd ../..";
       "...." = "cd ../../..";
 
-      # nixos essencials
+      # nixos essentials
       nt = "nh os test";
       ns = "nh os switch";
       nr = "sudo nixos-rebuild switch --flake $FLAKE#avalon";
       nfu = "nix flake update";
-      nd = "nix develop -c fish";
+      nd = "nix develop --command fish";
       ndb = "nix flake check --show-trace";
       nfs = "nix flake show";
 
+      # git
+      gs = "git status";
+      gaa = "git add --all";
+      gpom = "git push --set-upstream origin m";
+      gcm = "git commit --message ";
+      gb = "git branch";
+
       # Alias's to modified commands
-      cp = "cp -v";
-      mv = "mv -v";
-      rm = "rm -iv";
-      mkdir = "mkdir -pv";
       ps = "ps auxf";
       ping = "ping -c 10";
       less = "less -R";

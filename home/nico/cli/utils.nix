@@ -29,8 +29,9 @@
     fd
     atuin
 
-    # Fun fetching
+    # Fun/fetching
     cowsay
+    tt
     pipes
     cbonsai
     cmatrix
