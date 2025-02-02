@@ -41,7 +41,7 @@ in {
       };
 
       decoration = {
-        rounding = 0;
+        rounding = 10;
 
         shadow = {
           enabled = true;

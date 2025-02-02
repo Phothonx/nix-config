@@ -33,8 +33,8 @@
       # git
       gs = "git status";
       gaa = "git add --all";
-      gpom = "git push --set-upstream origin m";
-      gcm = "git commit --message ";
+      gpom = "git push --set-upstream origin main";
+      gcm = "git commit --message";
       gb = "git branch";
 
       # Alias's to modified commands
