@@ -1,10 +1,8 @@
 {
   pkgs,
-  config,
   ...
-}: let
-  inherit (config) colorScheme;
-in {
+}:
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -13,6 +11,7 @@ in {
     vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
+      # COLORSHEMES
       rose-pine
       oxocarbon-nvim
       tokyonight-nvim
@@ -36,11 +35,20 @@ in {
       # REPL
       iron-nvim
 
+      # TELESCOPE
+      telescope-nvim
+
       # NEORG
       plenary-nvim
       nui-nvim
       nvim-nio
       neorg
+
+      # Other
+      flash-nvim
+      harpoon2
+      which-key-nvim
+      neo-tree-nvim
     ];
 
     extraPackages = with pkgs; [
@@ -50,6 +58,7 @@ in {
       curl
       fzf
       python3
+      imagemagick
 
       # LSP / FORMATTERS
       ccls
@@ -60,8 +69,6 @@ in {
       ocamlPackages.lsp
       ocamlPackages.ocamlformat
       nixd
-      nil
-      alejandra
 
       # REPL
       ocamlPackages.utop
@@ -72,13 +79,6 @@ in {
         pathlib-nvim # For neorg
         lua-utils-nvim # For neorg
       ];
-
-    extraLuaConfig = with colorScheme.base24; ''
-      require("rose-pine").setup()
-      require("tokyonight.colors").setup()
-      require('catppuccin').setup()
-      vim.cmd.colorscheme "catppuccin"
-    '';
   };
 
   home.file.".config/nvim" = {

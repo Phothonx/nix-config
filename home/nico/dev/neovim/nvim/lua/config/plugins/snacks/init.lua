@@ -1,3 +1,5 @@
+local picker = require("config.plugins.snacks.picker")
+
 require("snacks").setup({
 
   indent = {
@@ -14,6 +16,10 @@ require("snacks").setup({
     },
     chunk = {
       enabled = true,
+      corner_top = "╭",
+      corner_bottom = "╰",
     },
   },
+
+  picker = picker,
 })

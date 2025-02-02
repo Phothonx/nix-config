@@ -1,5 +1,5 @@
 require("options")
-require('keymaps')
+require("keymaps")
 
 require("rose-pine").setup()
 require("tokyonight.colors").setup()

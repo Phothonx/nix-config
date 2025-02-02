@@ -4,7 +4,7 @@ local servers = {
       Lua = {
         diagnostics = {
           -- Get the language server to recognize the `vim` global
-          globals = {'vim'},
+          globals = {'vim', "Snacks", "Mini"},
         },
         format = {
           preview = true,

@@ -15,6 +15,12 @@
     };
 
     shellAbbrs = {
+      # Qof
+      "-h" = {
+        position = "anywhere";
+        expansion = "--help";
+      };
+
       # Change directory aliases
       "cd.." = "cd ..";
       ".." = "cd ..";
@@ -22,6 +28,8 @@
       "...." = "cd ../../..";
 
       # nixos essentials
+      nf = "nix flake";
+      np = "nix profile";
       nt = "nh os test";
       ns = "nh os switch";
       nr = "sudo nixos-rebuild switch --flake $FLAKE#avalon";
@@ -29,12 +37,21 @@
       nd = "nix develop --command fish";
       ndb = "nix flake check --show-trace";
       nfs = "nix flake show";
+      npl = "nix profile list";
+      npr = "nix profile remove";
+      npi = {
+        expansion = "nix profile install nixpkgs#%";
+        setCursor = true;
+      };
 
       # git
       gs = "git status";
       gaa = "git add --all";
       gpom = "git push --set-upstream origin main";
-      gcm = "git commit --message";
+      gcm = {
+        expansion = "git commit --message \"%\"";
+        setCursor = true;
+        };
       gb = "git branch";
 
       # Alias's to modified commands
