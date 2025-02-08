@@ -11,12 +11,12 @@
     unrar
     glow
     wev
-    bitwarden-cli
+    # bitwarden-cli
     just
     yt-dlp
 
     # auditing
-    vulnix
+    # vulnix
     lynis
 
     # Quality of life

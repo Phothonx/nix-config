@@ -1,4 +1,4 @@
-{outputs, ...}: {
+{outputs, pkgs, ...}: {
   imports = [
     outputs.homeManagerModules.colors
     outputs.homeManagerModules.cursor
@@ -6,6 +6,9 @@
     outputs.homeManagerModules.icons
     outputs.homeManagerModules.wallpaper
     outputs.homeManagerModules.monitors
+  ];
+
+  home.packages = with pkgs; [
   ];
 
   fontsProfiles.enable = true;

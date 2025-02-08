@@ -35,9 +35,6 @@
       # REPL
       iron-nvim
 
-      # TELESCOPE
-      telescope-nvim
-
       # NEORG
       plenary-nvim
       nui-nvim
@@ -46,9 +43,8 @@
 
       # Other
       flash-nvim
-      harpoon2
       which-key-nvim
-      neo-tree-nvim
+      nvim-web-devicons
     ];
 
     extraPackages = with pkgs; [

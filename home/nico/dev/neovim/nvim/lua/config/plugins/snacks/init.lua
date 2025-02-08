@@ -4,8 +4,8 @@ require("snacks").setup({
 
   indent = {
     enabled = true,
+      char = "", -- "¦"
     scope = {
-      char = "¦",
       enabled = false,
     },
     animate = {
@@ -19,6 +19,11 @@ require("snacks").setup({
       corner_top = "╭",
       corner_bottom = "╰",
     },
+  },
+
+  explorer = {
+    enabled = true,
+    replace_netrw = true,
   },
 
   picker = picker,

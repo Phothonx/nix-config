@@ -27,16 +27,20 @@
       example = "14";
     };
 in {
+# iosevka, jetbrains, fira, victor
+
   options.fontsProfiles = {
     enable = lib.mkEnableOption "Whether to enable font profiles";
 
-    monospace = mkFontOption "jetbrains-mono Nerd Font" pkgs.nerd-fonts.jetbrains-mono;
-    regular = mkFontOption "ubuntu Nerd Font" pkgs.nerd-fonts.ubuntu;
+    monospace = mkFontOption "JetBrains Mono" pkgs.jetbrains-mono;
+    regular = mkFontOption "Ubuntu" pkgs.ubuntu-classic;
+    glyph = mkFontOption "Symbols Nerd Font Mono" pkgs.nerd-fonts.symbols-only;
+    emoji = mkFontOption "Noto Color Emoji" pkgs.noto-fonts-color-emoji;
 
     sizes = {
       desktop = mkSizeOption 22;
       applications = mkSizeOption 12;
-      termianl = mkSizeOption 9;
+      termianl = mkSizeOption 12;
     };
   };
 
@@ -51,6 +55,8 @@ in {
     home.packages = [
       cfg.monospace.package
       cfg.regular.package
+      cfg.glyph.package
+      cfg.emoji.package
     ];
   };
 }
