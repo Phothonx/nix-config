@@ -49,6 +49,8 @@ o.mouse = "a"
 
 o.laststatus = 3 -- status line averywhere
 
+o.autochdir = true
+
 -- Search
 o.ignorecase = true -- ignore case in search
 o.smartcase = true -- but enable if used

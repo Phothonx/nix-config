@@ -6,6 +6,7 @@ vim.keymap.set("n", "<leader>,", function() Snacks.picker.buffers() end, { desc 
 vim.keymap.set("n", "<leader>/", function() Snacks.picker.grep() end, { desc = "Grep" })
 vim.keymap.set("n", "<leader>:", function() Snacks.picker.command_history() end, { desc = "Command History" })
 vim.keymap.set("n", "<leader><space>", function() Snacks.picker.files() end, { desc = "Find Files" })
+vim.keymap.set("n", "<leader>a", function() Snacks.explorer() end, { desc = "File Explorer", })
 
 -- find
 vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })

@@ -10,7 +10,6 @@ vim.g.mapleader = ' '
 map({ 'n', 'x' }, 'j', [[v:count == 0 ? 'gj' : 'j']], { expr = true })
 map({ 'n', 'x' }, 'k', [[v:count == 0 ? 'gk' : 'k']], { expr = true })
 
-
 -- Copy/paste with system clipboard
 map({ 'n', 'x' }, 'gy', '"+y', { desc = 'Copy to system clipboard' })
 map(  'n',        'gp', '"+p', { desc = 'Paste from system clipboard' })
@@ -25,27 +24,6 @@ map('n', '<C-L>', '<C-w>l', { desc = 'Focus on right window' })
 
 -- Reselect latest changed, put, or yanked text
 map('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, replace_keycodes = false, desc = 'Visually select changed text' })
-
--- Search inside visually highlighted text. Use `silent = false` for it to
--- make effect immediately.
-
--- Alternative way to save and exit in Normal mode.
--- NOTE: Adding `redraw` helps with `cmdheight=0` if buffer is not modified
-map(  'n',        '<C-S>', '<Cmd>silent! update | redraw<CR>',      { desc = 'Save' })
-map({ 'i', 'x' }, '<C-S>', '<Esc><Cmd>silent! update | redraw<CR>', { desc = 'Save and go to Normal mode' })   map('x', 'g/', '<esc>/\\%V', { silent = false, desc = 'Search inside visual selection' })
-
-local map_toggle = function(lhs, rhs, desc) map('n', 't' .. lhs, rhs, { desc = desc }) end
-map_toggle('b', '<Cmd>lua vim.o.bg = vim.o.bg == "dark" and "light" or "dark"; print(vim.o.bg)<CR>',       "Toggle 'background'")
-map_toggle('c', '<Cmd>setlocal cursorline! cursorline?<CR>',          "Toggle 'cursorline'")
-map_toggle('C', '<Cmd>setlocal cursorcolumn! cursorcolumn?<CR>',      "Toggle 'cursorcolumn'")
-map_toggle('d', '<Cmd>lua print(MiniBasics.toggle_diagnostic())<CR>', 'Toggle diagnostic')
-map_toggle('h', '<Cmd>lua vim.o.hlsearch = not vim.o.hlsearch<CR>',   'Toggle search highlight')
-map_toggle('i', '<Cmd>setlocal ignorecase! ignorecase?<CR>',          "Toggle 'ignorecase'")
-map_toggle('l', '<Cmd>setlocal list! list?<CR>',                      "Toggle 'list'")
-map_toggle('n', '<Cmd>setlocal number! number?<CR>',                  "Toggle 'number'")
-map_toggle('r', '<Cmd>setlocal relativenumber! relativenumber?<CR>',  "Toggle 'relativenumber'")
-map_toggle('s', '<Cmd>setlocal spell! spell?<CR>',                    "Toggle 'spell'")
-map_toggle('w', '<Cmd>setlocal wrap! wrap?<CR>',                      "Toggle 'wrap'")
 
 -- Window navigation
 map('n', '<C-H>', '<C-w>h', { desc = 'Focus on left window' })
@@ -67,7 +45,7 @@ map('c', '<M-j>', '<Down>',  { silent = false, desc = 'Down' })
 map('c', '<M-k>', '<Up>',    { silent = false, desc = '' })
 
 -- Don't `noremap` in insert mode to have these keybindings behave exactly
--- like arrows (crucial inside TelescopePrompt)
+-- like arrows (crucial inside TelescopePrompt) one day i'll have custom keyboard with a motion keymap layer ;-; (copium)
 map('i', '<M-h>', '<Left>',  { noremap = false, desc = 'Left' })
 map('i', '<M-j>', '<Down>',  { noremap = false, desc = 'Down' })
 map('i', '<M-k>', '<Up>',    { noremap = false, desc = 'Up' })
