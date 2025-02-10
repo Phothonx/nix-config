@@ -26,7 +26,6 @@ require("blink.cmp").setup({
       auto_show = true,
       auto_show_delay_ms = 400,
     },
-    ghost_text = {enabled = true},
   };
 
   appearance = {

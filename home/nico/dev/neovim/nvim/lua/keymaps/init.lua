@@ -6,6 +6,8 @@ vim.g.maplocalleader = "\\"
 
 map("n", "q:", "") -- "all my homies hate q:" -Confucius
 
+map("n", "<leader>h", "<Cmd>noh<CR>", {desc = "Clear search Highlight"})
+
 -- Move by visible lines. Notes:
 -- - Don't map in Operator-pending mode because it severely changes behavior:
 --   like `dj` on non-wrapped line will not delete it.

@@ -19,39 +19,28 @@
 
       # lSP
       nvim-lspconfig
-
-      # TS
       nvim-treesitter.withAllGrammars
       pkgs.tree-sitter-grammars.tree-sitter-norg-meta
       nvim-treesitter-parsers.norg
+
+      # DEPS
+      image-nvim # neorg & molten
+      nui-nvim # neorg
+      plenary-nvim # neorg
+      nvim-nio # neorg
+      nvim-web-devicons
 
       # MINI & SNACKS <3
       mini-nvim
       snacks-nvim
 
-      # CMP
+      # OTHER
       blink-cmp
-
-      # REPL
       iron-nvim
-
-      # MOLTEN
       molten-nvim
-      image-nvim
-
-      # test
-      neo-tree-nvim
-
-      # NEORG
-      nui-nvim
-      plenary-nvim
-      nvim-nio
       neorg
-
-      # Other
       flash-nvim
       which-key-nvim
-      nvim-web-devicons
     ];
 
     extraPackages = with pkgs; [

@@ -8,5 +8,8 @@ require("mini.diff").setup({
   },
 })
 
--- disable by default (toggle shortcut with snacks <leader>uf)
-vim.g.minidiff_disable = true
+local toggle_minidiff = function()
+  vim.g.minidiff_disable = not vim.g.minidiff_disable
+end
+
+vim.keymap.set('n', '<leader>uf', toggle_minidiff, { desc = "Toggle mini diff"; })
