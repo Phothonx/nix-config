@@ -1,17 +1,32 @@
 require("blink.cmp").setup({
+  enabled = function()
+    return not vim.tbl_contains({ }, vim.bo.filetype)
+    and vim.bo.buftype ~= "prompt"
+    and vim.b.completion ~= false
+  end,
   -- 'default' for mappings similar to built-in completion
   -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
   -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
   -- See the full "keymap" documentation for information on defining your own keymap.
-  keymap = { preset = 'default' },
+  keymap = {
+    preset = 'default'
+  },
 
   completion = {
-
     keyword = { range = "full" },
-
     list = {
-      selection = { preselect = false, auto_insert = true },
+      max_items = 20,
     },
+    menu = {
+      draw = {
+        treesitter = { 'lsp' },
+      },
+    },
+    documentation = {
+      auto_show = true,
+      auto_show_delay_ms = 400,
+    },
+    ghost_text = {enabled = true},
   };
 
   appearance = {

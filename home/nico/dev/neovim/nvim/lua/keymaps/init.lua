@@ -1,7 +1,10 @@
 -- Mostly from basics.lua
 local map = vim.keymap.set
 
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+map("n", "q:", "") -- "all my homies hate q:" -Confucius
 
 -- Move by visible lines. Notes:
 -- - Don't map in Operator-pending mode because it severely changes behavior:

@@ -1,8 +1,8 @@
 require("snacks").setup({
 
   indent = {
-    enabled = true,
-      char = "", -- "¦"
+    enabled = false,
+      -- char = "", -- "¦"
     scope = {
       enabled = false,
     },
@@ -13,7 +13,7 @@ require("snacks").setup({
       },
     },
     chunk = {
-      enabled = true,
+      enabled = false,
       corner_top = "╭",
       corner_bottom = "╰",
     },
@@ -62,7 +62,8 @@ Snacks.toggle.option("cursorline", { name = "Cursor line" }):map("<leader>uc")
 Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
 Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
 Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
-Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>uc")
+Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>uz")
+Snacks.toggle.option("vim.g.minidiff_disable", { name = "Mini diff"}):map("<leader>uf")
 
 Snacks.toggle.diagnostics():map("<leader>ud")
 Snacks.toggle.line_number():map("<leader>ul")

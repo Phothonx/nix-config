@@ -35,9 +35,16 @@
       # REPL
       iron-nvim
 
+      # MOLTEN
+      molten-nvim
+      image-nvim
+
+      # test
+      neo-tree-nvim
+
       # NEORG
-      plenary-nvim
       nui-nvim
+      plenary-nvim
       nvim-nio
       neorg
 
@@ -70,11 +77,30 @@
       ocamlPackages.utop
     ];
 
-    extraLuaPackages = luaPkgs:
-      with luaPkgs; [
-        pathlib-nvim # For neorg
-        lua-utils-nvim # For neorg
-      ];
+    extraLuaPackages = luaPkgs: with luaPkgs; [
+      pathlib-nvim # For neorg
+      lua-utils-nvim # For neorg
+      magick # for image rendering
+    ];
+
+    extraPython3Packages = ps: with ps; [
+      # MOLTEN
+      pynvim
+      jupyter-client
+      cairosvg # for image rendering
+      pnglatex # for image rendering
+      plotly # for image rendering
+      pyperclip
+      nbformat
+
+      # test molten
+      ipython
+      jupyter
+      ipykernel
+      numpy
+      matplotlib
+      scipy
+    ];
   };
 
   home.file.".config/nvim" = {
