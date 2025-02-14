@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -61,35 +57,38 @@
       ocamlPackages.lsp
       ocamlPackages.ocamlformat
       nixd
+      vscode-langservers-extracted
 
       # REPL
       ocamlPackages.utop
     ];
 
-    extraLuaPackages = luaPkgs: with luaPkgs; [
-      pathlib-nvim # For neorg
-      lua-utils-nvim # For neorg
-      magick # for image rendering
-    ];
+    extraLuaPackages = luaPkgs:
+      with luaPkgs; [
+        pathlib-nvim # For neorg
+        lua-utils-nvim # For neorg
+        magick # for image rendering
+      ];
 
-    extraPython3Packages = ps: with ps; [
-      # MOLTEN
-      pynvim
-      jupyter-client
-      cairosvg # for image rendering
-      pnglatex # for image rendering
-      plotly # for image rendering
-      pyperclip
-      nbformat
+    extraPython3Packages = ps:
+      with ps; [
+        # MOLTEN
+        pynvim
+        jupyter-client
+        cairosvg # for image rendering
+        pnglatex # for image rendering
+        plotly # for image rendering
+        pyperclip
+        nbformat
 
-      # test molten
-      ipython
-      jupyter
-      ipykernel
-      numpy
-      matplotlib
-      scipy
-    ];
+        # test molten
+        ipython
+        jupyter
+        ipykernel
+        numpy
+        matplotlib
+        scipy
+      ];
   };
 
   home.file.".config/nvim" = {

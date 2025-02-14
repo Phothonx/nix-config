@@ -25,6 +25,8 @@ local servers = {
 
   ccls = {},
 
+  cssls = {},
+
   ocamllsp = {},
 
   nixd = {

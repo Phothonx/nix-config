@@ -51,7 +51,7 @@
       gcm = {
         expansion = "git commit --message \"%\"";
         setCursor = true;
-        };
+      };
       gb = "git branch";
 
       # Alias's to modified commands

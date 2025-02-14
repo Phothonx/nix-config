@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./wayland
     ./softwares
@@ -7,6 +11,13 @@
     ./dev
     ./config
     ./cli
+  ];
+
+  # QUICK INTALL
+  home.packages = [
+    pkgs.lazygit
+    pkgs.neovide
+    pkgs.superfile
   ];
 
   home = {

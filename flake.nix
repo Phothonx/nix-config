@@ -66,7 +66,8 @@
     packages = forEachSystem (pkgs: import ./packages pkgs);
     formatter = forEachSystem (pkgs: pkgs.alejandra);
     nixosConfigurations = mkNixosSystems [
-      "avalon"
+      "avalon" # laptop
+      # "crystal" # raspi3
     ];
   };
 }

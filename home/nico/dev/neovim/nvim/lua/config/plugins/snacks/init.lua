@@ -25,7 +25,7 @@ require("snacks").setup({
   },
 
   statuscolumn = {
-    enabled = true,
+    enabled = false,
   },
 
   terminal = {

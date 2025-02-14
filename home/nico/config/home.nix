@@ -1,4 +1,8 @@
-{outputs, pkgs, ...}: {
+{
+  outputs,
+  pkgs,
+  ...
+}: {
   imports = [
     outputs.homeManagerModules.colors
     outputs.homeManagerModules.cursor

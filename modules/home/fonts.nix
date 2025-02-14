@@ -27,7 +27,7 @@
       example = "14";
     };
 in {
-# iosevka, jetbrains, fira, victor
+  # iosevka, jetbrains, fira, victor
 
   options.fontsProfiles = {
     enable = lib.mkEnableOption "Whether to enable font profiles";
