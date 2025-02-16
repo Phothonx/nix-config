@@ -39,33 +39,51 @@ in {
       };
     };
 
-    palette = mkOption {
+    palette = mkOption { # https://github.com/tinted-theming/base24/blob/main/styling.md
+      # one colorsheme to rule them all
+      # mix from ashen catpuccin rose pine, a bit of salt
+
       type = types.attrsOf hexColorCode;
-      default = with cfg.base24; {
-        background = base00;
-        black = base01;
-        b_black = base02;
-        grey = base03;
-        l_grey = base04;
-        foreground = base05;
-        white = base06;
-        b_white = base07;
-        red = base08;
-        orange = base09;
-        yellow = base0A;
-        green = base0B;
-        cyan = base0C;
-        blue = base0D;
-        purple = base0E;
-        brown = base0F;
-        d_background = base10;
-        dt_background = base11;
-        b_red = base12;
-        b_yellow = base13;
-        b_green = base14;
-        b_cyan = base15;
-        b_blue = base16;
-        b_purple = base17;
+      default = {
+        background = "121212"; # default background
+        foreground = "e5e5e5"; # foreground
+
+        black = "121212";
+        b_black = "151515"; # selection background
+
+        grey = "a7a7a7"; # comments
+        b_grey = "#535353"; # dark foreground
+
+        white = "e5e5e5"; # light foreground
+        b_white = "FFFFFF"; # lightest foreground
+
+        red = "C53030";
+        b_red = "DF6464";
+
+        brown = "7A2E2E"; # dark red
+        orange = "D87C4A";
+
+        yellow = "D7A933";
+        b_yellow = "F4CA64";
+
+        green = "1E6F54";
+        b_green = "629C7D";
+
+        cyan = "6E91C4";
+        b_cyan = "4AC4C4";
+
+        blue = "233A71";
+        b_blue = "4A8B8B";
+
+        purple = "502E5F";
+        b_purple = "7A3D82";
+
+        accent = red;
+        b_accent = yellow;
+
+        # not used
+        d_black = ""; # darker background
+        dt_black = ""; # darkest background
       };
     };
   };

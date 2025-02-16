@@ -15,12 +15,6 @@ map("n", "<leader>h", "<Cmd>noh<CR>", {desc = "Clear search Highlight"})
 map({ 'n', 'x' }, 'j', [[v:count == 0 ? 'gj' : 'j']], { expr = true })
 map({ 'n', 'x' }, 'k', [[v:count == 0 ? 'gk' : 'k']], { expr = true })
 
--- Copy/paste with system clipboard
-map({ 'n', 'x' }, 'gy', '"+y', { desc = 'Copy to system clipboard' })
-map(  'n',        'gp', '"+p', { desc = 'Paste from system clipboard' })
--- - Paste in Visual with `P` to not copy selected text (`:h v_P`)
-map(  'x',        'gp', '"+P', { desc = 'Paste from system clipboard' })
-
 -- Window navigation
 map('n', '<C-H>', '<C-w>h', { desc = 'Focus on left window' })
 map('n', '<C-J>', '<C-w>j', { desc = 'Focus on below window' })

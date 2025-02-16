@@ -6,6 +6,7 @@ local opt = vim.opt
 
 -- General
 o.undofile    = true  -- Enable persistent undo (see also `:h undodir`)
+o.clipboard = "unnamedplus"
 
 o.backup      = false -- Don't store backup while overwriting the file
 o.writebackup = false -- Don't store backup while overwriting the file

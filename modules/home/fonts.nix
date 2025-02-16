@@ -6,7 +6,7 @@
 }: let
   cfg = config.fontsProfiles;
 
-  mkFontOption = name: pkg: {
+  mkFontOption = name: package: {
     name = lib.mkOption {
       type = lib.types.str;
       default = name;
@@ -14,7 +14,7 @@
     };
     package = lib.mkOption {
       type = lib.types.package;
-      default = pkg;
+      default = package;
       example = "pkgs.fira-code";
     };
   };
@@ -48,7 +48,8 @@ in {
     fonts.fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [cfg.monospace.name];
+        monospace = [ cfg.monospace.name ];
+        emoji = [ cfg.emoji.name ];
       };
     };
 

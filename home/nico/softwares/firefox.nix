@@ -31,7 +31,7 @@
         "breakpad.reportURL" = "";
 
         "browser.startup.page" = 3; # restore prev session
-        "browser.startup.homepage" = "about:blank";
+        "browser.startup.homepage" = "https://searx.ox2.fr/"; # searchXNG instance
 
         "browser.tabs.crashReporting.sendReport" = false;
         "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
@@ -49,7 +49,7 @@
         "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.newtabpage.pinned" = false;
-        "browser.newtabpage.enabled" = false; # blank new tab page
+        "browser.newtabpage.enabled" = false; # false = blank new tab page
         "browser.protections_panel.infoMessage.seen" = true;
         "browser.quitShortcut.disabled" = true;
         "browser.shell.checkDefaultBrowser" = false;
@@ -100,45 +100,31 @@
       };
 
       search = {
-        default = "Google";
+        default = "SearchXNG";
         engines = {
           "Bing".metaData.hidden = true;
           "Gmogle".metaData.alias = "@g";
+          "SearchXNG" = {
+            urls = [
+              { template = "https://searx.ox2.fr/search?q={searchTerms}"; }
+            ];
+            definedAliases = ["@sx" "@searchx"];
+          };
           "Nix Packages" = {
             urls = [
-              {
-                template = "https://search.nixos.org/packages";
-                params = [
-                  { name = "type"; value = "packages"; }
-                  { name = "channel"; value = "unstable"; }
-                  { name = "query"; value = "{searchTerms}"; }
-                ];
-              }
+              { template = "https://search.nixos.org/packages?type=packages&channel=unstable&query={searchTerms}"; }
             ];
-            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = ["@np" "@nixpkgs"];
           };
           "Home-manager Options" = {
             urls = [
-              {
-                template = "https://home-manager-options.extranix.com";
-                params = [
-                  { name = "query"; value = "{searchTerms}"; }
-                  { name = "release"; value = "master"; }
-                ];
-              }
+              { template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master"; }
             ];
-            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = ["@hm" "@homeoptions"];
           };
           "YouTube" = {
             urls = [
-              {
-                template = "https://www.youtube.com/results?";
-                params = [
-                  { name = "search_query="; value = "{searchTerms}"; }
-                ];
-              }
+              { template = "https://www.youtube.com/results?search_query={searchTerms}"; }
             ];
             definedAliases = [ "@yt" "@youtube" ];
           };

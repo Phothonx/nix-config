@@ -30,7 +30,7 @@ in {
     verbose = true;
     useUserPackages = true;
     useGlobalPkgs = true;
-    backupFileExtension = "hm.old";
+    backupFileExtension = "hm.back";
     extraSpecialArgs = {inherit inputs outputs;};
     users.nico = import ./../../../../home/nico;
   };

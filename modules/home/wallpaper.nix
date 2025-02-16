@@ -12,4 +12,9 @@ in {
       default = null;
     };
   };
+
+  #   wallpapersDir = mkOption {
+  #     type = types.nullOr types.path;
+  #     default = null;
+  #   };
 }
