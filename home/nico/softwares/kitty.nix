@@ -5,19 +5,24 @@ in {
     enable = true;
     shellIntegration = {
       enableBashIntegration = true;
-      mode = "no-cursor";
+      enableFishIntegration = true;
+      # mode = "no-cursor";
     };
 
-    settings = with colorScheme.base24; {
+    settings = with colorScheme.palette; {
       # FONTS
-      font_family = fontsProfiles.monospace.name;
-      font_size = "13";
+      "font_family family" = fontsProfiles.monospace.name;
+      font_size = "12";
 
       # CURSOR
-      cursor = "#${base13}";
-      cursor_text_color = "#${base11}";
+      cursor = "none"; # reverse colors
       cursor_shape = "beam";
       cursor_beam_thickness = "2";
+      cursor_shape_unfocused =  "unchanged";
+
+      cursor_trail = 1;
+
+      scrollback_pager_history_size = 10;
 
       # SCROLLBACK
       scrollback_lines = "10000";
@@ -30,58 +35,47 @@ in {
       enable_audio_bell = "no";
 
       # WINDOW LAYOUT
-      window_padding_width = "5";
-      placement_strategy = "center";
-      hide_window_decorations = "no";
+      remember_window_size = "no";
+      window_padding_width = "10";
+      hide_window_decorations = "yes";
       confirm_os_window_close = "0";
 
       # TAB BAR
 
       # COLOR SHEME
-      foreground = "#${base07}";
-      background = "#${base00}";
+      foreground = "#${foreground}";
+      background = "#${background}";
 
-      background_opacity = "1.0";
+      background_opacity = "0.3";
 
       selection_foreground = "none";
-      selection_background = "#${base03}";
+      selection_background = "none";
 
-      color0 = "#${base02}";
-      color8 = "#${base03}";
+      color0 = "#${black}";
+      color8 = "#${grey}";
 
-      color1 = "#${base08}";
-      color9 = "#${base12}";
+      color1 = "#${red}";
+      color9 = "#${b_red}";
 
-      color2 = "#${base0B}";
-      color10 = "#${base14}";
+      color2 = "#${green}";
+      color10 = "#${b_green}";
 
-      color3 = "#${base0A}";
-      color11 = "#${base13}";
+      color3 = "#${yellow}";
+      color11 = "#${b_yellow}";
 
-      color4 = "#${base0D}";
-      color12 = "#${base16}";
+      color4 = "#${blue}";
+      color12 = "#${b_blue}";
 
-      color5 = "#${base0E}";
-      color13 = "#${base17}";
+      color5 = "#${purple}";
+      color13 = "#${b_purple}";
 
-      color6 = "#${base0C}";
-      color14 = "#${base15}";
+      color6 = "#${cyan}";
+      color14 = "#${b_cyan}";
 
-      color7 = "#${base05}";
-      color15 = "#${base06}";
+      color7 = "#${white}";
+      color15 = "#${b_white}";
 
-      mark1_foreground = "#${base17}";
-      mark1_background = "#${base11}";
-
-      mark2_foreground = "#${base0E}";
-      mark2_background = "#${base11}";
-
-      mark3_foreground = "#${base16}";
-      mark3_background = "#${base11}";
-
-      # ADVANCED
-      allow_remote_control = "yes";
-
+      notify_on_finish = "unfocused 10";
       # KEYBOARD
       # clear_all_shortcuts = "yes";
     };

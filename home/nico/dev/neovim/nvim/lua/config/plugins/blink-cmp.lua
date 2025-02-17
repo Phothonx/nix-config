@@ -21,10 +21,12 @@ require("blink.cmp").setup({
       draw = {
         treesitter = { 'lsp' },
       },
+      border = "single",
     },
     documentation = {
       auto_show = true,
       auto_show_delay_ms = 400,
+      window = { border = "single", },
     },
   };
 

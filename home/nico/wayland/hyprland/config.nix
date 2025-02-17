@@ -23,40 +23,48 @@ in {
 
     xwayland.enable = true;
 
-    settings = with colorScheme.base24; {
+    settings = with colorScheme.palette; {
       monitor = [
         "eDP-1, 1920x1200@60, 0x0, 1" # personal monitor
       ];
 
       general = {
-        border_size = 2;
+        border_size = 0;
 
         gaps_in = 4;
         gaps_out = 8;
 
-        "col.inactive_border" = "rgb(${base10})";
-        "col.active_border" = "rgb(${base0E}) rgb(${base0D}) 180deg";
+        "col.inactive_border" = "rgb(${background})";
+        "col.active_border" = "rgb(${red}) rgb(${orange}) rgb(${yellow}) 180deg";
 
         layout = "dwindle";
+        resize_on_border = true;
+        hover_icon_on_border = false;
+
+        # snapping ?
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 0;
 
         shadow = {
           enabled = true;
-          range = 10;
-          render_power = 2;
-          color = "rgba(0, 0, 0, 0.25)";
+          range = 300;
+          render_power = 4;
+          ignore_window = true;
+          offset = "0 40";
+          color = "rgba(${black}af)";
+          scale = 0.9;
         };
 
         blur = {
-          enabled = false;
-          size = 5;
+          enabled = true;
+          size = 13;
+          xray = true;
           passes = 3;
           new_optimizations = true;
-          contrast = 1;
-          brightness = 1;
+          vibrancy_darkness = 2.0;
+          vibrancy = 0.1696;
           special = true; # nice but more expensive
           popups = true;
         };
@@ -79,6 +87,7 @@ in {
           # https://easings.net/
           "myBezier, .5, .25, 0, 1"
           "quart, 0.25, 1, 0.5, 1"
+          "linear, 0.0, 0.0, 1.0, 1.0"
         ];
         animation = [
           "windows, 1, 2.5, myBezier, popin 80%"
@@ -86,6 +95,7 @@ in {
           "fade, 1, 2.5, myBezier"
           "borderangle, 1, 6, quart"
           "workspaces, 1, 2.5, myBezier, slidefade 20%"
+          "borderangle, 1, 100, linear, loop"
         ];
       };
 
@@ -93,7 +103,7 @@ in {
         kb_layout = "fr";
         kb_options = "caps:escape,fkeys:basic_13-24"; # disable capslock & weird-already-binded utilskeys
         repeat_rate = 40; # on long press
-        repeat_delay = 250; # time to hold before repeating
+        repeat_delay = 300; # time to hold before repeating
 
         sensitivity = 0.25;
         accel_profile = "flat"; # no mouse acceleration
@@ -102,9 +112,10 @@ in {
 
         scroll_method = "2fg"; # 2 finger scroll
         touchpad = {
-          disable_while_typing = false;
+          disable_while_typing = true;
           clickfinger_behavior = true;
           natural_scroll = true; # invert
+          drag_lock = true;
           scroll_factor = 0.75;
         };
       };
@@ -118,15 +129,11 @@ in {
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
-        background_color = "rgb(${base00})";
+        background_color = "rgb(${background})";
 
         font_family = fontsProfiles.monospace.name;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
-
-        #  enable_swallow = true;
-        #  swallow_regex = "^(kitty)$";
-        #  swallow_exception_regex = "^(xev|wev)$";
 
         focus_on_activate = true;
         animate_manual_resizes = false;

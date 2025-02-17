@@ -11,79 +11,96 @@ in {
   options.colorScheme = {
     base24 = mkOption {
       type = types.attrsOf hexColorCode;
-      default = {
-        base00 = "1e1e2e"; # base
-        base01 = "313244"; # surface 0
-        base02 = "45475a"; # surface 1
-        base03 = "585b70"; # surface 2
-        base04 = "6c7086"; # overlay 0
-        base05 = "7f849c"; # overlay 1
-        base06 = "9399b2"; # overlay 2
-        base07 = "cdd6f4"; # text
-        base08 = "f38ba8"; # red
-        base09 = "fab387"; # peach
-        base0A = "f9e2af"; # yellow
-        base0B = "a6e3a1"; # green
-        base0C = "94e2d5"; # teal
-        base0D = "89b4fa"; # blue
-        base0E = "cba6f7"; # mauve
-        base0F = "eba0ac"; # maroon
-        base10 = "181825"; # mantle
-        base11 = "11111b"; # crust
-        base12 = "f5c2e7"; # pink
-        base13 = "f5e0dc"; # rosewater
-        base14 = "94e2d5"; # teal
-        base15 = "89dceb"; # sky
-        base16 = "74c7ec"; # sapphire
-        base17 = "b4befe"; # lavender
+      default = with cfg.palette; {
+        base00 = background;
+        base01 = black;
+        base02 = b_black;
+        base03 = grey;
+        base04 = b_grey;
+        base05 = foreground;
+        base06 = white;
+        base07 = b_white;
+        base08 = red;
+        base09 = orange;
+        base0A = yellow;
+        base0B = green;
+        base0C = cyan;
+        base0D = blue;
+        base0E = purple;
+        base0F = brown;
+        base10 = black; # same black
+        base11 = black; # same black
+        base12 = b_red;
+        base13 = b_yellow;
+        base14 = b_green;
+        base15 = b_cyan;
+        base16 = b_blue;
+        base17 = b_purple;
+      };
+    };
+
+    base16 = mkOption {
+      type = types.attrsOf hexColorCode;
+      default = with cfg.palette; {
+        base00 = background;
+        base01 = black;
+        base02 = b_black;
+        base03 = grey;
+        base04 = b_grey;
+        base05 = foreground;
+        base06 = white;
+        base07 = b_white;
+        base08 = red;
+        base09 = orange;
+        base0A = yellow;
+        base0B = green;
+        base0C = cyan;
+        base0D = blue;
+        base0E = purple;
+        base0F = brown;
       };
     };
 
     palette = mkOption { # https://github.com/tinted-theming/base24/blob/main/styling.md
       # one colorsheme to rule them all
-      # mix from ashen catpuccin rose pine, a bit of salt
+      # mix from catpuccin rose pine, and a bit of salt
 
       type = types.attrsOf hexColorCode;
-      default = {
-        background = "121212"; # default background
-        foreground = "e5e5e5"; # foreground
+      default = rec {
+        background = "11111b"; # default background
+        foreground = "cdd6f4"; # foreground
+        accent     = red;
+        secondary  = yellow;
 
-        black = "121212";
-        b_black = "151515"; # selection background
+        dt_black   = ""; # darkest background (not used)
+        d_black    = ""; # darker background (not used)
+        black      = "000000";
+        b_black    = "191724"; # selection background
+        grey       = "6e6a86"; # comments
+        b_grey     = "908caa"; # dark foreground
+        white      = "e0def4"; # light foreground
+        b_white    = "ffffff"; # lightest foreground
 
-        grey = "a7a7a7"; # comments
-        b_grey = "#535353"; # dark foreground
+        red        = "eb6f92";
+        b_red      = "f5c2e7";
 
-        white = "e5e5e5"; # light foreground
-        b_white = "FFFFFF"; # lightest foreground
+        brown      = "eba0ac"; # dark red
+        orange     = "fab387";
 
-        red = "C53030";
-        b_red = "DF6464";
+        yellow     = "f6c177";
+        b_yellow   = "f9e2af";
 
-        brown = "7A2E2E"; # dark red
-        orange = "D87C4A";
+        green      = "a6e3a1";
+        b_green    = "94e2d5";
 
-        yellow = "D7A933";
-        b_yellow = "F4CA64";
+        cyan       = "31748f";
+        b_cyan     = "93e1d4";
 
-        green = "1E6F54";
-        b_green = "629C7D";
+        blue       = "89b4fa";
+        b_blue     = "74c7ec";
 
-        cyan = "6E91C4";
-        b_cyan = "4AC4C4";
-
-        blue = "233A71";
-        b_blue = "4A8B8B";
-
-        purple = "502E5F";
-        b_purple = "7A3D82";
-
-        accent = red;
-        b_accent = yellow;
-
-        # not used
-        d_black = ""; # darker background
-        dt_black = ""; # darkest background
+        purple     = "cba6f7";
+        b_purple   = "b4befe";
       };
     };
   };

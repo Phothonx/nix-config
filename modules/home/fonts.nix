@@ -28,6 +28,7 @@
     };
 in {
   # iosevka, jetbrains, fira, victor
+  # serif zilla slab, sans serif inter
 
   options.fontsProfiles = {
     enable = lib.mkEnableOption "Whether to enable font profiles";
