@@ -12,6 +12,9 @@ in {
     swww
     hyprshot
     hyprpicker
+
+    my-shell
+    astal.io # default astal lib to use cli
   ];
 
   wayland.windowManager.hyprland = {

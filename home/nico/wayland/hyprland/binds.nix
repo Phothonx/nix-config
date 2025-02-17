@@ -37,9 +37,8 @@
       ### APPS SHORTCUTS ###
       "SUPER, Q, exec, ${kitty}/bin/kitty"
       "SUPER SHIFT, Q, exec, [float] kitty"
-      "SUPER, Z, exec, ${zed-editor}/bin/zed"
       "SUPER, B, exec, ${firefox}/bin/firefox"
-      "SUPER, R, exec, ${tofi}/bin/tofi-drun"
+      "SUPER, R, exec, astal --instance astal-lua --toggle-window launcher"
       "SUPER, E, exec, ${nautilus}/bin/nautilus"
       "SUPER, D, exec, ${vesktop}/bin/vesktop"
       "CTRL ALT, L, exec, ${hyprlock}/bin/hyprlock"

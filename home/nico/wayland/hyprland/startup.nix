@@ -16,16 +16,9 @@ in {
 
       "${wl-clipboard}/bin/wl-paste --watch cliphist store"
 
-      (getExe waybar)
-
       (getExe dunst)
 
-      "hyprshade install"
-      "systemctl --user enable --now hyprshade.timer"
-    ];
-
-    exec = [
-      "hyprshade auto"
+      "${my-shell}/bin/my-shell"
     ];
   };
 }

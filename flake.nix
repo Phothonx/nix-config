@@ -28,6 +28,12 @@
     # Devshells
     nix-devshells.url = "github:Phothonx/nix-devshells";
     nix-devshells.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Astal
+    my-shell = {
+      url = "./astal/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

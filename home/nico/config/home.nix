@@ -17,6 +17,6 @@
 
   fontsProfiles.enable = true;
 
-  wallpaper = ./../../../wallpapers/magma.png;
-  lockimg = ./../../../wallpapers/magma.png;
+  wallpaper = ./../../../wallpapers/crystal-waves.png;
+  lockimg = ./../../../wallpapers/crystal-waves-tern.png;
 }
