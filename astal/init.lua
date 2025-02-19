@@ -5,6 +5,7 @@ local Bar = require("lua.widget.Bar.init")
 local AppLauncher = require("lua.widget.Applauncher.init")
 local VolumeOsd = require("lua.widget.osd.init")
 local WallSelector = require("lua.widget.wallselector.init")
+local Notification = require("lua.widget.notifications.init")
 
 local scss = "./style.scss"
 local css = "/tmp/style.css"
@@ -17,6 +18,7 @@ App:start({
 
 		for _, monitor in pairs(App.monitors) do
 			Bar(monitor)
+      Notification(monitor)
 		end
 
     AppLauncher()
