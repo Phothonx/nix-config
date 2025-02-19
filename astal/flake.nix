@@ -33,6 +33,6 @@
       ]);
     };
 
-    overlays.default = final: prev: { my-shell =  self.outputs.packages.${system}.default; };
+    overlays.default = final: prev: { my-shell =  self.outputs.packages.${system}.default; }; # make sure final.pkgs.system == system
   };
 }

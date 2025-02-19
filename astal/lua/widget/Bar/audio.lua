@@ -2,11 +2,11 @@ local astal = require("astal")
 local bind = astal.bind
 local Wp = astal.require("AstalWp")
 local Widget = require("astal.gtk3.widget")
-local Variable = astal.Variable
+-- local Variable = astal.Variable
 
 return function()
 	local speaker = Wp.get_default().audio.default_speaker
-	local scroll_revealed = Variable()
+	-- local scroll_revealed = Variable()
 
 	return Widget.EventBox({
 		-- on_hover = function()
