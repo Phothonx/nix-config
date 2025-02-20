@@ -4,7 +4,7 @@ in {
   imports = [./style.nix];
 
   programs.waybar = {
-    enable = true;
+    enable = false;
     settings = {
       mainBar = {
         layer = "top";

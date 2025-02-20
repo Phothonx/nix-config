@@ -5,20 +5,6 @@ local GLib = astal.require("GLib")
 
 local M = {}
 
-
----@generic T, R
----@param array T[]
----@param func fun(T, i: integer): R
----@return R[]
-function M.map(array, func)
-	local new_arr = {}
-	for i, v in ipairs(array) do
-		new_arr[i] = func(v, i)
-	end
-	return new_arr
-end
-
-
 ---@generic T, R
 ---@param array T[]
 ---@param func fun(T, i: integer): R

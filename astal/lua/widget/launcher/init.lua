@@ -1,16 +1,14 @@
 local astal = require("astal")
-
-local Apps = astal.require("AstalApps")
-local App = require("astal.gtk3.app")
-local Astal = require("astal.gtk3").Astal
-local Gdk = require("astal.gtk3").Gdk
-local Variable = astal.Variable
 local Widget = require("astal.gtk3.widget")
+local App = require("astal.gtk3.app")
+local Gdk = require("astal.gtk3").Gdk
+local Apps = astal.require("AstalApps")
+local Variable = astal.Variable
 
 local slice = require("lua.lib").slice
 local map = require("lua.lib").map
 
-local MAX_ITEMS = 8
+local MAX_ITEMS = 10
 
 local function hide()
 	local launcher = App:get_window("launcher")
@@ -30,13 +28,13 @@ local function AppButton(app)
 				valign = "CENTER",
 				vertical = true,
 				Widget.Label({
-					class_name = "name",
+					class_name = "Name",
 					wrap = true,
 					xalign = 0,
 					label = app.name,
 				}),
 				app.description and Widget.Label({
-					class_name = "description",
+					class_name = "Description",
 					wrap = true,
 					xalign = 0,
 					label = app.description,
@@ -48,10 +46,12 @@ end
 
 return function()
 	local apps = Apps.Apps()
+  local Anchor = require("astal.gtk3").Astal.WindowAnchor
 
 	local text = Variable("")
-	local list = text(
-		function(t) return slice(apps:fuzzy_query(t), 1, MAX_ITEMS) end
+	local list = text(function(t)
+    return slice(apps:fuzzy_query(t), 1, MAX_ITEMS)
+  end
 	)
 
 	local on_enter = function()
@@ -64,7 +64,7 @@ return function()
 
 	return Widget.Window({
 		name = "launcher",
-		anchor = Astal.WindowAnchor.TOP + Astal.WindowAnchor.BOTTOM,
+		anchor = Anchor.TOP + Anchor.BOTTOM,
 		exclusivity = "IGNORE",
 		keymode = "ON_DEMAND",
     visible = false,
@@ -80,6 +80,7 @@ return function()
 				width_request = 4000,
 			}),
 			Widget.Box({
+        halign = "CENTER",
 				hexpand = false,
 				vertical = true,
 				Widget.EventBox({ on_click = hide, height_request = 100 }),

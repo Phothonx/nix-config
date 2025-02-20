@@ -1,2 +1,13 @@
-@use "./lua/widget/Bar/style.scss" as m1;
-@use "./lua/widget/Applauncher/style.scss" as m2;
+* {
+  font-family: Ubuntu Mono;
+  font-weight: bold;
+  font-size: 1.1em;
+  all: unset;
+}
+
+@import "./scss/colors.scss";
+
+$accent: $red;
+$secondary: $yellow;
+
+@import "./scss/bar.scss";

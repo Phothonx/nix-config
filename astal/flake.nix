@@ -19,6 +19,9 @@
       # add extra glib packages or binaries
       extraPackages = [
         pkgs.dart-sass
+
+        pkgs.jetbrains-mono
+        pkgs.ubuntu-classic
       ] ++ (with astal.packages.${system}; [
         apps
         battery

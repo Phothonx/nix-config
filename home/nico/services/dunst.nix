@@ -2,7 +2,7 @@
   inherit (config) colorScheme icons fontsProfiles;
 in {
   services.dunst = {
-    enable = true;
+    enable = false;
     iconTheme.name = icons.name;
     iconTheme.package = icons.package;
     settings = with colorScheme.base24; {

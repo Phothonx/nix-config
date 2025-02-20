@@ -16,8 +16,6 @@ in {
 
       "${wl-clipboard}/bin/wl-paste --watch cliphist store"
 
-      (getExe dunst)
-
       "${my-shell}/bin/my-shell"
     ];
   };

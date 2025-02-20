@@ -1,0 +1,62 @@
+window.Bar {
+  background-color: $background;
+  font-family: JetBrains Mono;
+  font-size: 1.05em;
+
+  .Mode {
+    background: $blue;
+    color: $background;
+    padding: 0 8px 0 8px;
+  }
+
+  .Workspaces {
+    background: #45475B;
+    color: $foreground;
+    padding: 0 8px 0 8px;
+  }
+
+  .FocusedClient {
+    color: $foreground;
+    padding: 0 8px 0 8px;
+  }
+
+  .Wifi {
+    background: $blue;
+    color: $background;
+    padding: 0 8px 0 8px;
+    icon {
+      margin-right: 3px;
+    }
+  }
+
+  .Volume {
+    background: $blue;
+    color: $background;
+    margin: 0 0 0 2px;
+    padding: 0 8px 0 8px;
+    icon {
+      margin-right: 3px;
+    }
+  }
+
+  .Battery {
+    background: $blue;
+    color: $background;
+    margin: 0 0 0 2px;
+    padding: 0 8px 0 8px;
+  }
+
+  .SysTray {
+    background: $blue;
+    color: $background;
+    margin: 0 0 0 2px;
+    padding: 0 8px 0 8px;
+    min-width: 50px
+  }
+
+  .Time {
+    background: #45475B;
+    color: $foreground;
+    padding: 0 8px 0 8px;
+  }
+}

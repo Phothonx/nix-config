@@ -1,5 +1,5 @@
-local Widget = require("astal.gtk3.widget")
 local astal = require("astal")
+local Widget = require("astal.gtk3.widget")
 local GLib = astal.require("GLib")
 local Variable = astal.Variable
 
@@ -10,8 +10,6 @@ return function(format)
 	)
 
 	return Widget.Label({
-    halign = "CENTER",
-    valign = "CENTER",
 		class_name = "Time",
 		on_destroy = function() time:drop() end,
 		label = time(),

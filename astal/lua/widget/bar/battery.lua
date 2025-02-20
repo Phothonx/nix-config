@@ -10,11 +10,12 @@ return function()
 		class_name = "Battery",
 		visible = bind(bat, "is-present"),
 		Widget.Icon({
+      class_name = "icon",
 			icon = bind(bat, "battery-icon-name"),
 		}),
 		Widget.Label({
 			label = bind(bat, "percentage"):as(
-				function(p) return tostring(math.floor(p * 100)) .. " %" end
+				function(p) return tostring(math.floor(p * 100)) .. "%" end
 			),
 		}),
 	})
