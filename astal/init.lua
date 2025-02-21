@@ -3,7 +3,7 @@ local App = require("astal.gtk3.app")
 
 local Bar = require("lua.widget.bar.init")
 local Launcher = require("lua.widget.launcher.init")
-local VolumeOsd = require("lua.widget.osd.volume")
+local Osd = require("lua.widget.osd.init")
 local Notifications = require("lua.widget.notifications.init")
 
 local scss = "./style.scss"
@@ -18,9 +18,10 @@ App:start({
 		for _, gdkmonitor in pairs(App.monitors) do
 			Bar(gdkmonitor)
       Notifications(gdkmonitor)
-      Launcher()
-      VolumeOsd()
 		end
+
+    Launcher()
+    Osd()
 
   end,
 })

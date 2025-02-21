@@ -1,21 +1,18 @@
 local astal = require("astal")
 local Widget = require("astal.gtk3.widget")
 local Anchor = require("astal.gtk3").Astal.WindowAnchor
-local bind = astal.bind
-local Variable = astal.Variable
-local timeout = astal.timeout
-local Wp = astal.require("AstalWp")
 
-local visible = Variable(false)
-
-local set_timer = function() return timeout(2000, function () visible:set(false) end) end
-local timer = set_timer()
-
-local 
-
+local BrightnessOsd = require("lua.widget.osd.brighness")
+local VolumeOsd = require("lua.widget.osd.volume")
 
 return function ()
-  local speaker = Wp.get_default().audio.default_speaker
-
-  return 
+  return Widget.Window({
+    name = "osd",
+    class_name = "Osd",
+    anchor = Anchor.RIGHT,
+    Widget.Box({
+      BrightnessOsd(),
+      VolumeOsd(),
+    })
+  })
 end

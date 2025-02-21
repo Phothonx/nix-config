@@ -22,7 +22,7 @@ return function(gdkmonitor)
     class_name = "Bar",
     gdkmonitor = gdkmonitor,
     anchor = Anchor.TOP + Anchor.LEFT + Anchor.RIGHT,
-    height_request = 27;
+    height_request = 26;
     exclusivity = "EXCLUSIVE",
     Widget.CenterBox({
       Widget.Box({

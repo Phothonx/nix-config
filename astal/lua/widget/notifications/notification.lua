@@ -30,10 +30,6 @@ return function(props)
 			halign = "END",
 			label = time(n.time),
 		}),
-		Widget.Button({
-			on_clicked = function() n:dismiss() end,
-			Widget.Icon({ icon = "window-close-symbolic" }),
-		}),
 	})
 
 	local content = Widget.Box({
@@ -76,6 +72,8 @@ return function(props)
 	})
 
 	return Widget.EventBox({
+    margin_top = 2,
+    halign = "END",
 		class_name = string.format("Notification %s", string.lower(n.urgency)),
 		setup = props.setup,
 		on_hover_lost = props.on_hover_lost,

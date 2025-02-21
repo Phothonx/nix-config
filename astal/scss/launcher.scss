@@ -1,0 +1,44 @@
+window#launcher {
+  all: unset;
+
+  box.Applauncher {
+    background-color: $background;
+    font-family: JetBrains Mono;
+    font-size: 1.1em;
+    padding: 0.5em;
+  }
+
+  entry {
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 0.2em solid $blue;
+  }
+
+  button {
+    padding: 0.2rem;
+
+    icon {
+      font-size: 2em;
+      margin-right: 0.2em;
+    }
+
+    // label.Name {
+    //   text-decoration-line: underline;
+    // }
+
+    label.Description {
+      // text-decoration-line: italic;
+      color: $grey;
+      font-size: 0.9em;
+    }
+
+  }
+
+  box.not-found {
+    padding: 1em;
+    color: $blue;
+    icon {
+      font-size: 3em;
+    }
+  }
+}

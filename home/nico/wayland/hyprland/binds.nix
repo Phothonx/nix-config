@@ -11,10 +11,10 @@
     ];
 
     bindle = with pkgs; [
-      " , XF86AudioLowerVolume, exec, ${volume}/bin/volume down 2"
-      " , XF86AudioRaiseVolume, exec, ${volume}/bin/volume up 2"
-      " , XF86MonBrightnessDown, exec, ${brightness}/bin/brightness down 5"
-      " , XF86MonBrightnessUp, exec, ${brightness}/bin/brightness up 5"
+      " , XF86AudioLowerVolume, exec, ${wireplumber}/bin/wpctl set-volume --limit 1.1 @DEFAULT_AUDIO_SINK@ 2%-"
+      " , XF86AudioRaiseVolume, exec, ${wireplumber}/bin/wpctl set-volume --limit 1.1 @DEFAULT_AUDIO_SINK@ 2%+"
+      " , F5, exec, ${brightnessctl}/bin/brightnessctl --min-value=4800 set 2%-"
+      " , F6, exec, ${brightnessctl}/bin/brightnessctl --min-value=4800 set 2%+"
     ];
 
     binde = [
@@ -30,7 +30,7 @@
     ];
 
     bindl = with pkgs; [
-      " , XF86AudioMute, exec, ${volume}/bin/volume toggle"
+      " , XF86AudioMute, exec, ${wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     ];
 
     bind = with pkgs; [

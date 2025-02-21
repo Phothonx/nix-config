@@ -1,7 +1,7 @@
 * {
   font-family: Ubuntu Mono;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.2em;
   all: unset;
 }
 
@@ -11,3 +11,6 @@ $accent: $red;
 $secondary: $yellow;
 
 @import "./scss/bar.scss";
+@import "./scss/launcher.scss";
+@import "./scss/osd.scss";
+@import "./scss/notifications.scss"

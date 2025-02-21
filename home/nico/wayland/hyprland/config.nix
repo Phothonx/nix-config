@@ -63,7 +63,7 @@ in {
         blur = {
           enabled = true;
           size = 13;
-          xray = true;
+          xray = false;
           passes = 3;
           new_optimizations = true;
           vibrancy_darkness = 2.0;

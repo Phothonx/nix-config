@@ -47,8 +47,10 @@ return function(gdkmonitor)
 
 	return Widget.Window({
 		class_name = "NotificationPopups",
+    margin_top = 10,
 		gdkmonitor = gdkmonitor,
 		anchor = Anchor.TOP + Anchor.RIGHT,
+    width_request = 400,
 		Widget.Box({
 			vertical = true,
 			notifs(),

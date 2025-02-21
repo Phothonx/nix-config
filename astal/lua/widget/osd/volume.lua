@@ -1,6 +1,5 @@
 local astal = require("astal")
 local Widget = require("astal.gtk3.widget")
-local Anchor = require("astal.gtk3").Astal.WindowAnchor
 local bind = astal.bind
 local Variable = astal.Variable
 local timeout = astal.timeout
@@ -15,14 +14,15 @@ local timer = set_timer()
 return function ()
   local speaker = Wp.get_default().audio.default_speaker
 
-  return Widget.Window({
-    name = "volume-osd",
+  return Widget.Box({
     class_name = "VolumeOsd",
-    anchor = Anchor.RIGHT,
+    vertical = true,
     height_request = 350,
     width_request = 40,
     visible = bind(visible),
+    margin_right = 12,
     Widget.LevelBar({
+      expand = true,
       vertical = true,
       inverted = true,
       max_value = 110,
@@ -33,6 +33,11 @@ return function ()
         timer = set_timer()
         return v*100
       end);
+    }),
+    Widget.Icon({
+      halign = "CENTER",
+      valign = "CENTER",
+      icon = "folder-music-symbolic",
     })
   })
 end
