@@ -137,12 +137,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-dsEES+VCqjSca7fk1Vh31nbJLkXAc53bW8b8UkjZGr4=",
-        "path": "/nix/store/v5mszbplyzibn9xn263vpmvkcl3yyiyw-source/astal",
+        "narHash": "sha256-/QamGnlweQMfPKbTzn0qkge+baoIAS+Hz0Y5wTF3nQo=",
+        "path": "/nix/store/ml18932nxdk4xx3p6nv7wnv22j1jd2d3-source/astal",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/v5mszbplyzibn9xn263vpmvkcl3yyiyw-source/astal",
+        "path": "/nix/store/ml18932nxdk4xx3p6nv7wnv22j1jd2d3-source/astal",
         "type": "path"
       }
     },

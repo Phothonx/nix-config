@@ -46,6 +46,7 @@ return function(gdkmonitor)
 	local notifs = NotificationMap()
 
 	return Widget.Window({
+    namespace = "notifications",
 		class_name = "NotificationPopups",
     margin_top = 10,
 		gdkmonitor = gdkmonitor,

@@ -21,6 +21,7 @@ in {
       "video"
       "wheel"
       "networkmanager"
+      "adbuser"
     ];
   };
 

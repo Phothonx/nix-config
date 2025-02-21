@@ -24,7 +24,7 @@ return function()
   local tray = Tray.get_default()
 
   return Widget.Box({
-    visible = bind(tray, "items"):as(function (items)
+    visible = false, bind(tray, "items"):as(function (items)
       return #items ~= 0
     end),
     class_name = "SysTray",

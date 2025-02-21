@@ -14,10 +14,7 @@
   ];
 
   # QUICK INTALL
-  home.packages = [
-    pkgs.lazygit
-    pkgs.neovide
-    pkgs.superfile
+  home.packages = with pkgs; [
   ];
 
   home = {

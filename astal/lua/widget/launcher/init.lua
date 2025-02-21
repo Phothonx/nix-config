@@ -2,6 +2,7 @@ local astal = require("astal")
 local Widget = require("astal.gtk3.widget")
 local App = require("astal.gtk3.app")
 local Gdk = require("astal.gtk3").Gdk
+local bind = astal.bind
 local Apps = astal.require("AstalApps")
 local Variable = astal.Variable
 
@@ -63,6 +64,7 @@ return function()
 	end
 
 	return Widget.Window({
+    namespace = "launcher",
 		name = "launcher",
 		anchor = Anchor.TOP + Anchor.BOTTOM,
 		exclusivity = "IGNORE",
@@ -84,29 +86,34 @@ return function()
 				hexpand = false,
 				vertical = true,
 				Widget.EventBox({ on_click = hide, height_request = 100 }),
-				Widget.Box({
-					vertical = true,
-					width_request = 500,
-					class_name = "Applauncher",
-					Widget.Entry({
-						placeholder_text = "Search",
-						text = text(),
-						on_changed = function(self) text:set(self.text) end,
-						on_activate = on_enter,
-					}),
-					Widget.Box({
-						spacing = 6,
-						vertical = true,
-						list:as(function(l) return map(l, AppButton) end),
-					}),
-					Widget.Box({
-						halign = "CENTER",
-						class_name = "not-found",
-						vertical = true,
-						visible = list:as(function(l) return #l == 0 end),
-						Widget.Icon({ icon = "system-search-symbolic" }),
-						Widget.Label({ label = "No match found" }),
-					}),
+        Widget.Revealer({
+          reveal_child = true,
+          transition_type = "SLIDE_DOWN",
+          transition_duration = 300,
+          Widget.Box({
+            vertical = true,
+            width_request = 500,
+            class_name = "Applauncher",
+            Widget.Entry({
+              placeholder_text = "Search",
+              text = text(),
+              on_changed = function(self) text:set(self.text) end,
+              on_activate = on_enter,
+            }),
+            Widget.Box({
+              spacing = 6,
+              vertical = true,
+              list:as(function(l) return map(l, AppButton) end),
+            }),
+            Widget.Box({
+              halign = "CENTER",
+              class_name = "not-found",
+              vertical = true,
+              visible = list:as(function(l) return #l == 0 end),
+              Widget.Icon({ icon = "system-search-symbolic" }),
+              Widget.Label({ label = "No match found" }),
+            }),
+          }),
 				}),
 				Widget.EventBox({ expand = true, on_click = hide }),
 			}),

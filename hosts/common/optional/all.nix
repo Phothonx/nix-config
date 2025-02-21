@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./adb.nix
     ./agenix.nix
     ./bluetooth.nix
     ./fish.nix

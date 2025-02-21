@@ -14,10 +14,15 @@
     # bitwarden-cli
     just
     yt-dlp
+    bc
+    libnotify
+    btop
+    lazygit
 
-    # auditing
+    # secu
     # vulnix
-    lynis
+    # lynis
+    veracrypt
 
     # Quality of life
     catimg
@@ -37,5 +42,6 @@
     cmatrix
     lolcat
     nitch
+    colorpanes
   ];
 }

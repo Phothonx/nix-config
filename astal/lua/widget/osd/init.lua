@@ -7,6 +7,7 @@ local VolumeOsd = require("lua.widget.osd.volume")
 
 return function ()
   return Widget.Window({
+    namespace = "osd",
     name = "osd",
     class_name = "Osd",
     anchor = Anchor.RIGHT,

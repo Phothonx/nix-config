@@ -19,30 +19,35 @@ astal.monitor_file("/sys/class/backlight/intel_backlight/brightness", function (
 end)
 
 return function ()
-  return Widget.Box({
-    class_name = "BrightnessOsd",
-    vertical = true,
-    height_request = 350,
-    width_request = 40,
-    visible = bind(visible),
-    margin_right = 12,
-    Widget.LevelBar({
-      expand = true,
+  return Widget.Revealer({
+    reveal_child = bind(visible);
+    transition_type = "SLIDE_RIGHT",
+    transition_duration = 400,
+    Widget.Box({
+      class_name = "BrightnessOsd",
       vertical = true,
-      inverted = true,
-      max_value = 100,
-      min_value = 0,
-      value = bind(br, "value"):as(function (v)
-        timer:cancel()
-        visible:set(true)
-        timer = set_timer()
-        return v/maxbr*100
-      end);
-    }),
-    Widget.Icon({
-      halign = "CENTER",
-      valign = "CENTER",
-      icon = "weather-clear-symbolic",
+      height_request = 350,
+      width_request = 40,
+      visible = true, --bind(visible),
+      margin_right = 12,
+      Widget.LevelBar({
+        expand = true,
+        vertical = true,
+        inverted = true,
+        max_value = 100,
+        min_value = 0,
+        value = bind(br, "value"):as(function (v)
+          timer:cancel()
+          visible:set(true)
+          timer = set_timer()
+          return v/maxbr*100
+        end),
+      }),
+      Widget.Icon({
+        halign = "CENTER",
+        valign = "CENTER",
+        icon = "weather-clear-symbolic",
+      })
     })
   })
 end
