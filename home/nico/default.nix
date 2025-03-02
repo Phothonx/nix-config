@@ -15,6 +15,8 @@
 
   # QUICK INTALL
   home.packages = with pkgs; [
+    neovide
+    qutebrowser
   ];
 
   home = {

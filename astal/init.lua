@@ -7,7 +7,7 @@ local Osd = require("lua.widget.osd.init")
 local Notifications = require("lua.widget.notifications.init")
 
 local scss = "./style.scss"
-local css = "/tmp/style.css"
+local css = "/home/nico/.config/astal/style.css"
 astal.exec("sass " .. scss .. " " .. css)
 
 App:start({

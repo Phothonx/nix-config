@@ -18,11 +18,13 @@
     libnotify
     btop
     lazygit
+    lz4
 
     # secu
     # vulnix
     # lynis
     veracrypt
+    kryptor
 
     # Quality of life
     catimg

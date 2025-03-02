@@ -10,7 +10,7 @@
       isDefault = true;
       name = "default";
 
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
         ublock-origin
         skip-redirect
@@ -100,6 +100,7 @@
       };
 
       search = {
+        force = true; # allow hm to override search config, prevent fail
         default = "SearchXNG";
         engines = {
           "Bing".metaData.hidden = true;
