@@ -20,7 +20,7 @@ in {
       cursor_beam_thickness = "2";
       cursor_shape_unfocused =  "unchanged";
 
-      cursor_trail = 1;
+      # cursor_trail = 1;
 
       scrollback_pager_history_size = 10;
 
@@ -46,7 +46,7 @@ in {
       foreground = "#${foreground}";
       background = "#${background}";
 
-      background_opacity = "0.3";
+      # background_opacity = "0.3";
 
       selection_foreground = "none";
       selection_background = "none";

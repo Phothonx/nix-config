@@ -6,14 +6,6 @@
   inherit (config) colorScheme fontsProfiles;
 in {
   home.packages = with pkgs; [
-    brightnessctl
-    volume
-    brightness
-    swww
-    hyprshot
-    hyprpicker
-
-    my-shell
     astal.io # default astal lib to use cli
   ];
 
@@ -32,13 +24,13 @@ in {
       ];
 
       general = {
-        border_size = 0;
+        border_size = 2;
 
         gaps_in = 4;
         gaps_out = 8;
 
-        "col.inactive_border" = "rgb(${background})";
-        "col.active_border" = "rgb(${red}) rgb(${orange}) rgb(${yellow}) 180deg";
+        "col.inactive_border" = "rgb(${d_grey})";
+        "col.active_border" = "rgb(${b_grey})";
 
         layout = "dwindle";
         resize_on_border = true;
@@ -88,10 +80,11 @@ in {
         kb_layout = "fr";
         kb_options = "caps:escape,fkeys:basic_13-24"; # disable capslock & weird-already-binded utilskeys
         repeat_rate = 40; # on long press
-        repeat_delay = 300; # time to hold before repeating
+        repeat_delay = 290; # time to hold before repeating
 
         sensitivity = 0.25;
         accel_profile = "flat"; # no mouse acceleration
+        focus_on_close = 1;
         follow_mouse = 1; # window focus under mouse
         float_switch_override_focus = 2; # same but with floating windows
 
@@ -100,8 +93,7 @@ in {
           disable_while_typing = true;
           clickfinger_behavior = true;
           natural_scroll = true; # invert
-          drag_lock = true;
-          scroll_factor = 0.75;
+          scroll_factor = 0.85;
         };
       };
 

@@ -32,7 +32,6 @@
     bat
     ripgrep
     fzf
-    yazi
     fd
     atuin
 

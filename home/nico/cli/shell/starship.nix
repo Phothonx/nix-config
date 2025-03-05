@@ -1,85 +1,65 @@
-{config, ...}: {
+{ ... }: {
   programs.starship = {
     enable = true;
-    enableBashIntegration = true;
+    enableFishIntegration = true;
+    enableTransience = true;
 
-    settings = with config.colorScheme.base24; {
-      format = ''$battery$nix_shell$c$python$ocaml$directory$character'';
-      right_format = ''$git_branch$git_status'';
+    settings = {
+      format = ''$battery$nix_shell$directory$character'';
+      # $sudo $direnv
 
       character = {
-        format = "$symbol ";
-        success_symbol = "[❯❯](#${base0B})";
-        error_symbol = "[❯❯](#${base08})";
-        vimcmd_symbol = "[n❮](#${base09})";
-        vimcmd_replace_one_symbol = "[r❯](#${base0F})";
-        vimcmd_replace_symbol = "[r❯](#${base0F})";
-        vimcmd_visual_symbol = "[v❮](#${base0E})";
+        success_symbol = "[I❯](bold green)";
+        error_symbol = "[I✖](bold red)";
+        vimcmd_symbol = "[N❮](bold blue)";
+        vimcmd_replace_one_symbol = "[R❮](bold orange)";
+        vimcmd_replace_symbol = "[R❮](bold yellow)";
+        vimcmd_visual_symbol = "[V❮](bold purple)";
       };
 
       directory = {
-        format = "[$path](#${base0D})[$read_only](#${base08}) ";
-        read_only = "🔒";
-        truncation_length = 5;
-        truncation_symbol = "";
-        home_symbol = "🏠";
+        format = "[$path]($style)[$read_only]($read_only_style) ";
+        fish_style_pwd_dir_length = 1;
+        repo_root_style = "italic blue";
+        truncation_length = 4;
+        home_symbol = "󰜥";
+      };
+
+      fill = {
+        symbol = "-";
+        style = "bold white";
+      };
+
+      time = {
+        disabled = false;
+      };
+
+      sudo = {
+        format = "[$symbol]($style) ▎";
+        symbol = "👑";
+        disabled = false;
       };
 
       battery = {
-        format = "[$symbol$percentage](bold $style) | ";
-        full_symbol = "🔋";
-        charging_symbol = "⚡️";
+        format = "[$symbol$percentage]($style) ▎";
         discharging_symbol = "🪫";
+        charging_symbol = "⚡️";
         display = [
-          {
-            threshold = 10;
-            style = "bold #${base08}";
-          }
-          {
-            threshold = 25;
-            style = "bold #${base0A}";
-          }
+          { threshold = 30; }
         ];
       };
 
       nix_shell = {
-        format = "[🌨️ $name\($state\)](bold #${base15}) | ";
-        impure_msg = "[impure](bold red)";
-        pure_msg = "[pure](bold green)";
-        unknown_msg = "[unknown](bold yellow)";
+        format = "[$symbol\($name\)]($style) ▎";
+        symbol = "🌨️ ";
+        # heuristic = true;
       };
 
-      git_branch = {
-        format = "[🌱 $branch(:$remote_branch)](#${base0F}) ";
-        truncation_length = 5;
-        truncation_symbol = ".";
-      };
-
-      git_status = {
-        # format = "[\[$all_status\]](bold #${colors.base07}) "; #$ahead_behind
-        conflicted = "🏳";
-        ahead = "🏎💨";
-        behind = "😰";
-        diverged = "😵";
-        up_to_date = "✓";
-        untracked = "🤷";
-        stashed = "📦";
-        modified = "📝";
-        staged = "[++\($count\)](#${base0B})";
-        renamed = "👅";
-        deleted = "🗑";
-      };
-
-      c = {
-        format = "[C $version](bold #${base0C}) | ";
-      };
-
-      ocaml = {
-        format = "[🐫 $version\($switch_indicator$switch_name\)](bold #${base0A}) | ";
-      };
-
-      python = {
-        format = "[🐍 $version\($virtualenv\)](bold #${base0C}) | ";
+      direnv = {
+        format = "[$symbol$loaded]($style) ▎";
+        loaded_msg = "✅";
+        unloaded_msg = "❌";
+        disabled = false;
       };
     };
   };

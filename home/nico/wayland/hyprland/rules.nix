@@ -1,4 +1,4 @@
-{config, ...}: {
+{ pkgs, ...}: {
   wayland.windowManager.hyprland.settings = {
     windowrulev2 = [
       "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
@@ -47,8 +47,8 @@
     ];
 
     workspace = [
-      "special:special, gapsout:70"
-      "special:special, on-created-empty:kitty"
+      "special:special, gapsout:80"
+      "special:special, on-created-empty:${pkgs.kitty}/bin/kitty"
     ];
   };
 }

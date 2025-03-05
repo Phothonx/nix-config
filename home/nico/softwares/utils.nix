@@ -8,6 +8,7 @@
 
     # Doc viewer
     evince
+    zathura
 
     # Video mpv frontend
     celluloid
@@ -17,6 +18,7 @@
 
     # Image viewer
     loupe
+    imv
 
     # Audio
     pwvucontrol

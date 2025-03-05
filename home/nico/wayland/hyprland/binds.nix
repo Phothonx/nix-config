@@ -36,17 +36,17 @@
     bind = with pkgs; [
       ### APPS SHORTCUTS ###
       "SUPER, Q, exec, ${kitty}/bin/kitty"
-      "SUPER SHIFT, Q, exec, [float] kitty"
+      "SUPER SHIFT, Q, exec, [float] ${kitty}/bin/kitty"
       "SUPER, B, exec, ${firefox}/bin/firefox"
       "SUPER, R, exec, astal --instance astal-lua --toggle-window launcher"
-      "SUPER, E, exec, ${nautilus}/bin/nautilus"
+      "SUPER, E, exec, ${xfce.thunar}/bin/thunar"
       "SUPER, D, exec, ${vesktop}/bin/vesktop"
       "CTRL ALT, L, exec, ${hyprlock}/bin/hyprlock"
 
       ### SCREENSHOTS ###
-      "SUPER, S, exec, hyprshot --mode active --mode output --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
-      "SUPER ALT, S, exec, hyprshot --mode window --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
-      "SUPER SHIFT, S, exec, hyprshot --freeze --mode region --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
+      "SUPER, S, exec, ${hyprshot}/bin/hyprshot --mode active --mode output --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
+      "SUPER ALT, S, exec, ${hyprshot}/bin/hyprshot --mode window --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
+      "SUPER SHIFT, S, exec, ${hyprshot}/bin/hyprshot --freeze --mode region --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
 
       "SUPER, P, exec, ${hyprpicker}/bin/hyprpicker --format hex --autocopy"
 

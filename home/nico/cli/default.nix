@@ -6,5 +6,6 @@
     ./utils.nix
     ./zoxide.nix
     ./eza.nix
+    ./yazi.nix
   ];
 }

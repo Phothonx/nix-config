@@ -55,7 +55,7 @@
   '';
 in {
   home.sessionVariables = {
-    GTK_THEME = "adw-gtk3";
+    # GTK_THEME = "adw-gtk3";
     GTK_USE_PORTAL = "1";
     GDK_BACKEND = "wayland";
   };

@@ -17,15 +17,6 @@
     powerKeyLongPress = "hibernate";
   };
 
-  networking.firewall = {
-    allowedTCPPorts = [
-      6567 # mindsutry
-    ];
-    allowedUDPPorts = [
-      6567 # mindustry
-    ];
-  };
-
   programs.dconf.enable = true; # gnome
   programs.xfconf.enable = true; # xfce
 
