@@ -30,7 +30,7 @@ in {
         gaps_out = 8;
 
         "col.inactive_border" = "rgb(${d_grey})";
-        "col.active_border" = "rgb(${b_grey})";
+        "col.active_border" = "rgb(${grey})";
 
         layout = "dwindle";
         resize_on_border = true;
@@ -48,7 +48,7 @@ in {
           render_power = 4;
           ignore_window = true;
           offset = "0 40";
-          color = "rgba(${black}af)";
+          color = "rgba(000000af)";
           scale = 0.9;
         };
 

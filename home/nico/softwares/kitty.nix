@@ -14,10 +14,20 @@ in {
       "font_family family" = fontsProfiles.monospace.name;
       font_size = "12";
 
+      open_url_with = "firefox";
+      underline_hyperlinks = "always";
+
+      # TRADE PERF - MEMORY
+      input_delay  = 8;
+      repaint_delay  = 2;
+      sync_to_monitor  = false;
+      wayland_enable_ime = false;
+
       # CURSOR
-      cursor = "none"; # reverse colors
+      cursor = "#${foreground}"; # reverse colors
+      cursor_text_color = "#${background}";
       cursor_shape = "beam";
-      cursor_beam_thickness = "2";
+      cursor_beam_thickness = "1.8";
       cursor_shape_unfocused =  "unchanged";
 
       # cursor_trail = 1;
@@ -25,7 +35,8 @@ in {
       scrollback_pager_history_size = 10;
 
       # SCROLLBACK
-      scrollback_lines = "10000";
+      scrollback_lines = "5000";
+      touch_scroll_multiplier = 3.0;
 
       # MOUSE
       mouse_hide_wait = "0";
@@ -46,10 +57,8 @@ in {
       foreground = "#${foreground}";
       background = "#${background}";
 
-      # background_opacity = "0.3";
-
       selection_foreground = "none";
-      selection_background = "none";
+      selection_background = "#${d_grey}";
 
       color0 = "#${black}";
       color8 = "#${grey}";
@@ -75,7 +84,7 @@ in {
       color7 = "#${white}";
       color15 = "#${b_white}";
 
-      notify_on_finish = "unfocused 10";
+      notify_on_cmd_finish = "unfocused 10";
       # KEYBOARD
       # clear_all_shortcuts = "yes";
     };

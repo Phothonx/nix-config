@@ -1,12 +1,13 @@
 # Nix-config
 
 ### To-do
-- [] continue astal lua config
-    - [] notifications
-    - [] osd
-    - [] wallpapers
-- [] adjust colorsheme (with neovim too)
-- [] wluma
+- [ ] reviews
+    - [ ] kitty
+    - [ ] hyprlock hypridle
+    - [ ] firefox
+
+- [ ] neovim
+- [ ] yazi
 
 *for your viewing pleasure*
 ![preview2.png](./assets/preview2_v2.png)
