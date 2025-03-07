@@ -53,7 +53,7 @@ in {
           shadow_passes = 2;
           shadow_size = 6;
           shadow_color = "rgb(000000)";
-          shadow_boost = 0.9;
+          shadow_boost = 1;
         }
       ];
 
@@ -71,7 +71,7 @@ in {
           shadow_passes = 2;
           shadow_size = 6;
           shadow_color = "rgb(000000)";
-          shadow_boost = 0.9;
+          shadow_boost = 1;
         }
         {
           monitor = "";
@@ -86,7 +86,7 @@ in {
           shadow_passes = 2;
           shadow_size = 6;
           shadow_color = "rgb(000000)";
-          shadow_boost = 0.9;
+          shadow_boost = 1;
         }
         {
           monitor = "";
@@ -101,7 +101,7 @@ in {
           shadow_passes = 2;
           shadow_size = 6;
           shadow_color = "rgb(000000)";
-          shadow_boost = 0.9;
+          shadow_boost = 1;
         }
         {
           monitor = "";
@@ -116,7 +116,7 @@ in {
           shadow_passes = 2;
           shadow_size = 6;
           shadow_color = "rgb(000000)";
-          shadow_boost = 0.9;
+          shadow_boost = 1;
         }
       ];
     };

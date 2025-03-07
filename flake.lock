@@ -138,11 +138,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-nKtqJBQbaMPRkBjZKmuuoW7ZjTUcQDASNYMVfhBPaBk=",
-        "path": "/nix/store/s9zaaard5573vhy7g0zz18n1alfg2jw4-source/astal",
+        "path": "/nix/store/m2y43pldzjw0h5czpz3gzplf9401q9qa-source/astal",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/s9zaaard5573vhy7g0zz18n1alfg2jw4-source/astal",
+        "path": "/nix/store/m2y43pldzjw0h5czpz3gzplf9401q9qa-source/astal",
         "type": "path"
       }
     },
