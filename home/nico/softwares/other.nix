@@ -21,7 +21,7 @@
     imv
 
     # Audio
-    pwvucontrol
+    # pwvucontrol
     helvum
 
     #bitwarden

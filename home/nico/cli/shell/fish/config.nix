@@ -31,14 +31,6 @@
       set -g fish_cursor_external line
 
       set -g fish_vi_force_cursor 1
-
-      function starship_transient_prompt_func
-        # starship module fill
-        # starship module line_break
-        starship module time
-        starship module directory
-        starship module character
-      end
     '';
 
     functions = {
@@ -46,10 +38,6 @@
     };
 
     plugins = with pkgs.fishPlugins; [
-      {
-        name = "fzf-fish";
-        src = fzf-fish.src;
-      }
     ];
   };
 }

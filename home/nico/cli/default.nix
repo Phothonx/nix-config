@@ -3,7 +3,7 @@
     ./shell
 
     ./git.nix
-    ./utils.nix
+    ./other.nix
     ./zoxide.nix
     ./eza.nix
     ./yazi.nix

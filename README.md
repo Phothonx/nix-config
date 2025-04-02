@@ -1,14 +1,5 @@
 # Nix-config
 
-### To-do
-- [ ] reviews
-    - [ ] kitty
-    - [ ] hyprlock hypridle
-    - [ ] firefox
-
-- [ ] neovim
-- [ ] yazi
-
 *for your viewing pleasure*
 ![preview2.png](./assets/preview2_v2.png)
 ![preview1.png](./assets/preview_v2.png)

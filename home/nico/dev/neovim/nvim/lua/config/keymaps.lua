@@ -1,49 +1,47 @@
-require("snacks").setup({
+local map = vim.keymap.set
 
-  indent = {
-    enabled = false,
-      -- char = "", -- "¦"
-    scope = {
-      enabled = false,
-    },
-    animate = {
-      enabled = false,
-      duration = {
-        step = 10,
-      },
-    },
-    chunk = {
-      enabled = false,
-      corner_top = "╭",
-      corner_bottom = "╰",
-    },
-  },
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
-  explorer = {
-    enabled = true,
-    replace_netrw = true,
-  },
+map("n", "q:", "") -- "all my homies hate q:" -Confucius
 
-  statuscolumn = {
-    enabled = false,
-  },
+map("n", "<leader>h", "<Cmd>noh<CR>", {desc = "Clear search Highlight"})
 
-  terminal = {
-    enabled = true,
-  },
+-- Window navigation
+map('n', '<C-H>', '<C-w>h', { desc = 'Focus on left window' })
+map('n', '<C-J>', '<C-w>j', { desc = 'Focus on below window' })
+map('n', '<C-K>', '<C-w>k', { desc = 'Focus on above window' })
+map('n', '<C-L>', '<C-w>l', { desc = 'Focus on right window' })
 
-  toggle = {
-    enabled = true,
-  },
+-- Reselect latest changed, put, or yanked text
+map('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, replace_keycodes = false, desc = 'Visually select changed text' })
 
-  picker = {
-    enabled = true,
-  },
+-- Window resize (respecting `v:count`)
+map('n', '<C-Left>',  '"<Cmd>vertical resize -" . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Decrease window width' })
+map('n', '<C-Down>',  '"<Cmd>resize -"          . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Decrease window height' })
+map('n', '<C-Up>',    '"<Cmd>resize +"          . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Increase window height' })
+map('n', '<C-Right>', '"<Cmd>vertical resize +" . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Increase window width' })
 
-  scratch = {
-    enabled = true,
-  },
-})
+-- Move only sideways in command mode. Using `silent = false` makes movements
+-- to be immediately shown.
+map('c', '<M-h>', '<Left>',  { silent = false, desc = 'Left' })
+map('c', '<M-l>', '<Right>', { silent = false, desc = 'Right' })
+map('c', '<M-j>', '<Down>',  { silent = false, desc = 'Down' })
+map('c', '<M-k>', '<Up>',    { silent = false, desc = '' })
+
+-- Don't `noremap` in insert mode to have these keybindings behave exactly
+-- like arrows (crucial inside TelescopePrompt) one day i'll have custom keyboard with a motion keymap layer ;-; (copium)
+map('i', '<M-h>', '<Left>',  { noremap = false, desc = 'Left' })
+map('i', '<M-j>', '<Down>',  { noremap = false, desc = 'Down' })
+map('i', '<M-k>', '<Up>',    { noremap = false, desc = 'Up' })
+map('i', '<M-l>', '<Right>', { noremap = false, desc = 'Right' })
+
+map('t', '<M-h>', '<Left>',  { desc = 'Left' })
+map('t', '<M-j>', '<Down>',  { desc = 'Down' })
+map('t', '<M-k>', '<Up>',    { desc = 'Up' })
+map('t', '<M-l>', '<Right>', { desc = 'Right' })
+
+-- ## SNACKS ##
 
 -- SCRATCH --------------------------------------------
 vim.keymap.set("n", "<leader>.",  function() Snacks.scratch() end, { desc = "Toggle Scratch Buffer" })
@@ -64,17 +62,12 @@ Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
 Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
 Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>uz")
 
--- -- Mini
--- Snacks.toggle.option("minidiff_disable", { name = "Mini diff"}):map("<leader>uf")
--- Snacks.toggle.option("minipairs_disable", { name = "Mini pairs"}):map("<leader>up")
-
 Snacks.toggle.diagnostics():map("<leader>ud")
 Snacks.toggle.line_number():map("<leader>ul")
 Snacks.toggle.treesitter():map("<leader>uT")
 Snacks.toggle.inlay_hints():map("<leader>uh")
 Snacks.toggle.indent():map("<leader>ug")
 Snacks.toggle.dim():map("<leader>uD")
-
 
 -- PICKER ---------------------------------------------
 vim.keymap.set("n", "<leader>,", function() Snacks.picker.buffers() end, { desc = "Buffers" })

@@ -1,23 +1,25 @@
-{pkgs, ...}: {
+{ pkgs,config, ...}: {
   programs.neovim = {
+
     enable = true;
+
     defaultEditor = true;
     withPython3 = true;
     vimAlias = true;
     vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
+      lazy-nvim
+
       # COLORSHEMES
-      rose-pine
-      oxocarbon-nvim
-      tokyonight-nvim
+      # rose-pine
+      # oxocarbon-nvim
+      # tokyonight-nvim
       catppuccin-nvim
 
       # lSP
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
-      pkgs.tree-sitter-grammars.tree-sitter-norg-meta
-      nvim-treesitter-parsers.norg
 
       # DEPS
       image-nvim # neorg & molten
@@ -32,7 +34,6 @@
 
       # OTHER
       blink-cmp
-      iron-nvim
       molten-nvim
       neorg
       flash-nvim
@@ -49,18 +50,19 @@
       imagemagick
 
       # LSP / FORMATTERS
+      vscode-langservers-extracted
+      marksman
+      nodePackages.yaml-language-server
+      stylua
+      shfmt
       ccls
-      clang-tools
       lua-language-server
-      pyright
+      basedpyright
       ruff
-      ocamlPackages.lsp
+      ocamlPackages.ocaml-lsp
       ocamlPackages.ocamlformat
       nixd
-      vscode-langservers-extracted
-
-      # REPL
-      ocamlPackages.utop
+      alejandra
     ];
 
     extraLuaPackages = luaPkgs:
@@ -89,6 +91,36 @@
         matplotlib
         scipy
       ];
+
+    extraLuaConfig = ''
+      -- Make sure to setup `mapleader` and `maplocalleader` before
+      -- loading lazy.nvim so that mappings are correct.
+      -- This is also a good place to setup other settings (vim.opt)
+      vim.g.mapleader = " "
+      vim.g.maplocalleader = "\\"
+
+      require("config.options")
+
+      -- Setup lazy.nvim
+      require("lazy").setup({
+        spec = {
+          -- import your plugins
+          { import = "plugins" },
+        },
+        dev = {
+          path = "${pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start",
+          patterns = {""}, -- Specify that all of our plugins will use the dev dir. Empty string is a wildcard!
+        },
+        rocks = { enabled = false },
+        pkg = { enabled = false },
+        install = { missing = false },
+        change_detection = { enabled = false },
+        checker = { enabled = false },
+      })
+
+      require("config.lsp")
+      require("config.keymaps")
+    '';
   };
 
   home.file.".config/nvim" = {

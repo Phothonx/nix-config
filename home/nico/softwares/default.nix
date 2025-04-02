@@ -2,7 +2,7 @@
   imports = [
     ./firefox.nix
     ./discord.nix
-    ./utils.nix
+    ./other.nix
     ./spotify.nix
     ./kitty.nix
   ];

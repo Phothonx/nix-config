@@ -103,27 +103,27 @@
         force = true; # allow hm to override search config, prevent fail
         default = "SearchXNG";
         engines = {
-          "Bing".metaData.hidden = true;
-          "Gmogle".metaData.alias = "@g";
-          "SearchXNG" = {
+          "bing".metaData.hidden = true;
+          "google".metaData.alias = "@g";
+          "searchXNG" = {
             urls = [
               { template = "https://searx.ox2.fr/search?q={searchTerms}"; }
             ];
             definedAliases = ["@sx" "@searchx"];
           };
-          "Nix Packages" = {
+          "nix Packages" = {
             urls = [
               { template = "https://search.nixos.org/packages?type=packages&channel=unstable&query={searchTerms}"; }
             ];
             definedAliases = ["@np" "@nixpkgs"];
           };
-          "Home-manager Options" = {
+          "home-manager Options" = {
             urls = [
               { template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master"; }
             ];
             definedAliases = ["@hm" "@homeoptions"];
           };
-          "YouTube" = {
+          "youTube" = {
             urls = [
               { template = "https://www.youtube.com/results?search_query={searchTerms}"; }
             ];
