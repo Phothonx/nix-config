@@ -17,9 +17,11 @@
       # tokyonight-nvim
       catppuccin-nvim
 
-      # lSP
-      nvim-lspconfig
+      # lSP / TS
       nvim-treesitter.withAllGrammars
+      # (nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars ))
+      # nvim-treesitter-parsers.norg
+      # pkgs.tree-sitter-grammars.tree-sitter-norg-meta
 
       # DEPS
       image-nvim # neorg & molten
@@ -69,7 +71,7 @@
       with luaPkgs; [
         pathlib-nvim # For neorg
         lua-utils-nvim # For neorg
-        magick # for image rendering
+        magick # for image rendering molten
       ];
 
     extraPython3Packages = ps:
@@ -82,14 +84,10 @@
         plotly # for image rendering
         pyperclip
         nbformat
+        pillow
+        requests
 
-        # test molten
-        ipython
-        jupyter
         ipykernel
-        numpy
-        matplotlib
-        scipy
       ];
 
     extraLuaConfig = ''
@@ -111,11 +109,18 @@
           path = "${pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start",
           patterns = {""}, -- Specify that all of our plugins will use the dev dir. Empty string is a wildcard!
         },
+        performance = {
+          reset_packpath = false,
+          rtp = { reset = false, },
+        },
         rocks = { enabled = false },
         pkg = { enabled = false },
         install = { missing = false },
         change_detection = { enabled = false },
         checker = { enabled = false },
+        ui = {
+          border = "single",
+        },
       })
 
       require("config.lsp")

@@ -1,19 +1,19 @@
 return {
   "nvim-neorg/neorg",
-  event = "VeryLazy",
+  dependencies = {
+    { "nvim-lua/plenary.nvim" },
+    { "nvim-treesitter/nvim-treesitter" },
+  },
+  lazy = false;
   opts = {
     load = {
       ["core.defaults"] = {},
       ["core.concealer"] = {},
-      ["core.export"] = {},
-      ["core.export.markdown"] = {},
       ["core.dirman"] = {
         config = {
           workspaces = {
             notes = "~/Documents/notes",
-            bookmarks = "Documents/bookmarks"
           },
-          default_workspace = "notes",
         },
       },
     },

@@ -23,7 +23,7 @@ local capabilities = {
     },
   },
 }
-capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+-- capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
 vim.lsp.config('*', {
   capabilities = capabilities,
