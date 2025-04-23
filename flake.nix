@@ -67,10 +67,11 @@
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home;
 
+    templates = import ./templates;
     overlays = import ./overlays {inherit inputs;};
-
     packages = forEachSystem (pkgs: import ./packages pkgs);
     formatter = forEachSystem (pkgs: pkgs.alejandra);
+
     nixosConfigurations = mkNixosSystems [
       "avalon" # laptop
       # "crystal" # raspi3

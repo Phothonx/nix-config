@@ -21,7 +21,7 @@
     ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
   '';
 in {
-  home.packages = [ pkgs.hypridle ];
+  home.packages = [pkgs.hypridle];
 
   services.hypridle = {
     enable = true;
@@ -51,7 +51,7 @@ in {
         }
 
         {
-          timeout =  420; # 7min, screen off
+          timeout = 420; # 7min, screen off
           on-timeout = "${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
           on-resume = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
         }

@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   programs.starship = {
     enable = false;
     enableFishIntegration = true;
@@ -45,7 +45,7 @@
         discharging_symbol = "🪫";
         charging_symbol = "⚡️";
         display = [
-          { threshold = 30; }
+          {threshold = 30;}
         ];
       };
 

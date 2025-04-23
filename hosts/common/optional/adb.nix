@@ -1,4 +1,3 @@
-{ ... }:
-{
+{...}: {
   programs.adb.enable = true;
 }

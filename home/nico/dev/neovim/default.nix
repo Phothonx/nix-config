@@ -1,6 +1,9 @@
-{ pkgs,config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.neovim = {
-
     enable = true;
 
     defaultEditor = true;
@@ -12,16 +15,13 @@
       lazy-nvim
 
       # COLORSHEMES
-      # rose-pine
-      # oxocarbon-nvim
-      # tokyonight-nvim
+      rose-pine
+      oxocarbon-nvim
+      tokyonight-nvim
       catppuccin-nvim
 
       # lSP / TS
       nvim-treesitter.withAllGrammars
-      # (nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars ))
-      # nvim-treesitter-parsers.norg
-      # pkgs.tree-sitter-grammars.tree-sitter-norg-meta
 
       # DEPS
       image-nvim # neorg & molten
@@ -38,8 +38,11 @@
       blink-cmp
       molten-nvim
       neorg
+      pkgs.tree-sitter-grammars.tree-sitter-norg-meta
+      pkgs.tree-sitter-grammars.tree-sitter-norg
       flash-nvim
       which-key-nvim
+      Coqtail
     ];
 
     extraPackages = with pkgs; [

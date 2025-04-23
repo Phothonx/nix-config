@@ -1,5 +1,4 @@
-{pkgs, ...}:
-{
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
 
@@ -18,7 +17,8 @@
         sponsorblock
       ];
 
-      settings = { # user.js
+      settings = {
+        # user.js
         # Speed ?
         "browser.cache.disk.enable" = true;
         "network.dnsCacheExpiration" = 3600; # keep entries for 1 hour
@@ -107,30 +107,29 @@
           "google".metaData.alias = "@g";
           "searchXNG" = {
             urls = [
-              { template = "https://searx.ox2.fr/search?q={searchTerms}"; }
+              {template = "https://searx.ox2.fr/search?q={searchTerms}";}
             ];
             definedAliases = ["@sx" "@searchx"];
           };
           "nix Packages" = {
             urls = [
-              { template = "https://search.nixos.org/packages?type=packages&channel=unstable&query={searchTerms}"; }
+              {template = "https://search.nixos.org/packages?type=packages&channel=unstable&query={searchTerms}";}
             ];
             definedAliases = ["@np" "@nixpkgs"];
           };
           "home-manager Options" = {
             urls = [
-              { template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master"; }
+              {template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";}
             ];
             definedAliases = ["@hm" "@homeoptions"];
           };
           "youTube" = {
             urls = [
-              { template = "https://www.youtube.com/results?search_query={searchTerms}"; }
+              {template = "https://www.youtube.com/results?search_query={searchTerms}";}
             ];
-            definedAliases = [ "@yt" "@youtube" ];
+            definedAliases = ["@yt" "@youtube"];
           };
         };
-
       };
     };
   };

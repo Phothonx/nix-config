@@ -1,8 +1,7 @@
 return {
   { "nvim-tree/nvim-web-devicons", },
 
-  {
-    "echasnovski/mini.nvim",
+  { "echasnovski/mini.nvim",
     lazy = false,
     keys = {
       { "<leader>e", mode = { "n" }, function() MiniFiles.open(MiniFiles.get_latest_path()) end, desc = "Open last Files instance", },

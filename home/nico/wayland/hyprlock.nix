@@ -78,7 +78,7 @@ in {
           text = "cmd[update:1000] echo \"<b><big> $(date +\"%M\") </big></b>\"";
           color = "rgb(${foreground})";
           font_size = 150;
-        font_family = fontsProfiles.regular.name;
+          font_family = fontsProfiles.regular.name;
           position = "0, -50";
           halign = "center";
           valign = "center";

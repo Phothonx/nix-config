@@ -10,6 +10,8 @@ o.clipboard = "unnamedplus"
 
 o.backup      = false -- Don't store backup while overwriting the file
 o.writebackup = false -- Don't store backup while overwriting the file
+o.wildmenu = false -- use blink cmp instead
+o.wildchar = vim.fn.char2nr('<C-t>')
 
 -- Appearance
 o.termguicolors = true -- Enable gui colors

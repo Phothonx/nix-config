@@ -1,4 +1,4 @@
-{ inputs, ...}: {
+{inputs, ...}: {
   nix.registry.devsh.flake = inputs.nix-devshells;
 
   programs.direnv = {

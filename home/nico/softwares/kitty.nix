@@ -18,9 +18,9 @@ in {
       underline_hyperlinks = "always";
 
       # TRADE PERF - MEMORY
-      input_delay  = 8;
-      repaint_delay  = 2;
-      sync_to_monitor  = false;
+      input_delay = 8;
+      repaint_delay = 2;
+      sync_to_monitor = false;
       wayland_enable_ime = false;
 
       # CURSOR
@@ -28,7 +28,7 @@ in {
       cursor_text_color = "#${background}";
       cursor_shape = "beam";
       cursor_beam_thickness = "1.8";
-      cursor_shape_unfocused =  "unchanged";
+      cursor_shape_unfocused = "unchanged";
 
       # cursor_trail = 1;
 

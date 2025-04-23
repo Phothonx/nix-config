@@ -49,8 +49,8 @@ in {
     fonts.fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ cfg.monospace.name ];
-        emoji = [ cfg.emoji.name ];
+        monospace = [cfg.monospace.name];
+        emoji = [cfg.emoji.name];
       };
     };
 

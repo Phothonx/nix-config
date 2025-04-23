@@ -6,7 +6,13 @@ return {
     -- load the colorscheme here
     require("catppuccin").setup({
       transparent_background = true,
+      mini = { indentscope_color = "comment", },
+      custom_highlights = function(colors)
+        return {
+          Pmenu = { bg = "#1E1E2E" },
+        }
+      end
     })
-    vim.cmd([[colorscheme catppuccin]])
+    vim.cmd.colorscheme "catppuccin"
   end,
 }

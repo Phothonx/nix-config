@@ -39,38 +39,39 @@ in {
       };
     };
 
-    palette = mkOption { # https://github.com/tinted-theming/base24/blob/main/styling.md
+    palette = mkOption {
+      # https://github.com/tinted-theming/base24/blob/main/styling.md
 
       type = types.attrsOf hexColorCode;
       default = rec {
         background = black; # default background
-        accent     = red;
-        secondary  = yellow;
+        accent = red;
+        secondary = yellow;
 
-        black      = "11111b"; # ---- dark
-        b_black    = "1e1e2e"; # ---
-        d_grey     = "313244"; # --
-        grey       = "6c7086"; # -
-        b_grey     = "a6adc8"; # +
+        black = "11111b"; # ---- dark
+        b_black = "1e1e2e"; # ---
+        d_grey = "313244"; # --
+        grey = "6c7086"; # -
+        b_grey = "a6adc8"; # +
         foreground = "cdd6f4"; # ++
-        white      = "cdd6f4"; # +++
-        b_white    = "ffffff"; # ++++ light
+        white = "cdd6f4"; # +++
+        b_white = "ffffff"; # ++++ light
 
-        red        = "f38ba8";
-        orange     = "fab387";
-        yellow     = "f9e2af";
-        green      = "a6e3a1";
-        cyan       = "89dceb";
-        blue       = "89b4fa";
-        purple     = "cba6f7";
-        brown      = "eba0ac";
+        red = "f38ba8";
+        orange = "fab387";
+        yellow = "f9e2af";
+        green = "a6e3a1";
+        cyan = "89dceb";
+        blue = "89b4fa";
+        purple = "cba6f7";
+        brown = "eba0ac";
 
-        b_red      = "f5c2e7";
-        b_yellow   = "f5e0dc";
-        b_green    = "94e2d5";
-        b_cyan     = "89dceb";
-        b_blue     = "74c7ec";
-        b_purple   = "b4befe";
+        b_red = "f5c2e7";
+        b_yellow = "f5e0dc";
+        b_green = "94e2d5";
+        b_cyan = "89dceb";
+        b_blue = "74c7ec";
+        b_purple = "b4befe";
       };
     };
   };

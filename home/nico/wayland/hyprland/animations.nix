@@ -3,10 +3,8 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   wayland.windowManager.hyprland.settings = {
-
     animations = {
       enabled = true;
       bezier = [
@@ -28,7 +26,6 @@
       layerrule = [
         "animation slide, launcher"
       ];
-
     };
   };
 }

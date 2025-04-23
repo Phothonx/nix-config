@@ -8,7 +8,9 @@ return {
   opts = {
     load = {
       ["core.defaults"] = {},
-      ["core.concealer"] = {},
+      ["core.concealer"] = {
+        icon_preset = "varied",
+      },
       ["core.dirman"] = {
         config = {
           workspaces = {
