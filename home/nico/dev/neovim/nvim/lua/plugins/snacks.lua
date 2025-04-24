@@ -12,6 +12,5 @@ return {
     terminal = { enabled = true, },
     toggle = { enabled = true, },
     picker = { enabled = true, },
-    scratch = { enabled = true, },
   },
 }

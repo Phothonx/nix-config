@@ -25,10 +25,9 @@ map('n', '<C-Right>', '"<Cmd>vertical resize +" . v:count1 . "<CR>"', { expr = t
 map('c', '<M-h>', '<Left>',  { silent = false, desc = 'Left' })
 map('c', '<M-l>', '<Right>', { silent = false, desc = 'Right' })
 map('c', '<M-j>', '<Down>',  { silent = false, desc = 'Down' })
-map('c', '<M-k>', '<Up>',    { silent = false, desc = '' })
+map('c', '<M-k>', '<Up>',    { silent = false, desc = 'Up' })
 
 -- Don't `noremap` in insert mode to have these keybindings behave exactly
--- like arrows (crucial inside TelescopePrompt) one day i'll have custom keyboard with a motion keymap layer ;-; (copium)
 map('i', '<M-h>', '<Left>',  { noremap = false, desc = 'Left' })
 map('i', '<M-j>', '<Down>',  { noremap = false, desc = 'Down' })
 map('i', '<M-k>', '<Up>',    { noremap = false, desc = 'Up' })
@@ -40,15 +39,8 @@ map('t', '<M-k>', '<Up>',    { desc = 'Up' })
 map('t', '<M-l>', '<Right>', { desc = 'Right' })
 
 -- ## SNACKS ##
-
--- SCRATCH --------------------------------------------
-vim.keymap.set("n", "<leader>.",  function() Snacks.scratch() end, { desc = "Toggle Scratch Buffer" })
-vim.keymap.set("n", "<leader>S",  function() Snacks.scratch.select() end, { desc = "Select Scratch Buffer" })
-
-
 -- TERMINAL -------------------------------------------
 vim.keymap.set("n", "<c-;>", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
-
 
 -- TOGGLE ---------------------------------------------
 Snacks.toggle.option("relativenumber", { name = "Relative number" }):map("<leader>ur")
@@ -111,7 +103,6 @@ vim.keymap.set("n", "<leader>qp", function() Snacks.picker.projects() end, { des
 
 -- LSP
 vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "Goto Definition" })
-vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, { nowait = true, desc = "References" })
 vim.keymap.set("n", "gI", function() Snacks.picker.lsp_implementations() end, { desc = "Goto Implementation" })
 vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions() end, { desc = "Goto T[y]pe Definition" })
 vim.keymap.set("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end, { desc = "LSP Symbols" })

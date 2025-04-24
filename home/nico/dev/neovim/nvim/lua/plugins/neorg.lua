@@ -9,7 +9,7 @@ return {
     load = {
       ["core.defaults"] = {},
       ["core.concealer"] = {
-        icon_preset = "varied",
+        icon_preset = "diamond",
       },
       ["core.dirman"] = {
         config = {
