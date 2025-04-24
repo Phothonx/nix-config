@@ -21,10 +21,6 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Nix-index database
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
     # Astal
     my-shell = {
       url = "./astal/";
@@ -45,6 +41,7 @@
       "x86_64-linux"
     ];
 
+    # set with pkgs for each system
     pkgsFor = lib.genAttrs systems (
       system:
         import nixpkgs {
@@ -53,6 +50,7 @@
         }
     );
     forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+
     mkNixosSystems = hostNames:
       lib.genAttrs hostNames (hostName:
         lib.nixosSystem {
@@ -62,9 +60,9 @@
   in {
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home;
-
     templates = import ./templates;
-    overlays = import ./overlays {inherit inputs;};
+    overlays = import ./overlays;
+
     packages = forEachSystem (pkgs: import ./packages pkgs);
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 

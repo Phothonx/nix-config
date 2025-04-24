@@ -14,10 +14,7 @@
   ];
 
   # QUICK INTALL
-  home.packages = with pkgs; [
-    neovide
-    qutebrowser
-  ];
+  home.packages = with pkgs; [];
 
   home = {
     username = "nico";

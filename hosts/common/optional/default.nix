@@ -15,5 +15,7 @@
     ./xkb.nix
     ./steam.nix
     ./graphics.nix
+    ./nix-ld.nix
+    ./upower.nix
   ];
 }

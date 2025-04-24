@@ -12,9 +12,6 @@
     outputs.homeManagerModules.monitors
   ];
 
-  home.packages = with pkgs; [
-  ];
-
   fontsProfiles.enable = true;
 
   wallpaper = ./../../../wallpapers/crystal-waves.png;

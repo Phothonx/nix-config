@@ -7,8 +7,8 @@
     ./hardware-configuration.nix
     common-pc-ssd
     common-cpu-intel
-    ./../common/global
-    ./../common/optional/all.nix
+    ./../common/global # default.nix import all
+    ./../common/optional # default.nix import all
     ./../common/users/nico
   ];
 
@@ -29,6 +29,7 @@
       thunar-media-tags-plugin
     ];
   };
+
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
 

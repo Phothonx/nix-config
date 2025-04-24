@@ -9,9 +9,7 @@
     unp
     tree
     unrar
-    glow
     wev
-    # bitwarden-cli
     just
     yt-dlp
     bc
@@ -33,7 +31,6 @@
     ripgrep
     fzf
     fd
-    atuin
 
     # Fun/fetching
     cowsay

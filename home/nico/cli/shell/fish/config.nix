@@ -1,23 +1,17 @@
 {
   lib,
-  inputs,
   pkgs,
   ...
 }: {
-  imports = [inputs.nix-index-database.hmModules.nix-index];
-
   programs.nix-index = {
     enable = true;
     enableFishIntegration = true;
-    # Slow as fuck, to correct
   };
 
   programs.carapace = {
     enable = true;
     enableFishIntegration = true;
   };
-
-  programs.fzf.enableFishIntegration = false;
 
   programs.fish = {
     interactiveShellInit = ''

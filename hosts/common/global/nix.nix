@@ -15,7 +15,7 @@
     nix-tree
     alejandra
     nixfmt-rfc-style
-    inputs.nix-index-database.packages.${pkgs.system}.default
+    nix-index
   ];
 
   nix = {
