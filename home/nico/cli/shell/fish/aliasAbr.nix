@@ -39,8 +39,13 @@
       nfs = "nix flake show";
       npl = "nix profile list";
       npr = "nix profile remove";
+      ne = "echo $IN_NIX_SHELL";
       npi = {
         expansion = "nix profile install nixpkgs#%";
+        setCursor = true;
+      };
+      nsh = {
+        expansion = "nix shell nixpkgs#% --command fish";
         setCursor = true;
       };
 

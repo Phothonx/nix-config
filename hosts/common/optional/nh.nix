@@ -4,6 +4,9 @@
     clean.enable = true;
     clean.extraArgs = "--keep-since 1w --keep 3";
     clean.dates = "weekly";
-    flake = lib.mkDefault "/home/Dev/nix-config";
+  };
+
+  environment.sessionVariables = {
+    NH_FLAKE = "/home/nico/Dev/nix-config/";
   };
 }

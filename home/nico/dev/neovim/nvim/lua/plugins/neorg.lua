@@ -1,10 +1,13 @@
 return {
   "nvim-neorg/neorg",
+  ft = { "norg" },
+  cmd = { "Neorg" },
   dependencies = {
     { "nvim-lua/plenary.nvim" },
     { "nvim-treesitter/nvim-treesitter" },
+    { "3rd/image.nvim" }
   },
-  lazy = false;
+  lazy = true;
   opts = {
     load = {
       ["core.defaults"] = {},

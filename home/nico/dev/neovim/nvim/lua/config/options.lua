@@ -9,10 +9,9 @@ o.undofile    = true                    -- Enable persistent undo (see also `:h 
 o.clipboard   = "unnamedplus"           -- use global keyboard
 
 o.backup      = false                   -- Don't store backup while overwriting the file
-o.autochdir   = true
 o.writebackup = false                   -- Don't store backup while overwriting the file
 o.wildmenu    = false                   -- use blink cmp instead
-o.wildchar    = vim.fn.char2nr('<C-t>')
+o.wildchar    = vim.fn.char2nr('<C-t>')  -- use blink cmp instead
 
 
 -- Appearance
@@ -58,7 +57,7 @@ o.formatoptions = 'qjl1'                      -- Don't autoformat comments
 -- Visual
 o.scrolloff  = 6
 o.mouse      = "a"
-o.laststatus = 3   -- status line averywhere
+o.laststatus = 3   -- status line everywhere
 
 
 -- Search

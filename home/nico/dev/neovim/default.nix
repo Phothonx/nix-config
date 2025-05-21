@@ -20,6 +20,10 @@
       tokyonight-nvim
       catppuccin-nvim
 
+      # UI
+        nvchad-ui
+        base46
+
       # lSP / TS
       nvim-treesitter.withAllGrammars
 
@@ -114,7 +118,20 @@
         },
         performance = {
           reset_packpath = false,
-          rtp = { reset = false, },
+          rtp = {
+            reset = false,
+            -- disable some rtp plugins
+            disabled_plugins = {
+              "gzip",
+              -- "matchit",
+              -- "matchparen",
+              -- "netrwPlugin",
+              "tarPlugin",
+              "tohtml",
+              "tutor",
+              "zipPlugin",
+            },
+          },
         },
         rocks = { enabled = false },
         pkg = { enabled = false },
