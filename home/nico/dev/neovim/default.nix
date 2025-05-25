@@ -21,8 +21,8 @@
       catppuccin-nvim
 
       # UI
-        nvchad-ui
-        base46
+      nvchad-ui
+      base46
 
       # lSP / TS
       nvim-treesitter.withAllGrammars
@@ -57,6 +57,7 @@
       fzf
       python3
       imagemagick
+      sqlite # snacks
 
       # LSP / FORMATTERS
       vscode-langservers-extracted

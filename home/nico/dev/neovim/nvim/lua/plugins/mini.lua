@@ -10,7 +10,7 @@ return {
     },
     config = function ()
       require("mini.icons").setup()
-      require("mini.ai").setup()
+      -- require("mini.ai").setup()
       require("mini.pairs").setup()
       require("mini.move").setup()
       require("mini.statusline").setup()
