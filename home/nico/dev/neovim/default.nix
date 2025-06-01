@@ -15,23 +15,28 @@
       lazy-nvim
 
       # COLORSHEMES
-      rose-pine
-      oxocarbon-nvim
-      tokyonight-nvim
+      # rose-pine
+      # oxocarbon-nvim
+      # tokyonight-nvim
       catppuccin-nvim
 
       # UI
-      nvchad-ui
-      base46
+      # nvchad-ui
+      # base46
 
       # lSP / TS
-      nvim-treesitter.withAllGrammars
+      (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: pkgs.tree-sitter.allGrammars ++ [
+        p.tree-sitter-norg
+        p.tree-sitter-norg-meta
+      ]))
 
       # DEPS
       image-nvim # neorg & molten
       nui-nvim # neorg
       plenary-nvim # neorg
       nvim-nio # neorg
+      # pkgs.tree-sitter-grammars.tree-sitter-norg-meta
+      # pkgs.tree-sitter-grammars.tree-sitter-norg
       nvim-web-devicons
 
       # MINI & SNACKS <3
@@ -39,11 +44,10 @@
       snacks-nvim
 
       # OTHER
+      vimtex
       blink-cmp
       molten-nvim
       neorg
-      pkgs.tree-sitter-grammars.tree-sitter-norg-meta
-      pkgs.tree-sitter-grammars.tree-sitter-norg
       flash-nvim
       which-key-nvim
       Coqtail
@@ -58,6 +62,8 @@
       python3
       imagemagick
       sqlite # snacks
+      texliveMedium # vimtex
+      xdotool # vimtex
 
       # LSP / FORMATTERS
       vscode-langservers-extracted
@@ -69,6 +75,7 @@
       lua-language-server
       basedpyright
       ruff
+      texlab
       ocamlPackages.ocaml-lsp
       ocamlPackages.ocamlformat
       nixd
