@@ -16,12 +16,22 @@ in {
       variables = ["--all"];
     };
 
+    plugins = [
+      pkgs.hyprlandPlugins.hyprsplit
+    ];
+
     xwayland.enable = true;
 
     settings = with colorScheme.palette; {
       monitor = [
         "eDP-1, 1920x1200@60, 0x0, 1" # personal monitor
       ];
+
+      plugin = {
+        hyprsplit = {
+          num-workspaces = 10;
+        };
+      };
 
       general = {
         border_size = 2;
@@ -77,8 +87,9 @@ in {
       };
 
       input = {
-        kb_layout = "fr";
-        kb_options = "caps:escape,fkeys:basic_13-24"; # disable capslock & weird-already-binded utilskeys
+        kb_layout = "us";
+        kb_options = "caps:escape,grp:alt_shift_toggle"; # disable capslock & weird-already-binded utilskeys
+        kb_variant = "intl";
         repeat_rate = 40; # on long press
         repeat_delay = 290; # time to hold before repeating
 

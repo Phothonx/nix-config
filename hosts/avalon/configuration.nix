@@ -13,22 +13,29 @@
   ];
 
   services.logind = {
-    powerKey = "suspend";
-    powerKeyLongPress = "hibernate";
+    settings.Login.powerKey = "suspend";
+    settings.Login.HandlePowerKeyLongPress = "hibernate";
   };
 
-  programs.dconf.enable = true; # gnome
   programs.xfconf.enable = true; # xfce
 
-  # thunar
+  # thunar https://nixos.wiki/wiki/Thunar
   programs.thunar = {
     enable = true;
     plugins = with pkgs.xfce; [
       thunar-archive-plugin
       thunar-volman
-      thunar-media-tags-plugin
     ];
   };
+
+  # https://wiki.archlinux.org/title/File_manager_functionality#Thumbnail_previews
+  environment.systemPackages = with pkgs; [
+    poppler_gi
+    webp-pixbuf-loader
+    nufraw-thumbnailer
+    ffmpegthumbnailer
+    libgsf
+  ];
 
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images

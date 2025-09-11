@@ -7,6 +7,13 @@ return {
     vim.vimtex_compiler_method = 'latexrun'
     vim.g.vimtex_view_forward_search_on_start = true
 
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      pattern = "*.tex",
+      callback = function()
+        vim.cmd("VimtexView")
+      end,
+    })
+
     vim.api.nvim_create_autocmd("VimLeavePre", {
       pattern = "*.tex",
       callback = function()

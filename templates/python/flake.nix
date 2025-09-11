@@ -14,9 +14,11 @@
     nixpkgs,
     ...
   }: let
-    lib = nixpkgs.lib;
+    systems = [
+      "x86_64-linux"
+    ];
 
-    systems = ["x86_64-linux"];
+    lib = nixpkgs.lib;
 
     pkgsFor = lib.genAttrs systems (
       system:

@@ -26,6 +26,7 @@
 
       # lSP / TS
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: pkgs.tree-sitter.allGrammars ++ [
+        p.latex
         p.tree-sitter-norg
         p.tree-sitter-norg-meta
       ]))
@@ -44,6 +45,7 @@
       snacks-nvim
 
       # OTHER
+      iron-nvim
       vimtex
       blink-cmp
       molten-nvim
