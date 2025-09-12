@@ -14,7 +14,6 @@
         ublock-origin
         skip-redirect
         vimium
-        sponsorblock
       ];
 
       settings = {
@@ -31,7 +30,7 @@
         "breakpad.reportURL" = "";
 
         "browser.startup.page" = 3; # restore prev session
-        "browser.startup.homepage" = "https://searx.ox2.fr/"; # searchXNG instance
+        "browser.startup.homepage" = "";
 
         "browser.tabs.crashReporting.sendReport" = false;
         "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
@@ -55,7 +54,7 @@
         "browser.shell.checkDefaultBrowser" = false;
         "browser.ssb.enabled" = true;
         "browser.toolbars.bookmarks.visibility" = "never";
-        "browser.urlbar.placeholderName" = "DuckDuckGo";
+        "browser.urlbar.placeholderName" = "";
         "browser.urlbar.suggest.openpage" = false;
         "browser.download.start_downloads_in_tmp_dir" = true;
         "browser.helperApps.deleteTempFileOnExit" = true;
@@ -105,12 +104,6 @@
         engines = {
           "bing".metaData.hidden = true;
           "google".metaData.alias = "@g";
-          "searchXNG" = {
-            urls = [
-              {template = "https://searx.ox2.fr/search?q={searchTerms}";}
-            ];
-            definedAliases = ["@sx" "@searchx"];
-          };
           "nix Packages" = {
             urls = [
               {template = "https://search.nixos.org/packages?type=packages&channel=unstable&query={searchTerms}";}

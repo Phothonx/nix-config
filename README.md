@@ -1,7 +1,7 @@
 # Nix-config
 
 ## Review TODO
-- [ ] Starship
+- [x] Starship
 - [ ] gtk / qt
 - [ ] xdg
 - [ ] neovim conf
@@ -13,6 +13,7 @@
 - [ ] Hyprland
 - [ ] Custom shell
 - [ ] Templates
+- [ ] secrets
 
 *for your viewing pleasure*
 ![preview2.png](./assets/preview2_v2.png)

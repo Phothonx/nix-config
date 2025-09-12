@@ -55,7 +55,7 @@
   '';
 in {
   home.sessionVariables = {
-    # GTK_THEME = "adw-gtk3";
+    GTK_THEME = "adw-gtk3";
     GTK_USE_PORTAL = "1";
     GDK_BACKEND = "wayland";
   };
@@ -76,21 +76,21 @@ in {
     gtk2 = {
       configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
       extraConfig = ''
+        gtk-application-prefer-dark-theme = true
+        gtk-error-bell = false
+        gtk-enable-input-feedback-sounds = false
+        gtk-decoration-layout = "appmenu:none"
+        gtk-xft-antialias = 1
       '';
     };
 
     gtk3 = {
       extraConfig = {
         gtk-application-prefer-dark-theme = true;
-        gtk-overlay-scrolling = false;
-        gtk-enable-primary-paste = false;
         gtk-error-bell = false;
         gtk-enable-input-feedback-sounds = false;
         gtk-decoration-layout = "appmenu:none";
         gtk-xft-antialias = 1;
-        gtk-xft-hinting = 1;
-        gtk-xft-hintstyle = "hintslight";
-        gtk-xft-rgba = "rgb";
       };
       inherit extraCss;
     };
@@ -98,15 +98,10 @@ in {
     gtk4 = {
       extraConfig = {
         gtk-application-prefer-dark-theme = true;
-        gtk-overlay-scrolling = false;
-        gtk-enable-primary-paste = false;
         gtk-error-bell = false;
         gtk-enable-input-feedback-sounds = false;
         gtk-decoration-layout = "appmenu:none";
         gtk-xft-antialias = 1;
-        gtk-xft-hinting = 1;
-        gtk-xft-hintstyle = "hintslight";
-        gtk-xft-rgba = "rgb";
       };
       inherit extraCss;
     };

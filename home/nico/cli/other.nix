@@ -17,6 +17,7 @@
     btop
     lazygit
     lz4
+    gnuplot
 
     # secu
     # vulnix

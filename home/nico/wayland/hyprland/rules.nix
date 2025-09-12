@@ -24,15 +24,6 @@
       "float, class:^(com.saivert.pwvucontrol)$"
       "size 1100 600, class:^(com.saivert.pwvucontrol)$"
 
-      "float, class:^(org.gnome.Nautilus)$"
-      "float, class:^(org.gnome.NautilusPreviewer)$"
-      "size 1500 1000, title:^(Loading…)$" # Nautilus
-      "center, class:^(org.gnome.Nautilus)$"
-      "center, class:^(org.gnome.NautilusPreviewer)$"
-
-      "float, title:^(Amberol)$"
-      "size 800 1000, title:^(Amberol)$"
-
       "float, class:^(org.gnome.Loupe)$"
       "center, class:^(org.gnome.Loupe)$"
 
@@ -48,7 +39,6 @@
 
     workspace = [
       "special:special, gapsout:80"
-      "special:special, on-created-empty:${pkgs.kitty}/bin/kitty"
     ];
   };
 }

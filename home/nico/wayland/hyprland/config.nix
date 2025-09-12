@@ -16,9 +16,7 @@ in {
       variables = ["--all"];
     };
 
-    plugins = [
-      pkgs.hyprlandPlugins.hyprsplit
-    ];
+    plugins = [];
 
     xwayland.enable = true;
 
@@ -27,11 +25,7 @@ in {
         "eDP-1, 1920x1200@60, 0x0, 1" # personal monitor
       ];
 
-      plugin = {
-        hyprsplit = {
-          num-workspaces = 10;
-        };
-      };
+      plugin = {};
 
       general = {
         border_size = 2;

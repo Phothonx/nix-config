@@ -16,6 +16,7 @@
     alejandra
     nixfmt-rfc-style
     nix-index
+    nix-alien
   ];
 
   nix = {

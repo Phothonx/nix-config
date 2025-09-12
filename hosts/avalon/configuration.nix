@@ -13,8 +13,9 @@
   ];
 
   services.logind = {
-    settings.Login.powerKey = "suspend";
-    settings.Login.HandlePowerKeyLongPress = "hibernate";
+    settings.Login = {
+      HandlePowerKey = "suspend";
+    };
   };
 
   programs.xfconf.enable = true; # xfce
