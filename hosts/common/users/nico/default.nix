@@ -19,6 +19,7 @@ in {
       "audio"
       "network"
       "video"
+      "gamemode"
       "wheel"
       "networkmanager"
       "adbuser"

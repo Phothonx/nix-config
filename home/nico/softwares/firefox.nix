@@ -22,7 +22,7 @@
         "browser.cache.disk.enable" = true;
         "network.dnsCacheExpiration" = 3600; # keep entries for 1 hour
 
-        # Settings (stole from someone...)
+        # Settings (stolen from someone...)
 
         "app.shield.optoutstudies.enabled" = false;
         "app.update.auto" = false;
@@ -115,6 +115,12 @@
               {template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";}
             ];
             definedAliases = ["@hm" "@homeoptions"];
+          };
+          "Nix package versions" = {
+            urls = [
+              {template = "https://lazamar.co.uk/nix-versions/?channel=nixpkgs-unstable&package={searchTerms}"; }
+            ];
+            definedAliases = ["@nv"];
           };
           "youTube" = {
             urls = [

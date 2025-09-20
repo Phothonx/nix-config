@@ -18,6 +18,7 @@
     lazygit
     lz4
     gnuplot
+    wl-screenrec
 
     # secu
     # vulnix

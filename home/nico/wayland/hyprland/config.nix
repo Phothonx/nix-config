@@ -82,12 +82,12 @@ in {
 
       input = {
         kb_layout = "us";
-        kb_options = "caps:escape,grp:alt_shift_toggle"; # disable capslock & weird-already-binded utilskeys
-        kb_variant = "intl";
+        kb_options = "caps:escape"; # disable capslock & weird-already-binded utilskeys
+        # kb_variant = "intl";
         repeat_rate = 40; # on long press
         repeat_delay = 290; # time to hold before repeating
 
-        sensitivity = 0.25;
+        sensitivity = 0.20;
         accel_profile = "flat"; # no mouse acceleration
         focus_on_close = 1;
         follow_mouse = 1; # window focus under mouse
@@ -102,11 +102,11 @@ in {
         };
       };
 
-      gestures = {
-        workspace_swipe = true; # 3 fingers
-        workspace_swipe_distance = 250;
-        workspace_swipe_cancel_ratio = 0.5;
-      };
+      # gestures = {
+      #   workspace_swipe = true; # 3 fingers
+      #   workspace_swipe_distance = 250;
+      #   workspace_swipe_cancel_ratio = 0.5;
+      # };
 
       misc = {
         disable_hyprland_logo = true;

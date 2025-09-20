@@ -12,6 +12,7 @@
     helvum
 
     bitwarden
+    obs-studio
   ];
 
   programs.zathura = {

@@ -16,7 +16,9 @@
     alejandra
     nixfmt-rfc-style
     nix-index
-    nix-alien
+
+    man-pages
+    man-pages-posix
   ];
 
   nix = {
@@ -44,6 +46,16 @@
 
     registry.self.flake = self;
     channel.enable = false;
+  };
+
+  documentation = {
+    dev.enable = true;
+
+    man = {
+      # In order to enable to mandoc man-db has to be disabled.
+      man-db.enable = false;
+      mandoc.enable = true;
+    };
   };
 
   environment.sessionVariables = {

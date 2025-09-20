@@ -31,8 +31,10 @@
       RUNTIME_PM_ON_BAT = "auto";
 
       # Enable Wi-Fi power save (default is off)
-      WIFI_PWR_ON_AC = "on";
-      WIFI_PWR_ON_BAT = "on";
+      # WIFI_PWR_ON_AC = "on";
+      # WIFI_PWR_ON_BAT = "on";
+      USB_AUTOSUSPEND=0;
+      RESTORE_DEVICE_STATE_ON_STARTUP=1;
 
       CPU_MIN_PERF_ON_AC = 0;
       CPU_MAX_PERF_ON_AC = 90;

@@ -1,0 +1,27 @@
+// https://www.x.org/releases/X11R7.6/doc/kbproto/xkbproto.pdf
+// https://qwerty-lafayette.org/
+// https://nixos.org/manual/nixos/stable/#custom-xkb-layouts
+
+xkb_symbols "us-nico" {
+
+    include "us(basic)"
+    include "level3(ralt_switch)"
+
+    name[Group1]= "English (Custom Nico)";
+
+    key <AE01>	{[	 1,	 exclam, guillemotleft ]};
+    key <AE02>	{[	 2,	 at, guillemotright		]};
+    key <AE04>	{[	 4,	 dollar, EuroSign		]};
+    key <AD02>	{[	 w,	 W, eacute, Eacute		]};
+    key <AD03>	{[	 e,	 E, egrave, Egrave		]};
+    key <AD07>	{[	 u,	 U, ugrave, Ugrave		]};
+    key <AD09>	{[	 o,	 O, oe, OE		]};
+    key <AC01>	{[	 a,	 A, agrave, Agrave		]};
+    key <AC03>	{[	 d,	 D, ecircum-flex, Ecircum-flex		]};
+    key <AC07>	{[	 j,	 J, ucircum-flex, Ucircum-flex		]};
+    key <AC08>	{[	 k,	 K, icircum-flex, Kcircum-flex		]};
+    key <AC09>	{[	 l,	 L, ocircum-flex, Ocircum-flex		]};
+    key <AB01>	{[	 z,	 Z, acircum-flex, Acircum-flex		]};
+    key <AB03>	{[	 c,	 C, ccedilla, Ccedilla		]};
+};
+

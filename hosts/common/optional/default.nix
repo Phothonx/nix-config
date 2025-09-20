@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./adb.nix
+    ./gaming.nix
     ./agenix.nix
     ./bluetooth.nix
     ./fish.nix
@@ -11,11 +12,11 @@
     ./pipewire.nix
     # ./quietboot.nix
     ./systemd-boot.nix
-    ./tlp.nix
+    # ./tlp.nix
     ./xkb.nix
     ./steam.nix
     ./graphics.nix
     ./nix-ld.nix
-    ./upower.nix
+    # ./upower.nix
   ];
 }

@@ -40,8 +40,12 @@
       "SUPER, B, exec, ${firefox}/bin/firefox"
       "SUPER, R, exec, astal --instance astal-lua --toggle-window launcher"
       "SUPER, E, exec, ${xfce.thunar}/bin/thunar"
-      "SUPER, D, exec, ${vesktop}/bin/vesktop"
       "CTRL ALT, L, exec, ${hyprlock}/bin/hyprlock"
+
+      # discord
+      "SUPER, D, exec, ${vesktop}/bin/vesktop"
+      ", mouse:275, pass, ^vesktop$"
+      ", mouse:276, pass, ^vesktop$"
 
       ### SCREENSHOTS ###
       "SUPER, S, exec, ${hyprshot}/bin/hyprshot --mode active --mode output --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
