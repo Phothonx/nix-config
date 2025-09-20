@@ -44,8 +44,8 @@
 
       # discord
       "SUPER, D, exec, ${vesktop}/bin/vesktop"
-      ", mouse:275, pass, ^vesktop$"
-      ", mouse:276, pass, ^vesktop$"
+      ", mouse:275, sendshortcut, CTRL, M, class:vesktop"
+      # ", mouse:276, pass, ^vesktop$"
 
       ### SCREENSHOTS ###
       "SUPER, S, exec, ${hyprshot}/bin/hyprshot --mode active --mode output --output-folder ${config.home.homeDirectory}/Medias/Screenshots"

@@ -3,8 +3,8 @@ let
   system = pkgs.system;
 
   pkgs-old = import (builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/882842d2a908700540d206baa79efb922ac1c33d.tar.gz";
-    sha256 = "105v2h9gpaxq6b5035xb10ykw9i3b3k1rwfq4s6inblphiz5yw7q";
+    url = "https://github.com/NixOS/nixpkgs/archive/4684fd6b0c01e4b7d99027a34c93c2e09ecafee2.tar.gz";
+    sha256 = "1ajjga131kjxiw2760pjjsxpa201gzp0i6gphgg44vq496lqpcyb";
   }) { inherit system; };
 in
 {
@@ -19,7 +19,7 @@ in
   };
 
   programs.gamescope = {
-    package = pkgs-old.gamescope;
+    # package = pkgs-old.gamescope;
     enable = true;
   };
 }

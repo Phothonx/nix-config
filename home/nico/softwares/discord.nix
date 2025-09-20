@@ -13,6 +13,7 @@
       hardwareVideoAcceleration = true;
       hardwareAcceleration = true;
       discordBranch = "stable";
+      enableSplashScreen = false;
     };
     vencord = {
       settings = {
