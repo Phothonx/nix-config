@@ -1,16 +1,18 @@
 {pkgs, ...}: {
-  environment.systemPackages = [ pkgs.xorg.xkbcomp ];
-
+  environment.systemPackages = with pkgs; [
+    xorg.xkbcomp
+    xorg.setxkbmap
+  ];
   console.useXkbConfig = true;
 
   services.xserver.xkb = {
     layout = "fr";
     options = "caps:escape";
     extraLayouts = {
-      us-nico = {
+      nico = {
         description = "My custom xkb layout.";
         languages = [ "eng" "fr" ];
-        symbolsFile = ../kblayouts/us-nico/symbols;
+        symbolsFile = ../kblayouts/symbols/nico;
       };
     };
   };

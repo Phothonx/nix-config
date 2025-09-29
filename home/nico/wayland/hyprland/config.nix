@@ -1,12 +1,10 @@
 {
-  config,
-  pkgs,
+  config, pkgs,
   ...
 }: let
   inherit (config) colorScheme fontsProfiles;
 in {
-  home.packages = with pkgs; [
-    astal.io # default astal lib to use cli
+  home.packages = with pkgs; [ astal.io # default astal lib to use cli
   ];
 
   wayland.windowManager.hyprland = {
@@ -81,9 +79,9 @@ in {
       };
 
       input = {
-        kb_layout = "us";
-        kb_options = "caps:escape"; # disable capslock & weird-already-binded utilskeys
-        # kb_variant = "intl";
+        kb_layout = "nico";
+        kb_options = "lv3:ralt_switch,caps:escape"; # disable capslock
+        kb_variant = "basic";
         repeat_rate = 40; # on long press
         repeat_delay = 290; # time to hold before repeating
 
@@ -102,11 +100,30 @@ in {
         };
       };
 
-      # gestures = {
-      #   workspace_swipe = true; # 3 fingers
-      #   workspace_swipe_distance = 250;
-      #   workspace_swipe_cancel_ratio = 0.5;
-      # };
+      device = [
+        {
+          name = "@hfd-neo65";
+          kb_layout = "nico";
+          kb_variant = "basic";
+          kb_options = "";
+          repeat_rate = 40; # on long press
+          repeat_delay = 290; # time to hold before repeating
+        }
+
+        {
+          name = "compx-vxe-r1-pro";
+          sensitivity = 0.20;
+          accel_profile = "flat"; # no mouse acceleration
+        }
+      ];
+
+
+
+      gestures = {
+        # workspace_swipe = true; # 3 fingers
+        # workspace_swipe_distance = 250;
+        # workspace_swipe_cancel_ratio = 0.5;
+      };
 
       misc = {
         disable_hyprland_logo = true;

@@ -17,6 +17,7 @@
     ./steam.nix
     ./graphics.nix
     ./nix-ld.nix
+    ./udev.nix
     # ./upower.nix
   ];
 }

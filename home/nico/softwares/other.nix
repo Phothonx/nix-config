@@ -12,7 +12,9 @@
     helvum
 
     bitwarden
-    obs-studio
+    spotify
+    discord
+    via
   ];
 
   programs.zathura = {

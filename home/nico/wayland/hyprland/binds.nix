@@ -43,9 +43,13 @@
       "CTRL ALT, L, exec, ${hyprlock}/bin/hyprlock"
 
       # discord
-      "SUPER, D, exec, ${vesktop}/bin/vesktop"
-      ", mouse:275, sendshortcut, CTRL, M, class:vesktop"
-      # ", mouse:276, pass, ^vesktop$"
+      "SUPER, D, exec, ${discord}/bin/discord"
+      ", XF86Forward, pass, class:^(discord)$"
+      ", XF86Back, pass, class:^(discord)$"
+
+      ", XF86Forward, pass, class:^(TeamSpeak)$"
+      ", XF86Back, pass, class:^(TeamSpeak$"
+
 
       ### SCREENSHOTS ###
       "SUPER, S, exec, ${hyprshot}/bin/hyprshot --mode active --mode output --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
