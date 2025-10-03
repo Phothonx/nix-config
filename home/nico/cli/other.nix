@@ -19,12 +19,18 @@
     lz4
     gnuplot
     wl-screenrec
+    openvpn
+    usbutils
+    net-tools
 
     # secu
     # vulnix
     # lynis
     veracrypt
     kryptor
+    nmap
+    netcat-gnu
+    gobuster
 
     # Quality of life
     catimg

@@ -19,7 +19,7 @@
   };
 
   # to detect mouse keybr at startup
-  boot.initrd.availableKernelModules = [ "hid_cherry" ];
+  boot.initrd.availableKernelModules = ["hid_cherry"];
 
   programs.xfconf.enable = true; # xfce
 

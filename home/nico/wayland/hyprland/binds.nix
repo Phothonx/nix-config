@@ -50,7 +50,6 @@
       ", XF86Forward, pass, class:^(TeamSpeak)$"
       ", XF86Back, pass, class:^(TeamSpeak$"
 
-
       ### SCREENSHOTS ###
       "SUPER, S, exec, ${hyprshot}/bin/hyprshot --mode active --mode output --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
       "SUPER ALT, S, exec, ${hyprshot}/bin/hyprshot --mode window --output-folder ${config.home.homeDirectory}/Medias/Screenshots"

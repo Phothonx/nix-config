@@ -25,11 +25,13 @@
       # base46
 
       # lSP / TS
-      (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: pkgs.tree-sitter.allGrammars ++ [
-        p.latex
-        p.tree-sitter-norg
-        p.tree-sitter-norg-meta
-      ]))
+      (pkgs.vimPlugins.nvim-treesitter.withPlugins (p:
+        pkgs.tree-sitter.allGrammars
+        ++ [
+          p.latex
+          p.tree-sitter-norg
+          p.tree-sitter-norg-meta
+        ]))
 
       # DEPS
       image-nvim # neorg & molten

@@ -15,6 +15,7 @@
     spotify
     discord
     via
+    vial
   ];
 
   programs.zathura = {

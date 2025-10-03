@@ -118,7 +118,7 @@
           };
           "Nix package versions" = {
             urls = [
-              {template = "https://lazamar.co.uk/nix-versions/?channel=nixpkgs-unstable&package={searchTerms}"; }
+              {template = "https://lazamar.co.uk/nix-versions/?channel=nixpkgs-unstable&package={searchTerms}";}
             ];
             definedAliases = ["@nv"];
           };

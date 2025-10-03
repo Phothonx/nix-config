@@ -11,7 +11,7 @@
     extraLayouts = {
       nico = {
         description = "My custom xkb layout.";
-        languages = [ "eng" "fr" ];
+        languages = ["eng" "fr"];
         symbolsFile = ../kblayouts/symbols/nico;
       };
     };

@@ -1,10 +1,12 @@
 {
-  config, pkgs,
+  config,
+  pkgs,
   ...
 }: let
   inherit (config) colorScheme fontsProfiles;
 in {
-  home.packages = with pkgs; [ astal.io # default astal lib to use cli
+  home.packages = with pkgs; [
+    astal.io # default astal lib to use cli
   ];
 
   wayland.windowManager.hyprland = {
@@ -116,8 +118,6 @@ in {
           accel_profile = "flat"; # no mouse acceleration
         }
       ];
-
-
 
       gestures = {
         # workspace_swipe = true; # 3 fingers

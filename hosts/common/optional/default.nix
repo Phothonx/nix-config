@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./adb.nix
+    ./openvpn.nix
     ./gaming.nix
     ./agenix.nix
     ./bluetooth.nix
