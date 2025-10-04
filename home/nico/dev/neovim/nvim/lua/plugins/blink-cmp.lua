@@ -1,12 +1,14 @@
 return {
   "saghen/blink.cmp",
-  deps = { "echasnovski/mini.nvim", },
+  deps = { "echasnovski/mini.nvim", "rafamadriz/friendly-snippets" },
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
     enabled = function() return not vim.tbl_contains({ "markdown", "norg", "txt" }, vim.bo.filetype) end,
 
+
+    keyword = { range = 'full' },
     keymap = { preset = 'default' },
 
     appearance = {
@@ -14,8 +16,8 @@ return {
     },
 
     completion = {
-      documentation = { auto_show = true, auto_show_delay_ms = 500 },
-      list = { selection = { preselect = false, } },
+      documentation = { auto_show = true, auto_show_delay_ms = 350 },
+      list = { selection = { preselect = false, auto_insert = true } },
       menu = {
         auto_show = true,
         draw = {
@@ -26,7 +28,8 @@ return {
             }
           }
         }
-      }
+      },
+      ghost_text = { enabled = true },
     },
 
     sources = {
@@ -35,8 +38,6 @@ return {
         local success, node = pcall(vim.treesitter.get_node)
         if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
           return { 'buffer', 'path' }
-        elseif vim.bo.filetype == 'lua' then
-          return { 'lsp', 'path' }
         else
           return { 'lsp', 'path', 'snippets', 'buffer' }
         end
@@ -54,20 +55,28 @@ return {
           }
         }
       },
-    },
+      snippets = {
+        opts = {
+          friendly_snippets = true, -- default
+          extended_filetypes = {
+          },
+        },
+      },
 
-    fuzzy = {
-      implementation = "prefer_rust_with_warning",
-      sorts = { 'exact', 'score', 'sort_text', },
-    },
-
-    cmdline = {
-      keymap = { preset = "inherit", },
-      completion = {
-        list = { selection = { preselect = false, } },
-        menu = { auto_show = true, },
+      fuzzy = {
+        implementation = "prefer_rust_with_warning",
+        sorts = { 'exact', 'score', 'sort_text', },
       },
     },
-  },
-  opts_extend = { "sources.default" }
+    cmdline = {
+      source = {
+        keymap = { preset = "inherit", },
+        completion = {
+          list = { selection = { preselect = false, } },
+          menu = { auto_show = true, },
+        },
+      },
+    },
+    opts_extend = { "sources.default" }
+  }
 }

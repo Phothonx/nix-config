@@ -14,8 +14,7 @@
     bitwarden
     spotify
     discord
-    via
-    vial
+    chromium
   ];
 
   programs.zathura = {

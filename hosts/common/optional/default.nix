@@ -11,6 +11,7 @@
     ./networking.nix
     ./nh.nix
     ./pipewire.nix
+    # ./ssh.nix
     # ./quietboot.nix
     ./systemd-boot.nix
     # ./tlp.nix

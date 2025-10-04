@@ -47,6 +47,7 @@
       snacks-nvim
 
       # OTHER
+      friendly-snippets
       iron-nvim
       vimtex
       blink-cmp

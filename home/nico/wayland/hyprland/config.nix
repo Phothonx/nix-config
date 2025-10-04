@@ -111,10 +111,14 @@ in {
           repeat_rate = 40; # on long press
           repeat_delay = 290; # time to hold before repeating
         }
-
         {
-          name = "compx-vxe-r1-pro";
-          sensitivity = 0.20;
+          name = "compx-vxe-r1-pro"; # ,,compx-vxe-nordicmouse-1k-dongle-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-1
+          sensitivity = 0.18;
+          accel_profile = "flat"; # no mouse acceleration
+        }
+        {
+          name = "compx-vxe-nordicmouse-1k-dongle-1"; # ,compx-vxe-r1-pro-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-1
+          sensitivity = 0.18;
           accel_profile = "flat"; # no mouse acceleration
         }
       ];
