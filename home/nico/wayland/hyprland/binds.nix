@@ -13,8 +13,8 @@
     bindle = with pkgs; [
       " , XF86AudioLowerVolume, exec, ${wireplumber}/bin/wpctl set-volume --limit 1.1 @DEFAULT_AUDIO_SINK@ 2%-"
       " , XF86AudioRaiseVolume, exec, ${wireplumber}/bin/wpctl set-volume --limit 1.1 @DEFAULT_AUDIO_SINK@ 2%+"
-      " , F5, exec, ${brightnessctl}/bin/brightnessctl --min-value=4800 set 2%-"
-      " , F6, exec, ${brightnessctl}/bin/brightnessctl --min-value=4800 set 2%+"
+      " , XF86MonBrightnessDown, exec, ${brightnessctl}/bin/brightnessctl --min-value=4800 set 2%-"
+      " , XF86MonBrightnessUp, exec, ${brightnessctl}/bin/brightnessctl --min-value=4800 set 2%+"
     ];
 
     binde = [
@@ -101,7 +101,7 @@
 
       "SUPER, F, fullscreen,"
 
-      "SUPER, P, pin"
+      "SUPER SHIFT, P, pin"
 
       ### WORKSPACES ###
       "SUPER, A, togglespecialworkspace"

@@ -22,7 +22,7 @@ in {
 
     settings = with colorScheme.palette; {
       monitor = [
-        "eDP-1, 1920x1200@60, 0x0, 1" # personal monitor
+        " , preferred, auto, 1"
       ];
 
       plugin = {};
@@ -32,6 +32,7 @@ in {
 
         gaps_in = 4;
         gaps_out = 8;
+        gaps_workspaces = 8;
 
         "col.inactive_border" = "rgb(${d_grey})";
         "col.active_border" = "rgb(${grey})";
@@ -40,7 +41,9 @@ in {
         resize_on_border = true;
         hover_icon_on_border = false;
 
-        # snapping ?
+        snap = {
+          enabled = true;
+        };
       };
 
       decoration = {
@@ -85,13 +88,15 @@ in {
         kb_options = "lv3:ralt_switch,caps:escape"; # disable capslock
         kb_variant = "basic";
         repeat_rate = 40; # on long press
-        repeat_delay = 290; # time to hold before repeating
+        repeat_delay = 300; # time to hold before repeating
 
-        sensitivity = 0.20;
+        sensitivity = 0.1;
         accel_profile = "flat"; # no mouse acceleration
         focus_on_close = 1;
         follow_mouse = 1; # window focus under mouse
+        mouse_refocus = true;
         float_switch_override_focus = 2; # same but with floating windows
+        off_window_axis_events = 3; # warps the cursor to the closest point inside the window
 
         scroll_method = "2fg"; # 2 finger scroll
         touchpad = {
@@ -105,29 +110,28 @@ in {
       device = [
         {
           name = "@hfd-neo65";
-          kb_layout = "nico";
-          kb_variant = "basic";
           kb_options = "";
-          repeat_rate = 40; # on long press
-          repeat_delay = 290; # time to hold before repeating
         }
         {
           name = "compx-vxe-r1-pro"; # ,,compx-vxe-nordicmouse-1k-dongle-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-1
-          sensitivity = 0.18;
-          accel_profile = "flat"; # no mouse acceleration
+          sensitivity = -0.1;
         }
         {
           name = "compx-vxe-nordicmouse-1k-dongle-1"; # ,compx-vxe-r1-pro-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-1
-          sensitivity = 0.18;
-          accel_profile = "flat"; # no mouse acceleration
+          sensitivity = -0.1;
         }
       ];
 
       gestures = {
-        # workspace_swipe = true; # 3 fingers
-        # workspace_swipe_distance = 250;
-        # workspace_swipe_cancel_ratio = 0.5;
+        workspace_swipe_distance = 250;
+        workspace_swipe_cancel_ratio = 0.5;
       };
+
+      binds = {
+        hide_special_on_workspace_change = true;
+      };
+
+      cursor = {};
 
       misc = {
         disable_hyprland_logo = true;
@@ -138,10 +142,19 @@ in {
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
 
-        focus_on_activate = true;
+        focus_on_activate = false;
+        allow_session_lock_restore = true;
         animate_manual_resizes = false;
         animate_mouse_windowdragging = false;
         disable_autoreload = true; # useless on nixos
+        close_special_on_empty = false;
+        initial_workspace_tracking = 2;
+        middle_click_paste = false;
+      };
+
+      ecosystem = {
+        no_donation_nag = true;
+        enforce_permissions	= false;
       };
 
       debug = {

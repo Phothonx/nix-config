@@ -4,6 +4,8 @@
     HYPRLAND_NO_RT = 1;
     HYPRLAND_NO_SD_NOTIFY = 1;
 
+    SDL_VIDEODRIVER = "wayland";
+
     NIXOS_OZONE_WL = "1";
     _JAVA_AWT_WM_NONEREPARENTING = "1";
 
