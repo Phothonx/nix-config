@@ -5,7 +5,7 @@
 }: {
   programs.neovim = {
     enable = true;
-defaultEditor = true;
+    defaultEditor = true;
     withPython3 = true;
     vimAlias = true;
     vimdiffAlias = true;

@@ -3,8 +3,8 @@
   pkgs,
   ...
 }: {
-  imports = [ inputs.agenix.nixosModules.default ];
-  environment.systemPackages = [ inputs.agenix.packages.${pkgs.system}.default ];
+  imports = [inputs.agenix.nixosModules.default];
+  environment.systemPackages = [inputs.agenix.packages.${pkgs.system}.default];
 
   age.secrets.system-password.file = ./../../../secrets/system-password.age;
   age.secrets.git-config.file = ./../../../secrets/git-config.age;
