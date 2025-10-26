@@ -1,19 +1,12 @@
 # Nix-config
 
-## Review TODO
-- [x] Starship
-- [ ] gtk / qt
-- [ ] xdg
-- [ ] neovim conf
-- [ ] Steam
-- [ ] Discord
-- [ ] firefox
-- [ ] other apps
-- [ ] Spotify
-- [ ] Hyprland
-- [ ] Custom shell
-- [ ] Templates
-- [ ] secrets
+## Notes
+
+### Recovery
+Append to boot options:
+```
+<...> rescue systemd.setenv=SYSTEMD_SULOGIN_FORCE=1
+```
 
 *for your viewing pleasure*
 ![preview2.png](./assets/preview2_v2.png)

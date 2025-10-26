@@ -1,10 +1,11 @@
 let
-  nico = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPBjFuk+j1jgUmqtVEVDbK7XqmMSgVTw+IF+kgYLOYH2";
-  users = [nico];
+  nico = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/j7aoPG6YiK6UInYCir/+L3h73O2V36M4M6PdsdREX";
+  users = [ nico ];
 
-  avalon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIZRH8QgdMKfr2L9DC+g4yEXlyZvq3+yQ6UStadKxIgR";
-  systems = [avalon];
+  avalon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+jy/12OrvjxnmeKU3e9Fw8d8m8plcjSkkIFL3omc/r";
+  systems = [ avalon ];
 in {
-  "secret1.age".publicKeys = users ++ systems;
-  "secret2.age".publicKeys = users ++ systems;
+  "git-config.age".publicKeys = users ++ systems;
+  "ssh-config.age".publicKeys = users ++ systems;
+  "system-password.age".publicKeys = users ++ systems; # hashed version, use mkpasswd
 }
