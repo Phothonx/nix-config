@@ -10,7 +10,7 @@
       cd = "z";
       cp = "cp --verbose";
       mv = "mv --verbose";
-      rm = "rm -I --verbose";
+      rm = "rm --interactive=once --verbose";
       mkdir = "mkdir --parents --verbose";
     };
 
@@ -41,7 +41,7 @@
       npr = "nix profile remove";
       ne = "echo $IN_NIX_SHELL";
       npi = {
-        expansion = "nix profile install nixpkgs#%";
+        expansion = "nix profile add nixpkgs#%";
         setCursor = true;
       };
       nsh = {

@@ -4,6 +4,7 @@
     ./openvpn.nix
     ./gaming.nix
     ./agenix.nix
+    ./sops.nix
     ./bluetooth.nix
     ./fish.nix
     ./greetd.nix

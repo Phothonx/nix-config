@@ -5,8 +5,7 @@
 }: {
   programs.neovim = {
     enable = true;
-
-    defaultEditor = true;
+defaultEditor = true;
     withPython3 = true;
     vimAlias = true;
     vimdiffAlias = true;
@@ -67,6 +66,7 @@
       python3
       imagemagick
       sqlite # snacks
+
       texliveMedium # vimtex
       xdotool # vimtex
 

@@ -113,12 +113,12 @@ in {
           kb_options = "";
         }
         {
-          name = "compx-vxe-r1-pro"; # ,,compx-vxe-nordicmouse-1k-dongle-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-1
-          sensitivity = -0.1;
+          name = "compx-vxe-r1-pro-1"; # ,,compx-vxe-nordicmouse-1k-dongle-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-1
+          sensitivity = -0.22;
         }
         {
           name = "compx-vxe-nordicmouse-1k-dongle-1"; # ,compx-vxe-r1-pro-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-1
-          sensitivity = -0.1;
+          sensitivity = -0.22;
         }
       ];
 
@@ -148,13 +148,13 @@ in {
         animate_mouse_windowdragging = false;
         disable_autoreload = true; # useless on nixos
         close_special_on_empty = false;
-        initial_workspace_tracking = 2;
+        # initial_workspace_tracking = 2;
         middle_click_paste = false;
       };
 
       ecosystem = {
         no_donation_nag = true;
-        enforce_permissions	= false;
+        enforce_permissions = false;
       };
 
       debug = {

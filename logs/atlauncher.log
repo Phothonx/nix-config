@@ -1,0 +1,459 @@
+17:52:58.827 [ATL-Logging-Thread] INFO  - Organising filesystem
+
+17:52:58.829 [ATL-Logging-Thread] INFO  - ATLauncher Version: 3.4.38.2 [b6f3b1ac61b9be9f3d4573d01dc291077f7ad130]
+
+17:52:58.830 [ATL-Logging-Thread] INFO  - App Arguments: ["--working-dir","**USERSDIR**","--no-launcher-update"]
+
+17:52:58.845 [ATL-Logging-Thread] INFO  - JVM Arguments: []
+
+17:52:58.846 [ATL-Logging-Thread] INFO  - Java Version: Java 21 (21.0.8)
+
+17:52:58.850 [ATL-Logging-Thread] INFO  - Java Path: /nix/store/0x556ql275jkl46k6lklpyvwn5c4p244-openjdk-21.0.8+9/lib/openjdk
+
+17:52:58.851 [ATL-Logging-Thread] INFO  - 64 Bit Java: true
+
+17:52:58.854 [ATL-Logging-Thread] INFO  - RAM Available: 15718MB
+
+17:52:58.854 [ATL-Logging-Thread] INFO  - Launcher Directory: **USERSDIR**
+
+17:52:58.907 [ATL-Logging-Thread] INFO  - GPU: Alder Lake-P GT1 [UHD Graphics] (Intel Corporation (0x8086)) unknown 256MB VRAM
+
+17:52:58.986 [ATL-Logging-Thread] INFO  - CPU: 12th Gen Intel(R) Core(TM) i5-12450H 8 cores/12 threads
+
+17:52:58.987 [ATL-Logging-Thread] INFO  - Operating System: NixOS (25.11 (Xantusia) build 6.12.49)
+
+17:52:58.988 [ATL-Logging-Thread] INFO  - Bitness: 64
+
+17:52:58.988 [ATL-Logging-Thread] INFO  - Uptime: 8272
+
+17:52:58.990 [ATL-Logging-Thread] INFO  - Manufacturer: GNU/Linux
+
+17:52:58.990 [ATL-Logging-Thread] INFO  - Showing splash screen and loading everything
+
+17:52:58.994 [ATL-Logging-Thread] INFO  - Checking for updated files!
+
+17:52:59.613 [ATL-Logging-Thread] INFO  - Finished downloading updated files!
+
+17:53:02.047 [ATL-Logging-Thread] INFO  - Launcher finished loading everything
+
+17:53:02.053 [ATL-Logging-Thread] INFO  - Launcher opening
+
+17:53:02.053 [ATL-Logging-Thread] INFO  - Made By Bob*
+
+17:53:02.054 [ATL-Logging-Thread] INFO  - *(Not Actually)
+
+17:53:02.056 [ATL-Logging-Thread] INFO  - Setting up Bottom Bar
+
+17:53:02.098 [ATL-Logging-Thread] INFO  - Finished Setting up Bottom Bar
+
+17:53:02.098 [ATL-Logging-Thread] INFO  - Setting up Tabs
+
+17:53:02.268 [ATL-Logging-Thread] INFO  - Finished Setting up Tabs
+
+17:53:02.274 [ATL-Logging-Thread] INFO  - Showing Launcher
+
+17:53:12.294 [ATL-Logging-Thread] ERROR - Error on GraphQL query
+
+17:53:12.296 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+
+17:53:12.297 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+
+17:53:12.297 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+
+17:53:12.298 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+
+17:53:12.299 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+
+17:53:12.300 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+17:53:12.300 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+17:53:12.301 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:53:12.302 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:57:09.330 [ATL-Logging-Thread] INFO  - Started install of Homestead - A Cozy Survival Experience version Homestead-1.1.4
+
+17:57:13.340 [ATL-Logging-Thread] ERROR - Error trying to get Modrinth projects as map
+
+17:57:13.342 [ATL-Logging-Thread] ERROR - com.google.gson.JsonSyntaxException: java.io.InterruptedIOException: interrupted
+
+17:57:13.344 [ATL-Logging-Thread] ERROR - 	at com.google.gson.Gson.fromJson(Gson.java:1241)
+
+17:57:13.346 [ATL-Logging-Thread] ERROR - 	at com.google.gson.Gson.fromJson(Gson.java:1137)
+
+17:57:13.348 [ATL-Logging-Thread] ERROR - 	at com.google.gson.Gson.fromJson(Gson.java:1107)
+
+17:57:13.349 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.network.Download.asTypeWithThrow(Download.java:181)
+
+17:57:13.350 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.network.Download.asType(Download.java:186)
+
+17:57:13.351 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.network.Download.asType(Download.java:200)
+
+17:57:13.352 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.utils.ModrinthApi.getProjects(ModrinthApi.java:375)
+
+17:57:13.353 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.utils.ModrinthApi.getProjectsAsMap(ModrinthApi.java:380)
+
+17:57:13.353 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.generatePackVersionFromCurseForgeManifest(InstanceInstaller.java:819)
+
+17:57:13.354 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.generatePackVersionFromCurseForge(InstanceInstaller.java:1012)
+
+17:57:13.354 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:326)
+
+17:57:13.355 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:152)
+
+17:57:13.355 [ATL-Logging-Thread] ERROR - 	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:305)
+
+17:57:13.356 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+
+17:57:13.356 [ATL-Logging-Thread] ERROR - 	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:342)
+
+17:57:13.358 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+17:57:13.359 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+17:57:13.362 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:57:13.364 [ATL-Logging-Thread] ERROR - Caused by: java.io.InterruptedIOException: interrupted
+
+17:57:13.365 [ATL-Logging-Thread] ERROR - 	at okio.Timeout.throwIfReached(Timeout.kt:98)
+
+17:57:13.367 [ATL-Logging-Thread] ERROR - 	at okio.InputStreamSource.read(JvmOkio.kt:91)
+
+17:57:13.369 [ATL-Logging-Thread] ERROR - 	at okio.AsyncTimeout$source$1.read(AsyncTimeout.kt:125)
+
+17:57:13.370 [ATL-Logging-Thread] ERROR - 	at okio.RealBufferedSource.read(RealBufferedSource.kt:189)
+
+17:57:13.372 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.http1.Http1ExchangeCodec$AbstractSource.read(Http1ExchangeCodec.kt:339)
+
+17:57:13.374 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.http1.Http1ExchangeCodec$ChunkedSource.read(Http1ExchangeCodec.kt:420)
+
+17:57:13.376 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.connection.Exchange$ResponseBodySource.read(Exchange.kt:281)
+
+17:57:13.376 [ATL-Logging-Thread] ERROR - 	at okio.RealBufferedSource.read(RealBufferedSource.kt:189)
+
+17:57:13.378 [ATL-Logging-Thread] ERROR - 	at okio.RealBufferedSource.exhausted(RealBufferedSource.kt:197)
+
+17:57:13.378 [ATL-Logging-Thread] ERROR - 	at okio.InflaterSource.refill(InflaterSource.kt:112)
+
+17:57:13.379 [ATL-Logging-Thread] ERROR - 	at okio.InflaterSource.readOrInflate(InflaterSource.kt:76)
+
+17:57:13.380 [ATL-Logging-Thread] ERROR - 	at okio.InflaterSource.read(InflaterSource.kt:49)
+
+17:57:13.380 [ATL-Logging-Thread] ERROR - 	at okio.GzipSource.read(GzipSource.kt:69)
+
+17:57:13.381 [ATL-Logging-Thread] ERROR - 	at okio.RealBufferedSource$inputStream$1.read(RealBufferedSource.kt:158)
+
+17:57:13.381 [ATL-Logging-Thread] ERROR - 	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:350)
+
+17:57:13.382 [ATL-Logging-Thread] ERROR - 	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:393)
+
+17:57:13.383 [ATL-Logging-Thread] ERROR - 	at java.base/sun.nio.cs.StreamDecoder.lockedRead(StreamDecoder.java:217)
+
+17:57:13.383 [ATL-Logging-Thread] ERROR - 	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:171)
+
+17:57:13.384 [ATL-Logging-Thread] ERROR - 	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:188)
+
+17:57:13.385 [ATL-Logging-Thread] ERROR - 	at okhttp3.ResponseBody$BomAwareReader.read(ResponseBody.kt:211)
+
+17:57:13.385 [ATL-Logging-Thread] ERROR - 	at com.google.gson.stream.JsonReader.fillBuffer(JsonReader.java:1351)
+
+17:57:13.386 [ATL-Logging-Thread] ERROR - 	at com.google.gson.stream.JsonReader.nextQuotedValue(JsonReader.java:1043)
+
+17:57:13.386 [ATL-Logging-Thread] ERROR - 	at com.google.gson.stream.JsonReader.nextName(JsonReader.java:798)
+
+17:57:13.387 [ATL-Logging-Thread] ERROR - 	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:388)
+
+17:57:13.388 [ATL-Logging-Thread] ERROR - 	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+
+17:57:13.388 [ATL-Logging-Thread] ERROR - 	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:82)
+
+17:57:13.389 [ATL-Logging-Thread] ERROR - 	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:61)
+
+17:57:13.389 [ATL-Logging-Thread] ERROR - 	at com.google.gson.Gson.fromJson(Gson.java:1227)
+
+17:57:13.390 [ATL-Logging-Thread] ERROR - 	... 17 more
+
+17:57:13.391 [ATL-Logging-Thread] ERROR - com.google.gson.JsonSyntaxException: java.io.InterruptedIOException: interrupted
+	at com.google.gson.Gson.fromJson(Gson.java:1241)
+	at com.google.gson.Gson.fromJson(Gson.java:1137)
+	at com.google.gson.Gson.fromJson(Gson.java:1107)
+	at com.atlauncher.network.Download.asTypeWithThrow(Download.java:181)
+	at com.atlauncher.network.Download.asType(Download.java:186)
+	at com.atlauncher.network.Download.asType(Download.java:200)
+	at com.atlauncher.utils.ModrinthApi.getProjects(ModrinthApi.java:375)
+	at com.atlauncher.utils.ModrinthApi.getProjectsAsMap(ModrinthApi.java:380)
+	at com.atlauncher.workers.InstanceInstaller.generatePackVersionFromCurseForgeManifest(InstanceInstaller.java:819)
+	at com.atlauncher.workers.InstanceInstaller.generatePackVersionFromCurseForge(InstanceInstaller.java:1012)
+	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:326)
+	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:152)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:305)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:342)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.io.InterruptedIOException: interrupted
+	at okio.Timeout.throwIfReached(Timeout.kt:98)
+	at okio.InputStreamSource.read(JvmOkio.kt:91)
+	at okio.AsyncTimeout$source$1.read(AsyncTimeout.kt:125)
+	at okio.RealBufferedSource.read(RealBufferedSource.kt:189)
+	at okhttp3.internal.http1.Http1ExchangeCodec$AbstractSource.read(Http1ExchangeCodec.kt:339)
+	at okhttp3.internal.http1.Http1ExchangeCodec$ChunkedSource.read(Http1ExchangeCodec.kt:420)
+	at okhttp3.internal.connection.Exchange$ResponseBodySource.read(Exchange.kt:281)
+	at okio.RealBufferedSource.read(RealBufferedSource.kt:189)
+	at okio.RealBufferedSource.exhausted(RealBufferedSource.kt:197)
+	at okio.InflaterSource.refill(InflaterSource.kt:112)
+	at okio.InflaterSource.readOrInflate(InflaterSource.kt:76)
+	at okio.InflaterSource.read(InflaterSource.kt:49)
+	at okio.GzipSource.read(GzipSource.kt:69)
+	at okio.RealBufferedSource$inputStream$1.read(RealBufferedSource.kt:158)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:350)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:393)
+	at java.base/sun.nio.cs.StreamDecoder.lockedRead(StreamDecoder.java:217)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:171)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:188)
+	at okhttp3.ResponseBody$BomAwareReader.read(ResponseBody.kt:211)
+	at com.google.gson.stream.JsonReader.fillBuffer(JsonReader.java:1351)
+	at com.google.gson.stream.JsonReader.nextQuotedValue(JsonReader.java:1043)
+	at com.google.gson.stream.JsonReader.nextName(JsonReader.java:798)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:388)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:82)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:61)
+	at com.google.gson.Gson.fromJson(Gson.java:1227)
+	... 17 more
+
+17:57:13.393 [ATL-Logging-Thread] ERROR - java.lang.NullPointerException: Cannot invoke "java.util.Map.size()" because "m" is null
+
+17:57:13.394 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.HashMap.putMapEntries(HashMap.java:503)
+
+17:57:13.394 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.HashMap.putAll(HashMap.java:791)
+
+17:57:13.395 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.generatePackVersionFromCurseForgeManifest(InstanceInstaller.java:819)
+
+17:57:13.395 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.generatePackVersionFromCurseForge(InstanceInstaller.java:1012)
+
+17:57:13.395 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:326)
+
+17:57:13.396 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:152)
+
+17:57:13.396 [ATL-Logging-Thread] ERROR - 	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:305)
+
+17:57:13.397 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+
+17:57:13.397 [ATL-Logging-Thread] ERROR - 	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:342)
+
+17:57:13.397 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+17:57:13.398 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+17:57:13.398 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:57:13.398 [ATL-Logging-Thread] ERROR - java.lang.NullPointerException: Cannot invoke "java.util.Map.size()" because "m" is null
+	at java.base/java.util.HashMap.putMapEntries(HashMap.java:503)
+	at java.base/java.util.HashMap.putAll(HashMap.java:791)
+	at com.atlauncher.workers.InstanceInstaller.generatePackVersionFromCurseForgeManifest(InstanceInstaller.java:819)
+	at com.atlauncher.workers.InstanceInstaller.generatePackVersionFromCurseForge(InstanceInstaller.java:1012)
+	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:326)
+	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:152)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:305)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:342)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:57:26.678 [ATL-Logging-Thread] INFO  - Started install of Homestead - A Cozy Survival Experience version Homestead-1.1.3
+
+17:57:44.942 [ATL-Logging-Thread] ERROR - Error on GraphQL query
+
+17:57:44.944 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+
+17:57:44.945 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+
+17:57:44.947 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+
+17:57:44.948 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+
+17:57:44.950 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+
+17:57:44.952 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+17:57:44.953 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+17:57:44.953 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:57:44.954 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:57:44.955 [ATL-Logging-Thread] ERROR - java.lang.NullPointerException: Cannot read field "mainClass" because "this.version" is null
+
+17:57:44.955 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.data.minecraft.loaders.fabric.FabricLoader.getMainClass(FabricLoader.java:154)
+
+17:57:44.956 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.determineMainClass(InstanceInstaller.java:2721)
+
+17:57:44.956 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.install(InstanceInstaller.java:2421)
+
+17:57:44.957 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:382)
+
+17:57:44.957 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:152)
+
+17:57:44.957 [ATL-Logging-Thread] ERROR - 	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:305)
+
+17:57:44.957 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+
+17:57:44.957 [ATL-Logging-Thread] ERROR - 	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:342)
+
+17:57:44.958 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+17:57:44.958 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+17:57:44.959 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:57:44.959 [ATL-Logging-Thread] ERROR - java.lang.NullPointerException: Cannot read field "mainClass" because "this.version" is null
+	at com.atlauncher.data.minecraft.loaders.fabric.FabricLoader.getMainClass(FabricLoader.java:154)
+	at com.atlauncher.workers.InstanceInstaller.determineMainClass(InstanceInstaller.java:2721)
+	at com.atlauncher.workers.InstanceInstaller.install(InstanceInstaller.java:2421)
+	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:382)
+	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:152)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:305)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:342)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:58:10.001 [ATL-Logging-Thread] INFO  - Started install of Homestead - A Cozy Survival Experience version Homestead-1.1.3
+
+17:58:15.103 [ATL-Logging-Thread] ERROR - Error on GraphQL query
+
+17:58:15.103 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+
+17:58:15.104 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+
+17:58:15.104 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+
+17:58:15.105 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+
+17:58:15.105 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+
+17:58:15.106 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+17:58:15.106 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+17:58:15.106 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:58:15.107 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:58:15.107 [ATL-Logging-Thread] ERROR - java.lang.NullPointerException: Cannot read field "mainClass" because "this.version" is null
+
+17:58:15.107 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.data.minecraft.loaders.fabric.FabricLoader.getMainClass(FabricLoader.java:154)
+
+17:58:15.108 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.determineMainClass(InstanceInstaller.java:2721)
+
+17:58:15.108 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.install(InstanceInstaller.java:2421)
+
+17:58:15.108 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:382)
+
+17:58:15.108 [ATL-Logging-Thread] ERROR - 	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:152)
+
+17:58:15.109 [ATL-Logging-Thread] ERROR - 	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:305)
+
+17:58:15.109 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+
+17:58:15.109 [ATL-Logging-Thread] ERROR - 	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:342)
+
+17:58:15.109 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+17:58:15.109 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+17:58:15.110 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:58:15.110 [ATL-Logging-Thread] ERROR - java.lang.NullPointerException: Cannot read field "mainClass" because "this.version" is null
+	at com.atlauncher.data.minecraft.loaders.fabric.FabricLoader.getMainClass(FabricLoader.java:154)
+	at com.atlauncher.workers.InstanceInstaller.determineMainClass(InstanceInstaller.java:2721)
+	at com.atlauncher.workers.InstanceInstaller.install(InstanceInstaller.java:2421)
+	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:382)
+	at com.atlauncher.workers.InstanceInstaller.doInBackground(InstanceInstaller.java:152)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:305)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:342)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:58:52.522 [ATL-Logging-Thread] ERROR - Error on GraphQL query
+
+17:58:52.522 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+
+17:58:52.523 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+
+17:58:52.523 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+
+17:58:52.523 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+
+17:58:52.524 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+
+17:58:52.524 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+17:58:52.524 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+17:58:52.524 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:58:52.525 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:58:56.786 [ATL-Logging-Thread] ERROR - Error on GraphQL query
+
+17:58:56.786 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+
+17:58:56.786 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+
+17:58:56.787 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+
+17:58:56.787 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+
+17:58:56.787 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+
+17:58:56.788 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+17:58:56.788 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+17:58:56.788 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+17:58:56.788 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+

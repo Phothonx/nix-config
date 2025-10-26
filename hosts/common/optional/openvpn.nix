@@ -1,9 +1,8 @@
-{...}:
-{
+{...}: {
   services.openvpn.servers = {
-    tryhackmeVPN  = {
+    tryhackmeVPN = {
       # systemctl status openvpn-tryhackmeVPN.service
-      config = '' config /home/nico/Dev/try-hack-me/ncio.gravitate56.ovpn '';
+      config = ''config /home/nico/Dev/try-hack-me/ncio.gravitate56.ovpn '';
       autoStart = false;
     };
   };
