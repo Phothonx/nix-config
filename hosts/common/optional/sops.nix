@@ -1,4 +1,3 @@
-
 {
   inputs,
   pkgs,
@@ -6,7 +5,10 @@
 }: {
   imports = [ inputs.sops-nix.nixosModules.sops ];
 
-  environment.systemPackages = [ pkgs.age ];
+  environment.systemPackages = [
+    pkgs.age
+    pkgs.sops
+  ];
 
   sops = {
     defaultSopsFile = ../../../secrets/secrets.yaml;
@@ -15,8 +17,6 @@
     secrets = {
       "user_passwords/nico" = { neededForUsers = true; };
       "user_passwords/guest" = { neededForUsers = true; };
-      "configs/ssh" = {};
-      "configs/git" = {};
       "wifi_config" = {};
     };
   };
