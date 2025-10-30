@@ -11,8 +11,7 @@ in {
 
   users.users.nico = {
     shell = pkgs.bashInteractive;
-    hashedPasswordFile = config.age.secrets.system-password.path;
-    # password = "test";
+    hashedPasswordFile = config.sops.secrets."user_passwords/nico".path;
     isNormalUser = true;
     home = "/home/nico";
     group = "users";
