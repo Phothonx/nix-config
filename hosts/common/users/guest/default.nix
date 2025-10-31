@@ -9,7 +9,7 @@ in {
 
   users.users.guest = {
     shell = pkgs.bashInteractive;
-    hashedPasswordFile = config.sops.secrets"user_passwords/guest".path;
+    hashedPasswordFile = config.sops.secrets."user_passwords/guest".path;
     isNormalUser = true;
     home = "/home/guest";
     group = "users";

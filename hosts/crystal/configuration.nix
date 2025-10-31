@@ -5,6 +5,7 @@
 
     ./../common/global/nix.nix
     ./../common/users/guest
+    ./../common/optional/sops.nix
   ];
 
 
@@ -29,7 +30,7 @@
     hostName = "crystal";
     wireless = {
       enable = true;
-      secretsFile = config.sops.secrets.wifi_configs.path;
+      secretsFile = config.sops.secrets.wifi_config.path;
       networks."jnms".psk = "ext:psk_jnms";
       interfaces = [ "wlu1u2" ];
     };
