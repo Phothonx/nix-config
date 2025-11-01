@@ -3,6 +3,6 @@
     ./neovim
 
     ./direnv.nix
-    # ./ssh.nix
+    ./ssh.nix
   ];
 }

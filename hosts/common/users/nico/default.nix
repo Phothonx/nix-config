@@ -9,6 +9,8 @@
 in {
   users.mutableUsers = false;
 
+  sops.secrets."user_passwords/nico" = {neededForUsers = true;};
+
   users.users.nico = {
     shell = pkgs.bashInteractive;
     hashedPasswordFile = config.sops.secrets."user_passwords/nico".path;
@@ -26,7 +28,7 @@ in {
     ];
   };
 
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+  imports = [inputs.home-manager.nixosModules.home-manager];
 
   home-manager = {
     verbose = true;

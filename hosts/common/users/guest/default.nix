@@ -7,6 +7,8 @@
 in {
   users.mutableUsers = false;
 
+  sops.secrets."user_passwords/guest" = {neededForUsers = true;};
+
   users.users.guest = {
     shell = pkgs.bashInteractive;
     hashedPasswordFile = config.sops.secrets."user_passwords/guest".path;

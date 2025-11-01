@@ -1,6 +1,8 @@
 {
   outputs,
   inputs,
+  pkgs,
+  lib,
   ...
 }: {
   nixpkgs = {
@@ -14,7 +16,5 @@
       allowUnsupportedSystem = true;
     };
   };
-  boot.binfmt.emulatedSystems = [ # for cross compilation
-    "aarch64-linux"
-  ];
+  boot.binfmt.emulatedSystems = lib.mkIf (pkgs.stdenv.hostPlatform.system == "x86_64-linux") ["aarch64-linux"];
 }

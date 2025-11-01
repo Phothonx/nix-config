@@ -3,9 +3,6 @@
 ## To-do
  - nix ssh config
  - git ssh config
- - change sops keyfile for systemwide
- - generate age key from ssh key
- - add ssh k to sops (make a home specific sops file)
  - astal v3 with python ?
 
 ## Notes

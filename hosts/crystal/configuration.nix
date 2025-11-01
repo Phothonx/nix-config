@@ -1,17 +1,22 @@
-{inputs, pkgs, config, ...}: {
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}: {
   imports = with inputs.nixos-hardware.nixosModules; [
     # ./hardware-configuration.nix
     raspberry-pi-3
 
-    ./../common/global/nix.nix
-    ./../common/users/guest
+    ./../common/global
     ./../common/optional/sops.nix
-  ];
 
+    ./../common/users/guest
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi3;
-    initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
+    initrd.availableKernelModules = ["xhci_pci" "usbhid" "usb_storage"];
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
@@ -22,17 +27,20 @@
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
-      options = [ "noatime" ];
+      options = ["noatime"];
     };
   };
+
+  sops.secrets."wifi_config" = {};
 
   networking = {
     hostName = "crystal";
     wireless = {
+      # userControlled.enable = true;
       enable = true;
       secretsFile = config.sops.secrets.wifi_config.path;
-      networks."jnms".psk = "ext:psk_jnms";
-      interfaces = [ "wlu1u2" ];
+      networks."jnms".pskRaw = "ext:psk_jnms";
+      interfaces = ["wlu1u2"];
     };
   };
 
@@ -42,11 +50,14 @@
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [ "guest" ];
+      AllowUsers = ["guest"];
     };
   };
+  services.fail2ban.enable = true;
 
-  environment.systemPackages = with pkgs; [ vim ];
+  environment.systemPackages = with pkgs; [
+    vim
+  ];
 
   hardware.deviceTree.enable = true;
   hardware.enableRedistributableFirmware = true;
