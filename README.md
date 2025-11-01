@@ -13,11 +13,11 @@
 ### Sops
 edit secrets file
 ```
-sops secrets/secrets.yaml
+sops secrets/*
 ```
 update secrets file keys
 ```
-sops updatekeys secrets/example.yaml
+sops updatekeys secrets/*
 ```
 
 ### Set X keybord mapping anywhere
