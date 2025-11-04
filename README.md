@@ -1,8 +1,6 @@
 # Nix-config
 
 ## To-do
- - nix ssh config
- - git ssh config
  - astal v3 with python ?
 
 ## Notes

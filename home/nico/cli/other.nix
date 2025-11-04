@@ -22,6 +22,8 @@
     openvpn
     usbutils
     net-tools
+    caligula
+    usbutils
 
     # secu
     # vulnix

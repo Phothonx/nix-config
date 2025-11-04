@@ -14,7 +14,7 @@ in {
 
       "${pkgs.systemd}/bin/systemctl --user start ${hyprpolkitagent}/bin/hyprpolkitagent"
 
-      "${my-shell}/bin/my-shell"
+      # "${my-shell}/bin/my-shell"
     ];
   };
 }

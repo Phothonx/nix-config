@@ -7,6 +7,7 @@
     nixpkgs.url = "nixpkgs";
     # this is not mandatory but it will ensure this version of nixpkgs is always present on your computer
     # by using the same as your system
+    # github:nixos/nixpkgs/nixos-unstable works too :)
   };
 
   outputs = {
@@ -34,13 +35,13 @@
       default = pkgs.mkShell {
         # if package not in nixpkgs: https://github.com/nix-community/pip2nix
         # ex: nix run github:nix-community/pip2nix -- generate
-        # or directly builPythonPackage
+        # or directly use builPythonPackage
         venvDir = ".venv";
         packages = [
           (pkgs.python3.withPackages (p:
             with p; [
-              # ex:
               # matplotlib
+              # numpy
               # scipy
               # requests
               # jupyter

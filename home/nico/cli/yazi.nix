@@ -17,11 +17,11 @@
     enableBashIntegration = true;
 
     settings = {
-      manager = {
-        sort_by = "mtime";
-        sort_dir_first = true;
-        linemode = "size_and_mtime";
-      };
+      # manager = {
+      #   sort_by = "mtime";
+      #   sort_dir_first = true;
+      #   linemode = "size_and_mtime";
+      # };
     };
   };
 }

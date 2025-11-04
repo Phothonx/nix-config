@@ -20,7 +20,7 @@
 
     lib = nixpkgs.lib;
 
-    # system -> pkgs
+    # attrset: system -> pkgs
     pkgsGen = system:
       import nixpkgs {
         inherit system;

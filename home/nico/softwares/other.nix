@@ -11,7 +11,7 @@
     pwvucontrol
     helvum
 
-    bitwarden
+    bitwarden-desktop
     spotify
     discord
     chromium

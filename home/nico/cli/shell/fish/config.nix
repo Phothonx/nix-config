@@ -63,7 +63,7 @@
 
         set -l fhs_env_info (
           if test -n "$FHS"
-            echo -n "<fhs-env> "
+            echo -n (set_color brred)"<fhs-env> "
           end
         )
 
