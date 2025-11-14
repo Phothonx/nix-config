@@ -9,7 +9,7 @@
 
     # Audio
     pwvucontrol
-    helvum
+    coppwr
 
     bitwarden-desktop
     spotify

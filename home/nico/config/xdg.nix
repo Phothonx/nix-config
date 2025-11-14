@@ -9,6 +9,7 @@
     XDG_SESSION_TYPE = "wayland";
 
     BROWSER = "firefox";
+    DEFAULT_BROWSERS = "firefox";
     TERMINAL = "kitty";
 
     # home cleaning

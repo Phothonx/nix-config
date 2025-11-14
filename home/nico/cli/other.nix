@@ -28,7 +28,7 @@
     # secu
     # vulnix
     # lynis
-    veracrypt
+    # veracrypt
     kryptor
     nmap
     netcat-gnu

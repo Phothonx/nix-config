@@ -33,7 +33,5 @@ map('i', '<M-j>', '<Down>',  { noremap = false, desc = 'Down' })
 map('i', '<M-k>', '<Up>',    { noremap = false, desc = 'Up' })
 map('i', '<M-l>', '<Right>', { noremap = false, desc = 'Right' })
 
-map('t', '<M-h>', '<Left>',  { desc = 'Left' })
-map('t', '<M-j>', '<Down>',  { desc = 'Down' })
-map('t', '<M-k>', '<Up>',    { desc = 'Up' })
-map('t', '<M-l>', '<Right>', { desc = 'Right' })
+-- terminal exit faster
+map('t', '<M-\\>', '<C-\\><C-N>', { noremap = false, desc = 'Escape terminal' })

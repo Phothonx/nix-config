@@ -114,11 +114,11 @@ in {
         }
         {
           name = "compx-vxe-r1-pro-1"; # ,,compx-vxe-nordicmouse-1k-dongle-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-1
-          sensitivity = -0.22;
+          sensitivity = -0.43;
         }
         {
           name = "compx-vxe-nordicmouse-1k-dongle-1"; # ,compx-vxe-r1-pro-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-consumer-control-1,compx-vxe-nordicmouse-1k-dongle-1
-          sensitivity = -0.22;
+          sensitivity = -0.43;
         }
       ];
 

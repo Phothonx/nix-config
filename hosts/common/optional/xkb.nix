@@ -6,7 +6,7 @@
   console.useXkbConfig = true;
 
   services.xserver.xkb = {
-    layout = "fr";
+    layout = "fr"; # nico
     options = "caps:escape";
     extraLayouts = {
       nico = {

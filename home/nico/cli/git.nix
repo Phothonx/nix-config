@@ -20,5 +20,4 @@
       "includeIf \"hasconfig:remote.*.url:git@thor.enseirb-matmeca.fr:*/**\"".path = config.sops.secrets."git_config/thor".path;
     };
   };
-
 }
