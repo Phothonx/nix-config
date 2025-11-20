@@ -24,21 +24,21 @@
       # base46
 
       # lSP / TS
-      (pkgs.vimPlugins.nvim-treesitter.withPlugins (p:
-        pkgs.tree-sitter.allGrammars
-        ++ [
-          p.latex
-          p.tree-sitter-norg
-          p.tree-sitter-norg-meta
-        ]))
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+      pkgs.tree-sitter-grammars.tree-sitter-norg-meta
+      pkgs.tree-sitter-grammars.tree-sitter-norg
+      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p:
+      #   pkgs.tree-sitter.allGrammars
+      #   ++ [
+      #     p.latex
+      #     p.tree-sitter-norg
+      #     p.tree-sitter-norg-meta
+      #   ]))
 
       # DEPS
-      image-nvim # neorg & molten
       nui-nvim # neorg
       plenary-nvim # neorg
       nvim-nio # neorg
-      # pkgs.tree-sitter-grammars.tree-sitter-norg-meta
-      # pkgs.tree-sitter-grammars.tree-sitter-norg
       nvim-web-devicons
 
       # MINI & SNACKS <3
@@ -66,8 +66,13 @@
       python3
       imagemagick
       sqlite # snacks
+      mermaid-cli # snacks image
+      ghostscript
+      trashy
 
       texliveMedium # vimtex
+      biber
+      pstree
       xdotool # vimtex
 
       # LSP / FORMATTERS
@@ -106,6 +111,7 @@
         nbformat
         pillow
         requests
+        kaleido
 
         ipykernel
       ];

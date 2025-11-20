@@ -1,5 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    kdePackages.kdenlive
+
     # Video mpv frontend
     celluloid
 

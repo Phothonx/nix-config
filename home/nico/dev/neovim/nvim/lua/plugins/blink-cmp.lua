@@ -8,75 +8,23 @@ return {
     enabled = function() return not vim.tbl_contains({ "markdown", "norg", "txt" }, vim.bo.filetype) end,
 
 
-    keyword = { range = 'full' },
     keymap = { preset = 'default' },
 
-    appearance = {
-      nerd_font_variant = 'mono'
-    },
-
     completion = {
+      keyword = { range = 'full' },
       documentation = { auto_show = true, auto_show_delay_ms = 350 },
       list = { selection = { preselect = false, auto_insert = true } },
-      menu = {
-        auto_show = true,
-        draw = {
-          padding = { 0, 1 }, -- padding only on right side
-          components = {
-            kind_icon = {
-              text = function(ctx) return ' ' .. ctx.kind_icon .. ctx.icon_gap .. ' ' end
-            }
-          }
-        }
-      },
       ghost_text = { enabled = true },
     },
 
-    sources = {
-      -- default = { 'lsp', 'path', 'snippets', 'buffer' },
-      default = function(ctx)
-        local success, node = pcall(vim.treesitter.get_node)
-        if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
-          return { 'buffer', 'path' }
-        else
-          return { 'lsp', 'path', 'snippets', 'buffer' }
-        end
-      end,
-
-      providers = {
-        buffer = {
-          opts = {
-            -- or (recommended) filter to only "normal" buffers
-            get_bufnrs = function()
-              return vim.tbl_filter(function(bufnr)
-                return vim.bo[bufnr].buftype == ''
-              end, vim.api.nvim_list_bufs())
-            end
-          }
-        }
-      },
-      snippets = {
-        opts = {
-          friendly_snippets = true, -- default
-          extended_filetypes = {
-          },
-        },
-      },
-
-      fuzzy = {
-        implementation = "prefer_rust_with_warning",
-        sorts = { 'exact', 'score', 'sort_text', },
-      },
-    },
     cmdline = {
       source = {
-        keymap = { preset = "inherit", },
+        keymap = { preset = "default", },
         completion = {
           list = { selection = { preselect = false, } },
           menu = { auto_show = true, },
         },
       },
     },
-    opts_extend = { "sources.default" }
   }
 }

@@ -53,6 +53,7 @@
       gs = "git status";
       gaa = "git add --all";
       gpom = "git push --set-upstream origin main";
+      gl = "git log --oneline --all --graph";
       gcm = {
         expansion = "git commit --message \"%\"";
         setCursor = true;

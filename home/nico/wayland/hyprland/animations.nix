@@ -1,7 +1,4 @@
 {
-  config,
-  pkgs,
-  lib,
   ...
 }: {
   wayland.windowManager.hyprland.settings = {
@@ -9,9 +6,9 @@
       enabled = true;
       bezier = [
         # https://easings.net/
-        "myBezier, .5, .25, 0, 1"
+        "myBezier, 0.5, 0.25, 0, 1"
         "quart, 0.25, 1, 0.5, 1"
-        "linear, 0.0, 0.0, 1.0, 1.0"
+        "linear, 0, 0, 1, 1"
       ];
 
       animation = [
