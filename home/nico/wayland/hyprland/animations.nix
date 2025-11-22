@@ -19,10 +19,6 @@
         "workspaces, 1, 2.5, myBezier, slidefade 20%"
         # "borderangle, 1, 100, linear, loop"
       ];
-
-      layerrule = [
-        "animation slide, launcher"
-      ];
     };
   };
 }

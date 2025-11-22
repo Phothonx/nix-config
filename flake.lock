@@ -1,26 +1,5 @@
 {
   "nodes": {
-    "astal": {
-      "inputs": {
-        "nixpkgs": [
-          "my-shell",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1740786007,
-        "narHash": "sha256-R263ls8DSU84dBBEi/UvHxffJUySD4igHcbGmDSUtEs=",
-        "owner": "aylur",
-        "repo": "astal",
-        "rev": "dfd1f23c7562694e571d44c45aa74fcea9b1ba01",
-        "type": "github"
-      },
-      "original": {
-        "owner": "aylur",
-        "repo": "astal",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -62,22 +41,47 @@
         "type": "github"
       }
     },
-    "my-shell": {
+    "ignis": {
       "inputs": {
-        "astal": "astal",
+        "ignis-gvc": "ignis-gvc",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "path": "./astal/",
-        "type": "path"
+        "lastModified": 1762970543,
+        "narHash": "sha256-7ipFVC9pvI564c22b1dIEzSQ8dZXK3cxh/tF/4tX38c=",
+        "owner": "ignis-sh",
+        "repo": "ignis",
+        "rev": "ba8b0e11c2462afc9fdc30ce6a72b4e94e8ee7c4",
+        "type": "github"
       },
       "original": {
-        "path": "./astal/",
-        "type": "path"
+        "owner": "ignis-sh",
+        "repo": "ignis",
+        "type": "github"
+      }
+    },
+    "ignis-gvc": {
+      "inputs": {
+        "nixpkgs": [
+          "ignis",
+          "nixpkgs"
+        ]
       },
-      "parent": []
+      "locked": {
+        "lastModified": 1754064086,
+        "narHash": "sha256-ft5KvY2OYrWF+jEsfBL/Zx8Iuo2C10C6COk8wHwZw34=",
+        "owner": "ignis-sh",
+        "repo": "ignis-gvc",
+        "rev": "f2c9f10d8b49cc38106a2f07a51ea959c6aa4e63",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ignis-sh",
+        "repo": "ignis-gvc",
+        "type": "github"
+      }
     },
     "nixos-hardware": {
       "locked": {
@@ -135,7 +139,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "my-shell": "my-shell",
+        "ignis": "ignis",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nur": "nur",

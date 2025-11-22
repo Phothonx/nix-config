@@ -20,11 +20,9 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Astal
-    my-shell = {
-      url = "./astal/";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Ignis for hyprland shell
+    ignis.url = "github:ignis-sh/ignis";
+    ignis.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {

@@ -13,8 +13,6 @@ in {
       "hyprctl setcursor ${cursor.name} ${builtins.toString cursor.size}"
 
       "${pkgs.systemd}/bin/systemctl --user start ${hyprpolkitagent}/bin/hyprpolkitagent"
-
-      # "${my-shell}/bin/my-shell"
     ];
   };
 }

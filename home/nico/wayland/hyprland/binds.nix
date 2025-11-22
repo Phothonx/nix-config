@@ -37,18 +37,15 @@
       ### APPS SHORTCUTS ###
       "SUPER, Q, exec, ${kitty}/bin/kitty"
       "SUPER SHIFT, Q, exec, [float] ${kitty}/bin/kitty"
-      "SUPER, B, exec, ${firefox}/bin/firefox"
-      "SUPER, R, exec, astal --instance astal-lua --toggle-window launcher"
-      "SUPER, E, exec, ${xfce.thunar}/bin/thunar"
+      "SUPER, R, exec, ${vicinae}/bin/vicinae open"
       "CTRL ALT, L, exec, ${hyprlock}/bin/hyprlock"
 
       # discord
-      "SUPER, D, exec, ${discord}/bin/discord"
       ", XF86Forward, pass, class:^(discord)$"
       ", XF86Back, pass, class:^(discord)$"
 
-      ", XF86Forward, pass, class:^(TeamSpeak)$"
-      ", XF86Back, pass, class:^(TeamSpeak$"
+      # ", XF86Forward, pass, class:^(TeamSpeak)$"
+      # ", XF86Back, pass, class:^(TeamSpeak$"
 
       ### SCREENSHOTS ###
       "SUPER, S, exec, ${hyprshot}/bin/hyprshot --mode active --mode output --output-folder ${config.home.homeDirectory}/Medias/Screenshots"
@@ -106,6 +103,9 @@
       ### WORKSPACES ###
       "SUPER, A, togglespecialworkspace"
       "SUPER SHIFT, A, movetoworkspace, special"
+
+      "SUPER CTRL, left, workspace, e-1"
+      "SUPER CTRL, right, workspace, e+1"
 
       "SUPER, 1, workspace, 1"
       "SUPER, 2, workspace, 2"

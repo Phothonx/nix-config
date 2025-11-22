@@ -19,15 +19,11 @@
       "float, title:^(File Operation Progress)$"
       "float, title:^(About)$"
 
-      "float, class:^(org.pipewire.Helvum)$"
-
       "float, class:^(com.saivert.pwvucontrol)$"
 
       "float, class:^(org.gnome.Loupe)$"
-      "center, class:^(org.gnome.Loupe)$"
 
       "float, class:^(io.github.celluloid_player.Celluloid)$"
-      "center, class:^(io.github.celluloid_player.Celluloid)$"
 
       "float, title:^(Picture-in-Picture)$"
       "pin, title:^(Picture-in-Picture)$"
