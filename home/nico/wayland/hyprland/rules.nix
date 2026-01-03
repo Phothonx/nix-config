@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   wayland.windowManager.hyprland.settings = {
     windowrulev2 = [
       "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
@@ -29,8 +29,13 @@
       "pin, title:^(Picture-in-Picture)$"
     ];
 
+    layerrule = [
+      "blur on, match:namespace bar_0"
+    ];
+
     workspace = [
       "special:special, gapsout:80"
+      # "special:special, shadow:false"
     ];
   };
 }

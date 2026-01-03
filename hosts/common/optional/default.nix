@@ -21,6 +21,6 @@
     ./graphics.nix
     ./nix-ld.nix
     ./udev.nix
-    # ./upower.nix
+    ./upower.nix
   ];
 }

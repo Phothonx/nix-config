@@ -1,9 +1,11 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     kdePackages.kdenlive
+    evemu
 
     # Video mpv frontend
     celluloid
+    vlc
 
     # Image viewer
     loupe

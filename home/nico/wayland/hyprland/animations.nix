@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   wayland.windowManager.hyprland.settings = {
     animations = {
       enabled = true;
@@ -16,7 +14,7 @@
         "border, 1, 2.5, myBezier"
         "fade, 1, 2.5, myBezier"
         "borderangle, 1, 6, quart"
-        "workspaces, 1, 2.5, myBezier, slidefade 20%"
+        "workspaces, 1, 2.5, myBezier, slide"
         # "borderangle, 1, 100, linear, loop"
       ];
     };

@@ -48,26 +48,26 @@ in {
 
       decoration = {
         rounding = 0;
+        dim_special = 0.5;
 
         shadow = {
           enabled = true;
           range = 300;
           render_power = 4;
           ignore_window = true;
-          offset = "0 40";
+          offset = "10 30";
           color = "rgba(000000af)";
           scale = 0.9;
         };
 
         blur = {
           enabled = true;
-          size = 13;
+          size = 6;
           xray = false;
           passes = 3;
-          new_optimizations = true;
           vibrancy_darkness = 2.0;
           vibrancy = 0.1696;
-          special = true; # nice but more expensive
+          special = false; # nice but more expensive
           popups = true;
         };
       };

@@ -1,5 +1,9 @@
-{inputs, pkgs, ...}: {
-  imports = [ inputs.ignis.homeManagerModules.default ];
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [inputs.ignis.homeManagerModules.default];
 
   programs.ignis = {
     enable = true;

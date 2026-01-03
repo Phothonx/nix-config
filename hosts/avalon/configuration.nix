@@ -27,7 +27,7 @@
   # thunar https://nixos.wiki/wiki/Thunar
   programs.thunar = {
     enable = true;
-    plugins = with pkgs.xfce; [
+    plugins = with pkgs; [
       thunar-archive-plugin
       thunar-volman
     ];
@@ -37,7 +37,7 @@
   environment.systemPackages = with pkgs; [
     poppler_gi
     webp-pixbuf-loader
-    nufraw-thumbnailer
+    # nufraw-thumbnailer package broken
     ffmpegthumbnailer
     libgsf
 
