@@ -11,10 +11,6 @@
     loupe
     imv
 
-    # Audio
-    pwvucontrol
-    coppwr
-
     bitwarden-desktop
     spotify
     discord

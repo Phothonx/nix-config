@@ -3,7 +3,6 @@
     mindustry-wayland
     osu-lazer-bin
     atlauncher
-    prismlauncher
     (pkgs.buildFHSEnv (pkgs.appimageTools.defaultFhsEnvArgs
       // {
         name = "fhs-albion";
