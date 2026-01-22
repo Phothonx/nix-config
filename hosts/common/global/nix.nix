@@ -14,7 +14,7 @@
     nix-output-monitor
     nix-tree
     alejandra
-    nixfmt-rfc-style
+    nixfmt
     nix-index
 
     man-pages

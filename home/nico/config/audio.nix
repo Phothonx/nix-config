@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   services.easyeffects = {
-    enable = true;
-    preset = {};
+    # enable = true;
+    preset = "";
     extraPresets = {
     };
   };

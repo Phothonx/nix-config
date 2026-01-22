@@ -1,10 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-
-  config = function (_, opts)
-    require("nvim-treesitter.configs").setup(opts)
-  end,
-
+  lazy = false,
   opts = {
     auto_install = false,
     -- ensure_installed = {},

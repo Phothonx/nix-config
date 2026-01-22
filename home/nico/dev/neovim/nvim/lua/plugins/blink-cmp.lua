@@ -18,12 +18,10 @@ return {
     },
 
     cmdline = {
-      source = {
-        keymap = { preset = "default", },
-        completion = {
-          list = { selection = { preselect = false, } },
-          menu = { auto_show = true, },
-        },
+      keymap = { preset = "default", },
+      completion = {
+        list = { selection = { preselect = false, } },
+        menu = { auto_show = true, },
       },
     },
   }

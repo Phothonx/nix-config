@@ -7,6 +7,7 @@
     enable = true;
     defaultEditor = true;
     withPython3 = true;
+    withNodeJs = true;
     vimAlias = true;
     vimdiffAlias = true;
 
@@ -24,16 +25,13 @@
       # base46
 
       # lSP / TS
-      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-      pkgs.tree-sitter-grammars.tree-sitter-norg-meta
-      pkgs.tree-sitter-grammars.tree-sitter-norg
-      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p:
-      #   pkgs.tree-sitter.allGrammars
-      #   ++ [
-      #     p.latex
-      #     p.tree-sitter-norg
-      #     p.tree-sitter-norg-meta
-      #   ]))
+      (pkgs.vimPlugins.nvim-treesitter.withPlugins (_:
+        pkgs.vimPlugins.nvim-treesitter.allGrammars
+        ++ [
+          pkgs.tree-sitter-grammars.tree-sitter-norg
+          pkgs.tree-sitter-grammars.tree-sitter-norg-meta
+        ])
+      )
 
       # DEPS
       nui-nvim # neorg
@@ -59,6 +57,7 @@
 
     extraPackages = with pkgs; [
       gcc
+      tree-sitter
       cmake
       git
       curl
@@ -97,6 +96,7 @@
         pathlib-nvim # For neorg
         lua-utils-nvim # For neorg
         magick # for image rendering molten
+        luarocks # for neorg
       ];
 
     extraPython3Packages = ps:
@@ -117,34 +117,22 @@
       ];
 
     extraLuaConfig = ''
-      -- Make sure to setup `mapleader` and `maplocalleader` before
-      -- loading lazy.nvim so that mappings are correct.
-      -- This is also a good place to setup other settings (vim.opt)
       vim.g.mapleader = " "
       vim.g.maplocalleader = "\\"
 
       require("config.options")
 
-      -- Setup lazy.nvim
+      vim.opt.runtimepath:append("${config.programs.neovim.package}/lib/nvim/parser")
+
       require("lazy").setup({
-        spec = {
-          -- import your plugins
-          { import = "plugins" },
-        },
-        dev = {
-          path = "${pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start",
-          patterns = {""}, -- Specify that all of our plugins will use the dev dir. Empty string is a wildcard!
-        },
+        read_only = true,
+        spec = { { import = "plugins" }, },
         performance = {
           reset_packpath = false,
           rtp = {
             reset = false,
-            -- disable some rtp plugins
             disabled_plugins = {
               "gzip",
-              -- "matchit",
-              -- "matchparen",
-              -- "netrwPlugin",
               "tarPlugin",
               "tohtml",
               "tutor",
@@ -157,9 +145,7 @@
         install = { missing = false },
         change_detection = { enabled = false },
         checker = { enabled = false },
-        ui = {
-          border = "single",
-        },
+        ui = { border = "single", },
       })
 
       require("config.lsp")
