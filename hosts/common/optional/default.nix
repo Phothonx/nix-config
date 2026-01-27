@@ -21,5 +21,6 @@
     ./nix-ld.nix
     ./udev.nix
     ./upower.nix
+    ./utils.nix
   ];
 }

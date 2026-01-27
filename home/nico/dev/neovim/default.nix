@@ -25,12 +25,13 @@
       # base46
 
       # lSP / TS
-      (pkgs.vimPlugins.nvim-treesitter.withPlugins (_:
-        pkgs.vimPlugins.nvim-treesitter.allGrammars
-        ++ [
-          pkgs.tree-sitter-grammars.tree-sitter-norg
-          pkgs.tree-sitter-grammars.tree-sitter-norg-meta
-        ])
+      (
+        pkgs.vimPlugins.nvim-treesitter.withPlugins (_:
+          pkgs.vimPlugins.nvim-treesitter.allGrammars
+          ++ [
+            pkgs.tree-sitter-grammars.tree-sitter-norg
+            pkgs.tree-sitter-grammars.tree-sitter-norg-meta
+          ])
       )
 
       # DEPS

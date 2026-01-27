@@ -15,6 +15,7 @@
     spotify
     discord
     chromium
+    localsend
   ];
 
   programs.zathura = {

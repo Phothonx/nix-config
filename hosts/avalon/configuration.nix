@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   imports = with inputs.nixos-hardware.nixosModules; [
     ./hardware-configuration.nix
     common-pc-ssd
@@ -22,31 +18,14 @@
   # to detect mouse keybr at startup
   boot.initrd.availableKernelModules = ["hid_cherry"];
 
-  programs.xfconf.enable = true; # xfce
-
-  # thunar https://nixos.wiki/wiki/Thunar
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
+  services.pipewire.extraConfig.pipewire."92-low-latency" = {
+    "context.properties" = {
+      "default.clock.rate" = 48000;
+      "default.clock.quantum" = 1024;
+      "default.clock.min-quantum" = 512;
+      "default.clock.max-quantum" = 2048;
+    };
   };
-
-  # https://wiki.archlinux.org/title/File_manager_functionality#Thumbnail_previews
-  environment.systemPackages = with pkgs; [
-    poppler_gi
-    webp-pixbuf-loader
-    # nufraw-thumbnailer package broken
-    ffmpegthumbnailer
-    libgsf
-
-    # games
-    gvfs
-  ];
-
-  services.gvfs.enable = true; # Mount, trash, and other functionalities
-  services.tumbler.enable = true; # Thumbnail support for images
 
   # === DO NOT TOUCH ! ===
   system.stateVersion = "23.11";
