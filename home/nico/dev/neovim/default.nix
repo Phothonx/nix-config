@@ -49,7 +49,6 @@
       iron-nvim
       vimtex
       blink-cmp
-      molten-nvim
       neorg
       flash-nvim
       which-key-nvim
@@ -90,31 +89,19 @@
       ocamlPackages.ocamlformat
       nixd
       alejandra
+      asm-lsp
+      typescript-language-server
     ];
 
     extraLuaPackages = luaPkgs:
       with luaPkgs; [
         pathlib-nvim # For neorg
         lua-utils-nvim # For neorg
-        magick # for image rendering molten
         luarocks # for neorg
       ];
 
     extraPython3Packages = ps:
       with ps; [
-        # MOLTEN
-        pynvim
-        jupyter-client
-        cairosvg # for image rendering
-        pnglatex # for image rendering
-        plotly # for image rendering
-        pyperclip
-        nbformat
-        pillow
-        requests
-        kaleido
-
-        ipykernel
       ];
 
     extraLuaConfig = ''
@@ -159,3 +146,22 @@
     source = ./nvim;
   };
 }
+
+# MOLTEN packages
+# molten-nvim #vimplugin
+# magick # package, for image rendering molten
+
+# pythonpackage
+# pynvim
+# jupyter-client
+# cairosvg # for image rendering
+# pnglatex # for image rendering
+# plotly # for image rendering
+# pyperclip
+# nbformat
+# pillow
+# requests
+# kaleido
+#
+# ipykernel
+

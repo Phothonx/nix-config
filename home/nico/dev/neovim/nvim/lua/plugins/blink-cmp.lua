@@ -7,7 +7,6 @@ return {
   opts = {
     enabled = function() return not vim.tbl_contains({ "markdown", "norg", "txt" }, vim.bo.filetype) end,
 
-
     keymap = { preset = 'default' },
 
     completion = {

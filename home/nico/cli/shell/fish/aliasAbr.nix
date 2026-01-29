@@ -52,7 +52,7 @@
       # git
       gs = "git status";
       gaa = "git add --all";
-      gpom = "git push --set-upstream origin main";
+      gpo = "git push --set-upstream origin";
       gl = "git log --oneline --all --graph";
       gcm = {
         expansion = "git commit --message \"%\"";

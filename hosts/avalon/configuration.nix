@@ -18,13 +18,22 @@
   # to detect mouse keybr at startup
   boot.initrd.availableKernelModules = ["hid_cherry"];
 
-  services.pipewire.extraConfig.pipewire."92-low-latency" = {
-    "context.properties" = {
-      "default.clock.rate" = 48000;
-      "default.clock.quantum" = 1024;
-      "default.clock.min-quantum" = 512;
-      "default.clock.max-quantum" = 2048;
-    };
+  services.pipewire.extraConfig.pipewire."99-parametric-eq" = {
+    "context.modules" = [
+      {
+        name = "libpipewire-module-parametric-equalizer";
+        args = {
+          "equalizer.filepath" = ./pipewire/fiio-ft1-pro-parametric-eq.txt;
+          equalizer.description = "Parametric EQ Sink for fiio ft1 pro";
+          "capture.props" = {
+            "node.name" = "Parametric EQ input for fiio ft1 pro";
+          };
+          "playback.props" = {
+            "node.name" = "Parametric EQ output for fiio ft1 pro";
+          };
+        };
+      }
+    ];
   };
 
   # === DO NOT TOUCH ! ===

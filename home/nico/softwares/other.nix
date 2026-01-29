@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    kdePackages.kdenlive
+    # kdePackages.kdenlive
     evemu
 
     # Video mpv frontend
