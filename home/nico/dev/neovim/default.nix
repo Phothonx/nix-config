@@ -2,7 +2,15 @@
   pkgs,
   config,
   ...
-}: {
+}:
+let
+  mark2html = (pkgs.writeShellApplication {
+    name = "mark2html";
+    runtimeInputs = [ pkgs.pandoc ];
+    text = builtins.readFile ./mark2html.sh;
+  });
+in
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -21,16 +29,10 @@
       (
         pkgs.vimPlugins.nvim-treesitter.withPlugins (_:
           pkgs.vimPlugins.nvim-treesitter.allGrammars
-          ++ [
-            pkgs.tree-sitter-grammars.tree-sitter-norg
-            pkgs.tree-sitter-grammars.tree-sitter-norg-meta
-          ])
+          )
       )
 
       # DEPS
-      nui-nvim # neorg
-      plenary-nvim # neorg
-      nvim-nio # neorg
       nvim-web-devicons
 
       # MINI & SNACKS <3
@@ -38,12 +40,12 @@
       snacks-nvim
 
       # OTHER
+      vimwiki
       friendly-snippets
       luasnip
       iron-nvim
       vimtex
       blink-cmp
-      neorg
       flash-nvim
       which-key-nvim
       Coqtail
@@ -62,6 +64,8 @@
       mermaid-cli # snacks image
       ghostscript
       trashy
+
+      mark2html # vimwiki
 
       texliveMedium # vimtex
       biber
@@ -89,9 +93,9 @@
 
     extraLuaPackages = luaPkgs:
       with luaPkgs; [
-        pathlib-nvim # For neorg
-        lua-utils-nvim # For neorg
-        luarocks # for neorg
+        pathlib-nvim
+        lua-utils-nvim
+        luarocks
       ];
 
     # extraPython3Packages = ps:

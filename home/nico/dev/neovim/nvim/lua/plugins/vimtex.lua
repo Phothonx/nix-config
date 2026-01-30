@@ -6,7 +6,7 @@ return {
     vim.g.vimtex_view_method = 'zathura'
     vim.vimtex_compiler_method = 'latexrun'
     vim.g.vimtex_view_forward_search_on_start = true
-    vim.g.vimtex_mappings_prefix = '<localleader>v'
+    vim.g.vimtex_mappings_prefix = '<localleader>l'
 
     vim.api.nvim_create_autocmd("BufWritePost", {
       pattern = "*.tex",
