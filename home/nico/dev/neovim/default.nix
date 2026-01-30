@@ -15,14 +15,7 @@
       lazy-nvim
 
       # COLORSHEMES
-      # rose-pine
-      # oxocarbon-nvim
-      # tokyonight-nvim
       catppuccin-nvim
-
-      # UI
-      # nvchad-ui
-      # base46
 
       # lSP / TS
       (
@@ -46,6 +39,7 @@
 
       # OTHER
       friendly-snippets
+      luasnip
       iron-nvim
       vimtex
       blink-cmp
@@ -100,11 +94,11 @@
         luarocks # for neorg
       ];
 
-    extraPython3Packages = ps:
-      with ps; [
-      ];
+    # extraPython3Packages = ps:
+    #   with ps; [
+    #   ];
 
-    extraLuaConfig = ''
+    initLua = ''
       vim.g.mapleader = " "
       vim.g.maplocalleader = "\\"
 
@@ -134,6 +128,7 @@
         change_detection = { enabled = false },
         checker = { enabled = false },
         ui = { border = "single", },
+        defaults = { lazy = false, },
       })
 
       require("config.lsp")
@@ -146,22 +141,3 @@
     source = ./nvim;
   };
 }
-
-# MOLTEN packages
-# molten-nvim #vimplugin
-# magick # package, for image rendering molten
-
-# pythonpackage
-# pynvim
-# jupyter-client
-# cairosvg # for image rendering
-# pnglatex # for image rendering
-# plotly # for image rendering
-# pyperclip
-# nbformat
-# pillow
-# requests
-# kaleido
-#
-# ipykernel
-

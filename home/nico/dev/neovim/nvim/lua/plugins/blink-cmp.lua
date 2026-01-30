@@ -12,8 +12,26 @@ return {
     completion = {
       keyword = { range = 'full' },
       documentation = { auto_show = true, auto_show_delay_ms = 350 },
-      list = { selection = { preselect = false, auto_insert = true } },
-      ghost_text = { enabled = true },
+      list = {
+        selection = { preselect = false, auto_insert = true }
+      },
+      ghost_text = { enabled = true, show_without_menu = false, },
+      trigger = {
+        show_on_backspace = true,
+        show_on_backspace_in_keyword = true,
+      },
+    },
+
+    fuzzy = { sorts = {  'exact', 'score', 'sort_text', }, },
+
+    sources = {
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      providers = {
+        buffers = {
+          module = 'blink.cmp.sources.buffer',
+          opts = { get_bufnrs = vim.api.nvim_list_bufs },
+        },
+      },
     },
 
     cmdline = {

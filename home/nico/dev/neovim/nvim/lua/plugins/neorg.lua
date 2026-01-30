@@ -10,9 +10,6 @@ return {
   opts = {
     load = {
       ["core.defaults"] = {},
-      ["core.concealer"] = {
-        icon_preset = "diamond",
-      },
       ["core.dirman"] = {
         config = {
           workspaces = {

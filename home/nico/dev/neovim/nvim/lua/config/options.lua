@@ -34,7 +34,6 @@ opt.fillchars   = { eob = " " } -- Don't show `~` outside of buffer
 
 opt.shortmess:append "sI"       -- disable nvim intro
 
-
 -- indenting
 o.expandtab                = true                       -- tabs to spaces
 o.shiftwidth               = 2                          -- nb of spaces for indenting
@@ -42,7 +41,6 @@ o.indentexpr               = "nvim_treesitter#indent()"
 o.tabstop                  = 2                          -- size of tabs in spaces
 o.smarttab                 = true
 g.python_recommended_style = 0
-
 
 -- Editing
 o.ignorecase    = true                        -- Ignore case when searching (use `\C` to force not doing that)
