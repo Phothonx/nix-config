@@ -2,15 +2,13 @@
   pkgs,
   config,
   ...
-}:
-let
-  mark2html = (pkgs.writeShellApplication {
+}: let
+  mark2html = pkgs.writeShellApplication {
     name = "mark2html";
-    runtimeInputs = [ pkgs.pandoc ];
+    runtimeInputs = [pkgs.pandoc];
     text = builtins.readFile ./mark2html.sh;
-  });
-in
-{
+  };
+in {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -27,9 +25,10 @@ in
 
       # lSP / TS
       (
-        pkgs.vimPlugins.nvim-treesitter.withPlugins (_:
-          pkgs.vimPlugins.nvim-treesitter.allGrammars
-          )
+        pkgs.vimPlugins.nvim-treesitter.withPlugins (
+          _:
+            pkgs.vimPlugins.nvim-treesitter.allGrammars
+        )
       )
 
       # DEPS

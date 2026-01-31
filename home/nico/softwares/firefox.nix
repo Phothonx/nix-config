@@ -30,7 +30,7 @@
         "breakpad.reportURL" = "";
 
         "browser.startup.page" = 3; # restore prev session
-        "browser.startup.homepage" = "";
+        "browser.startup.homepage" = "/home/nico/vimwiki/site_html/index.html";
 
         "browser.tabs.crashReporting.sendReport" = false;
         "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
