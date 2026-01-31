@@ -7,13 +7,16 @@ return {
   opts = {
     enabled = function() return not vim.tbl_contains({ "markdown", "norg", "txt" }, vim.bo.filetype) end,
 
-    keymap = { preset = 'default' },
+    keymap = { preset = 'super-tab' },
 
     completion = {
       keyword = { range = 'full' },
       documentation = { auto_show = true, auto_show_delay_ms = 350 },
       list = {
-        selection = { preselect = false, auto_insert = true }
+        selection = {
+          preselect = function(ctx) return not require('blink.cmp').snippet_active({ direction = 1 }) end,
+          auto_insert = true
+        }
       },
       ghost_text = { enabled = true, show_without_menu = false, },
       trigger = {
@@ -31,11 +34,16 @@ return {
           module = 'blink.cmp.sources.buffer',
           opts = { get_bufnrs = vim.api.nvim_list_bufs },
         },
+        snippets = {
+          opts = {
+            friendly_snippets = true, -- default
+          }
+        }
       },
     },
 
     cmdline = {
-      keymap = { preset = "default", },
+      keymap = { preset = "super-tab", },
       completion = {
         list = { selection = { preselect = false, } },
         menu = { auto_show = true, },

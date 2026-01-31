@@ -1,6 +1,6 @@
 ---@type vim.lsp.Config
 return {
-  cmd = { 'nixd' },
+  cmd = { 'nixd', '--inlay-hints=true', '--semantic-tokens=true' },
   settings = {
     nixd = {
       nixpkgs = { expr = "import <nixpkgs> { }", },

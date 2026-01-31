@@ -3,11 +3,17 @@
   config,
   ...
 }: let
+
   mark2html = pkgs.writeShellApplication {
     name = "mark2html";
-    runtimeInputs = [pkgs.pandoc];
+    runtimeInputs = [ pkgs.pandoc ];
     text = builtins.readFile ./mark2html.sh;
   };
+
+  tsEnv = pkgs.vimPlugins.nvim-treesitter.withPlugins (_:
+    pkgs.vimPlugins.nvim-treesitter.allGrammars
+  );
+
 in {
   programs.neovim = {
     enable = true;
@@ -24,12 +30,7 @@ in {
       catppuccin-nvim
 
       # lSP / TS
-      (
-        pkgs.vimPlugins.nvim-treesitter.withPlugins (
-          _:
-            pkgs.vimPlugins.nvim-treesitter.allGrammars
-        )
-      )
+      tsEnv
 
       # DEPS
       nvim-web-devicons
@@ -41,7 +42,6 @@ in {
       # OTHER
       vimwiki
       friendly-snippets
-      luasnip
       iron-nvim
       vimtex
       blink-cmp
@@ -71,23 +71,18 @@ in {
       pstree
       xdotool # vimtex
 
-      # LSP / FORMATTERS
-      vscode-langservers-extracted
-      marksman
-      nodePackages.yaml-language-server
+      # LSP
+      markdown-oxide
       stylua
-      shfmt
       ccls
       lua-language-server
       basedpyright
-      ruff
       texlab
       ocamlPackages.ocaml-lsp
-      ocamlPackages.ocamlformat
       nixd
-      alejandra
       asm-lsp
       typescript-language-server
+      bash-language-server
     ];
 
     extraLuaPackages = luaPkgs:

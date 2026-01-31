@@ -23,8 +23,11 @@ vim.lsp.enable({
   'nixd',
   'ccls',
   'ocamllsp',
-  'asm_lsp',
+  -- 'asm_lsp',
   'ts_ls',
+  'markdown_oxide',
+  'texlab',
+  'bashls',
 })
 
 vim.diagnostic.config({
