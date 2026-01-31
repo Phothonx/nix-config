@@ -18,6 +18,14 @@ return {
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         diagnosticMode = 'workspace',
+
+        -- to prevent battlefield immersion
+        reportMissingImports = false,
+        reportUnusedVariable = false,
+        reportOptionalMemberAccess = false,
+        reportPrivateImportUsage = false,
+        reportUnnecessaryTypeIgnore = false,
+        typeCheckingMode = 'basic', -- stric
       },
     },
   },

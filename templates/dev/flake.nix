@@ -34,53 +34,47 @@
     # (pkgs -> attrSetValue) -> attrSetForEachSystem
     forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
   in {
-    devShells = forEachSystem (pkgs: {
+    devShells = forEachSystem (pkgs:
+    let
+      latexEnv = pkgs.texlive.withPackages (import ./texlive-packages.nix);
+      aspellEnv = pkgs.aspellWithDicts (dicts: with dicts; [ fr en ]);
+      pythonEnv = pkgs.python3.withPackages (ps: with ps; [
+        # numpy
+        # scipy
+        # matplotlib
+        # jupyter
+      ]);
+    in
+    {
       default = pkgs.mkShell {
         venvDir = ".venv";
         # https://thor.enseirb-matmeca.fr/ruby/docs/teaching/vmlinux
         packages = with pkgs; [
 
-          /* ======== PYTHON ========
-          python3.withPackages (
-            ps: with ps; [
-              # matplotlib
-              # numpy
-              # scipy
-              # requests
-              # jupyter
-            ]
-          )
-          */
+          # ======== PYTHON ========
+          # pythonEnv
 
-          /* ======== OCAML ========
-          ocaml
-          ocamlPackages.utop
-          */
+          # ======== OCAML ========
+          # ocaml
+          # ocamlPackages.utop
 
-          /* ======== C/ASM ========
-          gcc
-          valgrind
-          cmake
-          gdb
-          yasm
-          */
+          # ======== C/ASM ========
+          # gcc
+          # valgrind
+          # cmake
+          # gdb
+          # yasm
 
-          /* ======== LATEX ========
-          texlive.withPackages (import ./texlive-packages.nix)
+          # ======== LATEX ========
+          # latexEnv
+          # aspellEnv
 
-          aspellWithDicts (
-            dicts: with dicts;
-            [
-              fr
-              en
-            ]
-          )
-          */
+          #  ======== JS ========
+          # nodejs
+          # nodePackages.pnpm
 
-          /* ======== JS ========
-          nodejs
-          nodePackages.pnpm
-          */
+          #  ======== OTHER ========
+          # shellcheck
 
         ];
       };
