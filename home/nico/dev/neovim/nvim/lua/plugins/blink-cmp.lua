@@ -7,14 +7,14 @@ return {
   opts = {
     enabled = function() return not vim.tbl_contains({ "markdown", "norg", "txt" }, vim.bo.filetype) end,
 
-    keymap = { preset = 'super-tab' },
+    keymap = { preset = 'default' },
 
     completion = {
       keyword = { range = 'full' },
-      documentation = { auto_show = true, auto_show_delay_ms = 350 },
+      documentation = { auto_show = true, auto_show_delay_ms = 400 },
       list = {
         selection = {
-          preselect = function(ctx) return not require('blink.cmp').snippet_active({ direction = 1 }) end,
+          preselect = false,
           auto_insert = true
         }
       },
@@ -37,13 +37,14 @@ return {
         snippets = {
           opts = {
             friendly_snippets = true, -- default
+            ignored_filetypes = { 'tex', 'plaintex', 'bib' },
           }
         }
       },
     },
 
     cmdline = {
-      keymap = { preset = "super-tab", },
+      keymap = { preset = "default", },
       completion = {
         list = { selection = { preselect = false, } },
         menu = { auto_show = true, },
