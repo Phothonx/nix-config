@@ -67,6 +67,7 @@
 
           # ======== LATEX ========
           # latexEnv
+          # latexrun
           # aspellEnv
 
           #  ======== JS ========

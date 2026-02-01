@@ -13,26 +13,24 @@ ps: with ps; [
   xcolor
   hyperref
   cleveref
+  stackengine
 
   # texlive-science
   amsmath
-  amssymb
   mathtools
   siunitx
   physics
   chemformula
-  pgffor
 
   # texlive-pictures
-  pgffor
   pgf
   tikz-cd
-  graphicx
+  graphics
   wrapfig
   adjustbox
 
   # texlive-lang-french
   babel-french
-  frenchle
+  collection-langfrench
   csquotes
 ]

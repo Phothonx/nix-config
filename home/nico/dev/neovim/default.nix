@@ -43,7 +43,6 @@ in {
       vimwiki
       friendly-snippets
       iron-nvim
-      vimtex
       blink-cmp
       flash-nvim
       which-key-nvim
