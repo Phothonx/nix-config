@@ -9,9 +9,9 @@ return {
         "-I./src",
         "-I./lib",
         "-I./include",
-        "-std=c99",
-        "-Wall",
-        "-Wextra",
+        -- "-std=c99",
+        -- "-Wall",
+        -- "-Wextra",
         -- battlefield immersion options
         -- "-Wpedantic",
         -- "-fsanitize=address,undefined,leak",

@@ -7,6 +7,6 @@
 -std=c99
 -Wall
 -Wextra
-# battlefield immersion options
+# battlefield immersion options:
 # -Wpedantic
 # -fsanitize=address,undefined,leak
