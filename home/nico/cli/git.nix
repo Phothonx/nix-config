@@ -12,12 +12,28 @@
 
   programs.git = {
     enable = true;
+    signing.format = null;
+    ignores = [ "*~" "*.swp" ];
+    includes = [
+      {
+        path = config.sops.secrets."git_config/github".path;
+        condition = "hasconfig:remote.*.url:git@github.com:*/**";
+      }
+      {
+        path = config.sops.secrets."git_config/thor".path;
+        condition = "hasconfig:remote.*.url:ssh://git@thor.enseirb-matmeca.fr:2222/**";
+      }
+    ];
     settings = {
       init.defaultBranch = "main";
       commit.verbose = true;
 
-      "includeIf \"hasconfig:remote.*.url:git@github.com:*/**\"".path = config.sops.secrets."git_config/github".path;
-      "includeIf \"hasconfig:remote.*.url:git@thor.enseirb-matmeca.fr:*/**\"".path = config.sops.secrets."git_config/thor".path;
+      merge.tool = "nvimdiff";
+      merge.conflictstyle = "zdiff3";
+      merge.ff = false;
+
+      diff.algorithm = "histogram";
+      rerere.enabled = true;
     };
   };
 }
