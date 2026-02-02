@@ -1,11 +1,9 @@
 {
   description = "Basic devshell";
 
-  /*
-    To use the local nixpkgs input,
-    the nixpkgs flake should be declared in the registry with the following nixos option:
-    nix.registry.nixpkgs.flake = inputs.nixpkgs;
-  */
+  # To use the local nixpkgs input,
+  # the nixpkgs flake should be declared in the registry with the following nixos option:
+  # nix.registry.nixpkgs.flake = inputs.nixpkgs;
   inputs = {
     # nixpkgs.url = "nixpkgs";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

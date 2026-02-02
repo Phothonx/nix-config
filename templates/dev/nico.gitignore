@@ -47,6 +47,8 @@ a.out
 # Makefiles
 *.dSYM/
 *.d
+# Caches
+.ccls-cache
 
 # ========================
 # OCaml
