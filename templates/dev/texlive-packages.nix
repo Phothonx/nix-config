@@ -1,4 +1,5 @@
-ps: with ps; [
+ps:
+with ps; [
   # Core
   scheme-medium
 

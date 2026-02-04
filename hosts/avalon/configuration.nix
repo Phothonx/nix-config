@@ -27,18 +27,18 @@
           "media.name" = "Parametric EQ for fiio ft1 pro";
           "equalizer.filepath" = ./pipewire/fiio-ft1-pro-parametric-eq.txt;
           "audio.channels" = 2;
-          "audio.position" = [ "FL" "FR" ];
+          "audio.position" = ["FL" "FR"];
           "capture.props" = {
             "node.name" = "parametric-eq-input-fiio-ft1-pro";
             "node.description" = "Parametric EQ Input for fiio ft1 pro";
             "audio.channels" = 2;
-            "audio.position" = [ "FL" "FR" ];
+            "audio.position" = ["FL" "FR"];
           };
           "playback.props" = {
             "node.name" = "parametric-eq-output-fiio-ft1-pro";
             "node.description" = "Parametric EQ Output for fiio ft1 pro";
             "audio.channels" = 2;
-            "audio.position" = [ "FL" "FR" ];
+            "audio.position" = ["FL" "FR"];
           };
         };
       }

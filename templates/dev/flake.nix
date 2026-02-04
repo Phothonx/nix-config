@@ -10,10 +10,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
   };
 
-  outputs = {
-    nixpkgs,
-    ...
-  }: let
+  outputs = {nixpkgs, ...}: let
     systems = [
       "x86_64-linux"
     ];
@@ -32,23 +29,21 @@
     # (pkgs -> attrSetValue) -> attrSetForEachSystem
     forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
   in {
-    devShells = forEachSystem (pkgs:
-    let
+    devShells = forEachSystem (pkgs: let
       latexEnv = pkgs.texlive.withPackages (import ./texlive-packages.nix);
-      aspellEnv = pkgs.aspellWithDicts (dicts: with dicts; [ fr en ]);
-      pythonEnv = pkgs.python3.withPackages (ps: with ps; [
-        # numpy
-        # scipy
-        # matplotlib
-        # jupyter
-      ]);
-    in
-    {
+      aspellEnv = pkgs.aspellWithDicts (dicts: with dicts; [fr en]);
+      pythonEnv = pkgs.python3.withPackages (ps:
+        with ps; [
+          # numpy
+          # scipy
+          # matplotlib
+          # jupyter
+        ]);
+    in {
       default = pkgs.mkShell {
         venvDir = ".venv";
         # https://thor.enseirb-matmeca.fr/ruby/docs/teaching/vmlinux
         packages = with pkgs; [
-
           # ======== PYTHON ========
           # pythonEnv
 
@@ -74,7 +69,6 @@
 
           #  ======== OTHER ========
           # shellcheck
-
         ];
       };
     });

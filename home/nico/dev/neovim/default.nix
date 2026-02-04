@@ -3,17 +3,16 @@
   config,
   ...
 }: let
-
   mark2html = pkgs.writeShellApplication {
     name = "mark2html";
-    runtimeInputs = [ pkgs.pandoc ];
+    runtimeInputs = [pkgs.pandoc];
     text = builtins.readFile ./mark2html.sh;
   };
 
-  tsEnv = pkgs.vimPlugins.nvim-treesitter.withPlugins (_:
-    pkgs.vimPlugins.nvim-treesitter.allGrammars
+  tsEnv = pkgs.vimPlugins.nvim-treesitter.withPlugins (
+    _:
+      pkgs.vimPlugins.nvim-treesitter.allGrammars
   );
-
 in {
   programs.neovim = {
     enable = true;

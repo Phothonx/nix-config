@@ -13,7 +13,7 @@
   programs.git = {
     enable = true;
     signing.format = null;
-    ignores = [ "*~" "*.swp" ];
+    ignores = ["*~" "*.swp"];
     includes = [
       {
         path = config.sops.secrets."git_config/github".path;
