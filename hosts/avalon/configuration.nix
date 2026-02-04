@@ -23,18 +23,28 @@
       {
         name = "libpipewire-module-parametric-equalizer";
         args = {
+          "node.description" = "Parametric EQ for fiio ft1 pro";
+          "media.name" = "Parametric EQ for fiio ft1 pro";
           "equalizer.filepath" = ./pipewire/fiio-ft1-pro-parametric-eq.txt;
-          equalizer.description = "Parametric EQ Sink for fiio ft1 pro";
+          "audio.channels" = 2;
+          "audio.position" = [ "FL" "FR" ];
           "capture.props" = {
-            "node.name" = "Parametric EQ input for fiio ft1 pro";
+            "node.name" = "parametric-eq-input-fiio-ft1-pro";
+            "node.description" = "Parametric EQ Input for fiio ft1 pro";
+            "audio.channels" = 2;
+            "audio.position" = [ "FL" "FR" ];
           };
           "playback.props" = {
-            "node.name" = "Parametric EQ output for fiio ft1 pro";
+            "node.name" = "parametric-eq-output-fiio-ft1-pro";
+            "node.description" = "Parametric EQ Output for fiio ft1 pro";
+            "audio.channels" = 2;
+            "audio.position" = [ "FL" "FR" ];
           };
         };
       }
     ];
   };
+  programs.noisetorch.enable = true;
 
   # === DO NOT TOUCH ! ===
   system.stateVersion = "23.11";
