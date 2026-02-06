@@ -1,13 +1,9 @@
 {
   config,
-  pkgs,
   ...
 }: let
   inherit (config) colorScheme fontsProfiles;
 in {
-  home.packages = with pkgs; [
-    astal.io # default astal lib to use cli
-  ];
 
   wayland.windowManager.hyprland = {
     enable = true;

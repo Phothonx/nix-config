@@ -33,12 +33,15 @@
             "node.description" = "Parametric EQ Input for fiio ft1 pro";
             "audio.channels" = 2;
             "audio.position" = ["FL" "FR"];
+            "media.class" = "Audio/Sink";
           };
           "playback.props" = {
             "node.name" = "parametric-eq-output-fiio-ft1-pro";
             "node.description" = "Parametric EQ Output for fiio ft1 pro";
             "audio.channels" = 2;
             "audio.position" = ["FL" "FR"];
+            "node.target" = "alsa_output.usb-FiiO*";
+            "node.passive" = true;
           };
         };
       }

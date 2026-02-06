@@ -11,6 +11,7 @@
     imagemagick
     wl-clipboard
   ];
+
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;

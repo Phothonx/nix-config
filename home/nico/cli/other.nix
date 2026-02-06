@@ -25,7 +25,7 @@
     caligula
     usbutils
 
-    # secu
+    # Secu
     # vulnix
     # lynis
     # veracrypt

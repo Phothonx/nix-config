@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    mindustry-wayland
+    # mindustry-wayland
     osu-lazer-bin
-    atlauncher
+    # atlauncher
     (pkgs.buildFHSEnv (pkgs.appimageTools.defaultFhsEnvArgs
       // {
         name = "fhs-albion";
