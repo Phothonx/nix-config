@@ -49,9 +49,9 @@
       pictures = null;
       videos = null;
       extraConfig = {
-        XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/Medias/Screenshots";
-        XDG_DEV_DIR = "${config.home.homeDirectory}/Dev";
-        XDG_MEDIAS_DIR = "${config.home.homeDirectory}/Medias";
+        SCREENSHOTS = "${config.home.homeDirectory}/Medias/Screenshots";
+        DEV = "${config.home.homeDirectory}/Dev";
+        MEDIAS = "${config.home.homeDirectory}/Medias";
       };
     };
   };

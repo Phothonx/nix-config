@@ -1,7 +1,9 @@
 {hostName, ...}: {
   networking = {
     inherit hostName;
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+    };
   };
 
   networking.firewall.allowedTCPPorts = [

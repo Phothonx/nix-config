@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    xorg.xkbcomp
-    xorg.setxkbmap
+    xkbcomp
+    setxkbmap
   ];
   console.useXkbConfig = true;
 

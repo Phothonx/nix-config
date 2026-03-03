@@ -1,0 +1,106 @@
+# ========================
+# General editor/temp files
+# ========================
+*~
+*.swp
+*.swo
+*.bak
+.DS_Store
+Thumbs.db
+.vscode/
+*.log
+.direnv
+
+# ========================
+# Dev files
+# ========================
+
+.gitignore
+.ccls
+.asm-lsp.toml
+.envrc
+.gdbinit
+.clang-format
+
+# ========================
+# Python
+# ========================
+*.pyc
+*.pyo
+*.pyd
+venv/
+__pycache__/
+env/
+ENV/
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ========================
+# C
+# ========================
+*.o
+*.obj
+*.lo
+*.out
+*.exe
+a.out
+*.a
+*.so
+*.dll
+*.dSYM/
+*.d
+.ccls-cache
+
+# ========================
+# OCaml
+# ========================
+*.cmi
+*.cmo
+*.cma
+*.cmx
+*.o
+*.a
+_build/
+*.exe
+
+# ========================
+# Assembly
+# ========================
+*.o
+*.obj
+*.out
+*.bin
+# Listing files
+*.lst
+
+# ========================
+# LaTeX
+# ========================
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.synctex.gz
+*.xdv
+*.pdf
+_build/
+
+# ========================
+# JavaScript / Node.js
+# ========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+.env

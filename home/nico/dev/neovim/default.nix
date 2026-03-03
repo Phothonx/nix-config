@@ -55,7 +55,6 @@ in {
       git
       curl
       fzf
-      python3
       imagemagick
       sqlite # snacks
       mermaid-cli # snacks image
@@ -90,9 +89,11 @@ in {
         luarocks
       ];
 
-    # extraPython3Packages = ps:
-    #   with ps; [
-    #   ];
+    extraPython3Packages = ps:
+      with ps; [
+        requests
+        pygls
+      ];
 
     initLua = ''
       vim.g.mapleader = " "

@@ -57,6 +57,7 @@
           # cmake
           # gdb
           # yasm
+          # libclang
 
           # ======== LATEX ========
           # latexEnv

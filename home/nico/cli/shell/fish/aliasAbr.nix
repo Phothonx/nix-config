@@ -51,6 +51,7 @@
 
       # git
       gs = "git status";
+      gc = "git commit";
       gaa = "git add --all";
       gpo = "git push --set-upstream origin";
       gl = "git log --oneline --all --graph";
