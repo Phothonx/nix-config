@@ -22,9 +22,6 @@ Thumbs.db
 .clang-format
 .direnv
 .envrc
-flake.nix
-flake.lock
-texlive-packages.nix
 
 # ========================
 # Python

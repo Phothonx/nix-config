@@ -19,8 +19,8 @@ in {
     defaultEditor = true;
     withPython3 = true;
     withNodeJs = true;
-    vimAlias = true;
-    vimdiffAlias = true;
+    # vimAlias = true;
+    # vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
       lazy-nvim
@@ -46,6 +46,7 @@ in {
       flash-nvim
       which-key-nvim
       Coqtail
+      # vim-fugitive
     ];
 
     extraPackages = with pkgs; [
@@ -63,7 +64,6 @@ in {
 
       mark2html # vimwiki
 
-      texliveMedium # vimtex
       biber
       pstree
       xdotool # vimtex

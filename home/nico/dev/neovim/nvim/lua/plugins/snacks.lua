@@ -88,7 +88,7 @@ return {
     { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
     { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
     { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
-    -- LSP
+    -- LSP remap
     -- { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
     -- { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
     -- { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },

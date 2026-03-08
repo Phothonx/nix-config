@@ -28,9 +28,19 @@
       init.defaultBranch = "main";
       commit.verbose = true;
 
-      merge.tool = "nvimdiff";
-      merge.conflictstyle = "zdiff3";
-      merge.ff = false;
+      merge = {
+        tool = "nvimdiff";
+        conflictstyle = "diff3";
+        ff = false;
+      };
+
+      pull.rebase = false;
+
+      mergetool = {
+        prompt = true;
+        nvimdiff.layout = "LOCAL,BASE,REMOTE / MERGED";
+        keepBackup = false;
+      };
 
       diff.algorithm = "histogram";
       rerere.enabled = true;
