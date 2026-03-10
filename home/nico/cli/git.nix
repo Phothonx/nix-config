@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, lib, ...}: {
   sops.secrets."git_config/thor" = {
     sopsFile = ../../../secrets/nico.yaml;
     format = "yaml";
@@ -13,7 +13,7 @@
   programs.git = {
     enable = true;
     signing.format = null;
-    ignores = ["*~" "*.swp"];
+    ignores = lib.splitString "\n" (builtins.readFile ./ignores);
     includes = [
       {
         path = config.sops.secrets."git_config/github".path;
@@ -28,6 +28,11 @@
       init.defaultBranch = "main";
       commit.verbose = true;
 
+      core = {
+        editor="nvim";
+        exludesFile = "${config.xdg.configHome}/git/ignore";
+      };
+
       merge = {
         tool = "nvimdiff";
         conflictstyle = "diff3";
@@ -37,8 +42,12 @@
       pull.rebase = false;
 
       mergetool = {
-        prompt = true;
-        nvimdiff.layout = "LOCAL,BASE,REMOTE / MERGED";
+        nvimdiff = {
+          prompt = false;
+          keepBackup = false;
+        };
+        prompt = false;
+        # nvimdiff.layout = "LOCAL,BASE,REMOTE / MERGED";
         keepBackup = false;
       };
 

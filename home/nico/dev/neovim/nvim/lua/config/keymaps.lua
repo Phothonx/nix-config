@@ -5,6 +5,9 @@ map("n", "q:", "") -- "all my homies hate q:" -Confucius
 
 map("n", "<leader>h", "<Cmd>noh<CR>", {desc = "Clear search Highlight"})
 
+-- Term
+map('t', '<C-;>', '<C-\\><C-N>', { noremap = false, desc = 'Escape terminal' })
+
 -- Window navigation
 map('n', '<C-H>', '<C-w>h', { desc = 'Focus on left window' })
 map('n', '<C-J>', '<C-w>j', { desc = 'Focus on below window' })
@@ -32,6 +35,3 @@ map('i', '<M-h>', '<Left>',  { noremap = false, desc = 'Left' })
 map('i', '<M-j>', '<Down>',  { noremap = false, desc = 'Down' })
 map('i', '<M-k>', '<Up>',    { noremap = false, desc = 'Up' })
 map('i', '<M-l>', '<Right>', { noremap = false, desc = 'Right' })
-
--- terminal exit faster
-map('t', '<M-\\>', '<C-\\><C-N>', { noremap = false, desc = 'Escape terminal' })

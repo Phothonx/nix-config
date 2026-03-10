@@ -1,3 +1,4 @@
+# should ~ be the same as texlive + texlive-science + texlive-latex-extra + texlive-pictures + texlive-lang-french form Debian/Ubuntu
 ps:
 with ps; [
   # Core

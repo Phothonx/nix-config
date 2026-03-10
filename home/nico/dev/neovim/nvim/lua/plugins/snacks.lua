@@ -8,7 +8,7 @@ return {
       enabled = true,
       replace_netrw = true,
     },
-    terminal = { enabled = true, },
+    terminal = { enabled = true, keys = {}, },
     toggle = { enabled = true, },
     picker = { enabled = true, },
   },
@@ -37,7 +37,7 @@ return {
 
   keys = {
     -- other
-    { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
+    { "<c-;>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
     { "<c-_>",      function() Snacks.terminal() end, desc = "which_key_ignore" },
     -- Top Pickers & Explorer
     { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },

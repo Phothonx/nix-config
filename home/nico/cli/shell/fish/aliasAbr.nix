@@ -51,6 +51,9 @@
 
       # git
       gs = "git status";
+      gau = "git add --update";
+      gf = "git fetch";
+      gmt = "git mergetool";
       gc = "git commit";
       gaa = "git add --all";
       gpo = "git push --set-upstream origin";

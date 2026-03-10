@@ -3,7 +3,7 @@ return {
   cmd = { 'lua-language-server' },
   settings = {
     Lua = {
-      -- diagnostics = { globals = {'vim', "Snacks", "Mini", "MiniFiles"}, },
+      diagnostics = { globals = {'vim', "Snacks", "Mini", "MiniFiles"}, },
       format = { preview = true, },
       workspace = {
         checkThirdParty = false,
