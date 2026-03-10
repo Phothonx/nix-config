@@ -1,10 +1,6 @@
-{
-  config,
-  ...
-}: let
+{config, ...}: let
   inherit (config) colorScheme fontsProfiles;
 in {
-
   wayland.windowManager.hyprland = {
     enable = true;
     systemd = {

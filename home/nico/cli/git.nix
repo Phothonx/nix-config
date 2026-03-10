@@ -1,4 +1,8 @@
-{config, lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   sops.secrets."git_config/thor" = {
     sopsFile = ../../../secrets/nico.yaml;
     format = "yaml";
@@ -29,7 +33,7 @@
       commit.verbose = true;
 
       core = {
-        editor="nvim";
+        editor = "nvim";
         exludesFile = "${config.xdg.configHome}/git/ignore";
       };
 
