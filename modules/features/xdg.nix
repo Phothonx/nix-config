@@ -10,7 +10,10 @@
       ];
     };
 
+    xdg.icons.fallbackCursorThemes = [ "Bibata-Modern-Ice" ];
+
     environment.systemPackages = with pkgs; [
+      bibata-cursors
       xdg-utils
       xdg-ninja
     ];

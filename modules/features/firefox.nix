@@ -11,5 +11,13 @@
       # broken in wrapper for now
       policies = lib.importJSON ../../packages/firefox/policies.json;
     };
+
+    xdg.mime.defaultApplications = {
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "text/html" = "firefox.desktop";
+    };
+
+    environment.variables."BROWSER" = "firefox";
   };
 }

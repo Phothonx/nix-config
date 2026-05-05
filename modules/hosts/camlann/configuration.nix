@@ -14,7 +14,20 @@
 
       self.nixosModules.nix
       self.nixosModules.power
+      self.nixosModules.nh
+      self.nixosModules.desktop
+      self.nixosModules.gaming
+
+      self.nixosModules.nico
     ];
+
+    documentation.man.cache.enable = true;
+    documentation.dev.enable = true;
+
+    services.zfs.autoScrub.enable = true;
+    # services.zfs.autoSnapshot.enable = true; # to see with impermanence
+    boot.supportedFilesystems = [ "zfs" ];
+    boot.zfs.forceImportRoot = false;
 
     boot.initrd.systemd.enable = true;
     boot.initrd.systemd.services.rollback-root = {
@@ -45,6 +58,8 @@
         "/var/lib/systemd/coredump"
         "/var/lib/bluetooth"
         "/etc/NetworkManager/system-connections"
+        "/var/lib/NetworkManager"
+        "/etc/ssh"
       ];
 
       files = [
@@ -56,11 +71,43 @@
 
     fileSystems."/persist".neededForBoot = true;
 
-    documentation.man.cache.enable = true;
-    documentation.dev.enable = true;
-
     environment.systemPackages = with pkgs; [
+      man-pages
+      man-pages-posix
+      tldr
+      mission-planner
+      # kdePackages.kdenlive
+      evemu
+      vlc
+      loupe
+      imv
+      bitwarden-desktop
+      spotify
+      localsend
+      proton-vpn
+      teamspeak6-client
+      ungoogled-chromium
+      vesktop
+      pavucontrol
+      crosspipe
+      wl-clipboard
+      via
     ];
+
+    programs.obs-studio = {
+      enable = true;
+      plugins = with pkgs; [
+        obs-studio-plugins.wlrobs
+      ];
+    };
+
+    services.greetd = {
+      enable = true;
+      settings.default_session = {
+        command = "${self.packages.${pkgs.stdenv.hostPlatform.system}.niri}/bin/niri-session";
+        user = "nico";
+      };
+    };
 
     boot = {
       tmp.cleanOnBoot = true;
@@ -87,6 +134,23 @@
 
       graphics.enable = true;
       graphics.enable32Bit = true;
+    };
+
+    services.udev = {
+      # mouse, keyboard, drone
+      extraRules = ''
+        KERNEL=="hidraw*", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f58c", MODE="0666", TAG+="uaccess"
+        KERNEL=="hidraw*", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f58a", MODE="0666", TAG+="uaccess"
+
+        KERNEL=="hidraw*", ATTRS{idVendor}=="2109", ATTRS{idProduct}=="0817", MODE="0666", TAG+="uaccess"
+        KERNEL=="hidraw*", ATTRS{idVendor}=="2109", ATTRS{idProduct}=="2817", MODE="0666", TAG+="uaccess"
+        KERNEL=="hidraw*", ATTRS{idVendor}=="2109", ATTRS{idProduct}=="0102", MODE="0666", TAG+="uaccess"
+        KERNEL=="hidraw*", ATTRS{idVendor}=="fffe", ATTRS{idProduct}=="0015", MODE="0666", TAG+="uaccess"
+
+        KERNEL=="hidraw*", ATTRS{idVendor}=="3185", ATTRS{idProduct}=="0038", MODE="0666", TAG+="uaccess"
+        KERNEL=="hidraw*", ATTRS{idVendor}=="3162", ATTRS{idProduct}=="0053", MODE="0666", TAG+="uaccess"
+        KERNEL=="hidraw*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", MODE="0666", TAG+="uaccess"
+      '';
     };
 
     # === DO NOT TOUCH ! ===

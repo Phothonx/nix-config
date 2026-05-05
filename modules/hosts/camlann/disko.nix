@@ -49,35 +49,35 @@
         };
       };
 
-      disk.data2 = {
-        type = "disk";
-        device = "/dev/disk/by-id/<disk-name>";
-        content = {
-          type = "gpt";
-          partitions.zfs = {
-            size = "100%";
-            content = {
-              type = "zfs";
-              pool = "tank";
-            };
-          };
-        };
-      };
-
-      disk.data3 = {
-        type = "disk";
-        device = "/dev/disk/by-id/<disk-name>";
-        content = {
-          type = "gpt";
-          partitions.zfs = {
-            size = "100%";
-            content = {
-              type = "zfs";
-              pool = "tank";
-            };
-          };
-        };
-      };
+      # disk.data2 = {
+      #   type = "disk";
+      #   device = "/dev/disk/by-id/<disk-name>";
+      #   content = {
+      #     type = "gpt";
+      #     partitions.zfs = {
+      #       size = "100%";
+      #       content = {
+      #         type = "zfs";
+      #         pool = "tank";
+      #       };
+      #     };
+      #   };
+      # };
+      #
+      # disk.data3 = {
+      #   type = "disk";
+      #   device = "/dev/disk/by-id/<disk-name>";
+      #   content = {
+      #     type = "gpt";
+      #     partitions.zfs = {
+      #       size = "100%";
+      #       content = {
+      #         type = "zfs";
+      #         pool = "tank";
+      #       };
+      #     };
+      #   };
+      # };
 
       # ZFS POOLS
       zpool = {
@@ -93,10 +93,6 @@
             atime = "off";
             xattr = "sa";
             acltype = "posixacl";
-
-            encryption = "aes-256-gcm";
-            keyformat = "passphrase";
-            keylocation = "prompt";
           };
 
           datasets = {
@@ -120,7 +116,7 @@
         # DATA POOL (RAID-Z1)
         tank = {
           type = "zpool";
-          mode = "raidz1";
+          # mode = "raidz1";
 
           options.ashift = "12";
 
@@ -128,11 +124,6 @@
             mountpoint = "none";
             compression = "zstd";
             atime = "off";
-
-            # encryption
-            encryption = "aes-256-gcm";
-            keyformat = "passphrase";
-            keylocation = "prompt";
           };
 
           datasets = {
