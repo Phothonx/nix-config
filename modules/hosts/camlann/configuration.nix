@@ -7,7 +7,7 @@
     imports = [
       self.nixosModules.camlannHardware
 
-      inputs.impermanence.nixosModules.impermanence
+      self.nixosModules.impermanence
 
       self.diskoConfigurations.camlann
       inputs.disko.nixosModules.disko
@@ -17,64 +17,12 @@
       self.nixosModules.nh
       self.nixosModules.desktop
       self.nixosModules.gaming
+      self.nixosModules.obs
 
       self.nixosModules.nico
     ];
 
-    documentation.man.cache.enable = true;
-    documentation.dev.enable = true;
-
-    services.zfs.autoScrub.enable = true;
-    # services.zfs.autoSnapshot.enable = true; # to see with impermanence
-    boot.supportedFilesystems = [ "zfs" ];
-    boot.zfs.forceImportRoot = false;
-
-    boot.initrd.systemd.enable = true;
-    boot.initrd.systemd.services.rollback-root = {
-      description = "Rollback ZFS root to blank snapshot";
-      wantedBy = ["initrd.target"];
-      after = ["zfs-import-zroot.service"];
-      before = ["sysroot.mount"];
-
-      unitConfig.DefaultDependencies = "no";
-
-      serviceConfig = {
-        Type = "oneshot";
-        RemainAfterExit = true;
-      };
-
-      script = ''
-        zfs rollback -r zroot/root@blank
-      '';
-    };
-
-    environment.persistence."/persist" = {
-      hideMounts = true;
-
-      directories = [
-        "/etc/nixos"
-        "/var/log"
-        "/var/lib/nixos"
-        "/var/lib/systemd/coredump"
-        "/var/lib/bluetooth"
-        "/etc/NetworkManager/system-connections"
-        "/var/lib/NetworkManager"
-        "/etc/ssh"
-      ];
-
-      files = [
-        "/etc/machine-id"
-        "/etc/ssh/ssh_host_ed25519_key"
-        "/etc/ssh/ssh_host_ed25519_key.pub"
-      ];
-    };
-
-    fileSystems."/persist".neededForBoot = true;
-
     environment.systemPackages = with pkgs; [
-      man-pages
-      man-pages-posix
-      tldr
       mission-planner
       # kdePackages.kdenlive
       evemu
@@ -94,13 +42,6 @@
       via
     ];
 
-    programs.obs-studio = {
-      enable = true;
-      plugins = with pkgs; [
-        obs-studio-plugins.wlrobs
-      ];
-    };
-
     services.greetd = {
       enable = true;
       settings.default_session = {
@@ -110,6 +51,9 @@
     };
 
     boot = {
+      # to detect mouse & keybr at startup
+      initrd.availableKernelModules = ["hid_cherry"];
+
       tmp.cleanOnBoot = true;
       loader = {
         systemd-boot.enable = true;
@@ -150,6 +94,30 @@
         KERNEL=="hidraw*", ATTRS{idVendor}=="3185", ATTRS{idProduct}=="0038", MODE="0666", TAG+="uaccess"
         KERNEL=="hidraw*", ATTRS{idVendor}=="3162", ATTRS{idProduct}=="0053", MODE="0666", TAG+="uaccess"
         KERNEL=="hidraw*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", MODE="0666", TAG+="uaccess"
+      '';
+    };
+
+    services.zfs.autoScrub.enable = true;
+    # services.zfs.autoSnapshot.enable = true; # to see with impermanence
+    boot.supportedFilesystems = [ "zfs" ];
+    boot.zfs.forceImportRoot = false;
+
+    boot.initrd.systemd.enable = true;
+    boot.initrd.systemd.services.rollback-root = {
+      description = "Rollback ZFS root to blank snapshot";
+      wantedBy = ["initrd.target"];
+      after = ["zfs-import-zroot.service"];
+      before = ["sysroot.mount"];
+
+      unitConfig.DefaultDependencies = "no";
+
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+      };
+
+      script = ''
+        zfs rollback -r zroot/root@blank
       '';
     };
 

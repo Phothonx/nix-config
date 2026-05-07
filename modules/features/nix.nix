@@ -29,6 +29,9 @@
       channel.enable = false;
     };
 
+    documentation.man.cache.enable = true;
+    documentation.dev.enable = true;
+
     environment.systemPackages = with pkgs; [
       nix-output-monitor
       nix-tree
@@ -37,8 +40,12 @@
       alejandra
       nixfmt
       nix-inspect
-      manix
       nix-inspect
+      manix
+
+      man-pages
+      man-pages-posix
+      tldr
     ];
 
     nix.settings = {
