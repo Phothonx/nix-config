@@ -9,8 +9,8 @@
 
     users.users.nico = {
       shell = pkgs.bashInteractive;
-      hashedPasswordFile = config.age.secrets.psswd_nico.path;
-      # initialPassword = "12345";
+      # hashedPasswordFile = config.age.secrets.psswd_nico.path;
+      initialPassword = "12345";
       isNormalUser = true;
       group = "users";
       extraGroups = [
