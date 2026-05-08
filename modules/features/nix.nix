@@ -22,6 +22,15 @@
     nixpkgs.config.allowUnfree = true;
     nixpkgs.config.allowUnsupportedSystem = true;
 
+    # skip broken test
+    nixpkgs.overlays = [
+      (final: prev: {
+        openldap = prev.openldap.overrideAttrs (_: {
+          doCheck = false;
+        });
+      })
+    ];
+
     nix = {
       settings.experimental-features = ["nix-command" "flakes"];
       settings.auto-optimise-store = true;

@@ -17,6 +17,15 @@
       ];
 
       extraConfig.pipewire = {
+        "99-lowlatency" = {
+          "context.properties" = {
+            "default.clock.rate" = 48000;
+            "default.clock.quantum" = 1024;
+            "default.clock.min-quantum" = 32;
+            "default.clock.max-quantum" = 2048;
+          };
+        };
+
         "99-input-denoising"."context.modules" = [
           {
             name = "libpipewire-module-filter-chain";

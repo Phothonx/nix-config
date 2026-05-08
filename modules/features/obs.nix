@@ -6,6 +6,7 @@
         wlrobs
         obs-pipewire-audio-capture
         input-overlay
+        obs-vkcapture
       ];
     };
   };

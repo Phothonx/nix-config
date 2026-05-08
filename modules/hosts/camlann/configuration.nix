@@ -3,7 +3,7 @@
   self,
   ...
 }: {
-  flake.nixosModules.camlannConfiguration = {pkgs, ...}: {
+  flake.nixosModules.camlannConfiguration = {pkgs, config, ...}: {
     imports = [
       self.nixosModules.camlannHardware
 
@@ -21,6 +21,8 @@
       self.nixosModules.udev
 
       self.nixosModules.nico
+
+      self.nixosModules.immich
     ];
 
     environment.systemPackages = with pkgs; [
@@ -41,7 +43,19 @@
       crosspipe
       wl-clipboard
       via
+
+      # nvtopPackages.nvidia # nvtop
+      nvidia-vaapi-driver # Ajoute le driver VA-API pour le décodage vidéo
+      vdpauinfo # Outil pour tester VDPAU
+      libva-utils # Outils pour tester VA-API
     ];
+
+    environment.sessionVariables = {
+      # accélération vidéo matérielle via nvidia-vaapi-driver
+      NVD_BACKEND = "direct";
+      # forcer l'utilisation de la librairie d'accélération matérielle
+      # LIBVA_DRIVER_NAME = "nvidia";
+    };
 
     services.greetd = {
       enable = true;
@@ -51,8 +65,18 @@
       };
     };
 
+    services.xserver.videoDrivers = [ "nvidia" ];
     boot = {
-      # to detect mouse & keybr at startup
+      blacklistedKernelModules = [ "nouveau" "nvidiafb" "rivafb" ];
+      extraModprobeConfig = ''
+        options nvidia-drm modeset=1
+        options nvidia NVreg_UsePageAttributeTable=1
+        options nvidia NVreg_EnablePCIeGen3=1
+      '';
+      initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+      kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+      kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
+
       initrd.availableKernelModules = ["hid_cherry" "btrfs"];
       supportedFilesystems = ["btrfs"];
 
@@ -72,8 +96,13 @@
     time.timeZone = "Europe/Paris";
 
     hardware = {
-      nvidia.open = true;
-      nvidia.modesetting.enable = true;
+      nvidia = {
+        open = false; # proprietary drivers
+        modesetting.enable = true;
+        powerManagement.enable = false;
+        nvidiaSettings = true;
+        package = config.boot.kernelPackages.nvidiaPackages.production;
+      };
 
       enableAllFirmware = true;
 
@@ -82,6 +111,11 @@
 
       graphics.enable = true;
       graphics.enable32Bit = true;
+      graphics.extraPackages = with pkgs; [
+        libva-vdpau-driver # Pont VA-API → VDPAU
+        libvdpau-va-gl # Accélération VDPAU OpenGL
+        pkgs.obs-studio-plugins.obs-vkcapture
+      ];
     };
 
     services.lact.enable = true;

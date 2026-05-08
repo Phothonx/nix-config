@@ -41,6 +41,7 @@
       directories = [
         "Downloads"
         "Music"
+        "Games"
         "Dev"
         "Desktop"
         "Pictures"
@@ -59,11 +60,13 @@
         ".local/share/Steam"
         ".local/share/osu"
         ".local/share/albiononline"
+        ".local/share/lutris"
         ".local/share/zoxide"
         ".local/share/direnv"
         ".local/share/nvim"
         ".local/share/fish"
         ".local/share/nautilus"
+        ".config/nautilus"
 
         ".config/mozilla"
         ".config/mozilla/firefox"

@@ -17,6 +17,9 @@
         "/etc/NetworkManager/system-connections"
         "/var/lib/NetworkManager"
         "/etc/ssh"
+
+        "/var/lib/postgresql" # immich
+        "/var/lib/immich"
       ];
       files = [
         "/etc/machine-id"
