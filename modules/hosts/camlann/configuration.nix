@@ -24,7 +24,7 @@
 
     environment.systemPackages = with pkgs; [
       mission-planner
-      # kdePackages.kdenlive
+      kdePackages.kdenlive
       evemu
       vlc
       loupe
@@ -52,7 +52,8 @@
 
     boot = {
       # to detect mouse & keybr at startup
-      initrd.availableKernelModules = ["hid_cherry"];
+      initrd.availableKernelModules = ["hid_cherry" "btrfs"];
+      supportedFilesystems = ["btrfs"];
 
       tmp.cleanOnBoot = true;
       loader = {
@@ -70,6 +71,10 @@
     time.timeZone = "Europe/Paris";
 
     hardware = {
+      nvidia.open = true;
+      nvidia.modesetting.enable = true;
+      nvidia.prime.offload.enable = true;
+
       enableAllFirmware = true;
 
       bluetooth.enable = true;
@@ -78,6 +83,8 @@
       graphics.enable = true;
       graphics.enable32Bit = true;
     };
+
+    services.lact.enable = true;
 
     services.udev = {
       # mouse, keyboard, drone
@@ -106,15 +113,15 @@
     boot.initrd.systemd.services.rollback-root = {
       description = "Rollback Btrfs root";
       wantedBy = ["initrd.target"];
-      after = ["systemd-cryptsetup@cryptroot.service"];
+      requires = [ "dev-disk-by\\x2did-nvme\\x2dCT500P1SSD8_1913E1F56204.device" ];
+      after = [ "dev-disk-by\\x2did-nvme\\x2dCT500P1SSD8_1913E1F56204.device" ];
       before = ["sysroot.mount"];
       unitConfig.DefaultDependencies = "no";
-
       serviceConfig.Type = "oneshot";
 
       script = ''
         mkdir -p /btrfs_tmp
-        mount -o subvolid=5 /dev/mapper/cryptroot /btrfs_tmp
+        mount -t btrfs -o subvolid=5 /dev/disk/by-id/nvme-CT500P1SSD8_1913E1F56204-part2 /btrfs_tmp
 
         if [ -e /btrfs_tmp/root ]; then
           mkdir -p /btrfs_tmp/old_roots

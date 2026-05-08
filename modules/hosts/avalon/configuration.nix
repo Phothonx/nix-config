@@ -53,7 +53,8 @@
 
     boot = {
       # to detect mouse & keybr at startup
-      initrd.availableKernelModules = ["hid_cherry"];
+      initrd.availableKernelModules = ["hid_cherry" "btrfs"];
+      supportedFilesystems = ["btrfs"];
 
       tmp.cleanOnBoot = true;
       loader = {

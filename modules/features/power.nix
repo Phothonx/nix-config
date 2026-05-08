@@ -7,8 +7,6 @@
       ppdSupport = true;
     };
 
-    # programs.lact.enable = true;
-
     environment.systemPackages = with pkgs; [
       phoronix-test-suite
     ];
