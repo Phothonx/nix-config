@@ -8,6 +8,7 @@
     services.uptime-kuma = {
       enable = true;
       settings.PORT = "3001";
+      settings.HOST = "0.0.0.0";
       settings.DATA_DIR = lib.mkForce "/data/uptime-kuma";
     };
 
