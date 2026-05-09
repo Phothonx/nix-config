@@ -22,7 +22,11 @@
 
       self.nixosModules.nico
 
+      self.nixosModules.openssh
       self.nixosModules.immich
+      self.nixosModules.paperless
+      self.nixosModules.homepage
+      self.nixosModules.uptime-kuma
     ];
 
     environment.systemPackages = with pkgs; [
@@ -50,6 +54,10 @@
       libva-utils # Outils pour tester VA-API
     ];
 
+    users.users.nico.openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/j7aoPG6YiK6UInYCir/+L3h73O2V36M4M6PdsdREX"
+    ];
+
     environment.sessionVariables = {
       # accélération vidéo matérielle via nvidia-vaapi-driver
       NVD_BACKEND = "direct";
@@ -75,7 +83,11 @@
       '';
       initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
       kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-      kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
+      kernelParams = [
+        "nvidia-drm.modeset=1"
+        "nvidia-drm.fbdev=1"
+        "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+      ];
 
       initrd.availableKernelModules = ["hid_cherry" "btrfs"];
       supportedFilesystems = ["btrfs"];
@@ -95,11 +107,19 @@
     i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "Europe/Paris";
 
+    systemd.services = {
+      "nvidia-suspend".enable = true;
+      "nvidia-resume".enable = true;
+      "nvidia-hibernate".enable = true;
+    };
+
     hardware = {
+      nvidia-container-toolkit.enable = true;
       nvidia = {
         open = false; # proprietary drivers
         modesetting.enable = true;
-        powerManagement.enable = false;
+        powerManagement.enable = true;
+        powerManagement.finegrained = false;
         nvidiaSettings = true;
         package = config.boot.kernelPackages.nvidiaPackages.production;
       };

@@ -9,6 +9,8 @@
       enable = true;
       mediaLocation = "/data/immich";
       openFirewall = true;
+      host = "0.0.0.0";
+      accelerationDevices = [ "/dev/nvidia0" ];
     };
   };
 }

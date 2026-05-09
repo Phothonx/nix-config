@@ -18,8 +18,10 @@
         "/var/lib/NetworkManager"
         "/etc/ssh"
 
-        "/var/lib/postgresql" # immich
+        "/var/lib/postgresql" # immich & nextcloud
+        "/var/lib/nextcloud"
         "/var/lib/immich"
+        "/var/lib/paperless"
       ];
       files = [
         "/etc/machine-id"
