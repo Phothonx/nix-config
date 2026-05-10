@@ -10,10 +10,11 @@
 
     services.nextcloud = {
       enable = true;
-      package = pkgs.nextcloud30;
+      package = pkgs.nextcloud32;
       home = "/data/nextcloud";
       datadir = "/data/nextcloud";
       database.createLocally = true;
+      config.dbtype = "pgsql";
 
       hostName = "192.168.0.8";
       https = false;

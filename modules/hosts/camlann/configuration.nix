@@ -56,14 +56,6 @@
       # LIBVA_DRIVER_NAME = "nvidia";
     };
 
-    services.greetd = {
-      enable = true;
-      settings.default_session = {
-        command = "${self.packages.${pkgs.stdenv.hostPlatform.system}.niri}/bin/niri-session";
-        user = "nico";
-      };
-    };
-
     services.xserver.videoDrivers = ["nvidia"];
     boot = {
       blacklistedKernelModules = ["nouveau" "nvidiafb" "rivafb"];

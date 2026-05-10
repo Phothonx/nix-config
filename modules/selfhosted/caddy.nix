@@ -1,11 +1,10 @@
 {
-  flake.nixosModules.caddy = {
-    # TODO move virtualHosts to corresponding & open 443 port
+  flake.nixosModules.caddy = { # 443 https
     services.caddy = {
       enable = true;
       virtualHosts."immich.camlann".extraConfig = ''
         reverse_proxy localhost:2283
-        tls internal  # self-signed, trusted on LAN devices
+        tls internal
       '';
       virtualHosts."paperless.camlann".extraConfig = ''
         reverse_proxy localhost:28981
