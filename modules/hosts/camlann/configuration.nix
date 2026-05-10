@@ -32,6 +32,7 @@
       self.nixosModules.paperless
       self.nixosModules.homepage
       self.nixosModules.uptime-kuma
+      self.nixosModules.caddy
     ];
 
     environment.systemPackages = with pkgs; [

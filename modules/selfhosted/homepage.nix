@@ -80,7 +80,7 @@
                 href = "http://192.168.0.8:28981";
                 description = "Documents";
                 widget = {
-                  type = "paperless-ngx";
+                  type = "paperlessngx";
                   url = "http://127.0.0.1:28981";
                   # key = "";
                 };

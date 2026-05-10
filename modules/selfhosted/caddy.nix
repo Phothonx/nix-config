@@ -10,6 +10,10 @@
         reverse_proxy localhost:28981
         tls internal
       '';
+      virtualHosts."homepage.camlann".extraConfig = ''
+        reverse_proxy localhost:8082
+        tls internal
+      '';
     };
   };
 }
