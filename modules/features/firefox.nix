@@ -4,6 +4,10 @@
     lib,
     ...
   }: {
+    # imports = [
+    #   self.nixosModules.impermanence
+    # ];
+
     programs.firefox = {
       enable = true;
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.firefox;
@@ -19,5 +23,11 @@
     };
 
     environment.variables."BROWSER" = "firefox";
+
+    persist.user.directories = [
+      ".config/mozilla"
+      ".config/mozilla/firefox"
+      ".cache/mozilla"
+    ];
   };
 }

@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.nh = {...}: {
+  flake.nixosModules.nh = {
     programs.nh = {
       enable = true;
       clean.enable = true;

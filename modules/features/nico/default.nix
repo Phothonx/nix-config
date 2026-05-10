@@ -5,6 +5,10 @@
     lib,
     ...
   }: {
+    # imports = [
+    #   self.nixosModules.impermanence
+    # ];
+
     users.mutableUsers = false;
 
     users.users.nico = {
@@ -37,53 +41,15 @@
       fi
     '';
 
-    environment.persistence."/persist".users.nico = {
-      directories = [
-        "Downloads"
-        "Music"
-        "Games"
-        "Dev"
-        "Desktop"
-        "Pictures"
-        "Documents"
-        "Videos"
-        "wiki"
-        "nix-config"
+    persist.user.name = "nico";
+    persist.user.directories = [
+      ".cache/fish"
 
-        { directory = ".ssh"; mode = "0700"; }
+      ".local/share/zoxide"
+      ".local/share/nvim"
+      ".local/share/fish"
 
-        ".cache/fish"
-        ".cache/mozilla"
-        ".cache/noctalia"
-
-        ".local/state/wireplumber"
-        ".local/share/Steam"
-        ".local/share/osu"
-        ".local/share/albiononline"
-        ".local/share/lutris"
-        ".local/share/zoxide"
-        ".local/share/direnv"
-        ".local/share/nvim"
-        ".local/share/fish"
-        ".local/share/nautilus"
-        ".config/nautilus"
-
-        ".config/mozilla"
-        ".config/mozilla/firefox"
-        ".config/heroic"
-        ".config/chromium"
-        ".config/nvim"
-        ".config/obs-studio"
-        # ".config/discord"
-        ".config/Bitwarden"
-        ".config/spotify"
-        ".config/vesktop"
-        ".config/localsend"
-        ".config/unity3d"
-      ];
-      files = [
-        ".local/share/applications/albion.desktop"
-      ];
-    };
+      ".config/nvim"
+    ];
   };
 }

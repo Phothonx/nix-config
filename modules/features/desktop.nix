@@ -10,6 +10,7 @@
       self.nixosModules.xkb
       self.nixosModules.xdg
       self.nixosModules.gtk
+      # self.nixosModules.impermanence
     ];
 
     programs.niri = {
@@ -29,5 +30,11 @@
 
     services.gnome.gnome-keyring.enable = lib.mkForce false;
     security.polkit.enable = true;
+
+    persist.user.directories = [
+      ".cache/noctalia"
+      ".local/share/nautilus"
+      ".config/nautilus"
+    ];
   };
 }

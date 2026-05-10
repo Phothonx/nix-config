@@ -1,8 +1,7 @@
 {
-  flake.nixosModules.uptime-kuma = { lib, ... }: {
-
+  flake.nixosModules.uptime-kuma = {lib, ...}: {
     systemd.services.uptime-kuma.serviceConfig = {
-      ReadWritePaths = [ "/data/uptime-kuma" ];
+      ReadWritePaths = ["/data/uptime-kuma"];
     };
 
     services.uptime-kuma = {
@@ -13,7 +12,7 @@
     };
 
     networking.firewall.allowedTCPPorts = [
-      3001  # uptime kuma
+      3001 # uptime kuma
     ];
   };
 }

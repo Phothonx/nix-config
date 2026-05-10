@@ -1,17 +1,26 @@
-{...}: {
+{self, ...}: {
   flake.nixosModules.gaming = {pkgs, ...}: {
+    # imports = [
+    #   self.nixosModules.impermanence
+    # ];
+
     programs = {
       gamemode.enable = true;
       gamescope.enable = true;
       steam = {
         enable = true;
-        package = pkgs.steam.override { extraEnv = { MANGOHUD = true; OBS_VKCAPTURE = true; }; };
+        package = pkgs.steam.override {
+          extraEnv = {
+            MANGOHUD = true;
+            OBS_VKCAPTURE = true;
+          };
+        };
         protontricks.enable = true;
         gamescopeSession.enable = true;
         extest.enable = true;
         remotePlay.openFirewall = true;
         localNetworkGameTransfers.openFirewall = true;
-        extraCompatPackages = with pkgs; [ proton-ge-bin ];
+        extraCompatPackages = with pkgs; [proton-ge-bin];
       };
     };
 
@@ -26,14 +35,14 @@
         # List of additional system libraries
         extraLibraries = pkgs: [
           krb5
-            libxau
-            libxdmcp
-            libglvnd          # GLVND dispatcher (provides EGL/GLX)
-            mesa              # fallback GL, needed for Xwayland glamor
-            vulkan-loader     # Vulkan ICD loader
+          libxau
+          libxdmcp
+          libglvnd # GLVND dispatcher (provides EGL/GLX)
+          mesa # fallback GL, needed for Xwayland glamor
+          vulkan-loader # Vulkan ICD loader
         ];
         # List of additional system packages
-        extraPkgs = pkgs: [ ];
+        extraPkgs = pkgs: [];
       })
       heroic
       protonup-qt
@@ -61,20 +70,24 @@
               libxau
               libxdmcp
 
-              libglvnd          # GLVND dispatcher (provides EGL/GLX)
-              mesa              # fallback GL, needed for Xwayland glamor
-              vulkan-loader     # Vulkan ICD loader
+              libglvnd # GLVND dispatcher (provides EGL/GLX)
+              mesa # fallback GL, needed for Xwayland glamor
+              vulkan-loader # Vulkan ICD loader
             ]);
           profile = ''
             export FHS=1
-            export __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json
-            export __GLX_VENDOR_LIBRARY_NAME=nvidia
-            export VK_ICD_FILES=/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json
           '';
           runScript = "fish";
         }))
     ];
 
-    # services.zerotierone.enable = true;
+    persist.user.directories = [
+      ".local/share/Steam"
+      ".local/share/osu"
+      ".local/share/albiononline"
+      ".local/share/lutris"
+      ".config/unity3d"
+      ".config/heroic"
+    ];
   };
 }

@@ -67,22 +67,23 @@
           bash-language-server
 
           # TS
-          (pkgs.tree-sitter.withPlugins (ps: with ps; [
-            tree-sitter-nix
-            tree-sitter-lua
-            tree-sitter-c
-            tree-sitter-vim
-            tree-sitter-bash
-            tree-sitter-python
-            tree-sitter-rust
-            tree-sitter-javascript
-            tree-sitter-typescript
-            tree-sitter-json
-            tree-sitter-toml
-            tree-sitter-yaml
-            tree-sitter-markdown
-            tree-sitter-markdown-inline
-          ]))
+          (pkgs.tree-sitter.withPlugins (ps:
+            with ps; [
+              tree-sitter-nix
+              tree-sitter-lua
+              tree-sitter-c
+              tree-sitter-vim
+              tree-sitter-bash
+              tree-sitter-python
+              tree-sitter-rust
+              tree-sitter-javascript
+              tree-sitter-typescript
+              tree-sitter-json
+              tree-sitter-toml
+              tree-sitter-yaml
+              tree-sitter-markdown
+              tree-sitter-markdown-inline
+            ]))
         ];
       };
   };

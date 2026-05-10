@@ -4,17 +4,15 @@ let
   nico = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/j7aoPG6YiK6UInYCir/+L3h73O2V36M4M6PdsdREX";
   users = [nico];
 
-  avalon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+jy/12OrvjxnmeKU3e9Fw8d8m8plcjSkkIFL3omc/r";
-  systems = [avalon];
+  systems = [];
 in {
-  "github_config.age".publicKeys = recovery ++ users ++ systems;
-  "thor_config.age".publicKeys = recovery ++ users ++ systems;
+  "github_config.age".publicKeys = recovery ++ users;
+  "thor_config.age".publicKeys = recovery ++ users;
+  "ssh_config.age".publicKeys = recovery ++ users;
 
-  "ssh_config.age".publicKeys = recovery ++ users ++ systems;
+  "id_ed25519_enseirb.age".publicKeys = recovery ++ users;
+  "id_ed25519_thor.age".publicKeys = recovery ++ users;
+  "id_ed25519_github.age".publicKeys = recovery ++ users;
 
   "psswd_nico.age".publicKeys = recovery ++ users ++ systems;
-
-  "id_ed25519_enseirb.age".publicKeys = recovery ++ users ++ systems;
-  "id_ed25519_thor.age".publicKeys = recovery ++ users ++ systems;
-  "id_ed25519_github.age".publicKeys = recovery ++ users ++ systems;
 }

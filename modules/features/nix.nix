@@ -6,6 +6,7 @@
   flake.nixosModules.nix = {pkgs, ...}: {
     imports = [
       inputs.nix-index-database.nixosModules.nix-index
+      # self.nixosModules.impermanence
     ];
 
     programs.nix-index-database.comma.enable = true;
@@ -49,7 +50,6 @@
       alejandra
       nixfmt
       nix-inspect
-      nix-inspect
       manix
 
       man-pages
@@ -71,5 +71,9 @@
         "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       ];
     };
+
+    persist.user.directories = [
+      ".local/share/direnv"
+    ];
   };
 }

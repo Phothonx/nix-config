@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.udev = {...}: {
+  flake.nixosModules.udev = {
     services.udev = {
       # mouse, keyboard, drone
       extraRules = ''

@@ -1,4 +1,4 @@
-{...}: {
+{
   flake.nixosModules.xdg = {pkgs, ...}: {
     xdg.portal = {
       enable = true;
@@ -10,7 +10,7 @@
       ];
     };
 
-    xdg.icons.fallbackCursorThemes = [ "Bibata-Modern-Ice" ];
+    xdg.icons.fallbackCursorThemes = ["Bibata-Modern-Ice"];
 
     environment.systemPackages = with pkgs; [
       bibata-cursors

@@ -95,17 +95,17 @@
 
         outputs = {
           "Microstep MSI MAG271C 0x0000011E" = {
-            position = _:{
+            position = _: {
               props.x = 0;
               props.y = 0;
             };
             scale = 0.9;
             mode = "1920x1080@119.982";
-            focus-at-startup = _:{};
+            focus-at-startup = _: {};
           };
 
           "Dell Inc. DELL S2240L YTFXY32208LT" = {
-            position = _:{
+            position = _: {
               props.x = 2133;
               props.y = 0;
             };

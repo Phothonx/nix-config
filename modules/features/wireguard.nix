@@ -1,6 +1,5 @@
 {
-  flake.nixosModules.wireguard = { pkgs, ... }: {
-
+  flake.nixosModules.wireguard = {pkgs, ...}: {
     boot.kernel.sysctl = {
       "net.ipv4.ip_forward" = 1;
       "net.ipv6.conf.all.forwarding" = 1;
@@ -8,18 +7,18 @@
 
     networking = {
       firewall = {
-        allowedUDPPorts = [ 51820 ];
-        trustedInterfaces = [ "wg0" ];
+        allowedUDPPorts = [51820];
+        trustedInterfaces = ["wg0"];
       };
 
       nat = {
         enable = true;
         externalInterface = "wlp5s0";
-        internalInterfaces = [ "wg0" ];
+        internalInterfaces = ["wg0"];
       };
 
       wg-quick.interfaces.wg0 = {
-        address = [ "10.0.0.1/24" "fd00::1/64" ];  # IPv4 + IPv6
+        address = ["10.0.0.1/24" "fd00::1/64"]; # IPv4 + IPv6
         listenPort = 51820;
         privateKeyFile = "/secrets/wireguard/server.key";
 
@@ -44,12 +43,12 @@
           {
             # phone
             publicKey = "PHONE_PUBLIC_KEY";
-            allowedIPs = [ "10.0.0.2/32" "fd00::2/128" ];
+            allowedIPs = ["10.0.0.2/32" "fd00::2/128"];
           }
           {
             # laptop
             publicKey = "LAPTOP_PUBLIC_KEY";
-            allowedIPs = [ "10.0.0.3/32" "fd00::3/128" ];
+            allowedIPs = ["10.0.0.3/32" "fd00::3/128"];
           }
         ];
       };

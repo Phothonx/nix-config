@@ -1,5 +1,14 @@
-{
+{self, ...}: {
   flake.nixosModules.pipewire = {pkgs, ...}: {
+    # imports = [
+    #   self.nixosModules.impermanence
+    # ];
+
+    environment.systemPackages = with pkgs; [
+      pavucontrol
+      crosspipe
+    ];
+
     security.rtkit.enable = true;
     services.pulseaudio.enable = false;
     # holy grail: nix shell nixpkgs#ladspa-sdk nixpkgs#rnnoise-plugin -c analyseplugin $(nix eval --raw nixpkgs#rnnoise-plugin.outPath)/lib/ladspa/librnnoise_ladspa.so
@@ -107,5 +116,9 @@
         ];
       };
     };
+
+    persist.user.directories = [
+      ".local/state/wireplumber"
+    ];
   };
 }

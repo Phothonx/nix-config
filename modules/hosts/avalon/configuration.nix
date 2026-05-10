@@ -19,29 +19,17 @@
       self.nixosModules.gaming
       self.nixosModules.obs
       self.nixosModules.udev
+      self.nixosModules.apps
 
       self.nixosModules.nico
     ];
 
+    services.thermald.enable = true;
 
     environment.systemPackages = with pkgs; [
       mission-planner
-      # kdePackages.kdenlive
-      evemu
-      vlc
-      loupe
-      imv
-      bitwarden-desktop
-      spotify
-      localsend
       proton-vpn
-      teamspeak6-client
-      ungoogled-chromium
-      vesktop
-      pavucontrol
-      crosspipe
-      wl-clipboard
-      via
+      phoronix-test-suite
     ];
 
     services.greetd = {
@@ -80,6 +68,10 @@
 
       graphics.enable = true;
       graphics.enable32Bit = true;
+      graphics.extraPackages = with pkgs; [
+        intel-media-driver
+        obs-studio-plugins.obs-vkcapture
+      ];
     };
 
     boot.initrd.systemd.enable = true;

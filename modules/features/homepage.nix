@@ -1,8 +1,9 @@
 {
-  flake.nixosModules.homepage = { ... }: {
+  flake.nixosModules.homepage = {
     services.homepage-dashboard = {
       enable = true;
       openFirewall = true;
+      allowedHosts = "*";
 
       settings = {
         title = "Camlann";
@@ -17,8 +18,14 @@
           target = "_blank";
         };
         layout = {
-          Media   = { style = "row"; columns = 3; };
-          Storage = { style = "row"; columns = 3; };
+          Media = {
+            style = "row";
+            columns = 3;
+          };
+          Storage = {
+            style = "row";
+            columns = 3;
+          };
         };
       };
 
@@ -73,7 +80,7 @@
                 href = "http://192.168.0.8:28981";
                 description = "Documents";
                 widget = {
-                  type = "paperless";
+                  type = "paperless-ngx";
                   url = "http://127.0.0.1:28981";
                   # key = "";
                 };

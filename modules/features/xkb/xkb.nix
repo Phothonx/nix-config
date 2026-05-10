@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.xkb = {...}: {
+  flake.nixosModules.xkb = {
     services.xserver.xkb = {
       layout = "ni"; # fr
       variant = "basic";

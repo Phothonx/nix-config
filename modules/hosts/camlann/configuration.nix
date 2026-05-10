@@ -3,7 +3,11 @@
   self,
   ...
 }: {
-  flake.nixosModules.camlannConfiguration = {pkgs, config, ...}: {
+  flake.nixosModules.camlannConfiguration = {
+    pkgs,
+    config,
+    ...
+  }: {
     imports = [
       self.nixosModules.camlannHardware
 
@@ -19,6 +23,7 @@
       self.nixosModules.gaming
       self.nixosModules.obs
       self.nixosModules.udev
+      self.nixosModules.apps
 
       self.nixosModules.nico
 
@@ -32,21 +37,7 @@
     environment.systemPackages = with pkgs; [
       mission-planner
       kdePackages.kdenlive
-      evemu
-      vlc
-      loupe
-      imv
-      bitwarden-desktop
-      spotify
-      localsend
-      proton-vpn
-      teamspeak6-client
-      ungoogled-chromium
-      vesktop
-      pavucontrol
-      crosspipe
-      wl-clipboard
-      via
+      phoronix-test-suite
 
       # nvtopPackages.nvidia # nvtop
       nvidia-vaapi-driver # Ajoute le driver VA-API pour le décodage vidéo
@@ -73,16 +64,16 @@
       };
     };
 
-    services.xserver.videoDrivers = [ "nvidia" ];
+    services.xserver.videoDrivers = ["nvidia"];
     boot = {
-      blacklistedKernelModules = [ "nouveau" "nvidiafb" "rivafb" ];
+      blacklistedKernelModules = ["nouveau" "nvidiafb" "rivafb"];
       extraModprobeConfig = ''
         options nvidia-drm modeset=1
         options nvidia NVreg_UsePageAttributeTable=1
         options nvidia NVreg_EnablePCIeGen3=1
       '';
-      initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-      kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+      initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
+      kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
       kernelParams = [
         "nvidia-drm.modeset=1"
         "nvidia-drm.fbdev=1"
@@ -134,7 +125,7 @@
       graphics.extraPackages = with pkgs; [
         libva-vdpau-driver # Pont VA-API → VDPAU
         libvdpau-va-gl # Accélération VDPAU OpenGL
-        pkgs.obs-studio-plugins.obs-vkcapture
+        obs-studio-plugins.obs-vkcapture
       ];
     };
 
@@ -150,8 +141,8 @@
     boot.initrd.systemd.services.rollback-root = {
       description = "Rollback Btrfs root";
       wantedBy = ["initrd.target"];
-      requires = [ "dev-disk-by\\x2did-nvme\\x2dCT500P1SSD8_1913E1F56204.device" ];
-      after = [ "dev-disk-by\\x2did-nvme\\x2dCT500P1SSD8_1913E1F56204.device" ];
+      requires = ["dev-disk-by\\x2did-nvme\\x2dCT500P1SSD8_1913E1F56204.device"];
+      after = ["dev-disk-by\\x2did-nvme\\x2dCT500P1SSD8_1913E1F56204.device"];
       before = ["sysroot.mount"];
       unitConfig.DefaultDependencies = "no";
       serviceConfig.Type = "oneshot";
