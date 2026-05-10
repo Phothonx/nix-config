@@ -2,7 +2,6 @@
   flake.nixosModules.homepage = {
     services.homepage-dashboard = {
       enable = true;
-      openFirewall = true;
       allowedHosts = "*";
 
       settings = {
@@ -61,11 +60,11 @@
             {
               Immich = {
                 icon = "immich.png";
-                href = "http://192.168.0.8:2283";
+                href = "https://immich.camlann";
                 description = "Photos";
                 widget = {
                   type = "immich";
-                  url = "http://127.0.0.1:2283";
+                  url = "http://localhost:2283";
                   # key = "";
                 };
               };
@@ -77,11 +76,11 @@
             {
               Paperless = {
                 icon = "paperless-ngx.png";
-                href = "http://192.168.0.8:28981";
+                href = "http://paperless.camlann";
                 description = "Documents";
                 widget = {
                   type = "paperlessngx";
-                  url = "http://127.0.0.1:28981";
+                  url = "http://localhost:28981";
                   # key = "";
                 };
               };

@@ -39,8 +39,6 @@
       port = 28981;
     };
 
-    networking.firewall.allowedTCPPorts = [28981];
-
     persist.directories = [
       "/var/lib/paperless"
     ];

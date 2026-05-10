@@ -10,9 +10,5 @@
       settings.HOST = "0.0.0.0";
       settings.DATA_DIR = lib.mkForce "/data/uptime-kuma";
     };
-
-    networking.firewall.allowedTCPPorts = [
-      3001 # uptime kuma
-    ];
   };
 }

@@ -29,6 +29,7 @@
     environment.systemPackages = with pkgs; [
       mission-planner
       proton-vpn
+      wireguard-tools
       phoronix-test-suite
     ];
 
