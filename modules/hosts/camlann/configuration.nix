@@ -34,6 +34,7 @@
       self.nixosModules.caddy
       self.nixosModules.adguard
       self.nixosModules.jellyfin
+      self.nixosModules.qbittorrent
     ];
 
     environment.systemPackages = with pkgs; [
