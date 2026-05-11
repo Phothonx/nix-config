@@ -5,10 +5,6 @@
     lib,
     ...
   }: {
-    # imports = [
-    #   self.nixosModules.impermanence
-    # ];
-
     users.mutableUsers = false;
 
     users.users.nico = {

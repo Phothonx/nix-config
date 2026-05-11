@@ -10,7 +10,6 @@
       self.nixosModules.xkb
       self.nixosModules.xdg
       self.nixosModules.gtk
-      # self.nixosModules.impermanence
     ];
 
     programs.niri = {

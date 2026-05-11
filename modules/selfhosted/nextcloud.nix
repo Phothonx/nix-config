@@ -1,8 +1,5 @@
-{self, ...}: {
+{
   flake.nixosModules.nextcloud = {pkgs, ...}: {
-    # imports = [
-    #   self.nixosModules.impermanence
-    # ];
 
     systemd.tmpfiles.rules = [
       "d /data/nextcloud 0750 nextcloud nextcloud -"

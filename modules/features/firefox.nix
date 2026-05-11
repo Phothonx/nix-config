@@ -4,9 +4,6 @@
     lib,
     ...
   }: {
-    # imports = [
-    #   self.nixosModules.impermanence
-    # ];
 
     programs.firefox = {
       enable = true;

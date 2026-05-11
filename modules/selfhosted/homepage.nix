@@ -1,7 +1,7 @@
 {
   flake.nixosModules.homepage = {
     services.homepage-dashboard = {
-      enable = true;
+      enable = true; # 8082
       allowedHosts = "*";
 
       settings = {

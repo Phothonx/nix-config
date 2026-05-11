@@ -1,7 +1,7 @@
 {
   flake.nixosModules.adguard = {
     services.adguardhome = {
-      enable = true;
+      enable = true; # 3000 (web interface) 34 (dns)
 
       settings = {
         dns = {

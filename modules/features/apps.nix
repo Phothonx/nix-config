@@ -1,8 +1,5 @@
-{self, ...}: {
+{
   flake.nixosModules.apps = {pkgs, ...}: {
-    # imports = [
-    #   self.nixosModules.impermanence
-    # ];
 
     environment.systemPackages = with pkgs; [
       evemu

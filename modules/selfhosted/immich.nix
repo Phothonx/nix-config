@@ -1,17 +1,13 @@
-{self, ...}: {
+{
   flake.nixosModules.immich = {
-    # imports = [
-    #   self.nixosModules.impermanence
-    # ];
 
     systemd.tmpfiles.rules = [
       "d /data/immich 0750 immich immich -"
     ];
 
     services.immich = {
-      enable = true;
+      enable = true; # 2283
       mediaLocation = "/data/immich";
-      host = "0.0.0.0";
       accelerationDevices = ["/dev/nvidia0"];
     };
 

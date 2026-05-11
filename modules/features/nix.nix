@@ -6,7 +6,6 @@
   flake.nixosModules.nix = {pkgs, ...}: {
     imports = [
       inputs.nix-index-database.nixosModules.nix-index
-      # self.nixosModules.impermanence
     ];
 
     programs.nix-index-database.comma.enable = true;
@@ -35,6 +34,7 @@
     nix = {
       settings.experimental-features = ["nix-command" "flakes"];
       settings.auto-optimise-store = true;
+      settings.builders-use-substitutes = true;
       registry.self.flake = self;
       channel.enable = false;
     };

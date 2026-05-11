@@ -54,6 +54,14 @@
     };
 
     networking = {
+      hosts."192.168.0.8" = [
+        "immich.camlann"
+        "homepage.camlann"
+        "paperless.camlann"
+        "kuma.camlann"
+        "adguard.camlann"
+      ];
+
       hostName = "avalon";
       networkmanager.enable = true;
     };
@@ -71,7 +79,6 @@
       graphics.enable32Bit = true;
       graphics.extraPackages = with pkgs; [
         intel-media-driver
-        obs-studio-plugins.obs-vkcapture
       ];
     };
 

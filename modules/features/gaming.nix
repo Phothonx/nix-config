@@ -1,8 +1,5 @@
-{self, ...}: {
+{
   flake.nixosModules.gaming = {pkgs, ...}: {
-    # imports = [
-    #   self.nixosModules.impermanence
-    # ];
 
     programs = {
       gamemode.enable = true;
@@ -26,22 +23,18 @@
 
     environment.sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
-      MANGOHUD_CONFIG = "control=mangohud,legacy_layout=0,horizontal,battery,time,time_format=%H\\:%M,gpu_stats,gpu_power,cpu_stats,ram,vram,fps,frametime=1,frame_timing=1,hud_no_margin,table_columns=14";
       GAMESCOPE_WSI = "wayland";
     };
 
     environment.systemPackages = with pkgs; [
       (lutris.override {
-        # List of additional system libraries
         extraLibraries = pkgs: [
           krb5
           libxau
           libxdmcp
-          libglvnd # GLVND dispatcher (provides EGL/GLX)
-          mesa # fallback GL, needed for Xwayland glamor
-          vulkan-loader # Vulkan ICD loader
-        ];
-        # List of additional system packages
+        ]
+        ++ (pkgs.appimageTools.defaultFhsEnvArgs.targetPkgs pkgs)
+        ++ (pkgs.appimageTools.defaultFhsEnvArgs.multiPkgs pkgs);
         extraPkgs = pkgs: [];
       })
       heroic
@@ -59,32 +52,12 @@
       # mindustry-wayland
       # atlauncher
       # prismlauncher
-
-      (pkgs.buildFHSEnv (pkgs.appimageTools.defaultFhsEnvArgs
-        // {
-          name = "fhs-albion";
-          targetPkgs = pkgs:
-            (pkgs.appimageTools.defaultFhsEnvArgs.targetPkgs pkgs)
-            ++ (with pkgs; [
-              krb5
-              libxau
-              libxdmcp
-
-              libglvnd # GLVND dispatcher (provides EGL/GLX)
-              mesa # fallback GL, needed for Xwayland glamor
-              vulkan-loader # Vulkan ICD loader
-            ]);
-          profile = ''
-            export FHS=1
-          '';
-          runScript = "fish";
-        }))
     ];
 
     persist.user.directories = [
       ".local/share/Steam"
       ".local/share/osu"
-      ".local/share/albiononline"
+      ".local/share/applications"
       ".local/share/lutris"
       ".config/unity3d"
       ".config/heroic"

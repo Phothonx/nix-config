@@ -1,8 +1,5 @@
-{self, ...}: {
+{
   flake.nixosModules.pipewire = {pkgs, ...}: {
-    # imports = [
-    #   self.nixosModules.impermanence
-    # ];
 
     environment.systemPackages = with pkgs; [
       pavucontrol

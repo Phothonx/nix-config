@@ -31,9 +31,9 @@
       self.nixosModules.immich
       self.nixosModules.paperless
       self.nixosModules.homepage
-      self.nixosModules.uptime-kuma
       self.nixosModules.caddy
       self.nixosModules.adguard
+      self.nixosModules.jellyfin
     ];
 
     environment.systemPackages = with pkgs; [
@@ -42,12 +42,12 @@
       phoronix-test-suite
 
       # nvtopPackages.nvidia # nvtop
+      cudaPackages.cudatoolkit
       nvidia-vaapi-driver # Ajoute le driver VA-API pour le décodage vidéo
       vdpauinfo # Outil pour tester VDPAU
       libva-utils # Outils pour tester VA-API
     ];
-
-    users.users.nico.openssh.authorizedKeys.keys = [
+users.users.nico.openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/j7aoPG6YiK6UInYCir/+L3h73O2V36M4M6PdsdREX"
     ];
 
@@ -85,9 +85,16 @@
     };
 
     networking = {
+      hosts."192.168.0.8" = [
+        "immich.camlann"
+        "homepage.camlann"
+        "paperless.camlann"
+        "kuma.camlann"
+        "adguard.camlann"
+      ];
+
       hostName = "camlann";
       networkmanager.enable = true;
-      nameservers = [ "192.168.0.8" ];
     };
 
     i18n.defaultLocale = "en_US.UTF-8";
@@ -120,7 +127,6 @@
       graphics.extraPackages = with pkgs; [
         libva-vdpau-driver # Pont VA-API → VDPAU
         libvdpau-va-gl # Accélération VDPAU OpenGL
-        obs-studio-plugins.obs-vkcapture
       ];
     };
 
