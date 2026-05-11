@@ -43,7 +43,7 @@
       phoronix-test-suite
 
       # nvtopPackages.nvidia # nvtop
-      cudaPackages.cudatoolkit
+      # cudaPackages.cudatoolkit
       nvidia-vaapi-driver # Ajoute le driver VA-API pour le décodage vidéo
       vdpauinfo # Outil pour tester VDPAU
       libva-utils # Outils pour tester VA-API
