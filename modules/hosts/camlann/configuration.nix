@@ -39,7 +39,7 @@
 
     environment.systemPackages = with pkgs; [
       mission-planner
-      kdePackages.kdenlive
+      # kdePackages.kdenlive
       phoronix-test-suite
 
       # nvtopPackages.nvidia # nvtop
