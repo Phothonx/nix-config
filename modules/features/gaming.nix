@@ -27,16 +27,16 @@
     };
 
     environment.systemPackages = with pkgs; [
-      (lutris.override {
-        extraLibraries = pkgs: [
-          krb5
-          libxau
-          libxdmcp
-        ]
-        ++ (pkgs.appimageTools.defaultFhsEnvArgs.targetPkgs pkgs)
-        ++ (pkgs.appimageTools.defaultFhsEnvArgs.multiPkgs pkgs);
-        extraPkgs = pkgs: [];
-      })
+      # (lutris.override {
+      #   extraLibraries = pkgs: [
+      #     krb5
+      #     libxau
+      #     libxdmcp
+      #   ]
+      #   ++ (pkgs.appimageTools.defaultFhsEnvArgs.targetPkgs pkgs)
+      #   ++ (pkgs.appimageTools.defaultFhsEnvArgs.multiPkgs pkgs);
+      #   extraPkgs = pkgs: [];
+      # })
       heroic
       protonup-qt
       # bottles
