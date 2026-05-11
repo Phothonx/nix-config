@@ -15,10 +15,6 @@
         reverse_proxy localhost:8082
         tls internal
       '';
-      virtualHosts."kuma.camlann.local".extraConfig = ''
-        reverse_proxy localhost:3001
-        tls internal
-      '';
       virtualHosts."adguard.camlann.local".extraConfig = ''
         reverse_proxy localhost:3000
         tls internal

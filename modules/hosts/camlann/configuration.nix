@@ -87,11 +87,7 @@ users.users.nico.openssh.authorizedKeys.keys = [
 
     networking = {
       hosts."192.168.0.8" = [
-        "immich.camlann"
-        "homepage.camlann"
-        "paperless.camlann"
-        "kuma.camlann"
-        "adguard.camlann"
+        "*.camlann.local"
       ];
 
       hostName = "camlann";
