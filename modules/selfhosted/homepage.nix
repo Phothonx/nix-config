@@ -2,12 +2,13 @@
   flake.nixosModules.homepage = {config, ...}: {
     age.secrets.selfhosted_credentials = {
       file = ../../secrets/selfhosted_credentials.age;
+      owner = "homepage";
     };
 
     services.homepage-dashboard = {
       enable = true; # 8082
       allowedHosts = "*";
-      environmentFiles = [ config.age.secrets.selfhosted-credentials.path ];
+      environmentFiles = [ config.age.secrets.selfhosted_credentials.path ];
 
       settings = {
         title = "Camlann";
@@ -67,7 +68,7 @@
                 widget = {
                   type = "immich";
                   url = "http://localhost:2283";
-                  key = "{{IMMICH_API_KEY}}";
+                  key = "{{HOMEPAGE_VAR_IMMICH_API_KEY}}";
                 };
               };
             }
@@ -79,7 +80,7 @@
                 widget = {
                   type = "paperlessngx";
                   url = "http://localhost:28981";
-                  key = "{{PAPERLESS_API_KEY}}";
+                  key = "{{HOMEPAGE_VAR_PAPERLESS_API_KEY}}";
                 };
               };
             }
@@ -90,9 +91,10 @@
                 icon = "adguard.png";
                 href = "https://adguard.camlann.local";
                 widget = {
+                  url = "http://localhost:3000";
                   type = "adguard";
-                  username = "{{ADGUARD_USERNAME}}";
-                  password = "{{ADGUARD_PASSWORD}}";
+                  username = "{{HOMEPAGE_VAR_ADGUARD_USERNAME}}";
+                  password = "{{HOMEPAGE_VAR_ADGUARD_PASSWORD}}";
                 };
               };
             }
@@ -104,7 +106,7 @@
                 widget = {
                   type = "jellyfin";
                   url = "http://localhost:8096";
-                  key = "{{JELLYFIN_API_KEY}}";
+                  key = "{{HOMEPAGE_VAR_JELLYFIN_API_KEY}}";
                 };
               };
             }
@@ -114,9 +116,9 @@
                 icon = "qbittorrent.png";
                 href = "https://qbit.camlann.local";
                 widget = {
-                  type = "qbittorent";
-                  username = "{{QBIT_USERNAME}}";
-                  password = "{{QBIT_PASSWORD}}";
+                  type = "qbittorrent";
+                  username = "{{HOMEPAGE_VAR_QBIT_USERNAME}}";
+                  password = "{{HOMEPAGE_VAR_QBIT_PASSWORD}}";
                 };
               };
             }
