@@ -55,7 +55,12 @@
 
     networking = {
       hosts."192.168.0.8" = [
-        "*.camlann.local"
+        "immich.camlann.local"
+        "paperless.camlann.local"
+        "homepage.camlann.local"
+        "adguard.camlann.local"
+        "qbit.camlann.local"
+        "jellyfin.camlann.local"
       ];
 
       hostName = "avalon";

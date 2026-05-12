@@ -48,7 +48,8 @@
       vdpauinfo # Outil pour tester VDPAU
       libva-utils # Outils pour tester VA-API
     ];
-users.users.nico.openssh.authorizedKeys.keys = [
+
+    users.users.nico.openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/j7aoPG6YiK6UInYCir/+L3h73O2V36M4M6PdsdREX"
     ];
 
