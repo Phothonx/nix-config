@@ -1,8 +1,13 @@
 {
-  flake.nixosModules.homepage = {
+  flake.nixosModules.homepage = {config, ...}: {
+    age.secrets.selfhosted_credentials = {
+      file = ../../secrets/selfhosted_credentials.age;
+    };
+
     services.homepage-dashboard = {
       enable = true; # 8082
       allowedHosts = "*";
+      environmentFiles = [ config.age.secrets.selfhosted-credentials.path ];
 
       settings = {
         title = "Camlann";
@@ -62,7 +67,7 @@
                 widget = {
                   type = "immich";
                   url = "http://localhost:2283";
-                  # key = "";
+                  key = "{{IMMICH_API_KEY}}";
                 };
               };
             }
@@ -74,7 +79,7 @@
                 widget = {
                   type = "paperlessngx";
                   url = "http://localhost:28981";
-                  # key = "";
+                  key = "{{PAPERLESS_API_KEY}}";
                 };
               };
             }
@@ -86,8 +91,8 @@
                 href = "https://adguard.camlann.local";
                 widget = {
                   type = "adguard";
-                  # username = "";
-                  # password = "";
+                  username = "{{ADGUARD_USERNAME}}";
+                  password = "{{ADGUARD_PASSWORD}}";
                 };
               };
             }
@@ -99,7 +104,7 @@
                 widget = {
                   type = "jellyfin";
                   url = "http://localhost:8096";
-                  # key = "";
+                  key = "{{JELLYFIN_API_KEY}}";
                 };
               };
             }
@@ -110,8 +115,8 @@
                 href = "https://qbit.camlann.local";
                 widget = {
                   type = "qbittorent";
-                  # username = "";
-                  # password = "";
+                  username = "{{QBIT_USERNAME}}";
+                  password = "{{QBIT_PASSWORD}}";
                 };
               };
             }
