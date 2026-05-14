@@ -66,6 +66,7 @@
                 icon = "immich.png";
                 href = "https://immich.camlann.local";
                 widget = {
+                  version = "2";
                   type = "immich";
                   url = "http://localhost:2283";
                   key = "{{HOMEPAGE_VAR_IMMICH_API_KEY}}";
@@ -117,8 +118,11 @@
                 href = "https://qbit.camlann.local";
                 widget = {
                   type = "qbittorrent";
+                  url = "http://localhost:8080";
                   username = "{{HOMEPAGE_VAR_QBIT_USERNAME}}";
                   password = "{{HOMEPAGE_VAR_QBIT_PASSWORD}}";
+                  enableLeechProgress = true;
+                  enableLeechSize = true;
                 };
               };
             }
