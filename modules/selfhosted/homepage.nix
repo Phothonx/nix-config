@@ -94,7 +94,7 @@
 
             {
               AdGuard= {
-                icon = "adguard.png";
+                icon = "adguard-home.png";
                 href = "https://adguard.camlann.local";
                 widget = {
                   url = "http://localhost:3000";
