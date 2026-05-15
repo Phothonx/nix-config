@@ -10,7 +10,7 @@
     };
 
     networking.wg-quick.interfaces.qbproton = {
-      configFile = config.age.secrets.protonvpn-key.path;
+      configFile = config.age.secrets.protonvpn-wg.path;
     };
 
     services.qbittorrent = {
