@@ -72,10 +72,6 @@
       };
     };
 
-    persist.directories = [
-      "/var/lib/AdGuardHome"
-    ];
-
     networking.firewall.allowedTCPPorts = [53];
     networking.firewall.allowedUDPPorts = [53];
   };

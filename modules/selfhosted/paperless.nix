@@ -16,9 +16,5 @@
         PAPERLESS_CSRF_TRUSTED_ORIGINS = "https://paperless.camlann.local";
       };
     };
-
-    persist.directories = [
-      "/var/lib/paperless"
-    ];
   };
 }
