@@ -11,9 +11,8 @@
       environmentFiles = [ config.age.secrets.selfhosted_credentials.path ];
 
       settings = {
-        title = "Camlann";
-        description = "Fait par Nicolas !";
-        background = ../../wallpapers/leaves.png;
+        title = "Camlann homepage";
+        background = "https://homepage.camlann.local/leaves.png";
         cardBlur = "xs";
         theme = "dark";
         color = "zinc";

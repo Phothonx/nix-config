@@ -11,6 +11,10 @@
       '';
       virtualHosts."homepage.camlann.local".extraConfig = ''
         reverse_proxy localhost:8082
+        handle /leaves.png {
+          root * ${../../wallpapers}
+          file_server
+        }
       '';
       virtualHosts."adguard.camlann.local".extraConfig = ''
         reverse_proxy localhost:3000
