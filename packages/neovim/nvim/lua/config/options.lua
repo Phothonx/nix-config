@@ -38,6 +38,7 @@ opt.shortmess:append "sI"       -- disable nvim intro
 o.expandtab                = true                       -- tabs to spaces
 o.shiftwidth               = 2                          -- nb of spaces for indenting
 o.tabstop                  = 2                          -- size of tabs in spaces
+o.softtabstop              = 2
 o.smarttab                 = true
 opt.smartindent            = true
 

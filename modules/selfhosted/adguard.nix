@@ -27,9 +27,6 @@
           fallback_dns = [
             "https://cloudflare-dns.com/dns-query"
           ];
-          rewrites = [
-            { domain = "*.camlann.local"; answer = "192.168.0.8"; }
-          ];
 
           cache_size = 4194304; # 4MB
           cache_ttl_min = 300;
@@ -44,6 +41,9 @@
           protection_enabled = true;
           filtering_enabled = true;
           parental_enabled = false;
+          rewrites = [
+            { domain = "*.camlann.local"; answer = "192.168.0.8"; }
+          ];
         };
 
         filters = [

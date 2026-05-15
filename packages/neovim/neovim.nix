@@ -1,13 +1,6 @@
 {inputs, ...}: {
   perSystem = {pkgs, ...}: {
-    packages.neovim = let
-      mark2html = pkgs.writeShellApplication {
-        name = "mark2html";
-        runtimeInputs = [pkgs.pandoc];
-        text = builtins.readFile ./mark2html.sh;
-      };
-    in
-      inputs.wrappers.wrappers.neovim.wrap {
+    packages.neovim = inputs.wrappers.wrappers.neovim.wrap {
         inherit pkgs;
 
         settings.config_directory = ./nvim;
@@ -47,7 +40,6 @@
           ghostscript
           trashy
           luarocks
-          mark2html
           zathura
           biber
           pstree
