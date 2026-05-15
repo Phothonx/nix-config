@@ -8,12 +8,9 @@
     services.adguardhome = {
       enable = true; # 3000 (web interface) 34 (dns)
       mutableSettings = false;
-      extraArgs = ["-w" "/data/adguard"];
+      extraArgs = ["-w /data/adguard"];
 
       settings = {
-        os.group = "adguard";
-        os.user = "adguard";
-
         users = [
           {
             name = "admin";
