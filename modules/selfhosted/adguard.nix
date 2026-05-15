@@ -5,6 +5,13 @@
       mutableSettings = false;
 
       settings = {
+        users = [
+          {
+            name = "admin";
+            password = "$2y$10$A5BDrQNHFaLtzvvn4l2Sde/ZycKM25NMyy5npchg93k4fTGyjOX7W";
+          }
+        ];
+
         dns = {
           bind_hosts = [ "0.0.0.0" ];
           port = 53;
