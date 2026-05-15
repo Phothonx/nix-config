@@ -83,7 +83,7 @@
               tree-sitter-yaml
               tree-sitter-markdown
               tree-sitter-markdown-inline
-            ]))
+          ]))
         ];
       };
   };

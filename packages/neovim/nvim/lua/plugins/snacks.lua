@@ -15,26 +15,26 @@ require("snacks").setup({
   },
 })
 
-require("snacks").toggle.option("spell", { name = "Spelling" }):map("us")
-require("snacks").toggle.option("wrap", { name = "Wrap" }):map("uw")
-require("snacks").toggle.option("relativenumber", { name = "Relative Number" }):map("r")
-require("snacks").toggle.diagnostics():map("ud")
-require("snacks").toggle.line_number():map("ul")
+require("snacks").toggle.option("spell", { name = "Spelling" }):map("<leader>us")
+require("snacks").toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
+require("snacks").toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>r")
+require("snacks").toggle.diagnostics():map("<leader>ud")
+require("snacks").toggle.line_number():map("<leader>ul")
 require("snacks").toggle.option("conceallevel", {
   off = 0,
   on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2,
-}):map("ue")
-require("snacks").toggle.treesitter():map("uT")
+}):map("<leader>ue")
+require("snacks").toggle.treesitter():map("<leader>uT")
 require("snacks").toggle.option("background", {
   off = "light",
   on = "dark",
   name = "Dark Background",
-}):map("ub")
-require("snacks").toggle.inlay_hints():map("uh")
-require("snacks").toggle.indent():map("ug")
-require("snacks").toggle.dim():map("uD")
-require("snacks").toggle.option("hlsearch", { name = "Highlight search" }):map("uH")
-require("snacks").toggle.option("cursorline", { name = "Cursor line" }):map("uc")
+}):map("<leader>ub")
+require("snacks").toggle.inlay_hints():map("<leader>uh")
+require("snacks").toggle.indent():map("<leader>ug")
+require("snacks").toggle.dim():map("<leader>uD")
+require("snacks").toggle.option("hlsearch", { name = "Highlight search" }):map("<leader>uH")
+require("snacks").toggle.option("cursorline", { name = "Cursor line" }):map("<leader>uc")
 
 vim.keymap.set("n", "<leader>`", function() require("snacks").terminal() end, { desc = "Toggle Terminal" })
 vim.keymap.set("n", "<leader><space>", function() require("snacks").picker.smart() end, { desc = "Smart Find Files" })
