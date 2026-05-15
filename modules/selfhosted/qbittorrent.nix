@@ -18,6 +18,5 @@
       profileDir = "/data/qBittorrent/";
     };
 
-    networking.firewall.allowedTCPPorts = [];
   };
 }
