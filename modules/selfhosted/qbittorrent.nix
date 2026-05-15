@@ -5,8 +5,8 @@
       "d /data/qBittorrent 0750 qbittorrent qbittorrent -"
     ];
 
-    age.secrets.protonvpn-key = {
-      file = ../../secrets/protonvpn-key.age;
+    age.secrets.protonvpn-wg = {
+      file = ../../secrets/protonvpn-wg.age;
     };
 
     networking.wg-quick.interfaces.qbproton = {
