@@ -1,10 +1,19 @@
 {
   flake.nixosModules.adguard = {
+
+    systemd.tmpfiles.rules = [
+      "d /data/adguard 0750 adguard adguard -"
+    ];
+
     services.adguardhome = {
       enable = true; # 3000 (web interface) 34 (dns)
       mutableSettings = false;
+      extraArgs = ["-w" "/data/adguard"];
 
       settings = {
+        os.group = "adguard";
+        os.user = "adguard";
+
         users = [
           {
             name = "admin";

@@ -13,7 +13,6 @@
 
     persist.directories = [
       "/var/lib/postgresql"
-      "/var/lib/immich"
     ];
   };
 }

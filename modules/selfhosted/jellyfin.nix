@@ -15,11 +15,6 @@
       transcoding.enableHardwareEncoding = true;
     };
 
-    environment.systemPackages = [
-      pkgs.jellyfin
-      pkgs.jellyfin-web
-      pkgs.jellyfin-ffmpeg
-    ];
-
+    environment.systemPackages = [ pkgs.jellyfin-ffmpeg ];
   };
 }
