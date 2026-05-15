@@ -1,14 +1,9 @@
 {
   flake.nixosModules.adguard = {
 
-    systemd.tmpfiles.rules = [
-      "d /data/adguard 0750 adguard adguard -"
-    ];
-
     services.adguardhome = {
       enable = true; # 3000 (web interface) 34 (dns)
       mutableSettings = false;
-      extraArgs = ["-w /data/adguard"];
 
       settings = {
         users = [
@@ -76,6 +71,10 @@
         };
       };
     };
+
+    persist.directories = [
+      "/var/lib/AdGuardHome"
+    ];
 
     networking.firewall.allowedTCPPorts = [53];
     networking.firewall.allowedUDPPorts = [53];
