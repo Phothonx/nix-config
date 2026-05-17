@@ -37,59 +37,64 @@
       };
 
       script = ''
-        set -euo pipefail
+      set -euo pipefail
 
-        GATEWAY="10.2.0.1"
+      GATEWAY="10.2.0.1"
+      IFACE="qbproton"
 
-        current_port=""
+      current_port=""
 
-        cleanup() {
-          if [[ -n "$current_port" ]]; then
-            iptables -D INPUT -i qbproton -p tcp --dport "$current_port" -j ACCEPT || true
-            iptables -D INPUT -i qbproton -p udp --dport "$current_port" -j ACCEPT || true
-          fi
-        }
+      cleanup() {
+        if [[ -n "$current_port" ]]; then
+          ${pkgs.iptables}/bin/iptables -D INPUT -i "$IFACE" -p tcp --dport "$current_port" -j ACCEPT || true
+          ${pkgs.iptables}/bin/iptables -D INPUT -i "$IFACE" -p udp --dport "$current_port" -j ACCEPT || true
+        fi
+      }
 
-        trap cleanup EXIT
+      trap cleanup EXIT
 
-        while true; do
-          echo "[*] Requesting Proton forwarded port..."
+      while true; do
+        echo "[*] Requesting Proton forwarded port..."
 
-          output="$(${pkgs.libnatpmp}/bin/natpmpc \
-            -a 1 0 tcp 60 -g "$GATEWAY" 2>/dev/null || true)"
+        output="$(
+          ${pkgs.libnatpmp}/bin/natpmpc \
+            -a 1 0 tcp 60 -g "$GATEWAY" 2>/dev/null || true
+        )"
 
-          new_port="$(echo "$output" \
+        new_port="$(
+          echo "$output" \
             | ${pkgs.gnugrep}/bin/grep "Mapped public port" \
-            | ${pkgs.gawk}/bin/awk '{print $4}')"
+            | ${pkgs.gawk}/bin/awk '{print $4}'
+        )"
 
-          if [[ -z "$new_port" ]]; then
-            echo "[!] Failed to obtain port"
-            sleep 10
-            continue
+        if [[ -z "$new_port" ]]; then
+          echo "[!] Failed to obtain forwarded port"
+          sleep 10
+          continue
+        fi
+
+        if [[ "$new_port" != "$current_port" ]]; then
+          echo "[+] New forwarded port: $new_port"
+
+          if [[ -n "$current_port" ]]; then
+            ${pkgs.iptables}/bin/iptables -D INPUT -i "$IFACE" -p tcp --dport "$current_port" -j ACCEPT || true
+            ${pkgs.iptables}/bin/iptables -D INPUT -i "$IFACE" -p udp --dport "$current_port" -j ACCEPT || true
           fi
 
-          if [[ "$new_port" != "$current_port" ]]; then
-            echo "[+] New forwarded port: $new_port"
+          ${pkgs.iptables}/bin/iptables -A INPUT -i "$IFACE" -p tcp --dport "$new_port" -j ACCEPT
+          ${pkgs.iptables}/bin/iptables -A INPUT -i "$IFACE" -p udp --dport "$new_port" -j ACCEPT
 
-            if [[ -n "$current_port" ]]; then
-              iptables -D INPUT -i qbproton -p tcp --dport "$current_port" -j ACCEPT || true
-              iptables -D INPUT -i qbproton -p udp --dport "$current_port" -j ACCEPT || true
-            fi
+          current_port="$new_port"
+        fi
 
-            iptables -A INPUT -i qbproton -p tcp --dport "$new_port" -j ACCEPT
-            iptables -A INPUT -i qbproton -p udp --dport "$new_port" -j ACCEPT
+        ${pkgs.libnatpmp}/bin/natpmpc \
+          -a "$current_port" "$current_port" tcp 60 -g "$GATEWAY" >/dev/null
 
-            current_port="$new_port"
-          fi
+        ${pkgs.libnatpmp}/bin/natpmpc \
+          -a "$current_port" "$current_port" udp 60 -g "$GATEWAY" >/dev/null
 
-          ${pkgs.libnatpmp}/bin/natpmpc \
-            -a "$current_port" "$current_port" tcp 60 -g "$GATEWAY" >/dev/null
-
-          ${pkgs.libnatpmp}/bin/natpmpc \
-            -a "$current_port" "$current_port" udp 60 -g "$GATEWAY" >/dev/null
-
-          sleep 45
-        done
+        sleep 45
+      done
       '';
     };
   };
