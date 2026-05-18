@@ -1,6 +1,6 @@
 {
   flake.nixosModules.caddy = {pkgs, ...}: {
-    environment.systemPackages = [ pkgs.nsstools ];
+    environment.systemPackages = [ pkgs.nssTools ];
     services.caddy = {
       enable = true;
       openFirewall = true; # 443 (https) 80 (http)
