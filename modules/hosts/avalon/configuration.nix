@@ -3,7 +3,7 @@
   self,
   ...
 }: {
-  flake.nixosModules.avalonConfiguration = {pkgs, ...}: {
+  flake.nixosModules.avalonConfiguration = {config, pkgs, ...}: {
     imports = [
       self.nixosModules.avalonHardware
 
@@ -23,6 +23,12 @@
 
       self.nixosModules.nico
     ];
+
+    age.secrets.jnms-wg.file = ../../../secrets/jnms-wg.age;
+    networking.wg-quick.interfaces.jnms = {
+      configFile = config.age.secrets.jnms-wg.path;
+      autostart = false;
+    };
 
     services.thermald.enable = true;
 
@@ -54,15 +60,6 @@
     };
 
     networking = {
-      hosts."192.168.0.8" = [
-        "immich.camlann.local"
-        "paperless.camlann.local"
-        "homepage.camlann.local"
-        "adguard.camlann.local"
-        "qbit.camlann.local"
-        "jellyfin.camlann.local"
-      ];
-
       hostName = "avalon";
       networkmanager.enable = true;
     };

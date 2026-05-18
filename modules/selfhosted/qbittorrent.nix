@@ -7,11 +7,10 @@
 
     services.qbittorrent = {
       enable = true; # 8080
-      profileDir = "/data/qBittorrent/"; };
-    age.secrets.protonvpn-wg = {
-      file = ../../secrets/protonvpn-wg.age;
+      profileDir = "/data/qBittorrent/";
     };
 
+    age.secrets.protonvpn-wg.file = ../../secrets/protonvpn-wg.age;
     networking.wg-quick.interfaces.qbproton = {
       configFile = config.age.secrets.protonvpn-wg.path;
     };

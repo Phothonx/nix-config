@@ -87,15 +87,6 @@
     };
 
     networking = {
-      hosts."192.168.0.8" = [
-        "immich.camlann.local"
-        "paperless.camlann.local"
-        "homepage.camlann.local"
-        "adguard.camlann.local"
-        "qbit.camlann.local"
-        "jellyfin.camlann.local"
-      ];
-
       hostName = "camlann";
       networkmanager.enable = true;
       networkmanager.wifi.powersave = false;

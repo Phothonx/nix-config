@@ -16,5 +16,7 @@ in {
 
   "psswd_nico.age".publicKeys = recovery ++ users ++ systems;
   "selfhosted_credentials.age".publicKeys = recovery ++ users ++ systems;
+
   "protonvpn-wg.age".publicKeys = recovery ++ users ++ systems;
+  "jnms-wg.age".publicKeys = recovery ++ users ++ systems;
 }
