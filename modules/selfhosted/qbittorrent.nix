@@ -53,7 +53,7 @@
       trap cleanup EXIT
 
       while true; do
-        echo "[*] Requesting Proton forwarded port..."
+        echo "[*] Requesting Proton forwarded port: $current_port..."
 
         output="$(
           ${pkgs.libnatpmp}/bin/natpmpc \
