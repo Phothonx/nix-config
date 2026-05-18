@@ -25,6 +25,21 @@
       virtualHosts."qbit.camlann.local".extraConfig = ''
         reverse_proxy localhost:8080
       '';
+      virtualHosts."radarr.camlann.local".extraConfig = ''
+        reverse_proxy localhost:7878
+      '';
+      virtualHosts."sonarr.camlann.local".extraConfig = ''
+        reverse_proxy localhost:8989
+      '';
+      virtualHosts."lidarr.camlann.local".extraConfig = ''
+        reverse_proxy localhost:8686
+      '';
+      virtualHosts."bazarr.camlann.local".extraConfig = ''
+        reverse_proxy localhost:6767
+      '';
+      virtualHosts."prowlarr.camlann.local".extraConfig = ''
+        reverse_proxy localhost:9696
+      '';
     };
   };
 }

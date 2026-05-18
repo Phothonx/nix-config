@@ -131,6 +131,63 @@
                 };
               };
             }
+            {
+              Radarr = {
+                icon = "radarr.png";
+                href = "https://radarr.camlann.local";
+                widget = {
+                  type = "radarr";
+                  url = "http://localhost:7878";
+                  key = "{{HOMEPAGE_VAR_RADARR_API_KEY}}";
+                  enableQueue = true;
+                };
+              };
+            }
+            {
+              Sonarr = {
+                icon = "sonarr.png";
+                href = "https://sonarr.camlann.local";
+                widget = {
+                  type = "sonarr";
+                  url = "http://localhost:8989";
+                  key = "{{HOMEPAGE_VAR_SONARR_API_KEY}}";
+                  enableQueue = true;
+                };
+              };
+            }
+            {
+              Lidarr = {
+                icon = "lidarr.png";
+                href = "https://lidarr.camlann.local";
+                widget = {
+                  type = "lidarr";
+                  url = "http://localhost:8686";
+                  key = "{{HOMEPAGE_VAR_LIDARR_API_KEY}}";
+                };
+              };
+            }
+            {
+              Bazarr = {
+                icon = "bazarr.png";
+                href = "https://bazarr.camlann.local";
+                widget = {
+                  type = "bazarr";
+                  url = "http://localhost:6767";
+                  key = "{{HOMEPAGE_VAR_BAZARR_API_KEY}}";
+                };
+              };
+            }
+            {
+              Prowlarr = {
+                icon = "prowlarr.png";
+                href = "https://prowlarr.camlann.local";
+                widget = {
+                  type = "prowlarr";
+                  url = "http://localhost:9696";
+                  key = "{{HOMEPAGE_VAR_PROWLARR_API_KEY}}";
+                };
+              };
+            }
           ];
         }
       ];
