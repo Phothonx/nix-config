@@ -1,6 +1,6 @@
 {
   flake.nixosModules.caddy = {pkgs, ...}: {
-    systemd.services.caddy.path = [ pkgs.nsstools ];
+    systemd.services.caddy.path = [ pkgs.nssTools ];
     services.caddy = {
       enable = true;
       openFirewall = true; # 443 (https) 80 (http)
@@ -53,5 +53,9 @@
         reverse_proxy localhost:9696
       '';
     };
+
+    persist.directories = [
+      "/var/lib/caddy"
+    ];
   };
 }

@@ -74,5 +74,9 @@
 
     networking.firewall.allowedTCPPorts = [53];
     networking.firewall.allowedUDPPorts = [53];
+
+    persist.directories = [
+      "/var/lib/private/AdGuardHome"
+    ];
   };
 }

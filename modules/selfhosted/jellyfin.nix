@@ -5,6 +5,8 @@
       "d /data/jellyfin 0750 jellyfin jellyfin -"
     ];
 
+    users.users.jellyfin.extraGroups = [ "video" "render" ];
+
     services.jellyfin = {
       enable = true; # 8096
       dataDir = "/data/jellyfin";
