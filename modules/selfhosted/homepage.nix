@@ -1,5 +1,21 @@
 {
   flake.nixosModules.homepage = {config, ...}: {
+
+    services.beszel = {
+      hub = {
+        enable = true;
+        host = "127.0.0.1";
+        port = 8090;
+        environment.BESZEL_DISABLE_PASSWORD_AUTH = "true";
+      };
+      agent = {
+        extraPath = [ config.hardware.nvidia.package ];
+        environment.KEY = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGyHh3zJegqX32T/6UFfSw7U+erGoSafu2lfxdSrSpc7";
+        enable = true;
+        smartmon.enable = true;
+      };
+    };
+
     age.secrets.selfhosted_credentials = {
       file = ../../secrets/selfhosted_credentials.age;
       owner = "homepage";
@@ -66,6 +82,20 @@
       services = [
         {
           Services = [
+            {
+              Beszel = {
+                icon = "beszel.png";
+                href = "https://beszel.camlann.local";
+                widget = {
+                  version = "2";
+                  type = "beszel";
+                  url = "http://localhost:8090";
+                  username = "{{HOMEPAGE_VAR_BESZEL_USERNAME}}";
+                  password = "{{HOMEPAGE_VAR_BESZEL_PASSWORD}}";
+                  systemId = "fp9cvcdovzxylnm";
+                };
+              };
+            }
             {
               Immich = {
                 icon = "immich.png";
@@ -155,17 +185,17 @@
                 };
               };
             }
-            {
-              Lidarr = {
-                icon = "lidarr.png";
-                href = "https://lidarr.camlann.local";
-                widget = {
-                  type = "lidarr";
-                  url = "http://localhost:8686";
-                  key = "{{HOMEPAGE_VAR_LIDARR_API_KEY}}";
-                };
-              };
-            }
+            # {
+            #   Lidarr = {
+            #     icon = "lidarr.png";
+            #     href = "https://lidarr.camlann.local";
+            #     widget = {
+            #       type = "lidarr";
+            #       url = "http://localhost:8686";
+            #       key = "{{HOMEPAGE_VAR_LIDARR_API_KEY}}";
+            #     };
+            #   };
+            # }
             {
               Bazarr = {
                 icon = "bazarr.png";
@@ -192,5 +222,9 @@
         }
       ];
     };
+    persist.directories = [
+      "/var/lib/beszel"
+      "/var/lib/private/beszel-hub"
+    ];
   };
 }
