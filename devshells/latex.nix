@@ -23,6 +23,7 @@
             hyperref
             cleveref
             stackengine
+            tcolorbox
 
             # texlive-science
             amsmath

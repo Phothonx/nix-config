@@ -37,6 +37,7 @@
       proton-vpn
       wireguard-tools
       phoronix-test-suite
+      jellyfin-desktop
     ];
 
     services.greetd = {

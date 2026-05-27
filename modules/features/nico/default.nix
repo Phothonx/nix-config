@@ -44,6 +44,8 @@
       ".local/share/zoxide"
       ".local/share/nvim"
       ".local/share/fish"
+      ".local/share/jellyfin-desktop"
+
 
       ".config/nvim"
     ];
