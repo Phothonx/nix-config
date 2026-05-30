@@ -42,7 +42,11 @@
           filtering_enabled = true;
           parental_enabled = false;
           rewrites = [
-            { domain = "*.camlann.local"; answer = "192.168.0.8"; }
+            {
+              domain = "*.camlann.local";
+              answer = "192.168.0.8";
+              enabled = true;
+            }
           ];
         };
 

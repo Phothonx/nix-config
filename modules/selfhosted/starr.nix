@@ -60,6 +60,10 @@
             quality_definition.type = "movie";
             quality_profiles = [
               {
+                trash_id = "722b624f9af1e492284c4bc842153a38";
+                reset_unmatched_scores.enabled = true;
+              }
+              {
                 trash_id = "d1d67249d3890e49bc12e275d989a7e9";
                 reset_unmatched_scores.enabled = true;
               }
@@ -74,6 +78,10 @@
             delete_old_custom_formats = true;
             quality_definition.type = "series";
             quality_profiles = [
+              {
+                trash_id = "9d142234e45d6143785ac55f5a9e8dc9";
+                reset_unmatched_scores.enabled = true;
+              }
               {
                 trash_id = "9d142234e45d6143785ac55f5a9e8dc9";
                 reset_unmatched_scores.enabled = true;

@@ -85,11 +85,11 @@
             {
               Beszel = {
                 icon = "beszel.png";
-                href = "https://beszel.camlann.local";
+                href = "https://beszel.camlann.local/system/fp9cvcdovzxylnm";
                 widget = {
                   version = "2";
                   type = "beszel";
-                  url = "http://localhost:8090";
+                  url = "http://localhost:8090/api";
                   username = "{{HOMEPAGE_VAR_BESZEL_USERNAME}}";
                   password = "{{HOMEPAGE_VAR_BESZEL_PASSWORD}}";
                   systemId = "fp9cvcdovzxylnm";
