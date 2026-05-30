@@ -1,6 +1,6 @@
 {
   flake.nixosModules.caddy = {pkgs, ...}: {
-    systemd.services.caddy.path = [ pkgs.nsstools ];
+    systemd.services.caddy.path = [ pkgs.nssTools ];
     services.caddy = {
       enable = true;
       openFirewall = true; # 443 (https) 80 (http)
@@ -11,6 +11,10 @@
       virtualHosts."paperless.camlann.local".extraConfig = ''
         tls internal
         reverse_proxy localhost:28981
+      '';
+      virtualHosts."beszel.camlann.local".extraConfig = ''
+        tls internal
+        reverse_proxy localhost:8090
       '';
       virtualHosts."homepage.camlann.local".extraConfig = ''
         tls internal
@@ -40,10 +44,10 @@
         tls internal
         reverse_proxy localhost:8989
       '';
-      virtualHosts."lidarr.camlann.local".extraConfig = ''
-        tls internal
-        reverse_proxy localhost:8686
-      '';
+      # virtualHosts."lidarr.camlann.local".extraConfig = ''
+      #   tls internal
+      #   reverse_proxy localhost:8686
+      # '';
       virtualHosts."bazarr.camlann.local".extraConfig = ''
         tls internal
         reverse_proxy localhost:6767
@@ -53,5 +57,9 @@
         reverse_proxy localhost:9696
       '';
     };
+
+    persist.directories = [
+      "/var/lib/caddy"
+    ];
   };
 }

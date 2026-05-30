@@ -72,6 +72,7 @@
       initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
       kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
       kernelParams = [
+        "elevator=mq-deadline"
         "nvidia-drm.modeset=1"
         "nvidia-drm.fbdev=1"
         "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
@@ -87,14 +88,16 @@
       };
     };
 
-    networking = {
-      hostName = "camlann";
-      networkmanager.enable = true;
-      networkmanager.wifi.powersave = false;
-
-      # useNetworkd = true;
-      # networkmanager.enable = false;
+    networking.hostName = "camlann";
+    networking.interfaces.wlp5s0.useDHCP = false;
+    networking.interfaces.enp7s0 = {
+      useDHCP = false;
+      ipv4.addresses = [{
+        address = "192.168.0.8";
+        prefixLength = 24;
+      }];
     };
+    networking.defaultGateway = "192.168.0.254";
 
     i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "Europe/Paris";
@@ -124,6 +127,7 @@
       graphics.enable = true;
       graphics.enable32Bit = true;
       graphics.extraPackages = with pkgs; [
+        intel-ocl # Generic OpenCL support
         libva-vdpau-driver # Pont VA-API → VDPAU
         libvdpau-va-gl # Accélération VDPAU OpenGL
       ];
