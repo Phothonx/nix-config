@@ -62,6 +62,9 @@
 
     networking = {
       hostName = "avalon";
+      hosts = {
+        "192.168.0.8" = [ "homepage.camlann.local" "adguard.camlann.local" ];
+      };
       networkmanager.enable = true;
     };
 
