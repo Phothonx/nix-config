@@ -12,7 +12,7 @@
     packages.niri = inputs.wrappers.wrappers.niri.wrap {
       inherit pkgs;
 
-      extraPackages = with pkgs; [
+      runtimePkgs = with pkgs; [
         bibata-cursors
         wev
       ];

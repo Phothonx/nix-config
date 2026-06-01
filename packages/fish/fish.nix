@@ -146,7 +146,7 @@
       inherit pkgs;
 
       package = pkgs.fish;
-      extraPackages = with pkgs; [
+      runtimePkgs = with pkgs; [
         zoxide
         eza
         direnv

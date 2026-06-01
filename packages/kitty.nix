@@ -12,7 +12,7 @@
     packages.kitty = inputs.wrappers.wrappers.kitty.wrap {
       inherit pkgs;
 
-      extraPackages = with pkgs; [
+      runtimePkgs = with pkgs; [
         nerd-fonts.jetbrains-mono
       ];
 

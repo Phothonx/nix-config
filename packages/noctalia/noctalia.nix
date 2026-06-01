@@ -3,7 +3,7 @@
     packages.noctalia = inputs.wrappers.wrappers.noctalia-shell.wrap {
       inherit pkgs;
 
-      extraPackages = with pkgs; [
+      runtimePkgs = with pkgs; [
         nerd-fonts.jetbrains-mono
         nerd-fonts.ubuntu
         noto-fonts-color-emoji

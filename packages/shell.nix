@@ -9,7 +9,7 @@
       inherit pkgs;
 
       package = self'.packages.fish;
-      extraPackages = with pkgs; [
+      runtimePkgs = with pkgs; [
         self'.packages.neovim
         self'.packages.git
 
