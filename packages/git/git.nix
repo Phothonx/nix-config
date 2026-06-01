@@ -49,7 +49,7 @@
     packages.git = inputs.wrappers.wrappers.git.wrap {
       inherit pkgs;
 
-      extraPackages = [
+      runtimePkgs = [
         self'.packages.neovim
       ];
 

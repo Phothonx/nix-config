@@ -26,7 +26,7 @@
           ];
         };
 
-        extraPackages = with pkgs; [
+        runtimePkgs = with pkgs; [
           # PACKAGES
           gcc
           tree-sitter
