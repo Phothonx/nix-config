@@ -13,12 +13,15 @@
       # initialPassword = "12345";
       isNormalUser = true;
       group = "users";
-      extraGroups = [ "audio" "network"
+      extraGroups = [
+        "audio"
+        "network"
         "video"
         "gamemode"
         "wheel"
         "networkmanager"
         "input"
+        "uinput"
         "dialout"
       ];
     };

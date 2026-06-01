@@ -36,6 +36,7 @@
       self.nixosModules.jellyfin
       self.nixosModules.qbittorrent
       self.nixosModules.starr
+      self.nixosModules.sunshine
     ];
 
     environment.systemPackages = with pkgs; [

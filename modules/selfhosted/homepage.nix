@@ -6,7 +6,6 @@
         enable = true;
         host = "127.0.0.1";
         port = 8090;
-        environment.BESZEL_DISABLE_PASSWORD_AUTH = "true";
       };
       agent = {
         extraPath = [ config.hardware.nvidia.package ];
@@ -89,7 +88,7 @@
                 widget = {
                   version = "2";
                   type = "beszel";
-                  url = "http://localhost:8090/api";
+                  url = "http://localhost:8090";
                   username = "{{HOMEPAGE_VAR_BESZEL_USERNAME}}";
                   password = "{{HOMEPAGE_VAR_BESZEL_PASSWORD}}";
                   systemId = "fp9cvcdovzxylnm";
