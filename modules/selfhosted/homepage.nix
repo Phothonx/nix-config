@@ -32,18 +32,42 @@
       '';
 
       settings = {
-        title = "Camlann homepage";
+        title = "Camlann";
         background = "https://homepage.camlann.local/leaves.png";
-        cardBlur = "md";
+
         theme = "dark";
         color = "emerald";
         language = "fr";
-        headerStyle = "boxedWidgets";
+
+        cardBlur = "xl";
+        headerStyle = "boxed";
+
         hideVersion = true;
         disableUpdateCheck = true;
+        useEqualHeights = true;
+
         layout = {
-          Services = {
+          Media = {
             style = "row";
+            columns = 2;
+          };
+          Documents = {
+            style = "row";
+          };
+          Download = {
+            style = "row";
+            columns = 2;
+            Torrent = {
+              style = "column";
+              header = false;
+            };
+            Management = {
+              style = "column";
+              header = false;
+            };
+          };
+          Infra ={
+            style = "column";
           };
         };
       };
@@ -56,42 +80,33 @@
             timeStyle = "long";
           };
         }
+
         {
           resources = {
             cpu = true;
             memory = true;
             uptime = true;
-            units = "metric";
             network = true;
-            disk = ["/" "/data"];
-          };
-        }
-        {
-          datetime = {
-            text_size = "xl";
-            format = {
-              dateStyle = "short";
-              timeStyle = "short";
-              hour12 = false;
-            };
+            units = "metric";
+            disk = [ "/" "/data" ];
           };
         }
       ];
 
       services = [
+
         {
-          Services = [
+          Media = [
             {
-              Beszel = {
-                icon = "beszel.png";
-                href = "https://beszel.camlann.local/system/fp9cvcdovzxylnm";
+              Jellyfin = {
+                icon = "jellyfin.png";
+                href = "https://jellyfin.camlann.local";
+                description = "Films & séries";
+
                 widget = {
-                  # version = "2";
-                  type = "beszel";
-                  url = "http://localhost:8090";
-                  username = "{{HOMEPAGE_VAR_BESZEL_USERNAME}}";
-                  password = "{{HOMEPAGE_VAR_BESZEL_PASSWORD}}";
-                  systemId = "fp9cvcdovzxylnm";
+                  type = "jellyfin";
+                  url = "http://localhost:8096";
+                  key = "{{HOMEPAGE_VAR_JELLYFIN_API_KEY}}";
                 };
               };
             }
@@ -99,6 +114,8 @@
               Immich = {
                 icon = "immich.png";
                 href = "https://immich.camlann.local";
+                description = "Photos";
+
                 widget = {
                   version = "2";
                   type = "immich";
@@ -107,11 +124,17 @@
                 };
               };
             }
+          ];
+        }
 
+        {
+          Documents = [
             {
               Paperless = {
                 icon = "paperless-ngx.png";
                 href = "https://paperless.camlann.local";
+                description = "Documents";
+
                 widget = {
                   type = "paperlessngx";
                   url = "http://localhost:28981";
@@ -119,111 +142,134 @@
                 };
               };
             }
+          ];
+        }
 
+        {
+          Download = [
+            {
+              Torrent = [
+                {
+                  QbitTorrent = {
+                    icon = "qbittorrent.png";
+                    href = "https://qbit.camlann.local";
+                    description = "Téléchargements";
+
+                    widget = {
+                      type = "qbittorrent";
+                      url = "http://localhost:8080";
+                      username = "{{HOMEPAGE_VAR_QBIT_USERNAME}}";
+                      password = "{{HOMEPAGE_VAR_QBIT_PASSWORD}}";
+                      enableLeechProgress = true;
+                      enableLeechSize = true;
+                    };
+                  };
+                }
+                {
+                  Prowlarr = {
+                    icon = "prowlarr.png";
+                    href = "https://prowlarr.camlann.local";
+
+                    widget = {
+                      type = "prowlarr";
+                      url = "http://localhost:9696";
+                      key = "{{HOMEPAGE_VAR_PROWLARR_API_KEY}}";
+                    };
+                  };
+                }
+              ];
+            }
 
             {
-              AdGuard= {
+              Management = [
+                {
+                  Sonarr = {
+                    icon = "sonarr.png";
+                    href = "https://sonarr.camlann.local";
+
+                    widget = {
+                      type = "sonarr";
+                      url = "http://localhost:8989";
+                      key = "{{HOMEPAGE_VAR_SONARR_API_KEY}}";
+                      enableQueue = true;
+                    };
+                  };
+                }
+                {
+                  Radarr = {
+                    icon = "radarr.png";
+                    href = "https://radarr.camlann.local";
+
+                    widget = {
+                      type = "radarr";
+                      url = "http://localhost:7878";
+                      key = "{{HOMEPAGE_VAR_RADARR_API_KEY}}";
+                      enableQueue = true;
+                    };
+                  };
+                }
+                {
+                  Bazarr = {
+                    icon = "bazarr.png";
+                    href = "https://bazarr.camlann.local";
+
+                    widget = {
+                      type = "bazarr";
+                      url = "http://localhost:6767";
+                      key = "{{HOMEPAGE_VAR_BAZARR_API_KEY}}";
+                    };
+                  };
+                }
+              ];
+            }
+          ];
+        }
+
+        {
+          Infra = [
+            {
+              AdGuard = {
                 icon = "adguard-home.png";
                 href = "https://adguard.camlann.local";
+                description = "DNS";
+
                 widget = {
-                  url = "http://localhost:3000";
                   type = "adguard";
+                  url = "http://localhost:3000";
                   username = "{{HOMEPAGE_VAR_ADGUARD_USERNAME}}";
                   password = "{{HOMEPAGE_VAR_ADGUARD_PASSWORD}}";
                 };
               };
             }
-
             {
-              Jellyfin = {
-                icon = "jellyfin.png";
-                href = "https://jellyfin.camlann.local";
-                widget = {
-                  type = "jellyfin";
-                  url = "http://localhost:8096";
-                  key = "{{HOMEPAGE_VAR_JELLYFIN_API_KEY}}";
-                };
-              };
-            }
-
-            {
-              QbitTorrent = {
-                icon = "qbittorrent.png";
-                href = "https://qbit.camlann.local";
-                widget = {
-                  type = "qbittorrent";
-                  url = "http://localhost:8080";
-                  username = "{{HOMEPAGE_VAR_QBIT_USERNAME}}";
-                  password = "{{HOMEPAGE_VAR_QBIT_PASSWORD}}";
-                  enableLeechProgress = true;
-                  enableLeechSize = true;
-                };
+              Beszel = {
+                icon = "beszel.png";
+                href = "https://beszel.camlann.local/system/fp9cvcdovzxylnm";
+                description = "Monitoring";
               };
             }
             {
-              Radarr = {
-                icon = "radarr.png";
-                href = "https://radarr.camlann.local";
-                widget = {
-                  type = "radarr";
-                  url = "http://localhost:7878";
-                  key = "{{HOMEPAGE_VAR_RADARR_API_KEY}}";
-                  enableQueue = true;
-                };
+              Freebox = {
+                icon = "router.png";
+                href = "https://mafreebox.freebox.fr";
+                description = "Routeur";
               };
             }
             {
-              Sonarr = {
-                icon = "sonarr.png";
-                href = "https://sonarr.camlann.local";
-                widget = {
-                  type = "sonarr";
-                  url = "http://localhost:8989";
-                  key = "{{HOMEPAGE_VAR_SONARR_API_KEY}}";
-                  enableQueue = true;
-                };
-              };
-            }
-            # {
-            #   Lidarr = {
-            #     icon = "lidarr.png";
-            #     href = "https://lidarr.camlann.local";
-            #     widget = {
-            #       type = "lidarr";
-            #       url = "http://localhost:8686";
-            #       key = "{{HOMEPAGE_VAR_LIDARR_API_KEY}}";
-            #     };
-            #   };
-            # }
-            {
-              Bazarr = {
-                icon = "bazarr.png";
-                href = "https://bazarr.camlann.local";
-                widget = {
-                  type = "bazarr";
-                  url = "http://localhost:6767";
-                  key = "{{HOMEPAGE_VAR_BAZARR_API_KEY}}";
-                };
-              };
-            }
-            {
-              Prowlarr = {
-                icon = "prowlarr.png";
-                href = "https://prowlarr.camlann.local";
-                widget = {
-                  type = "prowlarr";
-                  url = "http://localhost:9696";
-                  key = "{{HOMEPAGE_VAR_PROWLARR_API_KEY}}";
-                };
+              Homepage = {
+                icon = "homepage.png";
+                href = "https://homepage.camlann.local";
+                description = "Dashboard";
               };
             }
           ];
         }
       ];
     };
+
     persist.directories = [
       "/var/lib/beszel"
-      "/var/lib/private/beszel-hub"
+        "/var/lib/private/beszel-hub"
     ];
   };
 }
