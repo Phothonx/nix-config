@@ -35,7 +35,11 @@
         ]
         ++ (pkgs.appimageTools.defaultFhsEnvArgs.targetPkgs pkgs)
         ++ (pkgs.appimageTools.defaultFhsEnvArgs.multiPkgs pkgs);
-        extraPkgs = pkgs: [];
+        extraPkgs = pkgs: [
+          wineWow64Packages.stable
+          winetricks
+          vulkan-tools
+        ];
       })
       heroic
       protonup-qt
@@ -52,21 +56,6 @@
       # mindustry-wayland
       # atlauncher
       # prismlauncher
-      (pkgs.buildFHSEnv (pkgs.appimageTools.defaultFhsEnvArgs
-        // {
-          name = "fhs-albion";
-          targetPkgs = pkgs:
-            (pkgs.appimageTools.defaultFhsEnvArgs.targetPkgs pkgs)
-            ++ (with pkgs; [
-              krb5
-              libxau
-              libxdmcp
-              zstd
-            ]);
-
-          profile = ''export FHS=1'';
-          runScript = "fish";
-        }))
     ];
 
     persist.user.directories = [
