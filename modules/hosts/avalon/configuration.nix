@@ -77,12 +77,22 @@
       bluetooth.enable = true;
       bluetooth.powerOnBoot = false;
 
-      graphics.enable = true;
-      graphics.enable32Bit = true;
-      graphics.extraPackages = with pkgs; [
-        intel-media-driver
-      ];
+      graphics = {
+        enable = true;
+        enable32Bit = true;  # critical for Steam/Proton
+        extraPackages = with pkgs; [
+          intel-media-driver   # LIBVA_DRIVER_NAME=iHD
+          intel-vaapi-driver
+          libva-vdpau-driver
+          libvdpau-va-gl
+        ];
+        extraPackages32 = with pkgs; [
+          pkgs.pkgsi686Linux.intel-media-driver
+          pkgs.pkgsi686Linux.intel-vaapi-driver
+        ];
+      };
     };
+
 
     boot.initrd.systemd.enable = true;
     boot.initrd.systemd.packages = with pkgs; [
