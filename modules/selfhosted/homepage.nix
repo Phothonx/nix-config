@@ -86,7 +86,7 @@
                 icon = "beszel.png";
                 href = "https://beszel.camlann.local/system/fp9cvcdovzxylnm";
                 widget = {
-                  version = "2";
+                  # version = "2";
                   type = "beszel";
                   url = "http://localhost:8090";
                   username = "{{HOMEPAGE_VAR_BESZEL_USERNAME}}";
