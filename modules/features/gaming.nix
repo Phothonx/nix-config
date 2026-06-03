@@ -1,29 +1,16 @@
 {
   flake.nixosModules.gaming = {pkgs, ...}: {
-
     programs = {
       gamemode.enable = true;
       gamescope.enable = true;
       steam = {
         enable = true;
-        package = pkgs.steam.override {
-          extraEnv = {
-            MANGOHUD = true;
-            OBS_VKCAPTURE = true;
-          };
-        };
+        package = pkgs.steam.override { extraEnv.MANGOHUD = true; };
         protontricks.enable = true;
         gamescopeSession.enable = true;
         extest.enable = true;
-        remotePlay.openFirewall = true;
-        localNetworkGameTransfers.openFirewall = true;
-        extraCompatPackages = with pkgs; [proton-ge-bin];
+        extraCompatPackages = with pkgs; [ proton-ge-bin ];
       };
-    };
-
-    environment.sessionVariables = {
-      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
-      GAMESCOPE_WSI = "wayland";
     };
 
     environment.systemPackages = with pkgs; [
@@ -65,6 +52,7 @@
       ".local/share/lutris"
       ".config/unity3d"
       ".config/heroic"
+      ".steam"
     ];
   };
 }

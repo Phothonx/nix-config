@@ -99,7 +99,7 @@
               props.x = 0;
               props.y = 0;
             };
-            scale = 0.9;
+            # scale = 0.9;
             mode = "1920x1080@119.982";
             focus-at-startup = _: {};
           };
