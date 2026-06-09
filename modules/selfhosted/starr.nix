@@ -9,7 +9,7 @@
 
       "d /data/media/movies 0775 radarr media -"
       "d /data/media/tv 0775 sonarr media -"
-      "d /data/media/music 07575 lidarr media -"
+      "d /data/media/music 0775 lidarr media -"
     ];
 
     users.groups.media = {};
@@ -26,11 +26,11 @@
       dataDir = "/data/starr/sonarr";
     };
 
-    # services.lidarr = {
-    #   enable = true; # 8686
-    #   group = "media";
-    #   dataDir = "/data/starr/lidarr";
-    # };
+    services.lidarr = {
+      enable = true; # 8686
+      group = "media";
+      dataDir = "/data/starr/lidarr";
+    };
 
     services.bazarr = {
       enable = true; # 6767

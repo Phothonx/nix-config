@@ -33,7 +33,7 @@
 
       settings = {
         title = "Camlann";
-        background = "https://homepage.camlann.local/leaves.png";
+        background = "http://homepage.camlann.local/leaves.png";
 
         theme = "dark";
         color = "emerald";
@@ -205,6 +205,18 @@
                       url = "http://localhost:7878";
                       key = "{{HOMEPAGE_VAR_RADARR_API_KEY}}";
                       enableQueue = true;
+                    };
+                  };
+                }
+                {
+                  Lidarr = {
+                    icon = "lidarr.png";
+                    href = "https://lidarr.camlann.local";
+
+                    widget = {
+                      type = "lidarr";
+                      url = "http://localhost:8686";
+                      key = "{{HOMEPAGE_VAR_LIDARR_API_KEY}}";
                     };
                   };
                 }

@@ -19,13 +19,11 @@
 
           upstream_dns = [
             "https://dns.quad9.net/dns-query"
+            "tls://dns.quad9.net"
           ];
           bootstrap_dns = [
             "9.9.9.9"
             "1.1.1.1"
-          ];
-          fallback_dns = [
-            "https://cloudflare-dns.com/dns-query"
           ];
 
           cache_size = 4194304; # 4MB
@@ -35,6 +33,7 @@
           anonymize_client_ip = false;
           ratelimit = 0;
           upstream_timeout = "10s";
+          enable_dnssec = true;
         };
 
         filtering = {
@@ -53,9 +52,33 @@
         filters = [
           {
             enabled = true;
-            url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.txt";
-            name = "HaGeZi DNS Blocklist - pro";
+            url = "https://adaway.org/hosts.txt";
+            name = "AdAway default blocklist";
             id = 1;
+          }
+          {
+            enabled = true;
+            url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt";
+            name = "HaGeZi's Pro++ DNS Blocklist";
+            id = 2;
+          }
+          {
+            enabled = true;
+            url = "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt";
+            name = "AdGuard DNS filter";
+            id = 3;
+          }
+          {
+            enabled = true;
+            url = "https://malware-filter.gitlab.io/malware-filter/phishing-filter-agh.txt";
+            name = "Phishing URL Blocklist";
+            id = 4;
+          }
+          {
+            enabled = true;
+            url = "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/AWAvenue-Ads-Rule.txt";
+            name = "AWAvenue Ads Rule";
+            id = 5;
           }
         ];
 

@@ -7,7 +7,6 @@
       loupe
       imv
       # bitwarden-desktop
-      moonlight-embedded
       spotify
       localsend
       teamspeak6-client
