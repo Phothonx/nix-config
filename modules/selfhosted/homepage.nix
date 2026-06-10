@@ -65,7 +65,7 @@
               header = false;
             };
           };
-          Infra ={
+          Infra = {
             style = "column";
           };
         };
@@ -87,13 +87,12 @@
             uptime = true;
             network = true;
             units = "metric";
-            disk = [ "/" "/data" ];
+            disk = ["/" "/data"];
           };
         }
       ];
 
       services = [
-
         {
           Media = [
             {
@@ -144,10 +143,6 @@
           ];
         }
 
-<<<<<<< HEAD
-||||||| 24a0d2e
-
-=======
         {
           Download = [
             {
@@ -182,14 +177,7 @@
                 }
               ];
             }
-
->>>>>>> refs/remotes/origin/main
             {
-<<<<<<< HEAD
-              AdGuard = {
-||||||| 24a0d2e
-              AdGuard= {
-=======
               Management = [
                 {
                   Sonarr = {
@@ -250,7 +238,6 @@
           Infra = [
             {
               AdGuard = {
->>>>>>> refs/remotes/origin/main
                 icon = "adguard-home.png";
                 href = "https://adguard.camlann.local";
                 description = "DNS";
@@ -291,7 +278,7 @@
 
     persist.directories = [
       "/var/lib/beszel"
-        "/var/lib/private/beszel-hub"
+      "/var/lib/private/beszel-hub"
     ];
   };
 }
