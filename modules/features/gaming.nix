@@ -30,6 +30,7 @@
       })
       heroic
       protonup-qt
+      xonotic
       # bottles
       # steamtinkerlaunch
 
@@ -39,6 +40,7 @@
 
       mangohud
 
+      ankama-launcher
       osu-lazer-bin
       # mindustry-wayland
       # atlauncher
@@ -50,8 +52,14 @@
       ".local/share/osu"
       ".local/share/applications"
       ".local/share/lutris"
+      ".local/share/aspyr-media"
+      ".local/share/vulkan"
+
       ".config/unity3d"
       ".config/heroic"
+      ".config/zaap" # ankama
+      ".config/Ankama Launcher" # ankama
+
       ".steam"
     ];
   };

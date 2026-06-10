@@ -72,7 +72,6 @@
                 "node.name" = "capture.rnnoise_source";
                 "node.passive" = true;
                 "node.dont-fallback" = true;
-                "target.object" = "alsa_input.usb-3142_fifine_Microphone-00.analog-stereo";
                 "audio.rate" = 48000;
               };
               "playback.props" = {
@@ -103,7 +102,7 @@
                 "node.name" = "eq_output.fiio_ft1_pro";
                 "node.passive" = true;
                 "node.dont-fallback" = true;
-                "target.object" = "alsa_output.usb-FIIO_FIIO_KA13-01.analog-stereo";
+                # "target.object" = "alsa_output.usb-FIIO_FIIO_KA13-01.analog-stereo";
                 "audio.channels" = 2;
                 "audio.position" = ["FL" "FR"];
                 "audio.rate" = 48000;
