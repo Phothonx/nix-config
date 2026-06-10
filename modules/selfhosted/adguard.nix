@@ -1,6 +1,5 @@
 {
   flake.nixosModules.adguard = {
-
     services.adguardhome = {
       enable = true; # 3000 (web interface) 34 (dns)
       mutableSettings = false;
@@ -14,7 +13,7 @@
         ];
 
         dns = {
-          bind_hosts = [ "0.0.0.0" ];
+          bind_hosts = ["0.0.0.0"];
           port = 53;
 
           upstream_dns = [

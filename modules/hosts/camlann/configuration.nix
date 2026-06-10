@@ -93,10 +93,12 @@
     networking.interfaces.wlp5s0.useDHCP = false;
     networking.interfaces.enp7s0 = {
       useDHCP = false;
-      ipv4.addresses = [{
-        address = "192.168.0.8";
-        prefixLength = 24;
-      }];
+      ipv4.addresses = [
+        {
+          address = "192.168.0.8";
+          prefixLength = 24;
+        }
+      ];
     };
     networking.defaultGateway = "192.168.0.254";
 

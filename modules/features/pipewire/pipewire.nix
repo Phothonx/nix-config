@@ -1,6 +1,5 @@
 {
   flake.nixosModules.pipewire = {pkgs, ...}: {
-
     environment.systemPackages = with pkgs; [
       pavucontrol
       crosspipe
