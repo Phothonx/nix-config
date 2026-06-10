@@ -5,7 +5,7 @@
       vlc
       loupe
       imv
-      bitwarden-desktop
+      # bitwarden-desktop
       spotify
       localsend
       teamspeak6-client

@@ -60,6 +60,7 @@
       ".config/heroic"
       ".config/zaap" # ankama
       ".config/Ankama Launcher" # ankama
+      ".config/Ankama" # ankama
 
       ".steam"
     ];
