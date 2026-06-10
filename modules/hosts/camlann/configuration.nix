@@ -23,7 +23,6 @@
       self.nixosModules.gaming
       self.nixosModules.obs
       self.nixosModules.udev
-      self.nixosModules.apps
 
       self.nixosModules.nico
 
@@ -36,7 +35,6 @@
       self.nixosModules.jellyfin
       self.nixosModules.qbittorrent
       self.nixosModules.starr
-      self.nixosModules.sunshine
     ];
 
     environment.systemPackages = with pkgs; [
