@@ -93,5 +93,16 @@
     };
 
     services.flaresolverr.enable = true; # 8191
+
+    virtualisation.oci-containers.containers.byparr = {
+      image = "ghcr.io/thephaseless/byparr:latest";
+      ports = [ "8192:8192" ];
+      environment = {
+        TZ = "Europe/Paris";
+        PORT = "8192";
+        LOG_LEVEL = "info";
+      };
+      autoStart = true;
+    };
   };
 }
