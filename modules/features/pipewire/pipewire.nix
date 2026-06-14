@@ -1,6 +1,5 @@
 {
   flake.nixosModules.pipewire = {pkgs, ...}: {
-
     environment.systemPackages = with pkgs; [
       pavucontrol
       crosspipe
@@ -45,7 +44,7 @@
                     plugin = "librnnoise_ladspa";
                     label = "noise_suppressor_mono";
                     control = {
-                      "VAD Threshold (%)" = 93.0;
+                      "VAD Threshold (%)" = 96.0;
                       "VAD Grace Period (ms)" = 200;
                       "Retroactive VAD Grace (ms)" = 0;
                     };
@@ -55,7 +54,7 @@
                     name = "micgain";
                     label = "linear";
                     control = {
-                      "Mult" = 2.3;
+                      "Mult" = 2;
                     };
                   }
                 ];
@@ -72,7 +71,6 @@
                 "node.name" = "capture.rnnoise_source";
                 "node.passive" = true;
                 "node.dont-fallback" = true;
-                "target.object" = "alsa_input.usb-3142_fifine_Microphone-00.analog-stereo";
                 "audio.rate" = 48000;
               };
               "playback.props" = {
@@ -103,7 +101,7 @@
                 "node.name" = "eq_output.fiio_ft1_pro";
                 "node.passive" = true;
                 "node.dont-fallback" = true;
-                "target.object" = "alsa_output.usb-FIIO_FIIO_KA13-01.analog-stereo";
+                # "target.object" = "alsa_output.usb-FIIO_FIIO_KA13-01.analog-stereo";
                 "audio.channels" = 2;
                 "audio.position" = ["FL" "FR"];
                 "audio.rate" = 48000;

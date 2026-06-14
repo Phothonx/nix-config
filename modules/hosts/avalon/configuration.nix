@@ -3,7 +3,11 @@
   self,
   ...
 }: {
-  flake.nixosModules.avalonConfiguration = {config, pkgs, ...}: {
+  flake.nixosModules.avalonConfiguration = {
+    config,
+    pkgs,
+    ...
+  }: {
     imports = [
       self.nixosModules.avalonHardware
 
@@ -63,7 +67,7 @@
     networking = {
       hostName = "avalon";
       hosts = {
-        "192.168.0.8" = [ "homepage.camlann.local" "adguard.camlann.local" ];
+        "192.168.0.8" = ["homepage.camlann.local" "adguard.camlann.local"];
       };
       networkmanager.enable = true;
     };
@@ -79,9 +83,9 @@
 
       graphics = {
         enable = true;
-        enable32Bit = true;  # critical for Steam/Proton
+        enable32Bit = true; # critical for Steam/Proton
         extraPackages = with pkgs; [
-          intel-media-driver   # LIBVA_DRIVER_NAME=iHD
+          intel-media-driver # LIBVA_DRIVER_NAME=iHD
           intel-vaapi-driver
           libva-vdpau-driver
           libvdpau-va-gl
@@ -92,7 +96,6 @@
         ];
       };
     };
-
 
     boot.initrd.systemd.enable = true;
     boot.initrd.systemd.packages = with pkgs; [

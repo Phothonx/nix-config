@@ -1,6 +1,6 @@
 {
   flake.nixosModules.caddy = {pkgs, ...}: {
-    systemd.services.caddy.path = [ pkgs.nssTools ];
+    systemd.services.caddy.path = [pkgs.nssTools];
     services.caddy = {
       enable = true;
       openFirewall = true; # 443 (https) 80 (http)

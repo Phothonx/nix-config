@@ -49,7 +49,6 @@
       ".local/share/fish"
       ".local/share/jellyfin-desktop"
 
-
       ".config/nvim"
     ];
   };

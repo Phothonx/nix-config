@@ -1,6 +1,5 @@
 {
   flake.nixosModules.homepage = {config, ...}: {
-
     services.beszel = {
       hub = {
         enable = true;
@@ -8,7 +7,7 @@
         port = 8090;
       };
       agent = {
-        extraPath = [ config.hardware.nvidia.package ];
+        extraPath = [config.hardware.nvidia.package];
         environment.KEY = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGyHh3zJegqX32T/6UFfSw7U+erGoSafu2lfxdSrSpc7";
         enable = true;
         smartmon.enable = true;
@@ -23,7 +22,7 @@
     services.homepage-dashboard = {
       enable = true; # 8082
       allowedHosts = "*";
-      environmentFiles = [ config.age.secrets.selfhosted_credentials.path ];
+      environmentFiles = [config.age.secrets.selfhosted_credentials.path];
       customCSS = ''
         @import url('https://fonts.bunny.net/css?family=ubuntu:300,400,500,700');
         * {
@@ -66,7 +65,7 @@
               header = false;
             };
           };
-          Infra ={
+          Infra = {
             style = "column";
           };
         };
@@ -88,13 +87,12 @@
             uptime = true;
             network = true;
             units = "metric";
-            disk = [ "/" "/data" ];
+            disk = ["/" "/data"];
           };
         }
       ];
 
       services = [
-
         {
           Media = [
             {
@@ -179,7 +177,6 @@
                 }
               ];
             }
-
             {
               Management = [
                 {
@@ -281,7 +278,7 @@
 
     persist.directories = [
       "/var/lib/beszel"
-        "/var/lib/private/beszel-hub"
+      "/var/lib/private/beszel-hub"
     ];
   };
 }

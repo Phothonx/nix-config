@@ -1,6 +1,5 @@
 {
   flake.nixosModules.paperless = {
-
     systemd.tmpfiles.rules = [
       "d /data/paperless 0750 paperless paperless -"
     ];

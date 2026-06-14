@@ -5,23 +5,24 @@
       gamescope.enable = true;
       steam = {
         enable = true;
-        package = pkgs.steam.override { extraEnv.MANGOHUD = true; };
+        package = pkgs.steam.override {extraEnv.MANGOHUD = true;};
         protontricks.enable = true;
         gamescopeSession.enable = true;
         extest.enable = true;
-        extraCompatPackages = with pkgs; [ proton-ge-bin ];
+        extraCompatPackages = with pkgs; [proton-ge-bin];
       };
     };
 
     environment.systemPackages = with pkgs; [
       (lutris.override {
-        extraLibraries = pkgs: [
-          krb5
-          libxau
-          libxdmcp
-        ]
-        ++ (pkgs.appimageTools.defaultFhsEnvArgs.targetPkgs pkgs)
-        ++ (pkgs.appimageTools.defaultFhsEnvArgs.multiPkgs pkgs);
+        extraLibraries = pkgs:
+          [
+            krb5
+            libxau
+            libxdmcp
+          ]
+          ++ (pkgs.appimageTools.defaultFhsEnvArgs.targetPkgs pkgs)
+          ++ (pkgs.appimageTools.defaultFhsEnvArgs.multiPkgs pkgs);
         extraPkgs = pkgs: [
           wineWow64Packages.stable
           winetricks
@@ -30,6 +31,7 @@
       })
       heroic
       protonup-qt
+      xonotic
       # bottles
       # steamtinkerlaunch
 
@@ -39,6 +41,7 @@
 
       mangohud
 
+      ankama-launcher
       osu-lazer-bin
       # mindustry-wayland
       # atlauncher
@@ -50,8 +53,15 @@
       ".local/share/osu"
       ".local/share/applications"
       ".local/share/lutris"
+      ".local/share/aspyr-media"
+      ".local/share/vulkan"
+
       ".config/unity3d"
       ".config/heroic"
+      ".config/zaap" # ankama
+      ".config/Ankama Launcher" # ankama
+      ".config/Ankama" # ankama
+
       ".steam"
     ];
   };

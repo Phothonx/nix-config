@@ -1,6 +1,9 @@
 {
-  flake.nixosModules.qbittorrent = {config, pkgs, ...}: {
-
+  flake.nixosModules.qbittorrent = {
+    config,
+    pkgs,
+    ...
+  }: {
     systemd.tmpfiles.rules = [
       "d /data/qBittorrent 0755 qbittorrent media -"
       "d /data/qBittorrent/downloads 0775 qbittorrent media -"
@@ -30,9 +33,9 @@
     systemd.services.proton-portforward = {
       description = "ProtonVPN NAT-PMP Port Forwarding";
 
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network-online.target" "wg-quick-qbproton.service" ];
-      requires = [ "wg-quick-qbproton.service" ];
+      wantedBy = ["multi-user.target"];
+      after = ["network-online.target" "wg-quick-qbproton.service"];
+      requires = ["wg-quick-qbproton.service"];
 
       serviceConfig = {
         Type = "simple";

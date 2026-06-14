@@ -1,6 +1,5 @@
 {
   flake.nixosModules.nextcloud = {pkgs, ...}: {
-
     systemd.tmpfiles.rules = [
       "d /data/nextcloud 0750 nextcloud nextcloud -"
     ];
