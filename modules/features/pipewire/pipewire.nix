@@ -44,7 +44,7 @@
                     plugin = "librnnoise_ladspa";
                     label = "noise_suppressor_mono";
                     control = {
-                      "VAD Threshold (%)" = 93.0;
+                      "VAD Threshold (%)" = 96.0;
                       "VAD Grace Period (ms)" = 200;
                       "Retroactive VAD Grace (ms)" = 0;
                     };
@@ -54,7 +54,7 @@
                     name = "micgain";
                     label = "linear";
                     control = {
-                      "Mult" = 2.3;
+                      "Mult" = 2;
                     };
                   }
                 ];
