@@ -12,18 +12,18 @@
       self.nixosModules.gtk
     ];
 
-    systemd.user.services.noctalia = {
-      description = "Noctalia";
-      after = [ "graphical-session.target" ];
-      partOf = [ "graphical-session.target" ];
-      wantedBy = [ "graphical-session.target" ];
-
-      serviceConfig = {
-        ExecStart = lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia;
-        Restart = "on-failure";
-        RestartSec = "2";
-      };
-    };
+    # systemd.user.services.noctalia = {
+    #   description = "Noctalia";
+    #   after = [ "graphical-session.target" ];
+    #   partOf = [ "graphical-session.target" ];
+    #   wantedBy = [ "graphical-session.target" ];
+    #
+    #   serviceConfig = {
+    #     ExecStart = lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia;
+    #     Restart = "on-failure";
+    #     RestartSec = "2";
+    #   };
+    # };
 
     programs.niri = {
       enable = true;

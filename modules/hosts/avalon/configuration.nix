@@ -42,6 +42,7 @@
       wireguard-tools
       phoronix-test-suite
       jellyfin-desktop
+      parsec-bin
     ];
 
     services.greetd = {
@@ -141,6 +142,15 @@
         umount /btrfs_tmp
       '';
     };
+
+    # virtualisation.libvirtd.enable = true;
+    # virtualisation.virtualbox.host.enable = true;
+    # virtualisation.virtualbox.guest.enable = true;
+    # virtualisation.virtualbox.guest.dragAndDrop = true;
+    #
+    # programs.virt-manager.enable = true;
+    # users.extraGroups.vboxusers.members = [ "nico" ];
+
 
     # === DO NOT TOUCH ! ===
     system.stateVersion = "25.11";

@@ -19,7 +19,7 @@
 
       settings = with self.theme; {
         spawn-at-startup = [
-          # (lib.getExe self'.packages.noctalia)
+          (lib.getExe self'.packages.noctalia)
           "niri msg action load-config-file" # for outputs config to apply
         ];
 
