@@ -143,14 +143,16 @@
       '';
     };
 
-    # virtualisation.libvirtd.enable = true;
-    # virtualisation.virtualbox.host.enable = true;
-    # virtualisation.virtualbox.guest.enable = true;
-    # virtualisation.virtualbox.guest.dragAndDrop = true;
-    #
-    # programs.virt-manager.enable = true;
-    # users.extraGroups.vboxusers.members = [ "nico" ];
-
+    virtualisation.spiceUSBRedirection.enable = true;
+    virtualisation.libvirtd.qemu.swtpm.enable = true;
+    virtualisation.libvirtd.enable = true;
+    programs.virt-manager.enable = true;
+    persist.directories = [
+      "/var/lib/qemu"
+      "/var/lib/libvirt"
+      "/var/lib/machines"
+      "/var/lib/systemd"
+    ];
 
     # === DO NOT TOUCH ! ===
     system.stateVersion = "25.11";
