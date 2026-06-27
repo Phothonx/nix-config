@@ -3,7 +3,9 @@
     services.openssh = {
       enable = true;
       ports = [22];
-      generateHostKeys = false;
+      # Generate host keys into /etc/ssh (persisted via impermanence), so the
+      # machine can decrypt its own agenix secrets with its host key.
+      generateHostKeys = true;
 
       settings = {
         PasswordAuthentication = false;

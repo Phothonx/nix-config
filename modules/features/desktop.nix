@@ -3,7 +3,9 @@
     pkgs,
     lib,
     ...
-  }: {
+  }: let
+    system = pkgs.stdenv.hostPlatform.system;
+  in {
     imports = [
       self.nixosModules.pipewire
       self.nixosModules.firefox
@@ -14,7 +16,7 @@
 
     programs.niri = {
       enable = true;
-      package = self.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+      package = self.packages.${system}.niri;
     };
 
     services.udisks2.enable = true; # nautilus
@@ -23,8 +25,8 @@
       pkgs.nautilus
 
       pkgs.bibata-cursors
-      self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia
-      self.packages.${pkgs.stdenv.hostPlatform.system}.kitty
+      self.packages.${system}.noctalia
+      self.packages.${system}.kitty
     ];
 
     services.gnome.gnome-keyring.enable = lib.mkForce false;

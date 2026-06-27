@@ -4,7 +4,9 @@
     config,
     lib,
     ...
-  }: {
+  }: let
+    system = pkgs.stdenv.hostPlatform.system;
+  in {
     users.mutableUsers = false;
 
     users.users.nico = {
@@ -28,13 +30,13 @@
 
     # https://wiki.nixos.org/wiki/Fish
     programs.fish.enable = true;
-    programs.fish.package = self.packages.${pkgs.stdenv.hostPlatform.system}.fish;
+    programs.fish.package = self.packages.${system}.fish;
 
     programs.bash.interactiveShellInit = ''
       if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
       then
         shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-        exec ${lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.shell} $LOGIN_OPTION
+        exec ${lib.getExe self.packages.${system}.shell} $LOGIN_OPTION
       fi
     '';
 
@@ -45,11 +47,16 @@
       ".cache/fish"
 
       ".local/share/zoxide"
+      ".claude"
       ".local/share/nvim"
       ".local/share/fish"
       ".local/share/jellyfin-desktop"
 
       ".config/nvim"
+    ];
+
+    persist.user.files = [
+      ".claude.json"
     ];
   };
 }

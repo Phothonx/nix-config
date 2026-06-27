@@ -3,15 +3,22 @@
   self,
   ...
 }: {
-  flake.nixosModules.nico = {pkgs, ...}: {
+  flake.nixosModules.nico = {pkgs, ...}: let
+    system = pkgs.stdenv.hostPlatform.system;
+  in {
     imports = [inputs.agenix.nixosModules.default];
 
     environment.systemPackages = [
-      inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
-      self.packages.${pkgs.stdenv.hostPlatform.system}.git
+      inputs.agenix.packages.${system}.default
+      self.packages.${system}.git
     ];
 
-    age.identityPaths = ["/persist/home/nico/.ssh/id_ed25519"];
+    # Decrypt with the machine's own host key first (works at boot, independent of
+    # the user's key), falling back to nico's key for user-targeted secrets.
+    age.identityPaths = [
+      "/etc/ssh/ssh_host_ed25519_key"
+      "/persist/home/nico/.ssh/id_ed25519"
+    ];
 
     age.secrets = {
       psswd_nico.file = ../../../secrets/psswd_nico.age;
