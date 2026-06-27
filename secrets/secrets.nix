@@ -8,13 +8,13 @@ let
   camlann = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKq4pjy32/r1X80XEx5GHpdqcAeCNXpvyoLz90OI+bsM";
   systems = [avalon camlann];
 in {
-  "github_config.age".publicKeys = recovery ++ users;
-  "thor_config.age".publicKeys = recovery ++ users;
-  "ssh_config.age".publicKeys = recovery ++ users;
+  "github_config.age".publicKeys = recovery ++ users ++ systems;
+  "thor_config.age".publicKeys = recovery ++ users ++ systems;
+  "ssh_config.age".publicKeys = recovery ++ users ++ systems;
 
-  "id_ed25519_enseirb.age".publicKeys = recovery ++ users;
-  "id_ed25519_thor.age".publicKeys = recovery ++ users;
-  "id_ed25519_github.age".publicKeys = recovery ++ users;
+  "id_ed25519_enseirb.age".publicKeys = recovery ++ users ++ systems;
+  "id_ed25519_thor.age".publicKeys = recovery ++ users ++ systems;
+  "id_ed25519_github.age".publicKeys = recovery ++ users ++ systems;
 
   "psswd_nico.age".publicKeys = recovery ++ users ++ systems;
   "selfhosted_credentials.age".publicKeys = recovery ++ users ++ systems;
