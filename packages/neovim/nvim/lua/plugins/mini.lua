@@ -4,6 +4,22 @@ require("mini.move").setup()
 require("mini.statusline").setup()
 require('mini.trailspace').setup()
 require("mini.align").setup()
+require("mini.ai").setup()        -- richer a/i text objects (af, ia, if, ...)
+require("mini.bracketed").setup() -- ]b [b ]q [q ]u [u ... bracket navigation
+require("mini.splitjoin").setup() -- gS to split/join argument lists
+
+-- surround on the gz prefix so it doesn't fight flash for bare `s`
+require("mini.surround").setup({
+  mappings = {
+    add = "gza",
+    delete = "gzd",
+    replace = "gzr",
+    find = "gzf",
+    find_left = "gzF",
+    highlight = "gzh",
+    update_n_lines = "gzn",
+  },
+})
 
 require("mini.files").setup({
   options = {
@@ -42,14 +58,14 @@ require("mini.diff").setup({
   },
 })
 
-vim.keymap.set("n", "e", function()
+vim.keymap.set("n", "<leader>e", function()
   MiniFiles.open(MiniFiles.get_latest_path())
 end, { desc = "Open last Files instance" })
 
-vim.keymap.set("n", "E", function()
+vim.keymap.set("n", "<leader>E", function()
   MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
 end, { desc = "Open Files from buffer dir" })
 
-vim.keymap.set("n", "t", function()
+vim.keymap.set("n", "<leader>t", function()
   MiniTrailspace.trim()
 end, { desc = "Grass cutter" })

@@ -30,6 +30,7 @@ o.showmode      = false         -- Don't show mode in command line
 o.wrap          = false         -- Display long lines as just one line
 
 o.signcolumn    = 'yes'         -- Always show sign column (otherwise it will shift text)
+o.updatetime    = 250           -- Faster CursorHold (LSP document highlight, etc.)
 opt.fillchars   = { eob = " " } -- Don't show `~` outside of buffer
 
 opt.shortmess:append "sI"       -- disable nvim intro
@@ -52,6 +53,9 @@ o.hlsearch      = true -- do not clear highlight
 o.completeopt   = 'menuone,noinsert,noselect' -- Customize completions
 o.virtualedit   = 'block'                     -- Allow going past the end of line in visual block mode
 o.formatoptions = 'qjl1'                      -- Don't autoformat comments
+o.inccommand    = 'split'                     -- Live preview of :substitute results
+o.confirm       = true                        -- Ask to save instead of erroring on :q with changes
+o.splitkeep     = 'screen'                    -- Keep text on screen stable when opening splits
 
 -- Spell
 opt.spelllang = { "en", "fr" }
@@ -60,6 +64,12 @@ opt.spelllang = { "en", "fr" }
 o.scrolloff  = 8
 o.mouse      = ""
 o.laststatus = 3   -- status line everywhere
+
+-- Briefly highlight yanked text
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight on yank",
+  callback = function() vim.hl.on_yank() end,
+})
 
 -- Neovide
 if vim.g.neovide then

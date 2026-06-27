@@ -32,8 +32,7 @@ require("blink.cmp").setup({
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
     providers = {
-      buffers = {
-        module = "blink.cmp.sources.buffer",
+      buffer = {
         opts = {
           get_bufnrs = vim.api.nvim_list_bufs,
         },
