@@ -23,11 +23,13 @@
           blink-cmp
           flash-nvim
           which-key-nvim
+          claudecode-nvim
         ];
       };
 
       runtimePkgs = with pkgs; [
         # PACKAGES
+        claude-code # CLI spawned by claudecode.nvim
         gcc
         tree-sitter
         cmake
