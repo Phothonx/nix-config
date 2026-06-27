@@ -5,7 +5,8 @@ let
   users = [nico];
 
   avalon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+jy/12OrvjxnmeKU3e9Fw8d8m8plcjSkkIFL3omc/r";
-  systems = [avalon];
+  camlann = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKq4pjy32/r1X80XEx5GHpdqcAeCNXpvyoLz90OI+bsM";
+  systems = [avalon camlann];
 in {
   "github_config.age".publicKeys = recovery ++ users;
   "thor_config.age".publicKeys = recovery ++ users;
