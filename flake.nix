@@ -40,14 +40,7 @@
           inherit system;
           config.allowUnfree = true;
           config.allowUnsupportedSystem = true;
-          overlays = [
-            # skip broken test
-            (final: prev: {
-              openldap = prev.openldap.overrideAttrs (_: {
-                doCheck = false;
-              });
-            })
-          ];
+          overlays = [];
         };
       };
     };
