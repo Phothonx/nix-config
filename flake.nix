@@ -33,5 +33,22 @@
         # "x86_64-darwin" deprecated
         "x86_64-linux"
       ];
+      # Single configured nixpkgs instance, shared by packages/, devshells/ and
+      # the NixOS hosts (which reuse it via `nixpkgs.pkgs` in hosts/*/default.nix).
+      perSystem = {system, ...}: {
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          config.allowUnsupportedSystem = true;
+          overlays = [
+            # skip broken test
+            (final: prev: {
+              openldap = prev.openldap.overrideAttrs (_: {
+                doCheck = false;
+              });
+            })
+          ];
+        };
+      };
     };
 }

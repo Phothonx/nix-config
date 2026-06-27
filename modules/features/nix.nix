@@ -19,17 +19,9 @@
 
     programs.nix-ld.enable = true;
 
-    nixpkgs.config.allowUnfree = true;
-    nixpkgs.config.allowUnsupportedSystem = true;
-
-    # skip broken test
-    nixpkgs.overlays = [
-      (final: prev: {
-        openldap = prev.openldap.overrideAttrs (_: {
-          doCheck = false;
-        });
-      })
-    ];
+    # nixpkgs config (allowUnfree, overlays) lives in flake.nix so the single
+    # pkgs instance is shared with packages/ and devshells/. The hosts reuse it
+    # via `nixpkgs.pkgs` (hosts/*/default.nix), so it must not be set here.
 
     nix = {
       settings.experimental-features = ["nix-command" "flakes"];

@@ -13,6 +13,8 @@
         self'.packages.neovim
         self'.packages.git
 
+        claude-code
+
         # CLI Tools
         yazi
         jq
