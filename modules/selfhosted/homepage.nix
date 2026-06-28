@@ -258,6 +258,13 @@
               };
             }
             {
+              Linkwarden = {
+                icon = "linkwarden.png";
+                href = "https://linkwarden.camlann.local";
+                description = "Marque-pages";
+              };
+            }
+            {
               Freebox = {
                 icon = "router.png";
                 href = "https://mafreebox.freebox.fr";

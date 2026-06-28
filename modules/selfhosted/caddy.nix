@@ -56,6 +56,10 @@
         tls internal
         reverse_proxy localhost:9696
       '';
+      virtualHosts."linkwarden.camlann.local".extraConfig = ''
+        tls internal
+        reverse_proxy localhost:3001
+      '';
     };
 
     persist.directories = [

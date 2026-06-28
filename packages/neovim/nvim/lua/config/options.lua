@@ -62,7 +62,7 @@ opt.spelllang = { "en", "fr" }
 
 -- Visual
 o.scrolloff  = 8
-o.mouse      = ""
+o.mouse      = "a"
 o.laststatus = 3   -- status line everywhere
 
 -- Briefly highlight yanked text

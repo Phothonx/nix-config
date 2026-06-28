@@ -32,6 +32,17 @@
     services.gnome.gnome-keyring.enable = lib.mkForce false;
     security.polkit.enable = true;
 
+    systemd.user.services.lock-before-sleep = {
+      description = "Lock screen before sleep";
+      before = ["sleep.target"];
+      wantedBy = ["sleep.target"];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${lib.getExe self.packages.${system}.noctalia} ipc call lockScreen lock";
+        RemainAfterExit = true;
+      };
+    };
+
     persist.user.directories = [
       ".cache/noctalia"
       ".local/share/nautilus"
