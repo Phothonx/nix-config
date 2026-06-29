@@ -28,9 +28,9 @@
       "default_area": "navbar"
     },
 
-    "jordanlinkwarden@gmail.com": {
+    "floccus@handmadeideas.org": {
       "installation_mode": "force_installed",
-      "install_url": "https://addons.mozilla.org/firefox/downloads/latest/linkwarden/latest.xpi",
+      "install_url": "https://addons.mozilla.org/firefox/downloads/latest/floccus/latest.xpi",
       "default_area": "navbar"
     }
   },

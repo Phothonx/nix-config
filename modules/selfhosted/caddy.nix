@@ -56,9 +56,13 @@
         tls internal
         reverse_proxy localhost:9696
       '';
-      virtualHosts."linkwarden.camlann.local".extraConfig = ''
+      virtualHosts."git.camlann.local".extraConfig = ''
         tls internal
         reverse_proxy localhost:3001
+      '';
+      virtualHosts."vault.camlann.local".extraConfig = ''
+        tls internal
+        reverse_proxy localhost:8222
       '';
     };
 

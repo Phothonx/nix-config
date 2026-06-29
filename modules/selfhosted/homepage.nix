@@ -258,10 +258,17 @@
               };
             }
             {
-              Linkwarden = {
-                icon = "linkwarden.png";
-                href = "https://linkwarden.camlann.local";
-                description = "Marque-pages";
+              Gitea = {
+                icon = "gitea.png";
+                href = "https://git.camlann.local";
+                description = "Git";
+              };
+            }
+            {
+              Vaultwarden = {
+                icon = "vaultwarden.png";
+                href = "https://vault.camlann.local";
+                description = "Mots de passe";
               };
             }
             {

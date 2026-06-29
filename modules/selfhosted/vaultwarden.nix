@@ -1,0 +1,25 @@
+{
+  # Vaultwarden: lightweight, Bitwarden-compatible server (works with the
+  # Bitwarden apps/extension already in packages/firefox/policies.json).
+  flake.nixosModules.vaultwarden = {
+    services.vaultwarden = {
+      enable = true; # 8222
+      dbBackend = "sqlite";
+      domain = "vault.camlann.local"; # -> DOMAIN = https://vault.camlann.local
+
+      config = {
+        ROCKET_ADDRESS = "127.0.0.1";
+        ROCKET_PORT = 8222;
+        ENABLE_WEBSOCKET = true; # live sync notifications (caddy proxies the ws)
+
+        # the first account you register becomes your vault. flip to false and
+        # nh os switch again once registered to lock the instance down.
+        SIGNUPS_ALLOWED = true;
+      };
+    };
+
+    persist.directories = [
+      "/var/lib/vaultwarden"
+    ];
+  };
+}

@@ -36,7 +36,8 @@
       self.nixosModules.jellyfin
       self.nixosModules.qbittorrent
       self.nixosModules.starr
-      self.nixosModules.linkwarden
+      self.nixosModules.gitea
+      self.nixosModules.vaultwarden
     ];
 
     environment.systemPackages = with pkgs; [

@@ -18,7 +18,6 @@ in {
 
   "psswd_nico.age".publicKeys = recovery ++ users ++ systems;
   "selfhosted_credentials.age".publicKeys = recovery ++ users ++ systems;
-  "linkwarden-env.age".publicKeys = recovery ++ users ++ systems;
   "radarr-api.age".publicKeys = recovery ++ users ++ systems;
   "sonarr-api.age".publicKeys = recovery ++ users ++ systems;
 
