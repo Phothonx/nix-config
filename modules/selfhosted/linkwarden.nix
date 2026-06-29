@@ -9,7 +9,7 @@
       enable = true; # 3001 (3000 is taken by adguard)
       port = 3001;
       host = "127.0.0.1";
-      enableRegistration = true;
+      # enableRegistration = true;
 
       database.createLocally = true;
 

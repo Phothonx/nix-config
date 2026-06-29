@@ -31,7 +31,7 @@
     age.secrets.jnms-wg.file = ../../../secrets/jnms-wg.age;
     networking.wg-quick.interfaces.jnms = {
       configFile = config.age.secrets.jnms-wg.path;
-      autostart = false;
+      autostart = true;
     };
 
     services.thermald.enable = true;
