@@ -9,9 +9,9 @@
     "showCapsule": true,
     "capsuleOpacity": 1,
     "capsuleColorKey": "none",
-    "widgetSpacing": 10,
-    "contentPadding": 10,
-    "fontScale": 1,
+    "widgetSpacing": 7,
+    "contentPadding": 7,
+    "fontScale": 1.01,
     "enableExclusionZoneInset": true,
     "backgroundOpacity": 0.93,
     "useSeparateOpacity": false,
@@ -170,6 +170,7 @@
         {
           "colorizeDistroLogo": false,
           "colorizeSystemIcon": "none",
+          "colorizeSystemText": "none",
           "customIconPath": "",
           "enableColorization": false,
           "icon": "noctalia",
@@ -199,11 +200,11 @@
     "iRadiusRatio": 1,
     "boxRadiusRatio": 1,
     "screenRadiusRatio": 1,
-    "animationSpeed": 1.05,
+    "animationSpeed": 1.07,
     "animationDisabled": false,
     "compactLockScreen": false,
     "lockScreenAnimations": true,
-    "lockOnSuspend": true,
+    "lockOnSuspend": false,
     "showSessionButtonsOnLockScreen": true,
     "showHibernateOnLockScreen": false,
     "enableLockScreenMediaControls": true,
@@ -258,7 +259,7 @@
     "fontFixed": "JetBrainsMono NF",
     "fontDefaultScale": 1,
     "fontFixedScale": 1,
-    "tooltipsEnabled": false,
+    "tooltipsEnabled": true,
     "scrollbarAlwaysVisible": false,
     "boxBorderEnabled": false,
     "panelBackgroundOpacity": 1,
@@ -268,16 +269,16 @@
     "settingsPanelSideBarCardStyle": false
   },
   "location": {
-    "name": "",
+    "name": "Paris",
     "weatherEnabled": false,
     "weatherShowEffects": true,
     "weatherTaliaMascotAlways": false,
     "useFahrenheit": false,
     "use12hourFormat": false,
-    "showWeekNumberInCalendar": false,
+    "showWeekNumberInCalendar": true,
     "showCalendarEvents": true,
     "showCalendarWeather": true,
-    "analogClockInCalendar": false,
+    "analogClockInCalendar": true,
     "firstDayOfWeek": 1,
     "hideWeatherTimezone": false,
     "hideWeatherCityName": false,
@@ -313,9 +314,9 @@
     "fillColor": "#000000",
     "useSolidColor": false,
     "solidColor": "#1a1a2e",
-    "automationEnabled": false,
+    "automationEnabled": true,
     "wallpaperChangeMode": "random",
-    "randomIntervalSec": 300,
+    "randomIntervalSec": 1800,
     "transitionDuration": 1500,
     "transitionType": [
       "fade",
@@ -457,7 +458,7 @@
     "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
   },
   "noctaliaPerformance": {
-    "disableWallpaper": true,
+    "disableWallpaper": false,
     "disableDesktopWidgets": true
   },
   "dock": {
@@ -667,7 +668,7 @@
   },
   "plugins": {
     "autoUpdate": false,
-    "notifyUpdates": true
+    "notifyUpdates": false
   },
   "idle": {
     "enabled": true,

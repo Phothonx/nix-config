@@ -1,4 +1,4 @@
-{
+{self, ...}: {
   flake.nixosModules.homepage = {config, ...}: {
     services.beszel = {
       hub = {
@@ -28,6 +28,14 @@
         * {
           font-family: 'Ubuntu', sans-serif !important;
         }
+
+        /* Solid, blur-free cards (no transparency = no GPU lag) */
+        .service-card,
+        .bookmark-card,
+        #information-widgets {
+          background-color: ${self.theme.base02} !important;
+          backdrop-filter: none !important;
+        }
       '';
 
       settings = {
@@ -38,7 +46,7 @@
         color = "emerald";
         language = "fr";
 
-        cardBlur = "xl";
+        cardBlur = "none";
         headerStyle = "boxed";
 
         hideVersion = true;
@@ -50,23 +58,19 @@
             style = "row";
             columns = 2;
           };
-          Documents = {
-            style = "row";
-          };
-          Download = {
+          Outils = {
             style = "row";
             columns = 2;
-            Torrent = {
-              style = "column";
-              header = false;
-            };
-            Management = {
-              style = "column";
-              header = false;
-            };
+          };
+          Apps = {
+            style = "row";
+            columns = 6;
+            iconsOnly = true;
           };
           Infra = {
-            style = "column";
+            style = "row";
+            columns = 5;
+            iconsOnly = true;
           };
         };
       };
@@ -126,116 +130,23 @@
         }
 
         {
-          Documents = [
+          Outils = [
             {
-              Paperless = {
-                icon = "paperless-ngx.png";
-                href = "https://paperless.camlann.local";
-                description = "Documents";
+              QbitTorrent = {
+                icon = "qbittorrent.png";
+                href = "https://qbit.camlann.local";
+                description = "Téléchargements";
 
                 widget = {
-                  type = "paperlessngx";
-                  url = "http://localhost:28981";
-                  key = "{{HOMEPAGE_VAR_PAPERLESS_API_KEY}}";
+                  type = "qbittorrent";
+                  url = "http://localhost:8080";
+                  username = "{{HOMEPAGE_VAR_QBIT_USERNAME}}";
+                  password = "{{HOMEPAGE_VAR_QBIT_PASSWORD}}";
+                  enableLeechProgress = true;
+                  enableLeechSize = true;
                 };
               };
             }
-          ];
-        }
-
-        {
-          Download = [
-            {
-              Torrent = [
-                {
-                  QbitTorrent = {
-                    icon = "qbittorrent.png";
-                    href = "https://qbit.camlann.local";
-                    description = "Téléchargements";
-
-                    widget = {
-                      type = "qbittorrent";
-                      url = "http://localhost:8080";
-                      username = "{{HOMEPAGE_VAR_QBIT_USERNAME}}";
-                      password = "{{HOMEPAGE_VAR_QBIT_PASSWORD}}";
-                      enableLeechProgress = true;
-                      enableLeechSize = true;
-                    };
-                  };
-                }
-                {
-                  Prowlarr = {
-                    icon = "prowlarr.png";
-                    href = "https://prowlarr.camlann.local";
-
-                    widget = {
-                      type = "prowlarr";
-                      url = "http://localhost:9696";
-                      key = "{{HOMEPAGE_VAR_PROWLARR_API_KEY}}";
-                    };
-                  };
-                }
-              ];
-            }
-            {
-              Management = [
-                {
-                  Sonarr = {
-                    icon = "sonarr.png";
-                    href = "https://sonarr.camlann.local";
-
-                    widget = {
-                      type = "sonarr";
-                      url = "http://localhost:8989";
-                      key = "{{HOMEPAGE_VAR_SONARR_API_KEY}}";
-                      enableQueue = true;
-                    };
-                  };
-                }
-                {
-                  Radarr = {
-                    icon = "radarr.png";
-                    href = "https://radarr.camlann.local";
-
-                    widget = {
-                      type = "radarr";
-                      url = "http://localhost:7878";
-                      key = "{{HOMEPAGE_VAR_RADARR_API_KEY}}";
-                      enableQueue = true;
-                    };
-                  };
-                }
-                {
-                  Lidarr = {
-                    icon = "lidarr.png";
-                    href = "https://lidarr.camlann.local";
-
-                    widget = {
-                      type = "lidarr";
-                      url = "http://localhost:8686";
-                      key = "{{HOMEPAGE_VAR_LIDARR_API_KEY}}";
-                    };
-                  };
-                }
-                {
-                  Bazarr = {
-                    icon = "bazarr.png";
-                    href = "https://bazarr.camlann.local";
-
-                    widget = {
-                      type = "bazarr";
-                      url = "http://localhost:6767";
-                      key = "{{HOMEPAGE_VAR_BAZARR_API_KEY}}";
-                    };
-                  };
-                }
-              ];
-            }
-          ];
-        }
-
-        {
-          Infra = [
             {
               AdGuard = {
                 icon = "adguard-home.png";
@@ -250,39 +161,80 @@
                 };
               };
             }
+          ];
+        }
+
+        {
+          Apps = [
             {
-              Beszel = {
-                icon = "beszel.png";
-                href = "https://beszel.camlann.local/system/fp9cvcdovzxylnm";
-                description = "Monitoring";
+              Paperless = {
+                icon = "paperless-ngx.png";
+                href = "https://paperless.camlann.local";
               };
             }
+            {
+              Prowlarr = {
+                icon = "prowlarr.png";
+                href = "https://prowlarr.camlann.local";
+              };
+            }
+            {
+              Sonarr = {
+                icon = "sonarr.png";
+                href = "https://sonarr.camlann.local";
+              };
+            }
+            {
+              Radarr = {
+                icon = "radarr.png";
+                href = "https://radarr.camlann.local";
+              };
+            }
+            {
+              Lidarr = {
+                icon = "lidarr.png";
+                href = "https://lidarr.camlann.local";
+              };
+            }
+            {
+              Bazarr = {
+                icon = "bazarr.png";
+                href = "https://bazarr.camlann.local";
+              };
+            }
+          ];
+        }
+
+        {
+          Infra = [
             {
               Gitea = {
                 icon = "gitea.png";
                 href = "https://git.camlann.local";
-                description = "Git";
               };
             }
             {
               Vaultwarden = {
                 icon = "vaultwarden.png";
                 href = "https://vault.camlann.local";
-                description = "Mots de passe";
+              };
+            }
+            {
+              Beszel = {
+                icon = "beszel.png";
+                href = "https://beszel.camlann.local/system/fp9cvcdovzxylnm";
               };
             }
             {
               Freebox = {
                 icon = "router.png";
                 href = "https://mafreebox.freebox.fr";
-                description = "Routeur";
               };
             }
             {
               Homepage = {
                 icon = "homepage.png";
                 href = "https://homepage.camlann.local";
-                description = "Dashboard";
               };
             }
           ];
