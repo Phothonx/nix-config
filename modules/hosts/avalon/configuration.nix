@@ -28,7 +28,7 @@
       self.nixosModules.nico
     ];
 
-    age.secrets.jnms-wg.file = ../../../secrets/jnms-wg.age;
+    age.secrets.jnms-wg.file = ../../../secrets/net/jnms-wg.age;
     networking.wg-quick.interfaces.jnms = {
       configFile = config.age.secrets.jnms-wg.path;
       autostart = true;

@@ -8,20 +8,19 @@ let
   camlann = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKq4pjy32/r1X80XEx5GHpdqcAeCNXpvyoLz90OI+bsM";
   systems = [avalon camlann];
 in {
-  "github_config.age".publicKeys = recovery ++ users ++ systems;
-  "thor_config.age".publicKeys = recovery ++ users ++ systems;
-  "ssh_config.age".publicKeys = recovery ++ users ++ systems;
+  "user/psswd_nico.age".publicKeys = recovery ++ users ++ systems;
+  "user/github_config.age".publicKeys = recovery ++ users ++ systems;
+  "user/thor_config.age".publicKeys = recovery ++ users ++ systems;
+  "user/ssh_config.age".publicKeys = recovery ++ users ++ systems;
+  "user/id_ed25519_enseirb.age".publicKeys = recovery ++ users ++ systems;
+  "user/id_ed25519_thor.age".publicKeys = recovery ++ users ++ systems;
+  "user/id_ed25519_github.age".publicKeys = recovery ++ users ++ systems;
 
-  "id_ed25519_enseirb.age".publicKeys = recovery ++ users ++ systems;
-  "id_ed25519_thor.age".publicKeys = recovery ++ users ++ systems;
-  "id_ed25519_github.age".publicKeys = recovery ++ users ++ systems;
+  "selfhosted/selfhosted_credentials.age".publicKeys = recovery ++ users ++ systems;
+  "selfhosted/vaultwarden-env.age".publicKeys = recovery ++ users ++ systems;
+  "selfhosted/radarr-api.age".publicKeys = recovery ++ users ++ systems;
+  "selfhosted/sonarr-api.age".publicKeys = recovery ++ users ++ systems;
 
-  "psswd_nico.age".publicKeys = recovery ++ users ++ systems;
-  "selfhosted_credentials.age".publicKeys = recovery ++ users ++ systems;
-  "vaultwarden-env.age".publicKeys = recovery ++ users ++ systems;
-  "radarr-api.age".publicKeys = recovery ++ users ++ systems;
-  "sonarr-api.age".publicKeys = recovery ++ users ++ systems;
-
-  "protonvpn-wg.age".publicKeys = recovery ++ users ++ systems;
-  "jnms-wg.age".publicKeys = recovery ++ users ++ systems;
+  "net/protonvpn-wg.age".publicKeys = recovery ++ users ++ systems;
+  "net/jnms-wg.age".publicKeys = recovery ++ users ++ systems;
 }

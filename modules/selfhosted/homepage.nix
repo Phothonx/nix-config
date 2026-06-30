@@ -15,7 +15,7 @@
     };
 
     age.secrets.selfhosted_credentials = {
-      file = ../../secrets/selfhosted_credentials.age;
+      file = ../../secrets/selfhosted/selfhosted_credentials.age;
       owner = "homepage";
     };
 
@@ -43,7 +43,7 @@
         background = "http://homepage.camlann.local/leaves.png";
 
         theme = "dark";
-        color = "emerald";
+        color = "white";
         language = "fr";
 
         cardBlur = "none";

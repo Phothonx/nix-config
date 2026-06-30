@@ -1,6 +1,6 @@
 {
   flake.nixosModules.vaultwarden = {config, ...}: {
-    age.secrets.vaultwarden-env.file = ../../secrets/vaultwarden-env.age;
+    age.secrets.vaultwarden-env.file = ../../secrets/selfhosted/vaultwarden-env.age;
 
     services.vaultwarden = {
       enable = true; # 8222

@@ -43,8 +43,8 @@
       dataDir = "/data/starr/prowlarr";
     };
 
-    age.secrets.radarr-api.file = ../../secrets/radarr-api.age;
-    age.secrets.sonarr-api.file = ../../secrets/sonarr-api.age;
+    age.secrets.radarr-api.file = ../../secrets/selfhosted/radarr-api.age;
+    age.secrets.sonarr-api.file = ../../secrets/selfhosted/sonarr-api.age;
 
     services.recyclarr = {
       enable = true;

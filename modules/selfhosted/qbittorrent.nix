@@ -19,7 +19,7 @@
       profileDir = "/data/qBittorrent/";
     };
 
-    age.secrets.protonvpn-wg.file = ../../secrets/protonvpn-wg.age;
+    age.secrets.protonvpn-wg.file = ../../secrets/net/protonvpn-wg.age;
     networking.wg-quick.interfaces.qbproton.configFile = config.age.secrets.protonvpn-wg.path;
 
     environment.systemPackages = with pkgs; [
