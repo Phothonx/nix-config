@@ -16,9 +16,7 @@
           HTTP_PORT = 3001;
         };
         service = {
-          # the first registered user becomes the instance admin.
-          # flip to true once you've created your account, then nh os switch again.
-          DISABLE_REGISTRATION = false;
+          DISABLE_REGISTRATION = true;
           REQUIRE_SIGNIN_VIEW = true; # LAN-only, keep repos private
         };
       };
