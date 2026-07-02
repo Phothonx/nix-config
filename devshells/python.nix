@@ -9,7 +9,8 @@
             scipy
             matplotlib
             # jupyter
-            # pandas
+            pandas
+            requests
           ]))
       ];
     };

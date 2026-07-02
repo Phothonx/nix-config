@@ -18,7 +18,9 @@
         # CLI Tools
         self'.packages.yazi
         jq
+        lazysql
         ffmpeg-full
+        visidata
         zoxide
         fd
         eza

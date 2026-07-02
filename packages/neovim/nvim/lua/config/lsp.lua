@@ -50,6 +50,7 @@ vim.lsp.config(
 
 vim.lsp.enable({
   'basedpyright',
+  'ruff',
   'luals',
   'nixd',
   'ccls',

@@ -53,6 +53,7 @@
         ccls
         lua-language-server
         basedpyright
+        ruff
         texlab
         ocamlPackages.ocaml-lsp
         nixd
