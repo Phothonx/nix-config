@@ -36,6 +36,8 @@
       # steamtinkerlaunch
 
       steam-run
+      wineWow64Packages.stable
+      winetricks
       # dxvk
       # parsec-bin
 

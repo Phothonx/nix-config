@@ -16,7 +16,7 @@
         claude-code
 
         # CLI Tools
-        yazi
+        self'.packages.yazi
         jq
         ffmpeg-full
         zoxide

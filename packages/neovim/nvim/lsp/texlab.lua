@@ -127,9 +127,14 @@ return {
     rootDirectory = nil,
       build = {
         executable = 'latexmk',
-        args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+        -- keep the source dir clean: aux, log, pdf and synctex all land in build/
+        args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '-outdir=build', '%f' },
         onSave = true,
         forwardSearchAfter = true,
+        -- tell texlab where latexmk puts things (for forward search + diagnostics + clean)
+        auxDirectory = 'build',
+        logDirectory = 'build',
+        pdfDirectory = 'build',
       },
       forwardSearch = {
         executable = 'zathura',
