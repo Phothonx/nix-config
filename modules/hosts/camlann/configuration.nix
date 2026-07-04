@@ -38,6 +38,7 @@
       self.nixosModules.starr
       self.nixosModules.gitea
       self.nixosModules.vaultwarden
+      self.nixosModules.meglingbot
     ];
 
     environment.systemPackages = with pkgs; [
