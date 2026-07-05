@@ -166,11 +166,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783154426,
-        "narHash": "sha256-LiPg7VKoKCddlZwO96yRJnttsRCSx+pRHNW/ocrM3eU=",
+        "lastModified": 1783251246,
+        "narHash": "sha256-Dpca/wRRP4pmM+Nd1DhE5HlwdBw0mVAo6mpvf89OlBg=",
         "owner": "Phothonx",
         "repo": "MeglingBot",
-        "rev": "d9c91439558a3021a231b3f979fd3966b1ca1f84",
+        "rev": "abf32985b023357c18f79daf471b0c0ffb5015bb",
         "type": "github"
       },
       "original": {
