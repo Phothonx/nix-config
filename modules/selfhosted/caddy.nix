@@ -8,10 +8,6 @@
         tls internal
         reverse_proxy localhost:2283
       '';
-      virtualHosts."seafile.camlann.local".extraConfig = ''
-        tls internal
-        reverse_proxy localhost:8083
-      '';
       virtualHosts."beszel.camlann.local".extraConfig = ''
         tls internal
         reverse_proxy localhost:8090

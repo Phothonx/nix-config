@@ -21,7 +21,6 @@ in {
   "selfhosted/radarr-api.age".publicKeys = recovery ++ users ++ systems;
   "selfhosted/sonarr-api.age".publicKeys = recovery ++ users ++ systems;
   "selfhosted/meglingbot-env.age".publicKeys = recovery ++ users ++ systems;
-  "selfhosted/seafile-env.age".publicKeys = recovery ++ users ++ systems;
 
   "net/protonvpn-wg.age".publicKeys = recovery ++ users ++ systems;
   "net/jnms-wg.age".publicKeys = recovery ++ users ++ systems;

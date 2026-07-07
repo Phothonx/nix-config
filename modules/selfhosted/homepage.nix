@@ -167,12 +167,6 @@
         {
           Apps = [
             {
-              Seafile = {
-                icon = "seafile.png";
-                href = "https://seafile.camlann.local";
-              };
-            }
-            {
               Prowlarr = {
                 icon = "prowlarr.png";
                 href = "https://prowlarr.camlann.local";

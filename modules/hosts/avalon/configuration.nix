@@ -26,6 +26,9 @@
       self.nixosModules.apps
 
       self.nixosModules.nico
+
+      self.nixosModules.syncthing
+      self.nixosModules.vault
     ];
 
     age.secrets.jnms-wg.file = ../../../secrets/net/jnms-wg.age;

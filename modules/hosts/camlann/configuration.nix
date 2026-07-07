@@ -29,7 +29,8 @@
 
       self.nixosModules.openssh
       self.nixosModules.immich
-      self.nixosModules.seafile
+      self.nixosModules.syncthing
+      self.nixosModules.vault
       self.nixosModules.homepage
       self.nixosModules.caddy
       self.nixosModules.adguard

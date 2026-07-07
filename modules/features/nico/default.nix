@@ -42,8 +42,6 @@
 
     persist.user.name = "nico";
     persist.user.directories = [
-      "wiki"
-
       ".cache/fish"
 
       ".local/share/zoxide"
