@@ -167,9 +167,9 @@
         {
           Apps = [
             {
-              Paperless = {
-                icon = "paperless-ngx.png";
-                href = "https://paperless.camlann.local";
+              Seafile = {
+                icon = "seafile.png";
+                href = "https://seafile.camlann.local";
               };
             }
             {

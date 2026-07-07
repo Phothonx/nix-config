@@ -29,7 +29,7 @@
 
       self.nixosModules.openssh
       self.nixosModules.immich
-      self.nixosModules.paperless
+      self.nixosModules.seafile
       self.nixosModules.homepage
       self.nixosModules.caddy
       self.nixosModules.adguard

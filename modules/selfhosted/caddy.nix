@@ -8,9 +8,9 @@
         tls internal
         reverse_proxy localhost:2283
       '';
-      virtualHosts."paperless.camlann.local".extraConfig = ''
+      virtualHosts."seafile.camlann.local".extraConfig = ''
         tls internal
-        reverse_proxy localhost:28981
+        reverse_proxy localhost:8083
       '';
       virtualHosts."beszel.camlann.local".extraConfig = ''
         tls internal
