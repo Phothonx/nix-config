@@ -232,7 +232,7 @@ lockPref("browser.startup.page", 3);
 lockPref("browser.newtabpage.enabled", false);
 lockPref("browser.translations.enabled", false);
 
-// lockPerf("browser.toolbars.bookmarks.visibility", "never");
+lockPref("browser.toolbars.bookmarks.visibility", "always");
 
 lockPref("browser.urlbar.placeholderName", "");
 

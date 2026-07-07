@@ -29,7 +29,7 @@
 
       runtimePkgs = with pkgs; [
         # PACKAGES
-        claude-code # CLI spawned by claudecode.nvim
+        claude-code
         gcc
         tree-sitter
         cmake
