@@ -6,33 +6,28 @@
 #
 # This is independent of the `vault` feature: the gocryptfs vault simply lives
 # inside Documents, so it rides along on this sync like any other file.
+#
+# Devices and folders are managed in the WEB UI, not here — on purpose. This
+# repo is public, and a Syncthing device ID lets anyone look up the device's
+# current IP via global discovery, so we keep IDs out of the tree. The IDs and
+# folder-sharing live only in the persisted, private runtime config
+# (~/.config/syncthing). `overrideDevices`/`overrideFolders` are therefore set
+# to false: their default (true) would make a rebuild DELETE anything you
+# paired in the GUI.
+#
+# One-time setup in the GUI (avalon: http://127.0.0.1:8384 ; camlann is
+# headless — reach it with `ssh -L 8384:localhost:8384 camlann`):
+#   1. On each device, Actions -> Show ID, and Add Remote Device on the others.
+#   2. Add these folders (Add Folder), then share each with your devices:
+#        Documents (~/Documents)  <- holds vault.enc, the encrypted vault
+#        Pictures  (~/Pictures)
+#        Music     (~/Music)
+#        Videos    (~/Videos)
+#        Desktop   (~/Desktop)
 {
-  flake.nixosModules.syncthing = {lib, ...}: let
+  flake.nixosModules.syncthing = {...}: let
     user = "nico";
     home = "/home/${user}";
-
-    # Home subdirectories to sync/back up; each becomes its own Syncthing folder
-    # shared with every device below. Kept to real personal data on purpose —
-    # syncing dotfiles/caches/Steam/Games across machines is more grief than
-    # it's worth. Add/remove a line to change what's backed up.
-    syncedDirs = [
-      "Documents" # holds vault.enc — the encrypted vault rides along here
-      "Pictures"
-      "Music"
-      "Videos"
-      "Desktop"
-    ];
-
-    # Fill in each device's Syncthing ID, then rebuild. Get it from the web UI
-    # (Actions -> Show ID) or, on a NixOS peer:
-    #   sudo -u nico syncthing --home ${home}/.config/syncthing device-id
-    # Every folder above is shared with every device listed here.
-    devices = {
-      # avalon.id  = "XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX";
-      # camlann.id = "YYYYYYY-YYYYYYY-YYYYYYY-YYYYYYY-YYYYYYY-YYYYYYY-YYYYYYY-YYYYYYY";
-      # windows.id = "ZZZZZZZ-ZZZZZZZ-ZZZZZZZ-ZZZZZZZ-ZZZZZZZ-ZZZZZZZ-ZZZZZZZ-ZZZZZZZ";
-      # phone.id   = "WWWWWWW-WWWWWWW-WWWWWWW-WWWWWWW-WWWWWWW-WWWWWWW-WWWWWWW-WWWWWWW";
-    };
   in {
     services.syncthing = {
       enable = true;
@@ -42,22 +37,9 @@
       configDir = "${home}/.config/syncthing";
       openDefaultPorts = true; # 22000/tcp+udp (sync), 21027/udp (discovery)
 
-      # Fully declarative: config lives here, GUI edits are reverted on rebuild.
-      overrideDevices = true;
-      overrideFolders = true;
-
-      settings = {
-        inherit devices;
-        folders = lib.listToAttrs (map (d:
-          lib.nameValuePair d {
-            id = d;
-            label = d;
-            path = "${home}/${d}";
-            type = "sendreceive";
-            devices = builtins.attrNames devices;
-          })
-        syncedDirs);
-      };
+      # GUI-managed devices/folders (see header): do NOT let a rebuild wipe them.
+      overrideDevices = false;
+      overrideFolders = false;
     };
 
     # The synced dirs (Documents, Pictures, …) are already persisted by the
