@@ -28,6 +28,10 @@
         tls internal
         reverse_proxy localhost:8096
       '';
+      virtualHosts."navidrome.camlann.local".extraConfig = ''
+        tls internal
+        reverse_proxy localhost:4533
+      '';
       virtualHosts."qbit.camlann.local".extraConfig = ''
         tls internal
         reverse_proxy localhost:8080

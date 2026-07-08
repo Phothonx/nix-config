@@ -126,6 +126,13 @@
                 };
               };
             }
+            {
+              Navidrome = {
+                icon = "navidrome.png";
+                href = "https://navidrome.camlann.local";
+                description = "Musique";
+              };
+            }
           ];
         }
 

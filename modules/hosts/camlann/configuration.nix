@@ -34,6 +34,7 @@
       self.nixosModules.caddy
       self.nixosModules.adguard
       self.nixosModules.jellyfin
+      self.nixosModules.navidrome
       self.nixosModules.qbittorrent
       self.nixosModules.starr
       self.nixosModules.gitea
