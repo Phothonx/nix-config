@@ -5,7 +5,6 @@
 }: {
   flake.nixosModules.camlannConfiguration = {
     pkgs,
-    config,
     ...
   }: {
     imports = [

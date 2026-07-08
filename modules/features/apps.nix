@@ -13,6 +13,7 @@
       vesktop
       wl-clipboard
       via
+      libreoffice
     ];
 
     persist.user.directories = [

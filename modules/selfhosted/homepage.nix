@@ -214,6 +214,12 @@
               };
             }
             {
+              Syncthing = {
+                icon = "syncthing.png";
+                href = "https://sync.camlann.local";
+              };
+            }
+            {
               Beszel = {
                 icon = "beszel.png";
                 href = "https://beszel.camlann.local/system/fp9cvcdovzxylnm";

@@ -60,6 +60,15 @@
         tls internal
         reverse_proxy localhost:8222
       '';
+      virtualHosts."sync.camlann.local".extraConfig = ''
+        tls internal
+        # Syncthing's GUI rejects a proxied Host header ("Host check error"),
+        # so rewrite it to localhost. Set a GUI user/password in the web UI —
+        # caddy makes this reachable to the whole LAN.
+        reverse_proxy localhost:8384 {
+          header_up Host localhost:8384
+        }
+      '';
     };
 
     persist.directories = [

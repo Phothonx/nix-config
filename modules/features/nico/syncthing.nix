@@ -15,8 +15,14 @@
 # to false: their default (true) would make a rebuild DELETE anything you
 # paired in the GUI.
 #
-# One-time setup in the GUI (avalon: http://127.0.0.1:8384 ; camlann is
-# headless — reach it with `ssh -L 8384:localhost:8384 camlann`):
+# GUI login is declarative: the `syncthing-gui-pw` agenix secret holds the
+# plaintext password (username `nico`), which the module bcrypt-hashes on
+# activation — nothing sensitive lands in this public repo. camlann exposes the
+# dashboard via caddy at https://sync.camlann.local; avalon's stays on
+# http://127.0.0.1:8384 but carries the same login.
+#
+# One-time setup in the GUI (camlann is headless — reach it at
+# https://sync.camlann.local or via `ssh -L 8385:localhost:8384 camlann`):
 #   1. On each device, Actions -> Show ID, and Add Remote Device on the others.
 #   2. Add these folders (Add Folder), then share each with your devices:
 #        Documents (~/Documents)  <- holds vault.enc, the encrypted vault
@@ -25,10 +31,15 @@
 #        Videos    (~/Videos)
 #        Desktop   (~/Desktop)
 {
-  flake.nixosModules.syncthing = {...}: let
+  flake.nixosModules.syncthing = {config, ...}: let
     user = "nico";
     home = "/home/${user}";
   in {
+    age.secrets.syncthing-gui-pw = {
+      file = ../../../secrets/selfhosted/syncthing-gui-pw.age;
+      owner = user;
+    };
+
     services.syncthing = {
       enable = true;
       inherit user;
@@ -36,6 +47,10 @@
       dataDir = "${home}/.local/share/syncthing";
       configDir = "${home}/.config/syncthing";
       openDefaultPorts = true; # 22000/tcp+udp (sync), 21027/udp (discovery)
+
+      # GUI login (see header). Password comes from the secret; username here.
+      guiPasswordFile = config.age.secrets.syncthing-gui-pw.path;
+      settings.gui.user = user;
 
       # GUI-managed devices/folders (see header): do NOT let a rebuild wipe them.
       overrideDevices = false;
