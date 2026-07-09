@@ -24,6 +24,7 @@
       self.nixosModules.obs
       self.nixosModules.udev
       self.nixosModules.apps
+      self.nixosModules.printing
 
       self.nixosModules.nico
 
