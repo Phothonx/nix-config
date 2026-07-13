@@ -14,13 +14,10 @@
 # (Lidarr). Synced lyrics: served if embedded or present as .lrc sidecars.
 {
   flake.nixosModules.navidrome = {config, ...}: {
-    age.secrets.navidrome-env.file = ../../secrets/selfhosted/navidrome-env.age;
-
     services.navidrome = {
       enable = true; # 4533
       user = "navidrome";
       group = "media"; # read access to /data/media/music (lidarr:media)
-      environmentFile = config.age.secrets.navidrome-env.path;
 
       settings = {
         MusicFolder = "/data/media/music";
