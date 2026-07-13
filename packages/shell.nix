@@ -56,7 +56,7 @@
         lame
 
         # Secu
-        vulnix
+        # vulnix
         lynis
         veracrypt
         kryptor

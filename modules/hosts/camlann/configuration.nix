@@ -3,10 +3,7 @@
   self,
   ...
 }: {
-  flake.nixosModules.camlannConfiguration = {
-    pkgs,
-    ...
-  }: {
+  flake.nixosModules.camlannConfiguration = {pkgs, ...}: {
     imports = [
       self.nixosModules.camlannHardware
 
