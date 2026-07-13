@@ -5,6 +5,7 @@
       vlc
       loupe
       imv
+      audacity
       # bitwarden-desktop
       spotify
       localsend

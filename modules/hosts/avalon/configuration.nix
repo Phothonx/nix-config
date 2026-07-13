@@ -28,6 +28,7 @@
 
       self.nixosModules.nico
 
+      self.nixosModules.harden
       self.nixosModules.syncthing
       self.nixosModules.vault
     ];

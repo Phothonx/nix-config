@@ -53,15 +53,17 @@
         net-tools
         caligula
         usbutils
+        lame
 
         # Secu
-        # vulnix
-        # lynis
-        # veracrypt
+        vulnix
+        lynis
+        veracrypt
         kryptor
         nmap
         netcat-gnu
         gobuster
+        gocryptfs
 
         # Quality of life
         catimg

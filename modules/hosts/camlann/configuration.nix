@@ -26,6 +26,7 @@
 
       self.nixosModules.nico
 
+      self.nixosModules.harden
       self.nixosModules.openssh
       self.nixosModules.immich
       self.nixosModules.syncthing
