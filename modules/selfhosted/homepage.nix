@@ -192,12 +192,6 @@
               };
             }
             {
-              Lidarr = {
-                icon = "lidarr.png";
-                href = "https://lidarr.camlann.local";
-              };
-            }
-            {
               Bazarr = {
                 icon = "bazarr.png";
                 href = "https://bazarr.camlann.local";

@@ -65,6 +65,14 @@
         group = "users";
         mode = "0600";
       };
+
+      id_ed25519_codeberg = {
+        file = ../../../secrets/user/id_ed25519_codeberg.age;
+        path = "/home/nico/.ssh/id_ed25519_codeberg";
+        owner = "nico";
+        group = "users";
+        mode = "0600";
+      };
     };
   };
 }

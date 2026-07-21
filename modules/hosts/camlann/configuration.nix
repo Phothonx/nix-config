@@ -35,6 +35,7 @@
       self.nixosModules.navidrome
       self.nixosModules.qbittorrent
       self.nixosModules.starr
+      self.nixosModules.beets
       self.nixosModules.gitea
       self.nixosModules.vaultwarden
       self.nixosModules.meglingbot

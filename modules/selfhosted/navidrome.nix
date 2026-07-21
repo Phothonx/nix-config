@@ -1,5 +1,5 @@
 # Navidrome — specialised music streaming server (Subsonic-compatible).
-# Complements Jellyfin (kept for video); reads the same library Lidarr fills at
+# Complements Jellyfin (kept for video); reads the library beets fills at
 # /data/media/music. Runs as navidrome:media so it can read that group-owned
 # tree; the module binds the music folder read-only into its sandbox.
 #
@@ -11,13 +11,13 @@
 #   ND_LASTFM_SECRET=...    #   (last.fm/api/account/create)
 # Listening history stays private via ListenBrainz (per-user token in the web
 # UI) — that's separate from these read-only lookups. Album/cover art is local
-# (Lidarr). Synced lyrics: served if embedded or present as .lrc sidecars.
+# (beets). Synced lyrics: beets embeds LRCLIB lyrics at import time.
 {
   flake.nixosModules.navidrome = {config, ...}: {
     services.navidrome = {
       enable = true; # 4533
       user = "navidrome";
-      group = "media"; # read access to /data/media/music (lidarr:media)
+      group = "media"; # read access to /data/media/music (nico:media)
 
       settings = {
         MusicFolder = "/data/media/music";

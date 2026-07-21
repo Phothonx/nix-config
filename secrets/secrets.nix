@@ -15,6 +15,7 @@ in {
   "user/id_ed25519_enseirb.age".publicKeys = recovery ++ users ++ systems;
   "user/id_ed25519_thor.age".publicKeys = recovery ++ users ++ systems;
   "user/id_ed25519_github.age".publicKeys = recovery ++ users ++ systems;
+  "user/id_ed25519_codeberg.age".publicKeys = recovery ++ users ++ systems;
 
   "selfhosted/selfhosted_credentials.age".publicKeys = recovery ++ users ++ systems;
   "selfhosted/vaultwarden-env.age".publicKeys = recovery ++ users ++ systems;

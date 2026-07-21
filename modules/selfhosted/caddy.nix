@@ -44,10 +44,6 @@
         tls internal
         reverse_proxy localhost:8989
       '';
-      virtualHosts."lidarr.camlann.local".extraConfig = ''
-        tls internal
-        reverse_proxy localhost:8686
-      '';
       virtualHosts."bazarr.camlann.local".extraConfig = ''
         tls internal
         reverse_proxy localhost:6767
