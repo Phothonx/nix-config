@@ -15,6 +15,11 @@
       wl-clipboard
       via
       libreoffice
+      # freecad
+      # mission-planner
+      # kdePackages.kdenlive
+      # phoronix-test-suite
+      # blender
     ];
 
     persist.user.directories = [

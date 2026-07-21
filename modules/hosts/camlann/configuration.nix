@@ -41,12 +41,6 @@
       self.nixosModules.meglingbot
     ];
 
-    environment.systemPackages = with pkgs; [
-      mission-planner
-      # kdePackages.kdenlive
-      phoronix-test-suite
-    ];
-
     users.users.nico.openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/j7aoPG6YiK6UInYCir/+L3h73O2V36M4M6PdsdREX"
     ];
