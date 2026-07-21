@@ -33,6 +33,11 @@
         path = "/home/nico/.config/git/thor_config";
         mode = "0644";
       };
+      codeberg_config = {
+        file = ../../../secrets/user/codeberg_config.age;
+        path = "/home/nico/.config/git/codeberg_config";
+        mode = "0644";
+      };
 
       ssh_config = {
         file = ../../../secrets/user/ssh_config.age;

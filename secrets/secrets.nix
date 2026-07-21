@@ -11,6 +11,7 @@ in {
   "user/psswd_nico.age".publicKeys = recovery ++ users ++ systems;
   "user/github_config.age".publicKeys = recovery ++ users ++ systems;
   "user/thor_config.age".publicKeys = recovery ++ users ++ systems;
+  "user/codeberg_config.age".publicKeys = recovery ++ users ++ systems;
   "user/ssh_config.age".publicKeys = recovery ++ users ++ systems;
   "user/id_ed25519_enseirb.age".publicKeys = recovery ++ users ++ systems;
   "user/id_ed25519_thor.age".publicKeys = recovery ++ users ++ systems;

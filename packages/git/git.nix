@@ -44,6 +44,9 @@
 
       [includeIf "hasconfig:remote.*.url:ssh://git@thor.enseirb-matmeca.fr:2222/**"]
         path = ~/.config/git/thor_config
+
+      [includeIf "hasconfig:remote.*.url:git@codeberg.org:*/**"]
+        path = ~/.config/git/codeberg_config
     '';
   in {
     packages.git = inputs.wrappers.wrappers.git.wrap {
