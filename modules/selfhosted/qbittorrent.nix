@@ -25,7 +25,7 @@
     environment.systemPackages = with pkgs; [
       libnatpmp
       tcpdump
-      iptables
+      nftables
       gnugrep
       gawk
     ];
@@ -43,17 +43,26 @@
         RestartSec = 5;
       };
 
+      # Manages its own nftables table (rather than poking the host firewall's
+      # chain, e.g. the legacy iptables "nixos-fw" chain that doesn't exist
+      # once networking.nftables.enable = true switches the backend). Priority
+      # -10 runs before the default filter hook (0), so this table's accept
+      # wins regardless of the main firewall ruleset's own rules/backend.
       script = ''
         set -euo pipefail
         GATEWAY="10.2.0.1"
         IFACE="qbproton"
+        FAMILY="inet"
+        TABLE="qbproton_portforward"
         current_port=""
 
+        NFT="${pkgs.nftables}/bin/nft"
+
+        "$NFT" "add table $FAMILY $TABLE"
+        "$NFT" "add chain $FAMILY $TABLE input { type filter hook input priority -10 ; }"
+
         cleanup() {
-          if [[ -n "$current_port" ]]; then
-            ${pkgs.iptables}/bin/iptables -D nixos-fw -i "$IFACE" -p tcp --dport "$current_port" -j ACCEPT || true
-            ${pkgs.iptables}/bin/iptables -D nixos-fw -i "$IFACE" -p udp --dport "$current_port" -j ACCEPT || true
-          fi
+          "$NFT" "delete table $FAMILY $TABLE" || true
         }
         trap cleanup EXIT
 
@@ -77,12 +86,9 @@
 
           if [[ "$new_port" != "$current_port" ]]; then
             echo "[+] New forwarded port: $new_port"
-            if [[ -n "$current_port" ]]; then
-              ${pkgs.iptables}/bin/iptables -D nixos-fw -i "$IFACE" -p tcp --dport "$current_port" -j ACCEPT || true
-              ${pkgs.iptables}/bin/iptables -D nixos-fw -i "$IFACE" -p udp --dport "$current_port" -j ACCEPT || true
-            fi
-            ${pkgs.iptables}/bin/iptables -I nixos-fw 1 -i "$IFACE" -p tcp --dport "$new_port" -j ACCEPT
-            ${pkgs.iptables}/bin/iptables -I nixos-fw 1 -i "$IFACE" -p udp --dport "$new_port" -j ACCEPT
+            "$NFT" "flush chain $FAMILY $TABLE input"
+            "$NFT" "add rule $FAMILY $TABLE input iifname $IFACE tcp dport $new_port accept"
+            "$NFT" "add rule $FAMILY $TABLE input iifname $IFACE udp dport $new_port accept"
             current_port="$new_port"
           fi
 
