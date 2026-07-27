@@ -20,7 +20,13 @@
         write: yes
         log: /data/beets/import.log
 
-      plugins: fetchart embedart lyrics permissions
+      plugins: fetchart embedart lyrics permissions musicbrainz discogs replaygain scrub ftintitle duplicates missing badfiles lastgenre
+
+      musicbrainz:
+          data_source_mismatch_penalty: 0.5
+
+      discogs:
+          data_source_mismatch_penalty: 0.0
 
       lyrics:
         synced: yes
@@ -31,6 +37,28 @@
       embedart:
         auto: yes
 
+      # ReplayGain tags on import, so Navidrome's ReplayGain playback setting
+      # can normalize volume across the library.
+      replaygain:
+        backend: ffmpeg
+        auto: yes
+
+      # Genre tags from Last.fm's tag data, so Navidrome's Genre browse view
+      # is populated. One lookup per album (not per track) to keep the
+      # exposure to Last.fm minimal — this is a one-off metadata query, not
+      # scrobbling/listening-history reporting.
+      lastgenre:
+        auto: yes
+        source: album
+        count: 1
+
+      # Corrupted-file check, run on demand with `beet bad` (not on import, to
+      # keep imports fast).
+      badfiles:
+        commands:
+          mp3: ${pkgs.mp3val}/bin/mp3val
+          flac: ${pkgs.flac}/bin/flac --test --warnings-as-errors
+
       # Keep the library group-accessible (dirs setgid so new files inherit
       # the media group; world-readable either way for Navidrome).
       permissions:
@@ -40,8 +68,11 @@
 
     beet = pkgs.writeShellScriptBin "beet" ''
       # BEETSDIR holds mutable state (state.pickle etc.) on persistent /data,
-      # while the config itself comes from the store.
+      # while the config itself comes from the store. ffmpeg on PATH is
+      # needed by the replaygain plugin (mp3val/flac for badfiles are given
+      # full store paths directly in the config above).
       export BEETSDIR=/data/beets
+      export PATH="${pkgs.ffmpeg}/bin:$PATH"
       exec ${pkgs.beets}/bin/beet --config ${beetsConfig} "$@"
     '';
   in {

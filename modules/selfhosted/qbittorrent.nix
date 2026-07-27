@@ -19,6 +19,15 @@
       profileDir = "/data/qBittorrent/";
     };
 
+    # Default systemd UMask (0022) makes downloaded files 644 (group
+    # read-only). Radarr/Sonarr run as different users (radarr/sonarr, not
+    # qbittorrent) and the kernel's fs.protected_hardlinks (on by default)
+    # refuses a hardlink to a file you neither own nor can write to — so every
+    # import was silently falling back to a full copy instead of linking.
+    # 0002 gives new files/dirs 664/775, letting the shared "media" group
+    # write, which satisfies that check.
+    systemd.services.qbittorrent.serviceConfig.UMask = "0002";
+
     age.secrets.protonvpn-wg.file = ../../secrets/net/protonvpn-wg.age;
     networking.wg-quick.interfaces.qbproton.configFile = config.age.secrets.protonvpn-wg.path;
 
