@@ -20,7 +20,7 @@
         write: yes
         log: /data/beets/import.log
 
-      plugins: fetchart embedart lyrics permissions musicbrainz replaygain scrub ftintitle duplicates missing badfiles lastgenre
+      plugins: fetchart embedart lyrics permissions musicbrainz replaygain scrub ftintitle duplicates missing badfiles lastgenre edit
 
       musicbrainz:
           data_source_mismatch_penalty: 0.5
