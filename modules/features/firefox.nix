@@ -22,7 +22,6 @@
 
     persist.user.directories = [
       ".config/mozilla"
-      ".config/mozilla/firefox"
       ".cache/mozilla"
     ];
   };

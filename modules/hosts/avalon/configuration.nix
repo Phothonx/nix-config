@@ -20,8 +20,8 @@
       self.nixosModules.power
       self.nixosModules.nh
       self.nixosModules.desktop
-      self.nixosModules.gaming
-      self.nixosModules.obs
+      # self.nixosModules.gaming
+      # self.nixosModules.obs
       self.nixosModules.udev
       self.nixosModules.apps
       self.nixosModules.printing
@@ -46,7 +46,6 @@
       proton-vpn
       wireguard-tools
       phoronix-test-suite
-      jellyfin-desktop
       parsec-bin
     ];
 
@@ -72,9 +71,9 @@
 
     networking = {
       hostName = "avalon";
-      hosts = {
-        "192.168.0.8" = ["homepage.camlann.local" "adguard.camlann.local"];
-      };
+      # hosts = {
+      #   "192.168.0.8" = ["homepage.camlann.local" "adguard.camlann.local"];
+      # };
       networkmanager.enable = true;
     };
 
@@ -97,8 +96,8 @@
           libvdpau-va-gl
         ];
         extraPackages32 = with pkgs; [
-          pkgs.pkgsi686Linux.intel-media-driver
-          pkgs.pkgsi686Linux.intel-vaapi-driver
+          pkgsi686Linux.intel-media-driver
+          pkgsi686Linux.intel-vaapi-driver
         ];
       };
     };
@@ -107,17 +106,6 @@
       device = "/dev/mapper/cryptroot";
       after = ["systemd-cryptsetup@cryptroot.service"];
     };
-
-    virtualisation.spiceUSBRedirection.enable = true;
-    virtualisation.libvirtd.qemu.swtpm.enable = true;
-    virtualisation.libvirtd.enable = true;
-    programs.virt-manager.enable = true;
-    persist.directories = [
-      "/var/lib/qemu"
-      "/var/lib/libvirt"
-      "/var/lib/machines"
-      "/var/lib/systemd"
-    ];
 
     # === DO NOT TOUCH ! ===
     system.stateVersion = "25.11";

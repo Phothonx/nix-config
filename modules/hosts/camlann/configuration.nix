@@ -3,7 +3,7 @@
   self,
   ...
 }: {
-  flake.nixosModules.camlannConfiguration = {pkgs, ...}: {
+  flake.nixosModules.camlannConfiguration = {...}: {
     imports = [
       self.nixosModules.camlannHardware
 
@@ -15,9 +15,9 @@
       self.nixosModules.nix
       self.nixosModules.power
       self.nixosModules.nh
-      self.nixosModules.desktop
-      self.nixosModules.gaming
-      self.nixosModules.obs
+      # self.nixosModules.desktop
+      # self.nixosModules.gaming
+      # self.nixosModules.obs
       self.nixosModules.udev
       self.nixosModules.nvidia
 

@@ -43,7 +43,6 @@
 
       mangohud
 
-      ankama-launcher
       osu-lazer-bin
       # mindustry-wayland
       # atlauncher
@@ -60,9 +59,6 @@
 
       ".config/unity3d"
       ".config/heroic"
-      ".config/zaap" # ankama
-      ".config/Ankama Launcher" # ankama
-      ".config/Ankama" # ankama
 
       ".steam"
     ];
