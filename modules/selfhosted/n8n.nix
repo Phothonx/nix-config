@@ -25,8 +25,14 @@
       };
     };
 
+    # n8n's service runs with DynamicUser=true, so systemd stores the real
+    # data at /var/lib/private/n8n and just symlinks /var/lib/n8n to it.
+    # Persisting /var/lib/n8n directly would make impermanence bind-mount a
+    # real directory over that path, which then collides with systemd's own
+    # DynamicUser setup at start (EBUSY, crash-loops). Persist the private
+    # path instead and let the symlink get recreated fresh each boot.
     persist.directories = [
-      "/var/lib/n8n"
+      "/var/lib/private/n8n"
     ];
   };
 }
