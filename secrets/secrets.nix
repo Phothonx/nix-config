@@ -24,6 +24,7 @@ in {
   "selfhosted/sonarr-api.age".publicKeys = recovery ++ users ++ systems;
   "selfhosted/meglingbot-env.age".publicKeys = recovery ++ users ++ systems;
   "selfhosted/syncthing-gui-pw.age".publicKeys = recovery ++ users ++ systems;
+  "selfhosted/n8n-encryption-key.age".publicKeys = recovery ++ users ++ systems;
 
   "net/protonvpn-wg.age".publicKeys = recovery ++ users ++ systems;
   "net/jnms-wg.age".publicKeys = recovery ++ users ++ systems;

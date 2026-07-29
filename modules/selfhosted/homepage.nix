@@ -215,6 +215,12 @@
               };
             }
             {
+              N8n = {
+                icon = "n8n.png";
+                href = "https://n8n.camlann.local";
+              };
+            }
+            {
               Syncthing = {
                 icon = "syncthing.png";
                 href = "https://sync.camlann.local";

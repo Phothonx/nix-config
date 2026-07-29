@@ -39,6 +39,8 @@
       self.nixosModules.gitea
       self.nixosModules.vaultwarden
       self.nixosModules.meglingbot
+      self.nixosModules.ollama
+      self.nixosModules.n8n
     ];
 
     users.users.nico.openssh.authorizedKeys.keys = [
