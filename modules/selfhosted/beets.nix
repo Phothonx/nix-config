@@ -25,8 +25,11 @@
       musicbrainz:
           data_source_mismatch_penalty: 0.5
 
+      # auto: no -- don't fetch during import (LRCLIB rate-limits a big batch
+      # import fast). Backfill afterward, once, with `beet lyrics -a`.
       lyrics:
         synced: yes
+        auto: no
 
       fetchart:
         auto: yes
