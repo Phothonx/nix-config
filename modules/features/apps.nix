@@ -1,27 +1,26 @@
 {
   flake.nixosModules.apps = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
-      evemu
+      # evemu
       vlc
       loupe
       imv
       audacity
       # bitwarden-desktop
-      spotify
+      # spotify
       localsend
-      teamspeak6-client
+      # teamspeak6-client
       ungoogled-chromium
       vesktop
       wl-clipboard
       via
-      libreoffice
+      # libreoffice
       # freecad
       # mission-planner
       # kdePackages.kdenlive
       # phoronix-test-suite
       # blender
 
-      tailscale
       rustdesk
     ];
 
@@ -31,6 +30,14 @@
       ".config/spotify"
       ".config/vesktop"
       ".config/localsend"
+      ".config/rustdesk"
+      ".config/Moonlight Game Streaming Project"
+    ];
+
+    # tailscaled's own state (keys, node identity) — system-level, not
+    # per-user. Without this, `sudo tailscale up` has to be redone every boot.
+    persist.directories = [
+      "/var/lib/tailscale"
     ];
 
     # Just the package isn't enough for either — both need active
@@ -49,5 +56,8 @@
     # without this, screen sharing works but remote input silently doesn't.
     hardware.uinput.enable = true;
     users.users.nico.extraGroups = ["uinput" "input"];
+
+    programs.moonlight-qt.enable = true;
+    programs.moonlight-qt.capSysNice = true;
   };
 }

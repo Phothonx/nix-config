@@ -55,6 +55,7 @@
         woeusb
         usbutils
         lame
+        wakeonlan
 
         # Secu
         # vulnix
