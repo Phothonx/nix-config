@@ -9,16 +9,17 @@
 # acceleration on the 1660 Ti via the NVIDIA driver's own Vulkan ICD, without
 # touching the broken CUDA redistributable tree at all.
 #
-# llama3.2:3b to start: the 1660 Ti (6G VRAM) also does Jellyfin NVENC and
-# Immich's ML, so a small model leaves headroom instead of a 7B model eating
-# most of the card on its own. Bump to a 7B (e.g. qwen2.5:7b) later if real
-# usage shows the card has room.
+# Started on llama3.2:3b, measured ~2.3G VRAM / 87% util in real use — real
+# headroom on the 6G card, so bumped to qwen2.5:7b (~4.5-5G) for better
+# quality and notably better French handling. Leaves much less room for
+# Jellyfin NVENC / Immich ML to share the card at the same time as a result —
+# drop back to a 3B if that contention becomes a real problem.
 {
   flake.nixosModules.ollama = {pkgs, ...}: {
     services.ollama = {
       enable = true;
       package = pkgs.ollama-vulkan;
-      loadModels = ["llama3.2:3b"];
+      loadModels = ["qwen2.5:7b"];
     };
   };
 }

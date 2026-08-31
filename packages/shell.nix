@@ -52,6 +52,7 @@
         usbutils
         net-tools
         caligula
+        woeusb
         usbutils
         lame
 
