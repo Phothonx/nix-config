@@ -71,10 +71,19 @@
 
     networking = {
       hostName = "avalon";
-      # hosts = {
-      #   "192.168.0.8" = ["homepage.camlann.local" "adguard.camlann.local"];
-      # };
-      networkmanager.enable = true;
+      networkmanager = {
+        enable = true;
+        ensureProfiles.profiles.ethernet-dhcp = {
+          connection = {
+            id = "ethernet-dhcp";
+            type = "ethernet";
+            autoconnect = true;
+            autoconnect-priority = 100;
+          };
+          ipv4.method = "auto";
+          ipv6.method = "auto";
+        };
+      };
     };
 
     i18n.defaultLocale = "en_US.UTF-8";
