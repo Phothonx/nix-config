@@ -31,6 +31,7 @@
       self.nixosModules.harden
       self.nixosModules.syncthing
       self.nixosModules.vault
+      self.nixosModules.albion
     ];
 
     age.secrets.jnms-wg.file = ../../../secrets/net/jnms-wg.age;

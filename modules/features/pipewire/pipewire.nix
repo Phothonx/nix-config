@@ -69,6 +69,10 @@
               };
               "capture.props" = {
                 "node.name" = "capture.rnnoise_source";
+                # Without this, the capture side has nothing feeding it — the
+                # filter chain runs but stays silent since it's never wired to
+                # the physical mic.
+                "target.object" = "alsa_input.pci-0000_00_1f.3.analog-stereo";
                 "node.passive" = true;
                 "node.dont-fallback" = true;
                 "audio.rate" = 48000;
