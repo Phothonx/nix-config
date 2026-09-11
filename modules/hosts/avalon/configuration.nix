@@ -48,6 +48,7 @@
       wireguard-tools
       phoronix-test-suite
       parsec-bin
+      virtio-win # storage/network driver ISO for the Windows guest
     ];
 
     services.greetd = {
@@ -116,6 +117,21 @@
       device = "/dev/mapper/cryptroot";
       after = ["systemd-cryptsetup@cryptroot.service"];
     };
+
+    virtualisation.spiceUSBRedirection.enable = true;
+    virtualisation.libvirtd = {
+      enable = true;
+      # Windows 11 needs TPM 2.0 (swtpm); OVMF/Secure Boot images now ship
+      # with QEMU by default, so nothing to declare for the firmware side.
+      qemu.swtpm.enable = true;
+    };
+    programs.virt-manager.enable = true;
+    persist.directories = [
+      "/var/lib/qemu"
+      "/var/lib/libvirt"
+      "/var/lib/machines"
+      "/var/lib/systemd"
+    ];
 
     # === DO NOT TOUCH ! ===
     system.stateVersion = "25.11";

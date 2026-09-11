@@ -43,6 +43,8 @@
     persist.user.name = "nico";
     persist.user.directories = [
       ".cache/fish"
+      # jdtls rebuilds its whole project index from scratch without this
+      ".cache/nvim/jdtls"
 
       ".local/share/zoxide"
       ".claude"

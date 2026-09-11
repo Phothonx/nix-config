@@ -60,6 +60,7 @@
         asm-lsp
         typescript-language-server
         bash-language-server
+        jdt-language-server
 
         # TS
         (pkgs.tree-sitter.withPlugins (ps:
@@ -78,6 +79,7 @@
             tree-sitter-yaml
             tree-sitter-markdown
             tree-sitter-markdown-inline
+            tree-sitter-java
           ]))
       ];
     };

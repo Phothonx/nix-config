@@ -68,6 +68,9 @@
           # nodejs
           # nodePackages.pnpm
 
+          #  ======== JS ========
+          # jdk
+
           #  ======== OTHER ========
           # shellcheck
         ];

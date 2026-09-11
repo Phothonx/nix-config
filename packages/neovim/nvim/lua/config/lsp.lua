@@ -60,6 +60,7 @@ vim.lsp.enable({
   'markdown_oxide',
   'texlab',
   'bashls',
+  'jdtls',
 })
 
 vim.diagnostic.config({
