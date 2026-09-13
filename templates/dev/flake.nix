@@ -68,7 +68,7 @@
           # nodejs
           # nodePackages.pnpm
 
-          #  ======== JS ========
+          #  ======== JAVA ========
           # jdk
 
           #  ======== OTHER ========
