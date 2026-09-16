@@ -14,6 +14,9 @@
         self'.packages.git
 
         claude-code
+        opencode
+        opencode-desktop
+        opencode-claude-auth
 
         # CLI Tools
         self'.packages.yazi
