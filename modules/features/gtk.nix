@@ -2,7 +2,7 @@
   flake.nixosModules.gtk = {pkgs, ...}: {
     qt = {
       enable = true;
-      platformTheme = "gtk2";
+      # platformTheme = "gnome";
     };
 
     environment = {

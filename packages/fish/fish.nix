@@ -35,7 +35,7 @@
       abbr -a -- ns 'nh os switch'
       abbr -a -- nr 'sudo nixos-rebuild switch --flake $FLAKE#avalon'
       abbr -a -- nfu 'nix flake update'
-      abbr -a -- nd 'nix develop --command fish'
+      abbr -a --set-cursor -- nd 'nix develop % --command fish'
       abbr -a -- ndb 'nix flake check --show-trace'
       abbr -a -- nfs 'nix flake show'
       abbr -a -- npl 'nix profile list'
