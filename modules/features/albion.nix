@@ -24,9 +24,19 @@
               libxau
               libxdmcp
               zstd
+              # dlopen'd by NSS inside the launcher's Qt WebEngine; ".out" is
+              # required since sqlite only installs its bin/man outputs.
+              sqlite.out
             ]);
 
-          profile = ''export FHS=1'';
+          # The launcher's Qt WebEngine can't bring up its Chromium GPU process
+          # inside the bubblewrap sandbox ("Failed to send
+          # GpuControl.CreateCommandBuffer"). Only the launcher's web view is
+          # affected — the game itself is a separate Unity binary.
+          profile = ''
+            export FHS=1
+            export QTWEBENGINE_CHROMIUM_FLAGS="--disable-gpu"
+          '';
           runScript = "fish";
         }))
     ];

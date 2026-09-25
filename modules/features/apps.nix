@@ -7,7 +7,7 @@
       imv
       audacity
       # bitwarden-desktop
-      # spotify
+      spotify
       localsend
       # teamspeak6-client
       ungoogled-chromium
@@ -17,7 +17,7 @@
       # libreoffice
       # freecad
       # mission-planner
-      # kdePackages.kdenlive
+      kdePackages.kdenlive
       # phoronix-test-suite
       # blender
 

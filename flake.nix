@@ -30,12 +30,15 @@
         inputs.disko.flakeModules.default
         (inputs.import-tree [./modules ./packages ./devshells ./theme.nix])
       ];
+      flake.templates = import ./templates;
+
       systems = [
         # "aarch64-darwin"
         "aarch64-linux"
         # "x86_64-darwin" deprecated
         "x86_64-linux"
       ];
+
       # Single configured nixpkgs instance, shared by packages/, devshells/ and
       # the NixOS hosts (which reuse it via `nixpkgs.pkgs` in hosts/*/default.nix).
       perSystem = {system, ...}: {
