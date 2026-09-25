@@ -64,6 +64,10 @@
     networking.interfaces.wlp5s0.useDHCP = false;
     networking.interfaces.enp7s0 = {
       useDHCP = false;
+      # Emits a systemd .link file applied by udev, so it works with the
+      # scripted backend used here (no networkd needed). Still requires WoL to
+      # be enabled in the UEFI setup.
+      wakeOnLan.enable = true;
       ipv4.addresses = [
         {
           address = "192.168.0.8";

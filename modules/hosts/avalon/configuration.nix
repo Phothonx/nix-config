@@ -49,6 +49,7 @@
       phoronix-test-suite
       parsec-bin
       virtio-win # storage/network driver ISO for the Windows guest
+      wakeonlan # send magic packets to camlann
     ];
 
     services.greetd = {
