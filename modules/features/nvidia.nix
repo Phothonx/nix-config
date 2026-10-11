@@ -9,17 +9,13 @@
     boot = {
       blacklistedKernelModules = ["nouveau" "nvidiafb" "rivafb"];
       extraModprobeConfig = ''
-        options nvidia-drm modeset=1
         options nvidia NVreg_UsePageAttributeTable=1
         options nvidia NVreg_EnablePCIeGen3=1
       '';
+      # The nvidia module only adds these when services.xserver.enable is set,
+      # which is false here, so they stay explicit.
       initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
       kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
-      kernelParams = [
-        "nvidia-drm.modeset=1"
-        "nvidia-drm.fbdev=1"
-        "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-      ];
     };
 
     environment.sessionVariables = {
@@ -27,12 +23,6 @@
       NVD_BACKEND = "direct";
       # forcer l'utilisation de la librairie d'accélération matérielle
       # LIBVA_DRIVER_NAME = "nvidia";
-    };
-
-    systemd.services = {
-      "nvidia-suspend".enable = true;
-      "nvidia-resume".enable = true;
-      "nvidia-hibernate".enable = true;
     };
 
     hardware = {

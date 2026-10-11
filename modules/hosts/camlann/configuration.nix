@@ -24,6 +24,7 @@
       self.nixosModules.nico
 
       self.nixosModules.harden
+      self.nixosModules.maintenance
       self.nixosModules.openssh
       self.nixosModules.immich
       self.nixosModules.syncthing
@@ -48,8 +49,6 @@
     ];
 
     boot = {
-      kernelParams = ["elevator=mq-deadline"];
-
       initrd.availableKernelModules = ["hid_cherry" "btrfs"];
       supportedFilesystems = ["btrfs"];
 

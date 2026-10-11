@@ -44,9 +44,6 @@
         tweaks = ["rimless" "normal" "catppuccin"];
       })
       papirus-icon-theme
-
-      gtk3
-      gtk4
     ];
 
     fonts = {

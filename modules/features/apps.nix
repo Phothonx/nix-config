@@ -48,7 +48,6 @@
     };
 
     hardware.uinput.enable = true;
-    users.users.nico.extraGroups = ["uinput" "input"];
 
     programs.moonlight-qt.enable = true;
     programs.moonlight-qt.capSysNice = true;

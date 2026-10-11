@@ -29,6 +29,7 @@
       self.nixosModules.nico
 
       self.nixosModules.harden
+      self.nixosModules.maintenance
       self.nixosModules.syncthing
       self.nixosModules.vault
       self.nixosModules.albion
@@ -41,6 +42,7 @@
     };
 
     services.thermald.enable = true;
+    zramSwap.enable = true;
 
     environment.systemPackages = with pkgs; [
       mission-planner

@@ -31,7 +31,9 @@
       "fs.protected_regular" = 2;
       "fs.suid_dumpable" = 0;
       "kernel.kptr_restrict" = 2;
-      "kernel.sysrq" = 0;
+      # 176 = sync + remount-ro + reboot: enough to recover a wedged machine
+      # without exposing memory dumps or kill-all.
+      "kernel.sysrq" = 176;
       "kernel.unprivileged_bpf_disabled" = 1;
       "net.core.bpf_jit_harden" = 2;
       "net.ipv4.conf.all.log_martians" = 1;
