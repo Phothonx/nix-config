@@ -23,12 +23,10 @@
 
       serviceConfig = {
         ExecStart = "${inputs.meglingbot.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/meglingbot";
-        # DISCORD_TOKEN lives here (agenix); read by root before dropping privileges.
         EnvironmentFile = config.age.secrets.meglingbot-env.path;
 
         User = "meglingbot";
         Group = "meglingbot";
-        # db/ and logs/ are created relative to the working directory.
         StateDirectory = "meglingbot";
         WorkingDirectory = "/var/lib/meglingbot";
 

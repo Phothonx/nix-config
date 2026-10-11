@@ -3,8 +3,6 @@
     services.openssh = {
       enable = true;
       ports = [22];
-      # Generate host keys into /etc/ssh (persisted via impermanence), so the
-      # machine can decrypt its own agenix secrets with its host key.
       generateHostKeys = true;
 
       settings = {
@@ -16,9 +14,6 @@
         GatewayPorts = "no";
         PermitEmptyPasswords = false;
 
-        # Tunnels (ssh -L) are disabled: every service is fronted by caddy at
-        # *.camlann.local, so forwarding is unused attack surface. Flip
-        # AllowTcpForwarding back to "yes" if a tunnel is ever needed.
         AllowTcpForwarding = "no";
         AllowAgentForwarding = "no";
         TCPKeepAlive = "no";

@@ -21,13 +21,9 @@
         spawn-at-startup = [
           (lib.getExe self'.packages.noctalia)
         ];
-        # reload config once noctalia is up so the multi-output layout applies;
-        # needs a shell because it is a multi-arg command, not a single binary.
-        spawn-sh-at-startup = ["niri msg action load-config-file"];
 
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
-        # the hotkey help is bound to Mod+Shift+Slash; no need to show it on login
         hotkey-overlay.skip-at-startup = _: {};
 
         input = {
@@ -35,7 +31,6 @@
           focus-follows-mouse = _: {};
 
           keyboard = {
-            # put custom kblayout here
             xkb.layout = "nico,us,fr";
             repeat-rate = 40;
             repeat-delay = 250;
@@ -106,7 +101,6 @@
             };
             # scale = 0.9;
             mode = "1920x1080@119.982";
-            # FreeSync panel: engage VRR only for fullscreen apps that request it
             variable-refresh-rate = _: {
               props.on-demand = true;
             };

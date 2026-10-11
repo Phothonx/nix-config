@@ -44,34 +44,20 @@
                     plugin = "librnnoise_ladspa";
                     label = "noise_suppressor_mono";
                     control = {
-                      "VAD Threshold (%)" = 96.0;
+                      "VAD Threshold (%)" = 94.0;
                       "VAD Grace Period (ms)" = 200;
                       "Retroactive VAD Grace (ms)" = 0;
                     };
                   }
-                  {
-                    type = "builtin";
-                    name = "micgain";
-                    label = "linear";
-                    control = {
-                      "Mult" = 2;
-                    };
-                  }
-                ];
-                links = [
-                  {
-                    output = "rnnoise:Output";
-                    input = "micgain:In";
-                  }
                 ];
                 inputs = ["rnnoise:Input"];
-                outputs = ["micgain:Out"];
+                outputs = ["rnnoise:Output"];
               };
               "capture.props" = {
                 "node.name" = "capture.rnnoise_source";
                 # Without this, the capture side has nothing feeding it — the
                 # filter chain runs but stays silent since it's never wired to
-                # the physical mic.
+                # its input.
                 "target.object" = "alsa_input.pci-0000_00_1f.3.analog-stereo";
                 "node.passive" = true;
                 "node.dont-fallback" = true;
@@ -81,7 +67,10 @@
                 "node.name" = "rnnoise_source";
                 "media.class" = "Audio/Source";
                 "audio.rate" = 48000;
-                "priority.session" = 2000;
+                # Must beat the raw ALSA mic, which sits at 2009 — at the old
+                # 2000 this chain lost the default-source election and every
+                # app recorded the undenoised mic instead.
+                "priority.session" = 3000;
               };
             };
           }
@@ -99,7 +88,9 @@
                 "audio.channels" = 2;
                 "audio.position" = ["FL" "FR"];
                 "audio.rate" = 48000;
-                "priority.session" = 2000;
+                # Built-in output is only 1009, but a USB DAC can outrank 2000,
+                # so keep this above anything ALSA is likely to assign.
+                "priority.session" = 3000;
               };
               "playback.props" = {
                 "node.name" = "eq_output.fiio_ft1_pro";

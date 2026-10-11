@@ -10,7 +10,7 @@
 
       settings = {
         server = {
-          DOMAIN = "git.camlann.local";
+          # DOMAIN was removed upstream; ROOT_URL alone is now authoritative.
           ROOT_URL = "https://git.camlann.local/";
           HTTP_ADDR = "127.0.0.1";
           HTTP_PORT = 3001;
