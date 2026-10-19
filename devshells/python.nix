@@ -8,7 +8,7 @@
             numpy
             scipy
             matplotlib
-            # jupyter
+            jupyter
             pandas
             requests
           ]))

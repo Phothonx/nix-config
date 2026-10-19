@@ -8,6 +8,8 @@
         gdb
         yasm
         libclang
+        flex
+        bison
       ];
     };
   };

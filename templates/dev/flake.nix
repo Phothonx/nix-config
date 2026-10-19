@@ -58,6 +58,8 @@
           # gdb
           # yasm
           # libclang
+          # flex
+          # bison
 
           # ======== LATEX ========
           # latexEnv
