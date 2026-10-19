@@ -47,6 +47,12 @@
       ".cache/noctalia"
       ".local/share/nautilus"
       ".config/nautilus"
+      # nautilus sidebar bookmarks
+      ".config/gtk-3.0"
+      # nautilus view/sort prefs (user dconf db, layered over the system one)
+      ".config/dconf"
+      # xdg-permission-store: portal grants, incl. screencast "remember" tokens
+      ".local/share/flatpak/db"
     ];
   };
 }

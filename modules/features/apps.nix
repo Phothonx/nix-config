@@ -14,6 +14,8 @@
       # teamspeak6-client
       ungoogled-chromium
       vesktop
+      discord
+      webcord-vencord
       wl-clipboard
       via
       # libreoffice
@@ -30,6 +32,9 @@
       ".config/chromium"
       ".config/Bitwarden"
       ".config/spotify"
+      ".config/spotifast"
+      ".local/share/spotifast"
+      ".cache/spotifast"
       ".config/vesktop"
       ".config/localsend"
       ".config/rustdesk"
