@@ -1,16 +1,19 @@
-/* Browser UI, after dacctal's browser_stuff. Square corners everywhere and a
- * flush sidebar; native vertical tabs (sidebar.verticalTabs) already remove
- * the horizontal tab strip, so no Sidebery / #TabsToolbar hack is needed.
- * Needs toolkit.legacyUserProfileCustomizations.stylesheets (set in the
- * overrides). Copy this chrome/ folder into the profile folder
- * (about:support -> Profile Folder), on Linux and Windows alike. */
+/* Browser UI, after dacctal's browser_stuff: square corners everywhere, the
+ * JetBrainsMono Nerd Font (same as the rest of the desktop), flush sidebar.
+ * Horizontal tabs kept. Needs toolkit.legacyUserProfileCustomizations.stylesheets
+ * (set in the overrides). On NixOS this folder is linked into every profile by
+ * the librewolf-chrome user service; on Windows copy it into the profile folder
+ * (about:support -> Profile Folder). */
 
-* { border-radius: 0 !important; }
+* {
+  border-radius: 0 !important;
+  font-family: "JetBrainsMono Nerd Font", monospace !important;
+}
 
 #sidebar-panel-header { display: none !important; }
 #sidebar-box { padding-inline-start: 0 !important; }
 
-/* active tab: accent outline (Catppuccin Mocha mauve) */
+/* active tab: 2px accent border (Catppuccin Mocha mauve) */
 .tabbrowser-tab[selected] .tab-background {
   outline: 2px solid #cba6f7 !important;
   outline-offset: -2px !important;

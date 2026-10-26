@@ -1,9 +1,11 @@
-/* about: pages (settings, addons, config...) in Catppuccin Mocha, after
- * dacctal's browser_stuff userContent.css. Web pages are left untouched. */
+/* about: pages (settings, addons, config...) in Catppuccin Mocha with the
+ * JetBrainsMono Nerd Font, after dacctal's browser_stuff userContent.css. Web pages are
+ * left untouched (with resistFingerprinting they only see standard fonts). */
 
 @-moz-document url-prefix("about:") {
   * {
     border-radius: 0 !important;
+    font-family: "JetBrainsMono Nerd Font", monospace !important;
 
     --text-color: #cdd6f4 !important;
     --background-color-canvas: #11111b !important;

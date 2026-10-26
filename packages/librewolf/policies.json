@@ -38,6 +38,11 @@
       "Default": "Google",
       "Add": [
         {
+          "Name": "Google",
+          "URLTemplate": "https://www.google.com/search?q={searchTerms}",
+          "Alias": "@g"
+        },
+        {
           "Name": "Nix Packages",
           "URLTemplate": "https://search.nixos.org/packages?type=packages&channel=unstable&query={searchTerms}",
           "Alias": "@np"
