@@ -27,9 +27,12 @@
       registry.self.flake = self;
       channel.enable = false;
 
+      # dedup store paths on a timer rather than auto-optimise-store, which
+      # hardlinks on every store write and slows down every build
+      optimise.automatic = true;
+
       settings = {
         experimental-features = ["nix-command" "flakes"];
-        auto-optimise-store = true;
         builders-use-substitutes = true;
 
         # keep dev shell / direnv build inputs from being garbage-collected
@@ -57,10 +60,8 @@
     environment.systemPackages = with pkgs; [
       nix-output-monitor
       nix-tree
-      nil
       nixd
       alejandra
-      nixfmt
       nix-inspect
       manix
 

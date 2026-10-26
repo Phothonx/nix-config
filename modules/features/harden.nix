@@ -47,6 +47,9 @@
     # Kernel audit framework (ACCT-9628); rules can be added later if wanted.
     security.audit.enable = lib.mkDefault true;
     security.auditd.enable = lib.mkDefault true;
+    # auditd already writes /var/log/audit; don't also copy every record into
+    # the journal (~20% of all journal lines on avalon).
+    services.journald.settings.Journal.Audit = lib.mkDefault false;
 
     # Legal banner (BANN-7126).
     environment.etc.issue.text = lib.mkDefault ''

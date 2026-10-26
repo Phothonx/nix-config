@@ -21,6 +21,9 @@
 
     services.udisks2.enable = true; # nautilus
     services.gvfs.enable = true; # nautilus
+    # indexed search in nautilus (otherwise it crawls the disk on every search)
+    services.gnome.localsearch.enable = true;
+    services.gnome.tinysparql.enable = true;
     environment.systemPackages = [
       pkgs.nautilus
 
@@ -56,6 +59,8 @@
       ".config/dconf"
       # per-folder view/sort/zoom (gvfsd-metadata)
       ".local/share/gvfs-metadata"
+      # localsearch index: without it the whole home is re-crawled every boot
+      ".cache/tracker3"
       # xdg-permission-store: portal grants, incl. screencast "remember" tokens
       ".local/share/flatpak/db"
       ".local/share/keyrings"

@@ -51,10 +51,6 @@
                         "subvol=persist"
                       ];
                     };
-                    "/swap" = {
-                      mountpoint = "/swap";
-                      swap.swapfile.size = "24G";
-                    };
                   };
                 };
               };

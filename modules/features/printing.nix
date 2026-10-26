@@ -1,18 +1,13 @@
 {
-  flake.nixosModules.printing = {pkgs, ...}: {
+  flake.nixosModules.printing = {
     services.avahi = {
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
     };
 
-    services.printing = {
-      enable = true;
-      drivers = with pkgs; [
-        cups-filters
-        cups-browsed
-      ];
-    };
+    # cups-filters ships by default; cups-browsed is a daemon, not a driver
+    services.printing.enable = true;
 
     services.ipp-usb.enable = true;
   };
