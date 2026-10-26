@@ -1,0 +1,17 @@
+/* Browser UI, after dacctal's browser_stuff. Square corners everywhere and a
+ * flush sidebar; native vertical tabs (sidebar.verticalTabs) already remove
+ * the horizontal tab strip, so no Sidebery / #TabsToolbar hack is needed.
+ * Needs toolkit.legacyUserProfileCustomizations.stylesheets (set in the
+ * overrides). Copy this chrome/ folder into the profile folder
+ * (about:support -> Profile Folder), on Linux and Windows alike. */
+
+* { border-radius: 0 !important; }
+
+#sidebar-panel-header { display: none !important; }
+#sidebar-box { padding-inline-start: 0 !important; }
+
+/* active tab: accent outline (Catppuccin Mocha mauve) */
+.tabbrowser-tab[selected] .tab-background {
+  outline: 2px solid #cba6f7 !important;
+  outline-offset: -2px !important;
+}

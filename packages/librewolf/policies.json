@@ -1,0 +1,53 @@
+{
+  "policies": {
+    "ExtensionSettings": {
+      "*": {
+        "installation_mode": "blocked"
+      },
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
+        "default_area": "navbar",
+        "private_browsing": true
+      },
+      "{446900e4-71c2-419f-a6a7-df9c091e268b}": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi",
+        "default_area": "navbar",
+        "private_browsing": true
+      },
+      "{d7742d87-e61d-4b78-b8a1-b469842139fa}": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi",
+        "default_area": "navbar",
+        "private_browsing": true
+      },
+      "skipredirect@sblask": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/skip-redirect/latest.xpi",
+        "default_area": "navbar",
+        "private_browsing": true
+      },
+      "floccus@handmadeideas.org": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/floccus/latest.xpi",
+        "default_area": "navbar"
+      }
+    },
+    "SearchEngines": {
+      "Default": "Google",
+      "Add": [
+        {
+          "Name": "Nix Packages",
+          "URLTemplate": "https://search.nixos.org/packages?type=packages&channel=unstable&query={searchTerms}",
+          "Alias": "@np"
+        },
+        {
+          "Name": "YouTube",
+          "URLTemplate": "https://www.youtube.com/results?search_query={searchTerms}",
+          "Alias": "@yt"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,42 @@
+/* about: pages (settings, addons, config...) in Catppuccin Mocha, after
+ * dacctal's browser_stuff userContent.css. Web pages are left untouched. */
+
+@-moz-document url-prefix("about:") {
+  * {
+    border-radius: 0 !important;
+
+    --text-color: #cdd6f4 !important;
+    --background-color-canvas: #11111b !important;
+    --background-color-box: #1e1e2e !important;
+    --background-color-box-info: #1e1e2e !important;
+    --background-color-information: #313244 !important;
+    --border-color: #313244 !important;
+    --border-color-deemphasized: #313244 !important;
+    --button-background-color-muted: #313244 !important;
+    --table-row-background-color-alternate: #1e1e2e !important;
+    --text-color-accent-primary-selected: var(--text-color) !important;
+
+    --color-accent-primary: #cba6f7 !important;
+    --color-accent-secondary: #b4befe !important;
+
+    --color-blue-0: #89b4fa !important; --color-blue-50: #89b4fa !important;
+    --color-blue-60: #89b4fa !important; --color-blue-70: #89b4fa !important;
+    --color-cyan-50: #89dceb !important;
+    --color-green-50: #a6e3a1 !important;
+    --color-orange-50: #fab387 !important;
+    --color-red-50: #f38ba8 !important; --color-red-60: #f38ba8 !important;
+    --color-yellow-50: #f9e2af !important;
+    --color-violet-50: #cba6f7 !important; --color-violet-60: #cba6f7 !important;
+    --color-purple-50: #cba6f7 !important; --color-purple-60: #cba6f7 !important;
+  }
+
+  body {
+    background-color: #11111b !important;
+    color: #cdd6f4 !important;
+  }
+
+  button:hover, .button:hover {
+    background-color: #cba6f7 !important;
+    color: #11111b !important;
+  }
+}

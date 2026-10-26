@@ -8,7 +8,7 @@
   in {
     imports = [
       self.nixosModules.pipewire
-      self.nixosModules.firefox
+      self.nixosModules.librewolf
       self.nixosModules.xkb
       self.nixosModules.xdg
       self.nixosModules.gtk
