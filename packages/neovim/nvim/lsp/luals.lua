@@ -3,7 +3,7 @@ return {
   cmd = { 'lua-language-server' },
   settings = {
     Lua = {
-      diagnostics = { globals = {'vim', "Snacks", "Mini", "MiniFiles"}, },
+      diagnostics = { globals = { 'vim', "Snacks", "MiniFiles", "MiniIcons", "MiniTrailspace" }, },
       format = { preview = true, },
       workspace = {
         checkThirdParty = false,
@@ -22,6 +22,5 @@ return {
     'selene.yml',
     '.git',
   },
-  single_file_support = true,
   log_level = vim.lsp.protocol.MessageType.Warning,
 }

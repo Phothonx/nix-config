@@ -1,4 +1,5 @@
 require("mini.icons").setup()
+MiniIcons.mock_nvim_web_devicons() -- serve plugins that ask for nvim-web-devicons
 require("mini.pairs").setup()
 require("mini.move").setup()
 require("mini.statusline").setup()

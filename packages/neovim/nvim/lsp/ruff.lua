@@ -12,7 +12,6 @@ return {
     'Pipfile',
     '.git',
   },
-  single_file_support = true,
   -- let basedpyright own hover; ruff only does lint + format + code actions
   on_attach = function(client)
     client.server_capabilities.hoverProvider = false

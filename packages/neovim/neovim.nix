@@ -5,17 +5,49 @@
 
       settings.config_directory = ./nvim;
 
+      # read from lua with require(vim.g.nix_info_plugin_name)(nil, "info", <key>)
+      info = {
+        # snacks.picker frecency/history db (ffi-loaded, not found on its own)
+        sqlite3_path = "${pkgs.sqlite.out}/lib/libsqlite3.so";
+      };
+
       specs.plugins = {
         data = with pkgs.vimPlugins; [
           # COLORSHEMES
           catppuccin-nvim
 
-          # DEPS
-          nvim-web-devicons
-
           # MINI & SNACKS
           mini-nvim
           snacks-nvim
+
+          # TS: parsers + queries (the nvim runtime only bundles a handful)
+          (nvim-treesitter.withPlugins (p:
+            with p; [
+              bash
+              bibtex
+              c
+              css
+              html
+              java
+              javascript
+              json
+              latex
+              lua
+              markdown
+              markdown_inline
+              nix
+              ocaml
+              python
+              query
+              regex
+              rust
+              toml
+              tsx
+              typescript
+              vim
+              vimdoc
+              yaml
+            ]))
 
           # OTHER
           vimwiki
@@ -29,27 +61,13 @@
 
       runtimePkgs = with pkgs; [
         # PACKAGES
-        claude-code
-        gcc
-        tree-sitter
-        cmake
-        git
-        curl
-        fzf
-        imagemagick
-        sqlite
-        mermaid-cli
-        ghostscript
-        trashy
-        luarocks
-        zathura
+        imagemagick # snacks.image
+        ghostscript # snacks.image (pdf)
+        zathura # texlab forward search
         biber
-        pstree
-        xdotool
 
-        # LSP
+        # LSP & tools
         markdown-oxide
-        stylua
         ccls
         lua-language-server
         basedpyright
@@ -57,30 +75,13 @@
         texlab
         ocamlPackages.ocaml-lsp
         nixd
+        alejandra
         asm-lsp
         typescript-language-server
         bash-language-server
+        shellcheck # bashls diagnostics
+        shfmt # bashls formatting
         jdt-language-server
-
-        # TS
-        (pkgs.tree-sitter.withPlugins (ps:
-          with ps; [
-            tree-sitter-nix
-            tree-sitter-lua
-            tree-sitter-c
-            tree-sitter-vim
-            tree-sitter-bash
-            tree-sitter-python
-            tree-sitter-rust
-            tree-sitter-javascript
-            tree-sitter-typescript
-            tree-sitter-json
-            tree-sitter-toml
-            tree-sitter-yaml
-            tree-sitter-markdown
-            tree-sitter-markdown-inline
-            tree-sitter-java
-          ]))
       ];
     };
   };

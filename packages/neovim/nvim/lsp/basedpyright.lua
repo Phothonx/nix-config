@@ -11,7 +11,6 @@ return {
     'pyrightconfig.json',
     '.git',
   },
-  single_file_support = true,
   settings = {
     basedpyright = {
       analysis = {

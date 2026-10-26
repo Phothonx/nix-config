@@ -52,7 +52,9 @@
       ".local/share/fish"
       ".local/share/jellyfin-desktop"
 
-      ".config/nvim"
+      # persistent undo (undofile) + shada (marks, registers, cmd history, oldfiles)
+      ".local/state/nvim/undo"
+      ".local/state/nvim/shada"
     ];
 
     persist.user.files = [

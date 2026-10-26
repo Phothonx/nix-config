@@ -5,3 +5,5 @@ vim.g.vimwiki_list = {
     ext = ".md",
   },
 }
+-- only files inside the wiki are vimwiki; other .md stay plain markdown
+vim.g.vimwiki_global_ext = 0
