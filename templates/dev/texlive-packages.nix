@@ -16,6 +16,7 @@ with ps; [
   hyperref
   cleveref
   stackengine
+  fontawesome5
 
   # texlive-science
   amsmath

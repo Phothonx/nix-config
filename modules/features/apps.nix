@@ -35,7 +35,12 @@
       ".config/spotifast"
       ".local/share/spotifast"
       ".cache/spotifast"
+      # session.json + credential-storage/ (sign-in state)
+      ".local/state/spotifast"
+      ".config/vlc"
+      ".local/share/vlc"
       ".config/vesktop"
+      ".config/WebCord"
       ".config/localsend"
       ".config/rustdesk"
       ".config/Moonlight Game Streaming Project"

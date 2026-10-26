@@ -29,7 +29,10 @@
       self.packages.${system}.kitty
     ];
 
-    services.gnome.gnome-keyring.enable = lib.mkForce false;
+    # Secret Service provider: spotifast (and others) refuse to remember
+    # sign-ins without one. greetd autologs in, so the login keyring is not
+    # unlocked by PAM — give it an empty password on first prompt (disk is LUKS).
+    services.gnome.gnome-keyring.enable = true;
     security.polkit.enable = true;
 
     systemd.user.services.lock-before-sleep = {
@@ -51,8 +54,11 @@
       ".config/gtk-3.0"
       # nautilus view/sort prefs (user dconf db, layered over the system one)
       ".config/dconf"
+      # per-folder view/sort/zoom (gvfsd-metadata)
+      ".local/share/gvfs-metadata"
       # xdg-permission-store: portal grants, incl. screencast "remember" tokens
       ".local/share/flatpak/db"
+      ".local/share/keyrings"
     ];
   };
 }

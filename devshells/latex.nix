@@ -23,6 +23,7 @@
             hyperref
             cleveref
             stackengine
+            fontawesome5
             tcolorbox
 
             # texlive-science
