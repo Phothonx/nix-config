@@ -56,7 +56,7 @@
         };
 
         window-rule = {
-          geometry-corner-radius = 12;
+          geometry-corner-radius = 0; # 12
           clip-to-geometry = true;
         };
 
