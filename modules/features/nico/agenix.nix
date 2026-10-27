@@ -39,41 +39,12 @@
         mode = "0644";
       };
 
+      # One SSH key per machine: ~/.ssh/id_ed25519, generated locally and kept in
+      # /persist (never in this repo). Its public key is registered on each
+      # service; the config below needs no per-host IdentityFile.
       ssh_config = {
         file = ../../../secrets/user/ssh_config.age;
         path = "/home/nico/.ssh/config";
-        owner = "nico";
-        group = "users";
-        mode = "0600";
-      };
-
-      id_ed25519_enseirb = {
-        file = ../../../secrets/user/id_ed25519_enseirb.age;
-        path = "/home/nico/.ssh/id_ed25519_enseirb";
-        owner = "nico";
-        group = "users";
-        mode = "0600";
-      };
-
-      id_ed25519_thor = {
-        file = ../../../secrets/user/id_ed25519_thor.age;
-        path = "/home/nico/.ssh/id_ed25519_thor";
-        owner = "nico";
-        group = "users";
-        mode = "0600";
-      };
-
-      id_ed25519_github = {
-        file = ../../../secrets/user/id_ed25519_github.age;
-        path = "/home/nico/.ssh/id_ed25519_github";
-        owner = "nico";
-        group = "users";
-        mode = "0600";
-      };
-
-      id_ed25519_codeberg = {
-        file = ../../../secrets/user/id_ed25519_codeberg.age;
-        path = "/home/nico/.ssh/id_ed25519_codeberg";
         owner = "nico";
         group = "users";
         mode = "0600";

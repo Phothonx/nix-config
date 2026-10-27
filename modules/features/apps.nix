@@ -5,16 +5,14 @@
       vlc
       loupe
       imv
-      audacity
+      # audacity
       # bitwarden-desktop
       # spotify
       spotifast
-      ncspot
       localsend
       # teamspeak6-client
-      ungoogled-chromium
+      # ungoogled-chromium
       vesktop
-      discord
       webcord-vencord
       wl-clipboard
       via

@@ -21,7 +21,7 @@
       self.nixosModules.nh
       self.nixosModules.desktop
       # self.nixosModules.gaming
-      # self.nixosModules.obs
+      self.nixosModules.obs
       self.nixosModules.udev
       self.nixosModules.apps
       self.nixosModules.printing
@@ -42,9 +42,6 @@
     };
 
     services.thermald.enable = true;
-    # zram is the only swap (no disk swapfile): compressed RAM, far faster than
-    # disk. Kernel-recommended tuning when swap is zram: swap eagerly to it and
-    # do not read ahead (no seek cost to amortize).
     zramSwap.enable = true;
     boot.kernel.sysctl = {
       "vm.swappiness" = 180;
@@ -60,8 +57,7 @@
       wireguard-tools
       phoronix-test-suite
       parsec-bin
-      virtio-win # storage/network driver ISO for the Windows guest
-      wakeonlan # send magic packets to camlann
+      wakeonlan
     ];
 
     services.greetd = {
@@ -132,17 +128,7 @@
       after = ["systemd-cryptsetup@cryptroot.service"];
     };
 
-    virtualisation.spiceUSBRedirection.enable = true;
-    virtualisation.libvirtd = {
-      enable = true;
-      # Windows 11 needs TPM 2.0 (swtpm); OVMF/Secure Boot images now ship
-      # with QEMU by default, so nothing to declare for the firmware side.
-      qemu.swtpm.enable = true;
-    };
-    programs.virt-manager.enable = true;
-
     persist.directories = [
-      "/var/lib/libvirt" # VMs, networks, swtpm state
       "/var/lib/systemd" # timer stamps, backlight/rfkill state, random seed, ...
     ];
 

@@ -18,10 +18,6 @@
       ];
 
       settings = with self.theme; {
-        spawn-at-startup = [
-          (lib.getExe self'.packages.noctalia)
-        ];
-
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
         hotkey-overlay.skip-at-startup = _: {};
@@ -84,9 +80,24 @@
           };
         };
 
+        # noctalia settings window floats (docs.noctalia.dev, niri setup)
+        window-rules = [
+          {
+            matches = [{app-id = "^dev\\.noctalia\\.Noctalia$";}];
+            open-floating = true;
+            default-column-width.fixed = 1080;
+            default-window-height.fixed = 920;
+          }
+        ];
+
+        # lets noctalia notification actions activate/focus their window
+        debug.honor-xdg-activation-with-invalid-serial = _: {};
+
         layer-rules = [
           {
-            matches = [{namespace = "^noctalia-overview*";}];
+            # noctalia v5 overview backdrop (blurred wallpaper), enable it in
+            # noctalia settings: [backdrop] enabled = true
+            matches = [{namespace = "^noctalia-backdrop";}];
             place-within-backdrop = true;
           }
         ];
@@ -117,14 +128,14 @@
         };
 
         binds = let
-          call = "${lib.getExe self'.packages.noctalia} ipc call";
+          noctalia = "${lib.getExe pkgs.noctalia} msg";
         in {
           "Mod+Shift+Slash".show-hotkey-overlay = {};
 
           "Mod+T".spawn-sh = lib.getExe self'.packages.kitty;
-          "Mod+Space".spawn-sh = "${call} launcher toggle";
-          "Ctrl+Alt+Delete".spawn-sh = "${call} sessionMenu toggle";
-          "Ctrl+Alt+L".spawn-sh = "${call} lockScreen lock";
+          "Mod+Space".spawn-sh = "${noctalia} panel-toggle launcher";
+          "Ctrl+Alt+Delete".spawn-sh = "${noctalia} panel-toggle session";
+          "Ctrl+Alt+L".spawn-sh = "${noctalia} session lock";
 
           "Mod+Tab".toggle-overview = {};
 
@@ -219,13 +230,13 @@
 
           "Mod+Shift+Delete".quit = {};
 
-          "XF86AudioMute".spawn-sh = "${call} volume muteOutput";
-          "XF86AudioRaiseVolume".spawn-sh = "${call} volume increase";
-          "XF86AudioLowerVolume".spawn-sh = "${call} volume decrease";
-          "XF86AudioMicMute".spawn-sh = "${call} volume muteInput";
-          "XF86MonBrightnessDown".spawn-sh = "${call} brightness decrease";
-          "XF86MonBrightnessUp".spawn-sh = "${call} brightness increase";
-          "Mod+P".spawn-sh = "${call} controlCenter toggle";
+          "XF86AudioMute".spawn-sh = "${noctalia} volume-mute";
+          "XF86AudioRaiseVolume".spawn-sh = "${noctalia} volume-up";
+          "XF86AudioLowerVolume".spawn-sh = "${noctalia} volume-down";
+          "XF86AudioMicMute".spawn-sh = "${noctalia} mic-mute";
+          "XF86MonBrightnessDown".spawn-sh = "${noctalia} brightness-down";
+          "XF86MonBrightnessUp".spawn-sh = "${noctalia} brightness-up";
+          "Mod+P".spawn-sh = "${noctalia} panel-toggle control-center";
         };
       };
     };

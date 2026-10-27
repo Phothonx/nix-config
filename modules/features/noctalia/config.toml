@@ -1,0 +1,8 @@
+# Noctalia v5 config, managed by Nix (linked to ~/.config/noctalia/nix.toml).
+#
+# Noctalia merges every *.toml in ~/.config/noctalia, then applies the GUI's
+# own changes from ~/.local/state/noctalia/settings.toml on top. To move GUI
+# changes in here:
+#   noctalia config export merged > modules/features/noctalia/config.toml
+#   rm ~/.local/state/noctalia/settings.toml   # else it keeps overriding this
+# Docs: https://docs.noctalia.dev/v5/
