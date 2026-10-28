@@ -3,7 +3,7 @@
     # prefs + policies are baked into the package (packages/librewolf/)
     environment.systemPackages = [self.packages.${pkgs.stdenv.hostPlatform.system}.librewolf];
 
-    # userChrome.css / userContent.css live in the repo; link them into every
+    # userChrome.css / userContent.css (themed from theme.nix); link them into every
     # profile at login (profile dir names are random, so this can't be static).
     # A profile created during the session gets it on the next login.
     systemd.user.services.librewolf-chrome = {
@@ -17,7 +17,7 @@
             echo "skipping $p: chrome/ is a real directory"
             continue
           fi
-          ln -sfn ${../../packages/librewolf/chrome} "$p/chrome"
+          ln -sfn ${self.packages.${pkgs.stdenv.hostPlatform.system}.librewolf-chrome} "$p/chrome"
         done
       '';
     };

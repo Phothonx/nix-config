@@ -1,8 +1,11 @@
 /* Browser UI, after dacctal's browser_stuff: square corners everywhere, the
- * JetBrainsMono Nerd Font (same as the rest of the desktop), flush sidebar.
- * Horizontal tabs kept. Needs toolkit.legacyUserProfileCustomizations.stylesheets
- * (set in the overrides). On NixOS this folder is linked into every profile by
- * the librewolf-chrome user service; on Windows copy it into the profile folder
+ * JetBrainsMono Nerd Font (same as the rest of the desktop), flush sidebar,
+ * colors from theme.nix. Horizontal tabs kept.
+ * Template: @baseXX@ are filled from theme.nix by packages/librewolf/librewolf.nix
+ * (.#librewolf-chrome). Needs toolkit.legacyUserProfileCustomizations.stylesheets
+ * (set in the overrides). On NixOS the built folder is linked into every
+ * profile by the librewolf-chrome user service; on Windows `nix build
+ * .#librewolf-chrome` and copy result/ into the profile folder as chrome/
  * (about:support -> Profile Folder). */
 
 * {
@@ -10,11 +13,51 @@
   font-family: "JetBrainsMono Nerd Font", monospace !important;
 }
 
+:root {
+  /* tab strip */
+  --toolbox-background-color: @base00@ !important;
+  --toolbox-background-color-inactive: @base00@ !important;
+  --toolbox-text-color: @base05@ !important;
+  --toolbox-text-color-inactive: @base04@ !important;
+  --tab-background-color-selected: @base02@ !important;
+  --tab-text-color-selected: @base05@ !important;
+  --tab-background-color-hover: @base01@ !important;
+
+  /* nav bar + bookmarks bar */
+  --toolbar-background-color: @base01@ !important;
+  --toolbar-text-color: @base05@ !important;
+  --toolbarbutton-icon-fill: @base05@ !important;
+
+  /* url bar and its dropdown */
+  --toolbar-field-background-color: @base00@ !important;
+  --toolbar-field-background-color-focus: @base00@ !important;
+  --toolbar-field-text-color: @base05@ !important;
+  --toolbar-field-text-color-focus: @base05@ !important;
+  --toolbar-field-border-color: @base02@ !important;
+  --toolbar-field-border-color-focus: @base0E@ !important;
+  --urlbarview-background-color-selected: @base02@ !important;
+  --urlbarview-text-color-selected: @base05@ !important;
+  --urlbarview-background-color-hover: @base01@ !important;
+
+  /* menus, popups, sidebar */
+  --panel-background-color: @base01@ !important;
+  --panel-text-color: @base05@ !important;
+  --panel-border-color: @base02@ !important;
+  --sidebar-background-color: @base00@ !important;
+  --sidebar-text-color: @base05@ !important;
+
+  /* page area before content paints, separators, accents */
+  --tabpanel-background-color: @base00@ !important;
+  --chrome-content-separator-color: @base02@ !important;
+  --focus-outline-color: @base0E@ !important;
+  --color-accent-primary: @base0E@ !important;
+}
+
 #sidebar-panel-header { display: none !important; }
 #sidebar-box { padding-inline-start: 0 !important; }
 
-/* active tab: 2px accent border (Catppuccin Mocha mauve) */
+/* active tab: 2px accent border */
 .tabbrowser-tab[selected] .tab-background {
-  outline: 2px solid #cba6f7 !important;
+  outline: 2px solid @base0E@ !important;
   outline-offset: -2px !important;
 }

@@ -8,15 +8,12 @@
 # (keep the [theme] section below when re-exporting)
 # Docs: https://docs.noctalia.dev/v5/
 
-# palette generated from theme.nix (see noctalia.nix)
-[theme]
-source = "custom"
-custom_palette = "nix"
-mode = "dark"
+# [theme] custom_palette = "nix" is generated from theme.nix (see noctalia.nix)
 
 [bar.default]
 auto_hide = true
 radius = 0
+reserve_space = false
 
 [control_center]
 hidden_tabs = [ "weather", "calendar" ]
@@ -82,6 +79,11 @@ show_close_buttons = false
     categories = false
     compact = true
     layout = "simple"
+
+[theme]
+custom_palette = "nix"
+mode = "dark"
+source = "custom"
 
 [wallpaper]
 directory = "/home/nico/nix-config/wallpapers"

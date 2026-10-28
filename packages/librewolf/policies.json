@@ -35,8 +35,14 @@
       }
     },
     "SearchEngines": {
-      "Default": "Google",
+      "Default": "4get",
       "Add": [
+        {
+          "Name": "4get",
+          "URLTemplate": "https://4get.ca/web?s={searchTerms}",
+          "IconURL": "https://4get.ca/favicon.ico",
+          "Alias": "@4"
+        },
         {
           "Name": "Google",
           "URLTemplate": "https://www.google.com/search?q={searchTerms}",
