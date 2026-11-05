@@ -20,7 +20,7 @@
       self.nixosModules.power
       self.nixosModules.nh
       self.nixosModules.desktop
-      # self.nixosModules.gaming
+      self.nixosModules.gaming # WoW via Lutris
       self.nixosModules.obs
       self.nixosModules.udev
       self.nixosModules.apps

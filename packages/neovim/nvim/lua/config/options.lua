@@ -5,14 +5,14 @@ local opt = vim.opt
 
 
 -- General
-o.undofile    = true                     -- Enable persistent undo (see also `:h undodir`)
-o.clipboard   = "unnamedplus"            -- use global keyboard
+o.undofile    = true                                 -- Enable persistent undo (see also `:h undodir`)
+o.clipboard   = "unnamedplus"                        -- use global keyboard
 
-o.backup      = false                    -- Don't store backup while overwriting the file
-o.writebackup = false                    -- Don't store backup while overwriting the file
-o.wildmenu    = false                    -- use blink cmp instead
+o.backup      = false                                -- Don't store backup while overwriting the file
+o.writebackup = false                                -- Don't store backup while overwriting the file
+o.wildmenu    = false                                -- use blink cmp instead
 o.wildchar    = vim.fn.char2nr(vim.keycode('<C-t>')) -- use blink cmp instead
-o.swapfile    = false                    -- my sworn ennemy
+o.swapfile    = false                                -- my sworn ennemy
 
 
 -- Appearance
@@ -35,16 +35,16 @@ opt.fillchars   = { eob = " " } -- Don't show `~` outside of buffer
 opt.shortmess:append "sI"       -- disable nvim intro
 
 -- indenting
-o.expandtab                = true                       -- tabs to spaces
-o.shiftwidth               = 2                          -- nb of spaces for indenting
-o.tabstop                  = 2                          -- size of tabs in spaces
-o.softtabstop              = 2
-opt.smartindent            = true
+o.expandtab     = true            -- tabs to spaces
+o.shiftwidth    = 2               -- nb of spaces for indenting
+o.tabstop       = 2               -- size of tabs in spaces
+o.softtabstop   = 2
+opt.smartindent = true
 
 -- Editing
 o.infercase     = true                        -- Infer letter cases for a richer built-in keyword completion
-o.ignorecase    = true -- ignore case in search
-o.smartcase     = true -- but enable if used
+o.ignorecase    = true                        -- ignore case in search
+o.smartcase     = true                        -- but enable if used
 
 o.completeopt   = 'menuone,noinsert,noselect' -- Customize completions
 o.virtualedit   = 'block'                     -- Allow going past the end of line in visual block mode
@@ -53,12 +53,12 @@ o.confirm       = true                        -- Ask to save instead of erroring
 o.splitkeep     = 'screen'                    -- Keep text on screen stable when opening splits
 
 -- Spell
-opt.spelllang = { "en", "fr" }
+opt.spelllang   = { "en", "fr" }
 
 -- Visual
-o.scrolloff  = 8
-o.mouse      = "a"
-o.laststatus = 3   -- status line everywhere
+o.scrolloff     = 8
+o.mouse         = "a"
+o.laststatus    = 3 -- status line everywhere
 
 -- Don't autoformat comments. Per buffer and deferred: ftplugins (which run
 -- after this autocmd) overwrite the global value.

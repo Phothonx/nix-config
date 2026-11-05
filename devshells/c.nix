@@ -1,6 +1,7 @@
 {
   perSystem = {pkgs, ...}: {
     devShells.c = pkgs.mkShell {
+      hardeningDisable = ["fortify" "fortify3"];
       packages = with pkgs; [
         gcc
         valgrind
