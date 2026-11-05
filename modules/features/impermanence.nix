@@ -106,7 +106,6 @@
 
       fileSystems."/persist".neededForBoot = true;
 
-      boot.initrd.systemd.enable = true;
       boot.initrd.systemd.packages = with pkgs; [
         btrfs-progs
         coreutils

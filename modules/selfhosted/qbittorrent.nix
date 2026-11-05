@@ -37,6 +37,7 @@
 
       wantedBy = ["multi-user.target"];
       after = ["network-online.target" "wg-quick-qbproton.service"];
+      wants = ["network-online.target"];
       requires = ["wg-quick-qbproton.service"];
 
       serviceConfig = {
