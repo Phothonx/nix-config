@@ -46,7 +46,8 @@
           inherit system;
           config.allowUnfree = true;
           config.allowUnsupportedSystem = true;
-          overlays = [];
+          overlays = [
+          ];
         };
       };
     };
