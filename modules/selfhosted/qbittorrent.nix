@@ -9,7 +9,6 @@
       "d /data/qBittorrent/downloads 0775 qbittorrent media -"
       "d /data/torrents/books 0775 qbittorrent media -"
       "d /data/torrents/movies 0775 qbittorrent media -"
-      "d /data/torrents/music 0775 qbittorrent media -"
       "d /data/torrents/tv 0775 qbittorrent media -"
     ];
 

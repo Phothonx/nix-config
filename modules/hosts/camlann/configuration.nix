@@ -33,15 +33,12 @@
       self.nixosModules.caddy
       self.nixosModules.adguard
       self.nixosModules.jellyfin
-      self.nixosModules.navidrome
       self.nixosModules.qbittorrent
       self.nixosModules.starr
-      self.nixosModules.beets
       self.nixosModules.gitea
       self.nixosModules.vaultwarden
       self.nixosModules.meglingbot
       self.nixosModules.ollama
-      # self.nixosModules.n8n
     ];
 
     users.users.nico.openssh.authorizedKeys.keys = [

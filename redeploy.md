@@ -1,0 +1,15 @@
+# Services lxc:
+- adguard
+- netbird
+- tinyauth
+- caddy
+- radarr, sonarr, prowlarr
+- qbittorent
+- jellyfin
+- immich
+- vaultwarden
+- discord bot
+- cgit
+- 4get ou degoog
+- uptime kuma
+- encrypted seafile

@@ -28,10 +28,6 @@
         tls internal
         reverse_proxy localhost:8096
       '';
-      virtualHosts."navidrome.camlann.local".extraConfig = ''
-        tls internal
-        reverse_proxy localhost:4533
-      '';
       virtualHosts."qbit.camlann.local".extraConfig = ''
         tls internal
         reverse_proxy localhost:8080
@@ -60,10 +56,6 @@
         tls internal
         reverse_proxy localhost:8222
       '';
-      # virtualHosts."n8n.camlann.local".extraConfig = ''
-      #   tls internal
-      #   reverse_proxy localhost:5678
-      # '';
       virtualHosts."sync.camlann.local".extraConfig = ''
         tls internal
         # Syncthing's GUI rejects a proxied Host header ("Host check error"),

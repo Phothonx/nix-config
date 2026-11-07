@@ -126,13 +126,6 @@
                 };
               };
             }
-            {
-              Navidrome = {
-                icon = "navidrome.png";
-                href = "https://navidrome.camlann.local";
-                description = "Musique";
-              };
-            }
           ];
         }
 
@@ -212,12 +205,6 @@
               Vaultwarden = {
                 icon = "vaultwarden.png";
                 href = "https://vault.camlann.local";
-              };
-            }
-            {
-              N8n = {
-                icon = "n8n.png";
-                href = "https://n8n.camlann.local";
               };
             }
             {

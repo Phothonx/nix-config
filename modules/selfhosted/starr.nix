@@ -11,6 +11,8 @@
     ];
 
     users.groups.media = {};
+    # manage /data/media and /data/torrents by hand over SSH
+    users.users.nico.extraGroups = ["media"];
 
     services.radarr = {
       enable = true; # 7878
