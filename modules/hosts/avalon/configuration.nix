@@ -58,6 +58,14 @@
       };
     };
 
+    # rootless Docker (per-user daemon, no docker group); sets DOCKER_HOST
+    virtualisation.docker.rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+    # images/volumes live in ~/.local/share/docker, wiped by impermanence otherwise
+    persist.user.directories = [".local/share/docker"];
+
     services.thermald.enable = true;
     zramSwap.enable = true;
     boot.kernel.sysctl = {

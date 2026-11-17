@@ -13,6 +13,13 @@
   font-family: "JetBrainsMono Nerd Font", monospace !important;
 }
 
+/* [WINDOWS] the min/max/close buttons are glyphs from Windows' icon font;
+ * the rule above turns them into tofu squares. No-op on Linux. */
+.titlebar-button,
+.titlebar-button * {
+  font-family: "Segoe Fluent Icons", "Segoe MDL2 Assets" !important;
+}
+
 :root {
   /* tab strip */
   --toolbox-background-color: @base00@ !important;

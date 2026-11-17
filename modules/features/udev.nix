@@ -16,6 +16,10 @@
         KERNEL=="hidraw*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", MODE="0666", TAG+="uaccess"
 
         KERNEL=="hidraw*", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3754", MODE="0666", TAG+="uaccess"
+
+        # VXE R1 Pro dongle: never autosuspend (it doesn't wake back up after idle)
+        ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="3554", ATTR{idProduct}=="f58a", ATTR{power/control}="on"
+        ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="3554", ATTR{idProduct}=="f58c", ATTR{power/control}="on"
       '';
     };
   };

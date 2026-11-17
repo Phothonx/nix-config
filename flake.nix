@@ -47,6 +47,31 @@
           config.allowUnfree = true;
           config.allowUnsupportedSystem = true;
           overlays = [
+            # TODO: drop once nixpkgs ships Vencord >= 1.15.16.
+            # 1.15.13 breaks on Discord's rspack update (blank gray screen in webcord-vencord).
+            (final: prev: let
+              bumpVencord = pkg:
+                pkg.overrideAttrs (finalAttrs: old: {
+                  version = "1.15.16";
+                  src = prev.fetchFromGitHub {
+                    owner = "Vendicated";
+                    repo = "Vencord";
+                    tag = "v${finalAttrs.version}";
+                    hash = "sha256-aUJubLJpyLAZWiOezqFxPY6oVPgWVPQpajFqrJvrO9U=";
+                  };
+                  # upstream now pins @types/react via catalog; nixpkgs patch no longer applies
+                  patches = [];
+                  postPatch = "";
+                  env = old.env // {VENCORD_HASH = finalAttrs.version;};
+                  pnpmDeps = old.pnpmDeps.overrideAttrs {
+                    inherit (finalAttrs) src patches postPatch;
+                    outputHash = "sha256-HS8uZNepvDefjrsG3buVLFCVv7sHvazcwdpcT3EQ/78=";
+                  };
+                });
+            in {
+              vencord = bumpVencord prev.vencord;
+              vencord-web-extension = bumpVencord prev.vencord-web-extension;
+            })
           ];
         };
       };

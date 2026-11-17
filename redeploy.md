@@ -13,3 +13,4 @@
 - 4get ou degoog
 - uptime kuma
 - encrypted seafile
+- gandi dn
