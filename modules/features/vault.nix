@@ -2,8 +2,8 @@
 #
 # ~/Documents/vault.enc holds ciphertext only (one encrypted file per real
 # file, filenames encrypted too). Because it lives inside Documents, the
-# `syncthing` feature replicates it like any other file — no peer, including
-# camlann, ever sees plaintext. You mount the decrypted view on demand; the
+# `syncthing` feature replicates it like any other file — no peer ever sees
+# plaintext. You mount the decrypted view on demand; the
 # mountpoint (~/vault) is at the home root, which is NOT a synced folder, so
 # the plaintext view is never itself synced or persisted.
 #

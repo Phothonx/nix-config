@@ -113,26 +113,6 @@
         "type": "github"
       }
     },
-    "meglingbot": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1783969405,
-        "narHash": "sha256-BmYT11fnjecjKvw8QM7NOfk1rgqS9kizXqbeiKw1VrY=",
-        "owner": "Phothonx",
-        "repo": "MeglingBot",
-        "rev": "98b96b861bb3ac3992ed4075e4675c346819b367",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Phothonx",
-        "repo": "MeglingBot",
-        "type": "github"
-      }
-    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -191,7 +171,6 @@
         "flake-parts": "flake-parts",
         "impermanence": "impermanence",
         "import-tree": "import-tree",
-        "meglingbot": "meglingbot",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "wrappers": "wrappers"
