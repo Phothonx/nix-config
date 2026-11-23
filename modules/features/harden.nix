@@ -6,10 +6,9 @@
 #   kernel.modules_disabled=1        — would block module loading until reboot;
 #                                      breaks activating a config that needs a
 #                                      new kernel module.
-#   net.ipv4.conf.all.forwarding=0   — podman containers (camlann: byparr) and
-#                                      libvirt NAT networks (avalon) need it.
-#   net.ipv4...rp_filter=1 (strict)  — wg-quick policy routing (qbproton /
-#                                      jnms VPNs) can drop packets under strict
+#   net.ipv4.conf.all.forwarding=0   — libvirt NAT networks need it.
+#   net.ipv4...rp_filter=1 (strict)  — wg-quick policy routing (jnms VPN)
+#                                      can drop packets under strict
 #                                      reverse-path filtering; loose (2) is safe.
 #   usb_storage blacklist            — kept so USB drives still work.
 {

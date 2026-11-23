@@ -40,11 +40,11 @@
       configFile = config.age.secrets.jnms-wg.path;
       autostart = true;
     };
-    # resolved sends *.local to mDNS only, and may pick the VPN's public
-    # fallbacks (9.9.9.9) as current server: route camlann.local to AdGuard on
-    # camlann through the tunnel. (configFile is a secret, so not via PostUp.)
+    # *.camlann.fr only exists in AdGuard's rewrites (CT 100 on camlann), not
+    # in public DNS: route that domain to AdGuard through the tunnel, whatever
+    # network avalon is on. (configFile is a secret, so not via PostUp.)
     systemd.services.jnms-dns = {
-      description = "Route camlann.local DNS over the jnms VPN";
+      description = "Route camlann.fr DNS to AdGuard over the jnms VPN";
       after = ["wg-quick-jnms.service" "systemd-resolved.service"];
       bindsTo = ["wg-quick-jnms.service"];
       wantedBy = ["wg-quick-jnms.service"];
@@ -52,8 +52,8 @@
         Type = "oneshot";
         RemainAfterExit = true;
         ExecStart = [
-          "${pkgs.systemd}/bin/resolvectl dns jnms 192.168.0.8"
-          "${pkgs.systemd}/bin/resolvectl domain jnms ~camlann.local"
+          "${pkgs.systemd}/bin/resolvectl dns jnms 192.168.0.100"
+          "${pkgs.systemd}/bin/resolvectl domain jnms ~camlann.fr"
         ];
       };
     };

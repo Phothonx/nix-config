@@ -19,9 +19,6 @@
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
-
-    meglingbot.url = "github:Phothonx/MeglingBot";
-    meglingbot.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

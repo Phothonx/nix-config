@@ -26,6 +26,8 @@
               bash
               bibtex
               c
+              cmake
+              cpp
               css
               html
               java
@@ -68,7 +70,7 @@
 
         # LSP & tools
         markdown-oxide
-        ccls
+        clang-tools # clangd + clang-tidy + clang-format
         lua-language-server
         basedpyright
         ruff

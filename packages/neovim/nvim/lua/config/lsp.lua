@@ -42,7 +42,7 @@ vim.lsp.enable({
   'ruff',
   'luals',
   'nixd',
-  'ccls',
+  'clangd',
   'ocamllsp',
   'asm_lsp',
   'ts_ls',
