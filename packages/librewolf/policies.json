@@ -27,11 +27,6 @@
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/skip-redirect/latest.xpi",
         "default_area": "navbar",
         "private_browsing": true
-      },
-      "floccus@handmadeideas.org": {
-        "installation_mode": "force_installed",
-        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/floccus/latest.xpi",
-        "default_area": "navbar"
       }
     },
     "SearchEngines": {
@@ -39,8 +34,8 @@
       "Add": [
         {
           "Name": "4get",
-          "URLTemplate": "https://4get.ca/web?s={searchTerms}",
-          "IconURL": "https://4get.ca/favicon.ico",
+          "URLTemplate": "https://4get.camlann.fr/web?s={searchTerms}",
+          "IconURL": "https://4get.camlann.fr/favicon.ico",
           "Alias": "@4"
         },
         {
