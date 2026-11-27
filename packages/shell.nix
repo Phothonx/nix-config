@@ -19,6 +19,7 @@
         # opencode-claude-auth
 
         # CLI Tools
+        dtach
         self'.packages.yazi
         jq
         lazysql
